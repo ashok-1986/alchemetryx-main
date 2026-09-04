@@ -1,69 +1,20 @@
 import type { MetadataRoute } from "next";
-import { getPublishedCaseStudies } from "@/content/case-studies-data";
+import { PUBLISHED_CASE_STUDIES } from "@/content/case-studies";
 
+/**
+ * Only routes that actually exist are listed. Add entries here as pages ship,
+ * never ahead of them. A sitemap that promises a 404 is worse than a short one.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://alchemetryx.com";
-  const publishedStudies = getPublishedCaseStudies();
 
-  // Core static routes
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/diagnostic`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/build`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/retainer`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/proof`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/india`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/book`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+  const routes: MetadataRoute.Sitemap = [
+    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/book`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  // Dynamic published case studies
-  const caseStudyRoutes: MetadataRoute.Sitemap = publishedStudies.map((study) => ({
-    url: `${baseUrl}/proof/${study.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.75,
-  }));
+  // Case study routes are added once /proof/[slug] exists.
+  void PUBLISHED_CASE_STUDIES;
 
-  return [...staticRoutes, ...caseStudyRoutes];
+  return routes;
 }

@@ -1,97 +1,49 @@
-import { SectionFullBleed } from "./section-full-bleed";
-import { COMPANY_INFO } from "@/lib/constants";
-
-const TEAM = [
-  {
-    name: "Ashok",
-    role: "Commercial & Solutions Architecture",
-    location: "London / Pune",
-    bio: "Focuses on commercial structuring, regulatory compliance alignment, and client solution design across UK and India markets.",
-  },
-  {
-    name: "Nimish",
-    role: "Systems & Technical Delivery",
-    location: "London, UK",
-    bio: "Leads systems engineering, custom API integrations, deterministic workflow automation, and infrastructure resilience.",
-  },
-  {
-    name: "Pravin",
-    role: "Process Engineering & Architecture",
-    location: "Pune, India",
-    bio: "Specialises in workflow decomposition, business process automation, testing telemetry, and long-term systems maintenance.",
-  },
-];
+import { SectionFullBleed } from "@/components/sections/section-full-bleed";
+import { Reveal } from "@/components/motion/reveal";
+import { COMPANY } from "@/lib/constants";
 
 export function WhoWeAre() {
   return (
-    <SectionFullBleed tone="dark" id="who-we-are">
-      <div className="space-y-12">
-        <div className="space-y-4 max-w-[700px]">
-          <p className="text-xs font-normal uppercase tracking-wider text-[var(--color-gold)]">
-            Leadership & Accountability
-          </p>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-[-0.04em] text-[var(--color-pearl)]">
-            Who we are
-          </h2>
-          <p className="text-base text-[var(--color-slate)] max-w-[65ch]">
-            Engineers and solution architects working directly with business owners. You talk to the people who build your systems, not an account team.
-          </p>
-        </div>
+    <SectionFullBleed tone="dark">
+      <Reveal>
+        <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
+          Who you would be working with
+        </p>
+        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[22ch]">
+          A small firm that builds the thing, not a deck about it.
+        </h2>
+      </Reveal>
 
-        {/* Three Founders Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TEAM.map((member) => (
-            <div
-              key={member.name}
-              className="p-8 rounded-[9px] bg-[var(--color-sapphire-raised)] border border-[var(--color-sapphire-line)] space-y-4"
-            >
-              {/* Monogram placeholder for photography until studio portraits are completed */}
-              <div className="w-14 h-14 rounded-full bg-[var(--color-sapphire)] border border-[var(--color-sapphire-line)] flex items-center justify-center text-lg font-light text-[var(--color-gold)]">
-                {member.name.charAt(0)}
-              </div>
-              <div>
-                <h3 className="text-2xl font-light tracking-[-0.02em] text-[var(--color-pearl)]">
-                  {member.name}
-                </h3>
-                <p className="text-xs text-[var(--color-gold)] font-mono mt-0.5">
-                  {member.role}
-                </p>
-                <p className="text-xs text-[var(--color-slate)]">
-                  {member.location}
-                </p>
-              </div>
-              <p className="text-sm text-[var(--color-slate)] leading-relaxed pt-2 border-t border-[var(--color-sapphire-line)]">
-                {member.bio}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        {/* Registration and Locations Trust Footer */}
-        <div className="p-6 sm:p-8 rounded-[9px] bg-[var(--color-sapphire-raised)] border border-[var(--color-sapphire-line)] flex flex-col md:flex-row md:items-center justify-between gap-6 text-sm text-[var(--color-slate)]">
-          <div className="space-y-1">
-            <span className="text-xs uppercase tracking-wider text-[var(--color-pearl)] block font-normal">
-              Corporate Registration
-            </span>
-            <p className="text-base font-light text-[var(--color-pearl)]">
-              {COMPANY_INFO.companyNumberLabel}
+      <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <Reveal className="lg:col-span-7" delay={0.1}>
+          <div className="space-y-4 max-w-[60ch]">
+            <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
+              Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The CareRota system above runs on our own infrastructure.
+            </p>
+            <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
+              If we do not think there is a problem worth paying to solve, we will tell you that instead.
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row gap-6 sm:gap-12">
-            <div>
-              <span className="text-xs uppercase tracking-wider text-[var(--color-pearl)] block font-normal">
-                United Kingdom
-              </span>
-              <p>{COMPANY_INFO.ukAddress}</p>
-            </div>
-            <div>
-              <span className="text-xs uppercase tracking-wider text-[var(--color-pearl)] block font-normal">
-                India
-              </span>
-              <p>{COMPANY_INFO.indiaAddress}</p>
-            </div>
+        </Reveal>
+
+        <Reveal className="lg:col-span-5" delay={0.2}>
+          <div className="rounded-md border border-[var(--color-sapphire-line)] p-7">
+            <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-slate)]">
+              Registered
+            </p>
+            <p className="mt-3 text-lg font-light text-[var(--color-pearl)]">
+              {COMPANY.companyNumberLabel}
+            </p>
+            <a
+              href={COMPANY.companiesHouseUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-block text-sm text-[var(--color-gold)] underline underline-offset-4 hover:opacity-80 transition-opacity cursor-pointer"
+            >
+              Check us on Companies House
+            </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </SectionFullBleed>
   );

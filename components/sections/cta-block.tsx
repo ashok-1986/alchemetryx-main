@@ -1,34 +1,27 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { COMPANY_INFO } from "@/lib/constants";
-import { SectionFullBleed } from "./section-full-bleed";
+import { SectionFullBleed } from "@/components/sections/section-full-bleed";
+import { Reveal } from "@/components/motion/reveal";
+import { COMPANY } from "@/lib/constants";
 
-interface CtaBlockProps {
-  headline?: string;
-  subhead?: string;
-}
-
-export function CtaBlock({
-  headline = "Ready to make your highest-friction process run on its own?",
-  subhead = "We start with a 30-minute diagnostic call to review your current workflow, identify the primary bottleneck, and assess whether automation makes commercial sense.",
-}: CtaBlockProps) {
+export function CtaBlock() {
   return (
-    <SectionFullBleed tone="dark" className="text-center py-20 sm:py-28">
-      <div className="max-w-[720px] mx-auto space-y-6">
-        <h2 className="text-3xl sm:text-5xl font-light tracking-[-0.04em] text-[var(--color-pearl)] leading-tight">
-          {headline}
-        </h2>
-        <p className="text-base sm:text-lg font-normal text-[var(--color-slate)] leading-relaxed max-w-[55ch] mx-auto">
-          {subhead}
-        </p>
-        <div className="pt-4">
-          <Button asChild variant="primary" size="lg">
-            <Link href={COMPANY_INFO.primaryCtaHref}>
-              {COMPANY_INFO.primaryCtaLabel}
-            </Link>
-          </Button>
+    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
+      <Reveal>
+        <div className="max-w-[46ch]">
+          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight tracking-[-0.03em]">
+            Tell us which job you would hand over first.
+          </h2>
+          <p className="mt-5 text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/75">
+            Half an hour, no deck. If there is nothing here worth building, we will say so on the call.
+          </p>
+          <div className="mt-8">
+            <Button asChild variant="primary" size="lg">
+              <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>
+            </Button>
+          </div>
         </div>
-      </div>
+      </Reveal>
     </SectionFullBleed>
   );
 }
