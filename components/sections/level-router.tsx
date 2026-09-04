@@ -18,7 +18,7 @@ const PANELS = {
     label: "Yes, we have",
     line: "You bought the AI. Did anything change?",
     body: [
-      "Plenty of businesses have bought a tool and cannot say what it changed. That is usually not a bad tool. It is a tool sitting next to a process instead of inside one.",
+      "Plenty of businesses have bought a tool and cannot say what it changed. That is usually not a bad tool. It is a tool sitting next to a job instead of inside one.",
       "We look at what you already pay for, what it actually does, and what would need to be true for it to matter.",
     ],
   },

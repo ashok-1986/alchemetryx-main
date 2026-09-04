@@ -7,7 +7,7 @@ export function WhoWeAre() {
     <SectionFullBleed tone="dark">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
-          Who you would be working with
+          WHO YOU WOULD BE WORKING WITH
         </p>
         <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[22ch]">
           A small firm that builds the thing, not a deck about it.

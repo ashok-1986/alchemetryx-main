@@ -41,21 +41,21 @@ export const CARE_ROTA: CaseStudy = {
       "Not a generic scheduler. A tool shaped around how a care home actually runs: floors, bank staff, statutory leave and a live budget. Built and hosted by Alchemetryx.",
     items: [
       {
-        title: "One view, every floor",
+        title: "One view, every floor.",
         caption:
           "Live cost against the budget cap, coverage across all three floors, pending leave and compliance alerts. All current, all in one place, instead of scattered across a workbook.",
         image: "/proof/carerota-dashboard.jpg",
         alt: "CareRota dashboard showing active staff, rota status, pending leave, compliance alerts, floor coverage and a cost snapshot against budget.",
       },
       {
-        title: "A rota that does the maths",
+        title: "A rota that does the maths.",
         caption:
           "Build and publish the month by role and floor. Cost and scheduled hours update as shifts go in, so the wage bill is in front of the manager while there is still time to change it, not after payroll.",
         image: "/proof/carerota-rota.jpg",
         alt: "CareRota monthly rota grid with running total cost, utilisation, variance and scheduled hours across the month.",
       },
       {
-        title: "Leave and cover, tracked",
+        title: "Leave and cover, tracked.",
         caption:
           "Annual leave, maternity and sick on one timeline, tied to entitlement. What used to live in a side note now sits beside the schedule it changes.",
         image: "/proof/carerota-leave.jpg",

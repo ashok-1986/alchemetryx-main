@@ -18,16 +18,16 @@ export function Hero() {
 
           <SplitLines
             lines={[
-              "The job still lives",
-              "in a spreadsheet. And you’re",
-              "the only one who knows how.",
+              "Take a fortnight off",
+              "without the business",
+              "falling apart.",
             ]}
             className="text-[clamp(2.25rem,4.5vw,4.25rem)] font-light leading-[1.05] tracking-[-0.04em] max-w-[18ch]"
           />
 
           <Reveal delay={0.3}>
             <p className="mt-6 md:mt-8 text-lg md:text-xl font-light text-[var(--color-slate)] max-w-[48ch] leading-relaxed">
-              We rebuild it as a system, so it runs without you.
+              Right now the job lives in your head and a spreadsheet only you understand. We rebuild it so it runs without you.
             </p>
           </Reveal>
 

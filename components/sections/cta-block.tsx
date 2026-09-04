@@ -9,11 +9,11 @@ export function CtaBlock() {
     <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <div className="max-w-[46ch]">
-          <h2 className="text-[clamp(1.75rem,4vw,2.75rem)] font-light leading-tight tracking-[-0.03em]">
-            Tell us which job you would hand over first.
+          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em]">
+            Stop the leaks.
           </h2>
-          <p className="mt-5 text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/75">
-            Half an hour, no deck. If there is nothing here worth building, we will say so on the call.
+          <p className="mt-5 text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/80">
+            Tell us which job you would hand over first. Half an hour, no deck. If there is nothing here worth building, we will say so on the call.
           </p>
           <div className="mt-8">
             <Button asChild variant="primary" size="lg">

@@ -27,13 +27,14 @@ export function HowWeWork() {
     <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
-          How we work
+          HOW WE WORK
         </p>
         <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[22ch]">
           Look. Decide. Improve.
         </h2>
-        <p className="mt-6 max-w-[60ch] text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/75">
-          We are not another hire, and we are not another tool sitting on top of the ones you have. We build the thing that does the job.
+        <p className="mt-6 max-w-[65ch] text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/80">
+          <strong className="font-normal text-[var(--color-ink)]">If a person is copying data between three tabs, a system should be doing it.</strong>{" "}
+          We map the repetitive work that eats hours every week and engineer it out, without breaking what already works.
         </p>
       </Reveal>
 
