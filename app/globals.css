@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand */
+  --color-sapphire:         #1A2642;
+  --color-gold:             #D4AF37;
+  --color-pearl:            #F8F6F0;
+
+  /* Derived — mixes of the three above, no new hues */
+  --color-ink:              #11192B;
+  --color-sapphire-raised:  #2A354E;
+  --color-sapphire-line:    #424B61;
+  --color-slate:            #9FA3AA;
+  --color-pearl-line:       #DDDDDB;
+  --color-gold-deep:        #7B6620;
+
+  /* Type */
+  --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+
+  --text-micro: 10px;
+  --text-caption: 12px;
+  --text-body-sm: 14px;
+  --text-body: 16px;
+  --text-heading: 24px;
+  --text-heading-lg: clamp(1.75rem, 3.5vw, 2.25rem);
+  --text-display: clamp(2.25rem, 5vw, 4rem);
+  --text-display-xl: clamp(2.75rem, 7vw, 5.5rem);
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 9px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Spacing */
+  --spacing-section: 120px;
+}
+
+/* shadcn contract — light sections are the default */
+:root {
+  --background: var(--color-pearl);
+  --foreground: var(--color-ink);
+  --card: var(--color-pearl);
+  --card-foreground: var(--color-ink);
+  --primary: var(--color-gold);
+  --primary-foreground: var(--color-ink);
+  --secondary: var(--color-sapphire);
+  --secondary-foreground: var(--color-pearl);
+  --muted: #EBEAE6;
+  --muted-foreground: #5D6476;
+  --accent: var(--color-gold);
+  --accent-foreground: var(--color-ink);
+  --border: var(--color-pearl-line);
+  --input: var(--color-pearl-line);
+  --ring: var(--color-gold-deep);
+  --radius: 6px;
+}
+
+/* Applied to dark full-bleed sections via a wrapper class, not a media query */
+.section-dark {
+  --background: var(--color-sapphire);
+  --foreground: var(--color-pearl);
+  --card: var(--color-sapphire-raised);
+  --card-foreground: var(--color-pearl);
+  --muted-foreground: var(--color-slate);
+  --border: var(--color-sapphire-line);
+  --input: var(--color-sapphire-line);
+  --ring: var(--color-gold);
+}
+
+.section-gold {
+  --background: var(--color-gold);
+  --foreground: var(--color-ink);
+  --muted-foreground: #4A3D13;
+  --border: #B89A2F;
+}
+
+/* Base resets & typography discipline */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus ring: Instant, 2px Gold outline. Never animated per motion spec */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Tactile press feedback (Apple Design / Motion QA finding 3) */
+button:active,
+[role="button"]:active,
+a:active {
+  transform: scale(0.97);
+  transition: transform 100ms ease-out;
+}
+
+/* Apple Design Accessibility: Reduced Transparency */
+@media (prefers-reduced-transparency: reduce) {
+  header,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: var(--color-sapphire) !important;
+  }
+}
+
+/* Apple Design Accessibility: Reduced Motion hard stop */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    transform: none !important;
+  }
+  [data-state="open"].animate-accordion-down,
+  [data-state="closed"].animate-accordion-up {
+    animation: none !important;
+    height: auto !important;
+  }
+}
+
+/* Micro-Animation Keyframes (per /find-animation-opportunities) */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes sheet-slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sheet-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes overlay-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 160ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-sheet-in-right {
+  animation: sheet-slide-in-right 280ms cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-sheet-out-right {
+  animation: sheet-slide-out-right 220ms cubic-bezier(0.32, 0.72, 0, 1) forwards;
+}
+
+.animate-overlay-in {
+  animation: overlay-fade-in 200ms ease-out forwards;
+}
+
+.animate-overlay-out {
+  animation: overlay-fade-out 160ms ease-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 180ms ease-out forwards;
+}
