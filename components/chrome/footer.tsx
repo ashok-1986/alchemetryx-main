@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 export function Footer() {
   return (
     <footer className="w-full section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)] pt-14 pb-10">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 space-y-10">
+      <div className="w-full max-w-[1440px] mx-auto px-[10px] space-y-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div className="space-y-3">
             <Link
