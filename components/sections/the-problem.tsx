@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 
@@ -73,6 +74,18 @@ export function TheProblem() {
           </Reveal>
         ))}
       </div>
+
+      {/* CTA ladder: Text link to CareRota */}
+      <Reveal delay={0.3}>
+        <div className="mt-10 md:mt-14 flex items-center">
+          <Link
+            href="/#proof"
+            className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
+          >
+            Here’s one we rebuilt →
+          </Link>
+        </div>
+      </Reveal>
     </SectionFullBleed>
   );
 }

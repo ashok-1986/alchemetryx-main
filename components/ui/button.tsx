@@ -10,6 +10,8 @@ const buttonVariants = cva(
       variant: {
         primary:
           "bg-[var(--color-gold)] text-[var(--color-ink)] hover:brightness-105 border border-transparent shadow-none font-normal",
+        sapphire:
+          "bg-[var(--color-sapphire)] text-[var(--color-pearl)] hover:bg-[var(--color-sapphire-raised)] border border-transparent shadow-none font-normal",
         "outline-dark":
           "bg-transparent text-[var(--color-pearl)] border border-[var(--color-sapphire-line)] hover:bg-[var(--color-sapphire-raised)]",
         "outline-light":

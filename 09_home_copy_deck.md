@@ -22,6 +22,26 @@ These are not style preferences. Each one exists because breaking it already cau
 
 ---
 
+## The CTA ladder
+
+Three gold buttons on the whole page, nothing more. Five identical asks means the fifth one is worth nothing. Everything else is a quiet text link that moves the reader one step further down.
+
+| Section | Next step | Treatment |
+|---|---|---|
+| 1 Hero | Book a 30-minute call | **Gold button** |
+| 2 Who this is for | none — it is a filter, not a step | — |
+| 3 The problem | Here's one we rebuilt → CareRota | Text link |
+| 4 The statement | See how we work → How we work | Sapphire button on gold |
+| 5 Have you bought AI yet? | Changes with the panel, see that section | Text link |
+| 6 How we work | See it on a real one → CareRota | Text link |
+| 7 CareRota | Book a 30-minute call | **Gold button** |
+| 8 Who you'd be working with | Check us on Companies House | External link |
+| 9 Final CTA | Book a 30-minute call | **Gold button** |
+
+**Section 7 is the one that matters most.** A reader who has been through the whole case study is the most qualified person on the page, and until now they had nowhere to go.
+
+---
+
 ## Section 1 — Hero
 
 **Tone:** Sapphire
@@ -75,7 +95,26 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 
 ---
 
-## Section 4 — Have you bought AI yet?
+## Section 4 — The statement
+
+**Tone:** Gold. The only gold section on the whole page, per the section rhythm in `02_design_system_spec.md`. It sits here so the problem lands, the position is stated once in a raised voice, and the reader is then asked which situation they are in.
+
+| Element | Copy | Status |
+|---|---|---|
+| Eyebrow | THE POINT | LOCKED |
+| Statement | **Your tools are not a system.** | NEEDS YOUR CALL |
+| Supporting | Buying software is not the same as having something that runs. Most businesses have plenty of the first and none of the second. | LOCKED |
+| CTA | See how we work → anchors to Section 6 | LOCKED |
+
+**Colour rules for this band.** Text and the button are Sapphire on Gold, verified at 7.13:1. Ink on Gold is 8.34:1 if more weight is wanted. **Pearl on Gold is 1.95:1 and must never appear here.**
+
+**The button is Sapphire, not gold**, and it does not count against the three-gold CTA limit, because it moves the reader down the page rather than asking for the booking.
+
+**Do not use** the version from the reference mockup: "operational lock-in problem" (banned word, and the exact one that lost live conversations), "Complete Clarity" (absolute), "every decision effortless" (overclaim), and quotation marks around a line nobody said.
+
+---
+
+## Section 5 — Have you bought AI yet?
 
 **Tone:** Pearl
 **Behaviour:** two panels, click to swap the content below. It does not navigate. A reader answering a question should not lose their place. Keyboard operable.
@@ -87,6 +126,10 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 | Panel A line | Start with one job. AI is what makes it run without you. | LOCKED |
 | Panel B label | Yes, we have | LOCKED |
 | Panel B line | You bought the AI. Did anything change? | LOCKED |
+| **Panel A CTA** | See what starting with one job looked like → CareRota | LOCKED |
+| **Panel B CTA** | See what we look at first → How we work | LOCKED |
+
+**The CTA changes with the panel.** Someone who has not bought anything wants to see it done. Someone who already bought wants to know what you would examine. Same component, two destinations, and it is the only place on the page where the next step depends on an answer the reader gave.
 
 **Panel A body**
 
@@ -104,7 +147,7 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 
 ---
 
-## Section 5 — How we work
+## Section 6 — How we work
 
 **Tone:** Pearl
 
@@ -130,7 +173,7 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 
 ---
 
-## Section 6 — Proof: CareRota
+## Section 7 — Proof: CareRota
 
 **Tone:** Pearl
 **Source:** the cleared CareRota case study. Every line here traces to delivered work.
@@ -172,7 +215,7 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 
 ---
 
-## Section 7 — Who you'd be working with
+## Section 8 — Who you'd be working with
 
 **Tone:** Sapphire
 
@@ -190,7 +233,7 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 
 ---
 
-## Section 8 — Final CTA
+## Section 9 — Final CTA
 
 **Tone:** Pearl
 

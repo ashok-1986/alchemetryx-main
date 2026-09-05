@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/constants";
 
 export function WhoWeAre() {
   return (
-    <SectionFullBleed tone="dark">
+    <SectionFullBleed id="who-we-are" tone="dark" fullHeight={false} className="py-20 md:py-28">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
           WHO YOU WOULD BE WORKING WITH

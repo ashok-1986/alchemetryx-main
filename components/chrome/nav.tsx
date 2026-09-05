@@ -7,7 +7,7 @@ const NAV_ITEMS = [
   { label: "Diagnostic", href: "/#diagnostic" },
   { label: "How We Work", href: "/#how-we-work" },
   { label: "Proof", href: "/#proof" },
-  { label: "About", href: "/about" },
+  { label: "About", href: "/#who-we-are" },
 ];
 
 export function Nav() {

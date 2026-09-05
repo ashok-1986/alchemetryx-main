@@ -2,9 +2,12 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 import { CARE_ROTA } from "@/content/case-studies";
+import { COMPANY } from "@/lib/constants";
 
 export function Proof() {
   const cs = CARE_ROTA;
@@ -188,6 +191,13 @@ export function Proof() {
               <p className="mt-6 text-lg sm:text-xl font-normal text-[var(--color-ink)]">
                 If your rota still lives in a spreadsheet, that is a conversation worth having.
               </p>
+              <div className="mt-8">
+                <Button asChild variant="primary" size="lg" className="shadow-[0_4px_16px_-4px_rgba(200,168,107,0.3)]">
+                  <Link href={COMPANY.primaryCtaHref}>
+                    {COMPANY.primaryCtaLabel}
+                  </Link>
+                </Button>
+              </div>
             </div>
             <div className="lg:col-span-7">
               <p className="text-base sm:text-lg font-normal leading-relaxed text-[var(--color-ink)]">

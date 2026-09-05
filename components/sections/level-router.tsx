@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
@@ -13,6 +14,8 @@ const PANELS = {
       "Nothing needs replacing on day one. We look at the jobs that run on memory and paper, and pick the one costing you most time.",
       "Then we rebuild that one job as a system. AI sits inside it where it earns its place, and nowhere else.",
     ],
+    cta: "See what starting with one job looked like →",
+    href: "/#proof",
   },
   "yes": {
     label: "Yes, we have",
@@ -21,6 +24,8 @@ const PANELS = {
       "Plenty of businesses have bought a tool and cannot say what it changed. That is usually not a bad tool. It is a tool sitting next to a job instead of inside one.",
       "We look at what you already pay for, what it actually does, and what would need to be true for it to matter.",
     ],
+    cta: "See what we look at first →",
+    href: "/#how-we-work",
   },
 } as const;
 
@@ -110,6 +115,14 @@ export function LevelRouter() {
             {para}
           </p>
         ))}
+        <div className="pt-3">
+          <Link
+            href={PANELS[active].href}
+            className="inline-flex items-center text-base font-normal text-[var(--color-gold-deep)] hover:text-[var(--color-ink)] underline underline-offset-4 transition-colors cursor-pointer"
+          >
+            {PANELS[active].cta}
+          </Link>
+        </div>
       </div>
     </SectionFullBleed>
   );
