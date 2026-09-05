@@ -11,10 +11,10 @@ export default function BookPage() {
   return (
     <SectionFullBleed tone="light" className="pt-16 pb-24 md:pt-24">
       <div className="max-w-[52ch]">
-        <h1 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em]">
+        <h1 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
           Book a 30-minute call
         </h1>
-        <p className="mt-5 text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/75">
+        <p className="mt-5 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">
           Pick a time that suits you. No deck, no pitch. Come with the job that eats your week and we will talk through whether it is worth rebuilding.
         </p>
       </div>

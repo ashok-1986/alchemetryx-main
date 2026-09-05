@@ -82,11 +82,21 @@ body {
   font-family: var(--font-sans);
   font-weight: 400;
   line-height: 1.5;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Impeccable Typography: Prevent widows and balance headlines */
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 /* Focus ring: Instant, 2px Gold outline. Never animated per motion spec */

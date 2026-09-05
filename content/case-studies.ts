@@ -21,7 +21,7 @@ export const CARE_ROTA: CaseStudy = {
   kind: "client",
   published: true,
   eyebrow: "Case study · Care operations",
-  title: "A care home's rota lived in a spreadsheet. We rebuilt it as a system.",
+  title: "A care home’s rota lived in a spreadsheet. We rebuilt it as a system.",
   standfirst:
     "How a fragmented monthly roster for a UK care home became one place to plan shifts, watch cost, and stay compliant.",
   attribution: "Built by Alchemetryx · Real UK care home · Site and staff names anonymised",

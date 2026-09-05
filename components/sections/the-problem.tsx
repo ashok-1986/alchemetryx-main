@@ -8,7 +8,7 @@ const ROWS = [
   },
   {
     label: "Money",
-    copy: "You find out what a job actually cost after it's finished, not while you can still do something about it.",
+    copy: "You find out what a job actually cost after it’s finished, not while you can still do something about it.",
   },
   {
     label: "You",
