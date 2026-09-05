@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 
@@ -24,7 +25,7 @@ const STEPS = [
 
 export function HowWeWork() {
   return (
-    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="how-we-work" tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           HOW WE WORK
@@ -55,9 +56,19 @@ export function HowWeWork() {
                   {s.service}
                 </h3>
               </div>
-              <p className="mt-6 text-base font-normal leading-relaxed text-[var(--color-ink)]">
-                {s.body}
-              </p>
+              <div className="mt-6">
+                <p className="text-base font-normal leading-relaxed text-[var(--color-ink)]">
+                  {s.body}
+                </p>
+                <div className="mt-6 pt-4 border-t border-[var(--color-pearl-line)]/60">
+                  <Link
+                    href="/book"
+                    className="inline-flex items-center text-sm font-normal text-[var(--color-gold-deep)] hover:text-[var(--color-ink)] underline underline-offset-4 transition-colors cursor-pointer"
+                  >
+                    Book a 30-minute call →
+                  </Link>
+                </div>
+              </div>
             </div>
           </Reveal>
         ))}

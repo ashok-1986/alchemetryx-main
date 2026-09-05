@@ -44,7 +44,7 @@ export function LevelRouter() {
   };
 
   return (
-    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="diagnostic" tone="light" fullHeight={false} className="border-t border-[var(--color-pearl-line)] py-20 md:py-28">
       <Reveal>
         <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch] text-[var(--color-ink)]">
           Have you bought AI yet?

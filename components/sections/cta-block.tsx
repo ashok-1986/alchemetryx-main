@@ -6,7 +6,7 @@ import { COMPANY } from "@/lib/constants";
 
 export function CtaBlock() {
   return (
-    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)] py-20 md:py-32">
+    <SectionFullBleed id="book" tone="light" fullHeight={false} className="border-t border-[var(--color-pearl-line)] py-20 md:py-32">
       <Reveal>
         <div className="max-w-[48ch]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">

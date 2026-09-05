@@ -20,6 +20,9 @@ export function WhoWeAre() {
             <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
               Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The CareRota system above runs on our own infrastructure.
             </p>
+            <p className="mt-4 text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
+              If we do not think there is a problem worth paying to solve, we will tell you that instead.
+            </p>
           </div>
         </Reveal>
 

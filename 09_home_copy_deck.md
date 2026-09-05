@@ -53,12 +53,11 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 ## Section 3 — The problem
 
 **Tone:** Pearl
-**Layout:** eyebrow and large ghosted numeral `01`, headline left, supporting paragraph right, then three stacked rows with a hairline between each.
+**Layout:** eyebrow, headline left, supporting paragraph right, then three stacked rows with a hairline between each.
 
 | Element | Copy | Status |
 |---|---|---|
 | Eyebrow | THE PROBLEM | LOCKED |
-| Numeral | 01 | LOCKED |
 | H2 | **The leak isn't visible on your P&L.** | LOCKED |
 | Supporting para (right column) | It's in the gap between the work you pay for and the work that actually moves the business forward. | LOCKED |
 
@@ -182,6 +181,7 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 | Eyebrow | WHO YOU WOULD BE WORKING WITH | LOCKED |
 | H2 | A small firm that builds the thing, not a deck about it. | LOCKED |
 | Body | Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The CareRota system above runs on our own infrastructure. | LOCKED |
+| Body | If we do not think there is a problem worth paying to solve, we will tell you that instead. | LOCKED |
 | Credential card | UK registered company 17199377 → link to Companies House | LOCKED |
 
 **Say nothing about team size.** Three of six competitors name nobody at all, so one named founder already puts you ahead of half the field. Vague phrasing about "our UK team" reads worse than silence.

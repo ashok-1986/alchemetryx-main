@@ -24,19 +24,13 @@ const ROWS = [
  */
 export function TheProblem() {
   return (
-    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
-      {/* Eyebrow & Ghosted Numeral */}
+    <SectionFullBleed id="problem" tone="light" className="border-t border-[var(--color-pearl-line)]">
+      {/* Eyebrow */}
       <Reveal>
-        <div className="flex items-baseline justify-between border-b border-[var(--color-pearl-line)]/50 pb-4">
+        <div className="border-b border-[var(--color-pearl-line)]/50 pb-4">
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             THE PROBLEM
           </p>
-          <span
-            aria-hidden="true"
-            className="text-4xl sm:text-5xl lg:text-6xl font-light text-[var(--color-ink)]/15 select-none tracking-tight"
-          >
-            01
-          </span>
         </div>
       </Reveal>
 

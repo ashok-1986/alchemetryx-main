@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
@@ -9,26 +9,65 @@ import { CARE_ROTA } from "@/content/case-studies";
 export function Proof() {
   const cs = CARE_ROTA;
   const [activeImage, setActiveImage] = useState<(typeof cs.build.items)[0] | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
 
-  // Close lightbox on Escape key
+  // Manage keyboard focus and body overflow when dialog is opened/closed
   useEffect(() => {
+    if (!activeImage) return;
+
+    // Capture existing inline overflow value and set to hidden
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    // Move focus to Close button when opened
+    const timer = setTimeout(() => {
+      closeBtnRef.current?.focus();
+    }, 50);
+
+    // Trap Tab and Shift+Tab among dialog controls and close on Escape
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setActiveImage(null);
+        return;
+      }
+      if (e.key === "Tab") {
+        if (!dialogRef.current) return;
+        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
       }
     };
-    if (activeImage) {
-      window.addEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "hidden";
-    }
+
+    window.addEventListener("keydown", onKeyDown);
+
     return () => {
+      clearTimeout(timer);
       window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
+      document.body.style.overflow = prevOverflow;
+      // Restore focus to the triggering image button
+      triggerRef.current?.focus();
     };
   }, [activeImage]);
 
   return (
-    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="proof" tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           {cs.eyebrow}
@@ -100,7 +139,10 @@ export function Proof() {
               <div className="lg:col-span-8">
                 <button
                   type="button"
-                  onClick={() => setActiveImage(item)}
+                  onClick={(e) => {
+                    triggerRef.current = e.currentTarget;
+                    setActiveImage(item);
+                  }}
                   aria-label={`Expand and inspect ${item.title}`}
                   className="group relative block w-full overflow-hidden rounded-md border border-[var(--color-pearl-line)] bg-[var(--color-sapphire)] cursor-zoom-in text-left focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
                 >
@@ -132,27 +174,34 @@ export function Proof() {
         ))}
       </div>
 
-      {/* The honesty block */}
+      {/* The honesty block — Two-column block */}
       <Reveal delay={0.1}>
-        <div className="mt-20 max-w-[65ch] border-t border-[var(--color-pearl-line)] pt-10">
-          <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
-            What this is, and what it isn’t
-          </p>
-          <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
-            {cs.honesty.heading}
-          </h3>
-          <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-            {cs.honesty.body}
-          </p>
-          <p className="mt-8 text-lg md:text-xl font-normal text-[var(--color-ink)]">
-            If your rota still lives in a spreadsheet, that is a conversation worth having.
-          </p>
+        <div className="mt-20 md:mt-24 border-t border-[var(--color-pearl-line)] pt-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="lg:col-span-5">
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
+                What this is, and what it isn’t
+              </p>
+              <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.025em] leading-snug">
+                {cs.honesty.heading}
+              </h3>
+              <p className="mt-6 text-lg sm:text-xl font-normal text-[var(--color-ink)]">
+                If your rota still lives in a spreadsheet, that is a conversation worth having.
+              </p>
+            </div>
+            <div className="lg:col-span-7">
+              <p className="text-base sm:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
+                {cs.honesty.body}
+              </p>
+            </div>
+          </div>
         </div>
       </Reveal>
 
       {/* Lightbox Modal for 1:1 image inspection */}
       {activeImage && (
         <div
+          ref={dialogRef}
           role="dialog"
           aria-modal="true"
           aria-label={activeImage.title}
@@ -173,10 +222,11 @@ export function Proof() {
                 </p>
               </div>
               <button
+                ref={closeBtnRef}
                 type="button"
                 onClick={() => setActiveImage(null)}
-                aria-label="Close modal"
-                className="text-xs uppercase tracking-wider text-[var(--color-slate)] hover:text-[var(--color-pearl)] px-3 py-1.5 rounded border border-[var(--color-sapphire-line)] hover:border-[var(--color-gold)] transition-colors cursor-pointer"
+                aria-label="Close dialog"
+                className="text-xs uppercase tracking-wider text-[var(--color-slate)] hover:text-[var(--color-pearl)] px-3 py-1.5 rounded border border-[var(--color-sapphire-line)] hover:border-[var(--color-gold)] transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
               >
                 Close [Esc]
               </button>
