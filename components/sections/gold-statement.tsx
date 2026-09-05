@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
@@ -30,7 +30,12 @@ export function GoldStatement() {
             Buying software is not the same as having something that runs. Most businesses have plenty of the first and none of the second.
           </p>
           <div className="mt-8 md:mt-10">
-            <Button asChild variant="sapphire" size="lg" className="shadow-[0_4px_16px_-4px_rgba(11,17,30,0.25)]">
+            <Button
+              asChild
+              variant="sapphire"
+              size="lg"
+              className="shadow-[0_4px_16px_-4px_rgba(11,17,30,0.25)] focus-visible:outline-[var(--color-sapphire)]"
+            >
               <Link href="/#how-we-work">
                 See how we work →
               </Link>
