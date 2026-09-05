@@ -60,8 +60,17 @@ export function SystemDiagram({ className }: { className?: string }) {
         { y: 182, t: "Chasing", s: "Invoices, updates, people" },
         { y: 324, t: "In your head", s: "Only you know the order" },
       ].map((n) => (
-        <g key={n.t}>
-          <rect x="8" y={n.y} width="176" height="76" rx="4" fill="var(--color-sapphire-raised)" stroke="var(--color-sapphire-line)" />
+        <g key={n.t} className="cursor-default transition-all duration-200 group">
+          <rect
+            x="8"
+            y={n.y}
+            width="176"
+            height="76"
+            rx="5"
+            fill="var(--color-sapphire-raised)"
+            stroke="var(--color-sapphire-line)"
+            className="transition-colors duration-200 group-hover:stroke-[var(--color-gold)]/50 group-hover:fill-[var(--color-sapphire-raised)]/90"
+          />
           <text x="28" y={n.y + 36} fill="var(--color-pearl)" fontSize="17" fontWeight="300">{n.t}</text>
           <text x="28" y={n.y + 57} fill="var(--color-slate)" fontSize="12" fontWeight="300">{n.s}</text>
         </g>
@@ -74,8 +83,18 @@ export function SystemDiagram({ className }: { className?: string }) {
         { y: 182, t: "Live numbers", s: "While you can still act" },
         { y: 324, t: "Runs without you", s: "Nobody has to remember" },
       ].map((n) => (
-        <g key={n.t}>
-          <rect x="436" y={n.y} width="176" height="76" rx="4" fill="var(--color-sapphire-raised)" stroke="var(--color-gold)" strokeOpacity="0.45" />
+        <g key={n.t} className="cursor-default transition-all duration-200 group">
+          <rect
+            x="436"
+            y={n.y}
+            width="176"
+            height="76"
+            rx="5"
+            fill="var(--color-sapphire-raised)"
+            stroke="var(--color-gold)"
+            strokeOpacity="0.45"
+            className="transition-all duration-200 group-hover:stroke-opacity-90 group-hover:stroke-[var(--color-gold)]"
+          />
           <text x="456" y={n.y + 36} fill="var(--color-pearl)" fontSize="17" fontWeight="300">{n.t}</text>
           <text x="456" y={n.y + 57} fill="var(--color-slate)" fontSize="12" fontWeight="300">{n.s}</text>
         </g>

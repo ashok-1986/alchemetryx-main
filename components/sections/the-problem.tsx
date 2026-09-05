@@ -27,13 +27,13 @@ export function TheProblem() {
     <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
       {/* Eyebrow & Ghosted Numeral */}
       <Reveal>
-        <div className="flex items-center justify-between">
+        <div className="flex items-baseline justify-between border-b border-[var(--color-pearl-line)]/50 pb-4">
           <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
             THE PROBLEM
           </p>
           <span
             aria-hidden="true"
-            className="text-5xl sm:text-6xl font-light text-[var(--color-ink)]/15 select-none"
+            className="text-4xl sm:text-5xl lg:text-6xl font-light text-[var(--color-ink)]/15 select-none tracking-tight"
           >
             01
           </span>
@@ -41,7 +41,7 @@ export function TheProblem() {
       </Reveal>
 
       {/* Headline & Supporting paragraph */}
-      <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-baseline">
+      <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-baseline">
         <div className="lg:col-span-6">
           <Reveal delay={0.1}>
             <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] max-w-[20ch] text-[var(--color-ink)]">
@@ -59,19 +59,21 @@ export function TheProblem() {
       </div>
 
       {/* Three stacked rows with hairline divider */}
-      <div className="mt-16 md:mt-24 border-t border-[var(--color-pearl-line)]">
+      <div className="mt-14 md:mt-20 border-t border-[var(--color-pearl-line)]">
         {ROWS.map((row, i) => (
-          <Reveal key={row.label} delay={0.1 * i}>
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 md:py-12 border-b border-[var(--color-pearl-line)] items-baseline">
-              <div className="md:col-span-4 lg:col-span-3">
-                <h3 className="text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)]">
-                  {row.label}
-                </h3>
-              </div>
-              <div className="md:col-span-8 lg:col-span-9">
-                <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[54ch]">
-                  {row.copy}
-                </p>
+          <Reveal key={row.label} delay={0.08 * i}>
+            <div className="group -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-md transition-colors duration-250 ease-out hover:bg-[var(--color-ink)]/[0.02] border-b border-[var(--color-pearl-line)] py-8 md:py-10">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline">
+                <div className="md:col-span-4 lg:col-span-3">
+                  <h3 className="text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)] group-hover:text-[var(--color-gold-deep)] transition-colors duration-200">
+                    {row.label}
+                  </h3>
+                </div>
+                <div className="md:col-span-8 lg:col-span-9">
+                  <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[54ch]">
+                    {row.copy}
+                  </p>
+                </div>
               </div>
             </div>
           </Reveal>

@@ -40,14 +40,22 @@ export function HowWeWork() {
 
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {STEPS.map((s, i) => (
-          <Reveal key={s.step} delay={i * 0.1}>
-            <div className="h-full rounded-md border border-[var(--color-pearl-line)] p-7 transition-all duration-300 hover:border-[var(--color-gold-deep)]/40 hover:-translate-y-[2px]">
-              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                {String(i + 1).padStart(2, "0")} / {s.step}
-              </p>
-              <h3 className="mt-4 text-xl font-normal text-[var(--color-ink)]">{s.service}</h3>
-              <p className="mt-1 text-sm font-normal text-[var(--color-ink)]/70">{s.time}</p>
-              <p className="mt-4 text-base font-normal leading-relaxed text-[var(--color-ink)]">
+          <Reveal key={s.step} delay={i * 0.08} className="h-full">
+            <div className="h-full flex flex-col justify-between rounded-md border border-[var(--color-pearl-line)] p-7 transition-all duration-200 ease-out hover:border-[var(--color-gold-deep)]/50 hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-8px_rgba(17,25,43,0.06)] bg-[var(--color-pearl)]">
+              <div>
+                <div className="flex items-center justify-between">
+                  <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                    {String(i + 1).padStart(2, "0")} / {s.step}
+                  </p>
+                  <span className="text-xs font-normal px-2.5 py-0.5 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-ink)]/[0.03] text-[var(--color-ink)]/80 tracking-wide">
+                    {s.time}
+                  </span>
+                </div>
+                <h3 className="mt-5 text-xl sm:text-2xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
+                  {s.service}
+                </h3>
+              </div>
+              <p className="mt-6 text-base font-normal leading-relaxed text-[var(--color-ink)]">
                 {s.body}
               </p>
             </div>

@@ -38,7 +38,7 @@ export function SectionFullBleed({
         "w-full flex flex-col justify-center",
         fullHeight && "min-h-[100svh]",
         toneClasses,
-        !noPadding && "py-16 md:py-[120px]",
+        !noPadding && "py-16 md:py-24 lg:py-28",
         className
       )}
       {...props}

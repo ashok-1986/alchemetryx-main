@@ -28,11 +28,25 @@ type PanelKey = keyof typeof PANELS;
 
 export function LevelRouter() {
   const [active, setActive] = useState<PanelKey>("not-yet");
+  const keys = Object.keys(PANELS) as PanelKey[];
+
+  const handleKeyDown = (e: React.KeyboardEvent, currentKey: PanelKey) => {
+    const currentIndex = keys.indexOf(currentKey);
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      const nextKey = keys[(currentIndex + 1) % keys.length];
+      setActive(nextKey);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      const prevKey = keys[(currentIndex - 1 + keys.length) % keys.length];
+      setActive(prevKey);
+    }
+  };
 
   return (
-    <SectionFullBleed tone="light">
+    <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
-        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch]">
+        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch] text-[var(--color-ink)]">
           Have you bought AI yet?
         </h2>
       </Reveal>
@@ -41,29 +55,41 @@ export function LevelRouter() {
         <div
           role="tablist"
           aria-label="Have you bought AI yet?"
-          className="mt-10 flex flex-col sm:flex-row gap-3"
+          className="mt-10 flex flex-col sm:flex-row gap-4"
         >
-          {(Object.keys(PANELS) as PanelKey[]).map((key) => {
+          {keys.map((key) => {
             const isActive = key === active;
             return (
               <button
                 key={key}
                 role="tab"
                 type="button"
+                id={`tab-${key}`}
                 aria-selected={isActive}
+                aria-controls={`panel-${key}`}
+                tabIndex={isActive ? 0 : -1}
                 onClick={() => setActive(key)}
+                onKeyDown={(e) => handleKeyDown(e, key)}
                 className={cn(
-                  "flex-1 text-left rounded-md border px-6 py-5 cursor-pointer",
-                  "transition-all duration-200 active:scale-[0.98]",
+                  "flex-1 flex flex-col justify-between text-left rounded-md border p-6 cursor-pointer",
+                  "transition-all duration-200 active:scale-[0.985] outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-2",
                   isActive
-                    ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire)] text-[var(--color-pearl)]"
-                    : "border-[var(--color-pearl-line)] bg-transparent text-[var(--color-ink)] hover:border-[var(--color-gold-deep)]"
+                    ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire)] text-[var(--color-pearl)] shadow-[0_4px_16px_-4px_rgba(11,17,30,0.2)]"
+                    : "border-[var(--color-pearl-line)] bg-transparent text-[var(--color-ink)] hover:border-[var(--color-gold-deep)]/70 hover:bg-[var(--color-ink)]/[0.015]"
                 )}
               >
-                <span className="block text-xs uppercase tracking-[0.16em] opacity-70">
-                  {PANELS[key].label}
-                </span>
-                <span className="mt-2 block text-lg font-light leading-snug">
+                <div className="flex items-center justify-between w-full">
+                  <span className={cn(
+                    "text-xs uppercase tracking-[0.16em]",
+                    isActive ? "text-[var(--color-gold)] opacity-100" : "opacity-60"
+                  )}>
+                    {PANELS[key].label}
+                  </span>
+                  {isActive && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
+                  )}
+                </div>
+                <span className="mt-3 block text-lg font-light leading-snug">
                   {PANELS[key].line}
                 </span>
               </button>
@@ -73,8 +99,11 @@ export function LevelRouter() {
       </Reveal>
 
       <div
+        id={`panel-${active}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${active}`}
         key={active}
-        className="mt-10 max-w-[65ch] space-y-4 transition-all duration-250 ease-out animate-[fadeIn_250ms_ease-out]"
+        className="mt-10 min-h-[140px] md:min-h-[110px] max-w-[65ch] space-y-4 transition-opacity duration-200 ease-out animate-[fadeIn_200ms_ease-out]"
       >
         {PANELS[active].body.map((para) => (
           <p key={para} className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">

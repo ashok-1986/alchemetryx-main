@@ -4,11 +4,11 @@ import { COMPANY } from "@/lib/constants";
 
 export function Nav() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/85 backdrop-blur-[20px] border-b border-[var(--color-sapphire-line)]/70">
+    <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60 transition-colors duration-200">
       <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between">
         <Link
           href="/"
-          className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)] hover:opacity-90 transition-opacity cursor-pointer"
+          className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)] hover:opacity-90 active:scale-[0.98] transition-all duration-150 cursor-pointer"
         >
           {COMPANY.name}
         </Link>
