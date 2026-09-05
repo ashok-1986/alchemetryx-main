@@ -16,12 +16,9 @@ export function WhoWeAre() {
 
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10">
         <Reveal className="lg:col-span-7" delay={0.1}>
-          <div className="space-y-4 max-w-[60ch]">
+          <div className="max-w-[60ch]">
             <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
               Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The CareRota system above runs on our own infrastructure.
-            </p>
-            <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
-              If we do not think there is a problem worth paying to solve, we will tell you that instead.
             </p>
           </div>
         </Reveal>

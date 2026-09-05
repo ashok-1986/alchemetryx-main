@@ -182,7 +182,6 @@ Status: LOCKED. One sentence, no decoration. Its whole job is to let the wrong r
 | Eyebrow | WHO YOU WOULD BE WORKING WITH | LOCKED |
 | H2 | A small firm that builds the thing, not a deck about it. | LOCKED |
 | Body | Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The CareRota system above runs on our own infrastructure. | LOCKED |
-| Body | If we do not think there is a problem worth paying to solve, we will tell you that instead. | LOCKED |
 | Credential card | UK registered company 17199377 → link to Companies House | LOCKED |
 
 **Say nothing about team size.** Three of six competitors name nobody at all, so one named founder already puts you ahead of half the field. Vague phrasing about "our UK team" reads worse than silence.
