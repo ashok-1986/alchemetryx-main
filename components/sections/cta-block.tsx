@@ -9,10 +9,10 @@ export function CtaBlock() {
     <SectionFullBleed tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <div className="max-w-[46ch]">
-          <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em]">
+          <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)]">
             Stop the leaks.
           </h2>
-          <p className="mt-5 text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/80">
+          <p className="mt-6 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">
             Tell us which job you would hand over first. Half an hour, no deck. If there is nothing here worth building, we will say so on the call.
           </p>
           <div className="mt-8">

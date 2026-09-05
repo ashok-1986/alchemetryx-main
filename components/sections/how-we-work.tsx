@@ -29,10 +29,10 @@ export function HowWeWork() {
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           HOW WE WORK
         </p>
-        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[22ch]">
+        <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)] max-w-[22ch]">
           Look. Decide. Improve.
         </h2>
-        <p className="mt-6 max-w-[65ch] text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/80">
+        <p className="mt-6 max-w-[65ch] text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">
           <strong className="font-normal text-[var(--color-ink)]">If a person is copying data between three tabs, a system should be doing it.</strong>{" "}
           We map the repetitive work that eats hours every week and engineer it out, without breaking what already works.
         </p>
@@ -41,13 +41,13 @@ export function HowWeWork() {
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {STEPS.map((s, i) => (
           <Reveal key={s.step} delay={i * 0.1}>
-            <div className="h-full rounded-md border border-[var(--color-pearl-line)] p-7">
+            <div className="h-full rounded-md border border-[var(--color-pearl-line)] p-7 transition-all duration-300 hover:border-[var(--color-gold-deep)]/40 hover:-translate-y-[2px]">
               <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
                 {String(i + 1).padStart(2, "0")} / {s.step}
               </p>
-              <h3 className="mt-4 text-xl font-light text-[var(--color-ink)]">{s.service}</h3>
-              <p className="mt-1 text-sm text-[var(--color-ink)]/60">{s.time}</p>
-              <p className="mt-4 text-base font-light leading-relaxed text-[var(--color-ink)]/80">
+              <h3 className="mt-4 text-xl font-normal text-[var(--color-ink)]">{s.service}</h3>
+              <p className="mt-1 text-sm font-normal text-[var(--color-ink)]/70">{s.time}</p>
+              <p className="mt-4 text-base font-normal leading-relaxed text-[var(--color-ink)]">
                 {s.body}
               </p>
             </div>

@@ -54,7 +54,7 @@ export function LevelRouter() {
                 onClick={() => setActive(key)}
                 className={cn(
                   "flex-1 text-left rounded-md border px-6 py-5 cursor-pointer",
-                  "transition-colors duration-200 active:scale-[0.99]",
+                  "transition-all duration-200 active:scale-[0.98]",
                   isActive
                     ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire)] text-[var(--color-pearl)]"
                     : "border-[var(--color-pearl-line)] bg-transparent text-[var(--color-ink)] hover:border-[var(--color-gold-deep)]"
@@ -72,9 +72,12 @@ export function LevelRouter() {
         </div>
       </Reveal>
 
-      <div className="mt-10 max-w-[65ch] space-y-4">
+      <div
+        key={active}
+        className="mt-10 max-w-[65ch] space-y-4 transition-all duration-250 ease-out animate-[fadeIn_250ms_ease-out]"
+      >
         {PANELS[active].body.map((para) => (
-          <p key={para} className="text-base md:text-lg font-light leading-relaxed text-[var(--color-ink)]/80">
+          <p key={para} className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
             {para}
           </p>
         ))}
