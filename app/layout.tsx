@@ -8,7 +8,7 @@ import { SmoothScroll } from "@/components/motion/smooth-scroll";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-urbanist",
   display: "swap",
 });
