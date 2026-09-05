@@ -8,13 +8,21 @@ import { PUBLISHED_CASE_STUDIES } from "@/content/case-studies";
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://alchemetryx.com";
 
-  const routes: MetadataRoute.Sitemap = [
+  const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
     { url: `${baseUrl}/book`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/proof`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
   ];
 
-  // Case study routes are added once /proof/[slug] exists.
-  void PUBLISHED_CASE_STUDIES;
+  const caseStudyRoutes: MetadataRoute.Sitemap = PUBLISHED_CASE_STUDIES.map(
+    (cs) => ({
+      url: `${baseUrl}/proof/${cs.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })
+  );
 
-  return routes;
+  return [...staticRoutes, ...caseStudyRoutes];
 }

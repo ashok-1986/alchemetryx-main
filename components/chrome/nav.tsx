@@ -1,16 +1,21 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { label: "The Problem", href: "/#problem" },
-  { label: "Diagnostic", href: "/#diagnostic" },
   { label: "How We Work", href: "/#how-we-work" },
-  { label: "Proof", href: "/#proof" },
-  { label: "About", href: "/#who-we-are" },
+  { label: "Proof", href: "/proof" },
+  { label: "About", href: "/about" },
 ];
 
 export function Nav() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60 transition-colors duration-200">
       <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between gap-6">
@@ -21,20 +26,38 @@ export function Nav() {
           {COMPANY.name}
         </Link>
 
-        {/* 5 Anchor nav items */}
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-8">
-          {NAV_ITEMS.map((item) => (
-            <Link
+        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-4">
+          {NAV_ITEMS.map((item, index) => (
+            <div
               key={item.label}
-              href={item.href}
-              className="text-sm font-light text-[var(--color-slate)] hover:text-[var(--color-pearl)] transition-colors duration-150 cursor-pointer"
+              className="relative group"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              {item.label}
-            </Link>
+              <Link
+                href={item.href}
+                className="flex items-center gap-2 px-2 py-3 transition-colors duration-150 cursor-pointer"
+              >
+                <span
+                  className={cn(
+                    "h-[1px] w-8 bg-[var(--color-sapphire-line)] transition-all duration-300 ease-out origin-left",
+                    hoveredIndex === index && "w-32 bg-[var(--color-gold)]"
+                  )}
+                  aria-hidden="true"
+                />
+                <span
+                  className={cn(
+                    "text-sm font-light text-transparent transition-all duration-300 ease-out whitespace-nowrap",
+                    hoveredIndex === index && "text-[var(--color-pearl)]"
+                  )}
+                >
+                  {item.label}
+                </span>
+              </Link>
+            </div>
           ))}
         </nav>
 
-        {/* Gold CTA button */}
         <div className="shrink-0">
           <Button asChild variant="primary" size="sm">
             <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>

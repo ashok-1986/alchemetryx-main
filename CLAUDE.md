@@ -2,6 +2,17 @@
 
 This file is read automatically at the start of every Claude Code session in this folder. It is the standing brief. The eight documents it points to are the actual spec, this file just tells you the order to read them and the rules that override default instincts.
 
+## Current work order — read these two first
+
+Before anything in the list above, read:
+
+- `10_build_brief_multipage.md` — the active build brief. Nine blocks, acceptance checklist. This is what to work on now.
+- `09_home_copy_deck.md` — every approved line for the home page, with the eight copy rules at the top. Those rules govern all pages, not just home.
+
+Where the older documents and these two disagree, these two win. In particular: the site is multipage, not one long page; no duration or timeframe appears on the home page; company registration appears once, in the footer.
+
+Three routes are deliberately not built: `/diagnostic`, `/build`, `/retainer`. They are blocked on real content from Ashok and must not be filled with plausible-sounding process. Do not add them to the nav.
+
 ## Read first, in this order
 
 1. `05_prd.md` — what this site is for, requirements, launch gate. Start here.

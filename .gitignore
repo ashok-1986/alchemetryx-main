@@ -35,4 +35,11 @@ yarn-error.log*
 
 # editor & agent metadata
 .claude/
+.impeccable/
+.kilo/
+.agents/
+
+# tool artifacts
+skills-lock.json
+temp.txt
 

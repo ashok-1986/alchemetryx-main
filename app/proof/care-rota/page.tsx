@@ -9,7 +9,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { CARE_ROTA } from "@/content/case-studies";
 import { COMPANY } from "@/lib/constants";
 
-export function Proof() {
+export default function ProofCareRotaPage() {
   const cs = CARE_ROTA;
   const [activeImage, setActiveImage] = useState<(typeof cs.build.items)[0] | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -73,15 +73,17 @@ export function Proof() {
     <SectionFullBleed id="proof" tone="light" className="border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
-          {cs.eyebrow}
+          Case study · Care operations
         </p>
         <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)] max-w-[24ch]">
-          {cs.title}
+          A care home's rota lived in a spreadsheet. We rebuilt it as a system.
         </h2>
         <p className="mt-6 max-w-[60ch] text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">
-          {cs.standfirst}
+          How a fragmented monthly roster for a UK care home became one place to plan shifts, watch cost, and stay compliant.
         </p>
-        <p className="mt-4 text-sm font-normal text-[var(--color-ink)]/70">{cs.attribution}</p>
+        <p className="mt-4 text-sm font-normal text-[var(--color-ink)]/70">
+          Built by Alchemetryx · Real UK care home · Site and staff names anonymised
+        </p>
       </Reveal>
 
       {/* The before */}
@@ -91,10 +93,10 @@ export function Proof() {
             01 / The before
           </p>
           <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
-            {cs.before.heading}
+            Five tabs, and a lot of trust.
           </h3>
           <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-            {cs.before.body}
+            The home planned every month in one shared Excel file. Five tabs, one per area. Staff were typed into a grid by hand, week after week stretched across ninety columns, and the file was updated whenever someone remembered.
           </p>
         </div>
         <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -119,10 +121,10 @@ export function Proof() {
             02 / The build
           </p>
           <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
-            {cs.build.heading}
+            One system that understands a care home.
           </h3>
           <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-            {cs.build.body}
+            Not a generic scheduler. A tool shaped around how a care home actually runs: floors, bank staff, statutory leave and a live budget. Built and hosted by Alchemetryx.
           </p>
         </div>
       </Reveal>
@@ -154,7 +156,7 @@ export function Proof() {
                     alt={item.alt}
                     width={1500}
                     height={979}
-                    className="w-full h-auto transition-transform duration-300 ease-out group-hover:scale-[1.015]"
+                    className="w-full h-auto"
                     sizes="(max-width: 1024px) 100vw, 66vw"
                   />
                   <div className="absolute bottom-3 right-3 rounded-full bg-[var(--color-sapphire)]/85 px-3 py-1 text-xs text-[var(--color-pearl)] opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 flex items-center gap-1.5 border border-[var(--color-sapphire-line)]">
@@ -183,7 +185,7 @@ export function Proof() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
-                What this is, and what it isn’t
+                What this is, and what it isn't — "A capability build, not a savings headline."
               </p>
               <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.025em] leading-snug">
                 {cs.honesty.heading}
@@ -192,7 +194,7 @@ export function Proof() {
                 If your rota still lives in a spreadsheet, that is a conversation worth having.
               </p>
               <div className="mt-8">
-                <Button asChild variant="primary" size="lg" className="shadow-[0_4px_16px_-4px_rgba(200,168,107,0.3)]">
+                <Button asChild variant="primary" size="lg">
                   <Link href={COMPANY.primaryCtaHref}>
                     {COMPANY.primaryCtaLabel}
                   </Link>
@@ -207,56 +209,56 @@ export function Proof() {
           </div>
         </div>
       </Reveal>
-
-      {/* Lightbox Modal for 1:1 image inspection */}
-      {activeImage && (
+    
+    {/* Lightbox Modal for 1:1 image inspection */}
+    {activeImage && (
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={activeImage.title}
+        onClick={() => setActiveImage(null)}
+        className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-sapphire)]/90 backdrop-blur-md p-4 sm:p-6 md:p-10 cursor-zoom-out"
+      >
         <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label={activeImage.title}
-          onClick={() => setActiveImage(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-sapphire)]/90 backdrop-blur-md p-4 sm:p-6 md:p-10 cursor-zoom-out animate-[fadeIn_150ms_ease-out]"
+          onClick={(e) => e.stopPropagation()}
+          className="relative max-w-6xl w-full bg-[var(--color-sapphire-raised)] rounded-lg border border-[var(--color-gold)]/40 p-4 sm:p-6 shadow-2xl overflow-hidden cursor-default"
         >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-6xl w-full bg-[var(--color-sapphire-raised)] rounded-lg border border-[var(--color-gold)]/40 p-4 sm:p-6 shadow-2xl overflow-hidden cursor-default"
-          >
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--color-sapphire-line)]">
-              <div>
-                <h4 className="text-lg sm:text-xl font-light text-[var(--color-pearl)]">
-                  {activeImage.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-[var(--color-slate)] mt-1">
-                  CareRota Live Screenshot (Real system UI)
-                </p>
-              </div>
-              <button
-                ref={closeBtnRef}
-                type="button"
-                onClick={() => setActiveImage(null)}
-                aria-label="Close dialog"
-                className="text-xs uppercase tracking-wider text-[var(--color-slate)] hover:text-[var(--color-pearl)] px-3 py-1.5 rounded border border-[var(--color-sapphire-line)] hover:border-[var(--color-gold)] transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-              >
-                Close [Esc]
-              </button>
+          <div className="flex items-center justify-between pb-4 border-b border-[var(--color-sapphire-line)]">
+            <div>
+              <h4 className="text-lg sm:text-xl font-light text-[var(--color-pearl)]">
+                {activeImage.title}
+              </h4>
+              <p className="text-xs sm:text-sm text-[var(--color-slate)] mt-1">
+                CareRota Live Screenshot (Real system UI)
+              </p>
             </div>
-            <div className="mt-4 overflow-auto max-h-[75vh] rounded border border-[var(--color-sapphire-line)]/50">
-              <Image
-                src={activeImage.image}
-                alt={activeImage.alt}
-                width={1800}
-                height={1175}
-                className="w-full h-auto"
-                priority
-              />
-            </div>
+            <button
+              ref={closeBtnRef}
+              type="button"
+              onClick={() => setActiveImage(null)}
+              aria-label="Close dialog"
+              className="text-xs uppercase tracking-wider text-[var(--color-slate)] hover:text-[var(--color-pearl)] px-3 py-1.5 rounded border border-[var(--color-sapphire-line)] hover:border-[var(--color-gold)] transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
+            >
+              Close [Esc]
+            </button>
+          </div>
+          <div className="mt-4 overflow-auto max-h-[75vh] rounded border border-[var(--color-sapphire-line)]/50">
+            <Image
+              src={activeImage.image}
+              alt={activeImage.alt}
+              width={1800}
+              height={1175}
+              className="w-full h-auto"
+              priority
+            />
             <p className="mt-4 text-xs sm:text-sm text-[var(--color-slate)] leading-relaxed">
               {activeImage.caption}
             </p>
           </div>
         </div>
-      )}
+      </div>
+    )}
     </SectionFullBleed>
   );
 }

@@ -1,28 +1,28 @@
 import Link from "next/link";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
+import { Clock } from "lucide-react";
+import { PoundSterling } from "lucide-react";
+import { User } from "lucide-react";
 
 const ROWS = [
   {
     label: "Time",
     copy: "Hours go into typing things twice, fixing what got typed wrong, and chasing people for updates.",
+    icon: Clock,
   },
   {
     label: "Money",
-    copy: "You find out what a job actually cost after it’s finished, not while you can still do something about it.",
+    copy: "You find out what a job actually cost after it's finished, not while you can still do something about it.",
+    icon: PoundSterling,
   },
   {
     label: "You",
     copy: "Every decision comes back to you, because nothing else can carry it.",
+    icon: User,
   },
 ];
 
-/**
- * Section 3 — The problem
- * Tone: Pearl
- * Layout: eyebrow and large ghosted numeral 01, headline left, supporting paragraph right,
- * then three stacked rows with a hairline between each.
- */
 export function TheProblem() {
   return (
     <SectionFullBleed id="problem" tone="light" className="border-t border-[var(--color-pearl-line)]">
@@ -34,25 +34,25 @@ export function TheProblem() {
           </p>
         </div>
       </Reveal>
-
+    
       {/* Headline & Supporting paragraph */}
       <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-baseline">
         <div className="lg:col-span-6">
           <Reveal delay={0.1}>
             <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] max-w-[20ch] text-[var(--color-ink)]">
-              The leak isn’t visible on your P&L.
+              The leak isn't visible on your P&L.
             </h2>
           </Reveal>
         </div>
         <div className="lg:col-span-6">
           <Reveal delay={0.2}>
             <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[48ch]">
-              It’s in the gap between the work you pay for and the work that actually moves the business forward.
+              It's in the gap between the work you pay for and the work that actually moves the business forward.
             </p>
           </Reveal>
         </div>
       </div>
-
+    
       {/* Three stacked rows with hairline divider */}
       <div className="mt-14 md:mt-20 border-t border-[var(--color-pearl-line)]">
         {ROWS.map((row, i) => (
@@ -61,6 +61,9 @@ export function TheProblem() {
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline">
                 <div className="md:col-span-4 lg:col-span-3">
                   <h3 className="text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)] group-hover:text-[var(--color-gold-deep)] transition-colors duration-200">
+                    <span className="mr-2">
+                      <row.icon className="w-5 h-5 text-[var(--color-gold)]" />
+                    </span>
                     {row.label}
                   </h3>
                 </div>
@@ -74,18 +77,18 @@ export function TheProblem() {
           </Reveal>
         ))}
       </div>
-
-      {/* CTA ladder: Text link to CareRota */}
-      <Reveal delay={0.3}>
-        <div className="mt-10 md:mt-14 flex items-center">
-          <Link
-            href="/#proof"
-            className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
-          >
-            Here’s one we rebuilt →
-          </Link>
-        </div>
-      </Reveal>
+    
+    {/* CTA ladder: Text link to CareRota */}
+    <Reveal delay={0.3}>
+      <div className="mt-10 md:mt-14 flex items-center">
+        <Link
+          href="/proof"
+          className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
+        >
+          Here's one we rebuilt →
+        </Link>
+      </div>
+    </Reveal>
     </SectionFullBleed>
   );
 }

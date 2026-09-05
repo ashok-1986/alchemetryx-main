@@ -49,9 +49,9 @@ export function LevelRouter() {
   };
 
   return (
-    <SectionFullBleed id="diagnostic" tone="light" fullHeight={false} className="border-t border-[var(--color-pearl-line)] py-20 md:py-28">
+    <SectionFullBleed id="diagnostic" tone="dark" fullHeight={false} className="border-t border-[var(--color-sapphire-line)] py-20 md:py-28">
       <Reveal>
-        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch] text-[var(--color-ink)]">
+        <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch] text-[var(--color-pearl)]">
           Have you bought AI yet?
         </h2>
       </Reveal>
@@ -79,8 +79,8 @@ export function LevelRouter() {
                   "flex-1 flex flex-col justify-between text-left rounded-md border p-6 cursor-pointer",
                   "transition-all duration-200 active:scale-[0.985] outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-2",
                   isActive
-                    ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire)] text-[var(--color-pearl)] shadow-[0_4px_16px_-4px_rgba(11,17,30,0.2)]"
-                    : "border-[var(--color-pearl-line)] bg-transparent text-[var(--color-ink)] hover:border-[var(--color-gold-deep)]/70 hover:bg-[var(--color-ink)]/[0.015]"
+                    ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire-raised)] text-[var(--color-pearl)] shadow-[0_4px_16px_-4px_rgba(11,17,30,0.2)]"
+                    : "border-[var(--color-sapphire-line)] bg-transparent text-[var(--color-pearl)] hover:border-[var(--color-gold-deep)]/70 hover:bg-[var(--color-sapphire-raised)]/50"
                 )}
               >
                 <div className="flex items-center justify-between w-full">
@@ -108,17 +108,17 @@ export function LevelRouter() {
         role="tabpanel"
         aria-labelledby={`tab-${active}`}
         key={active}
-        className="mt-10 min-h-[140px] md:min-h-[110px] max-w-[65ch] space-y-4 transition-opacity duration-200 ease-out animate-[fadeIn_200ms_ease-out]"
+        className="mt-10 min-h-[140px] md:min-h-[110px] max-w-[65ch] space-y-4 transition-opacity duration-200 ease-out animate-[fade-in_200ms_ease-out]"
       >
         {PANELS[active].body.map((para) => (
-          <p key={para} className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
+          <p key={para} className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
             {para}
           </p>
         ))}
         <div className="pt-3">
           <Link
             href={PANELS[active].href}
-            className="inline-flex items-center text-base font-normal text-[var(--color-gold-deep)] hover:text-[var(--color-ink)] underline underline-offset-4 transition-colors cursor-pointer"
+            className="inline-flex items-center text-base font-normal text-[var(--color-gold)] hover:text-[var(--color-pearl)] underline underline-offset-4 transition-colors cursor-pointer"
           >
             {PANELS[active].cta}
           </Link>

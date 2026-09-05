@@ -6,8 +6,10 @@ export const DUR = {
   micro: 0.2, // micro-interactions (card hover per QA finding 1)
   base: 0.6, // standard element reveal
   slow: 0.9, // display headline, section entrance
-  scrub: true, // scroll-linked
 } as const;
+
+/** Scroll-linked flag — not a duration, kept here for co-location. */
+export const SCRUB = true;
 
 export const EASE = {
   out: "power2.out", // default for entrances
