@@ -4,7 +4,6 @@ import { TheProblem } from "@/components/sections/the-problem";
 import { LevelRouter } from "@/components/sections/level-router";
 import { HowWeWork } from "@/components/sections/how-we-work";
 import { Proof } from "@/components/sections/proof";
-import { WhoWeAre } from "@/components/sections/who-we-are";
 import { CtaBlock } from "@/components/sections/cta-block";
 
 export default function HomePage() {
@@ -22,9 +21,7 @@ export default function HomePage() {
       <HowWeWork />
       {/* Section 6 — Proof: CareRota */}
       <Proof />
-      {/* Section 7 — Who you'd be working with */}
-      <WhoWeAre />
-      {/* Section 8 — Final CTA */}
+      {/* Section 7 — Final CTA */}
       <CtaBlock />
     </>
   );
