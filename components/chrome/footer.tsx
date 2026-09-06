@@ -7,16 +7,6 @@ export function Footer() {
 
   return (
     <footer className="w-full relative overflow-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 pt-20 pb-12">
-      {/* Massive subtle background watermark text */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none select-none absolute left-0 right-0 bottom-[-2vw] flex justify-center overflow-hidden opacity-[0.045] transition-opacity"
-      >
-        <span className="text-[clamp(6rem,19vw,19rem)] font-extrabold tracking-[-0.05em] uppercase leading-none text-[var(--color-pearl)]">
-          {COMPANY.name}
-        </span>
-      </div>
-
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 space-y-16">
         {/* Main Columns Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
@@ -28,11 +18,11 @@ export function Footer() {
                 className="inline-flex items-center gap-3 text-2xl font-light tracking-[-0.03em] text-[var(--color-pearl)] hover:opacity-90 transition-opacity"
               >
                 <Image
-                  src="/brand/alchemetryx-mark.png"
+                  src="/brand/main-logo.png"
                   alt=""
-                  width={30}
+                  width={120}
                   height={30}
-                  className="w-7 h-7 object-contain"
+                  className="h-7 w-auto object-contain"
                 />
                 <span className="font-medium tracking-tight">{COMPANY.name}</span>
               </Link>

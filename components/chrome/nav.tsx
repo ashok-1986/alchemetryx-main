@@ -92,11 +92,11 @@ export function Nav() {
             className="flex items-center gap-2.5 shrink-0 cursor-pointer transition-opacity duration-150 hover:opacity-90"
           >
             <Image
-              src="/brand/alchemetryx-mark.png"
+              src="/brand/main-logo.png"
               alt=""
-              width={28}
+              width={120}
               height={28}
-              className="w-7 h-7 object-contain"
+              className="h-7 w-auto object-contain"
               priority
             />
             <span className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)]">
