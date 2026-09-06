@@ -11,7 +11,7 @@ export default function ProofCard() {
   if (!firstStudy) return null;
 
   return (
-    <SectionFullBleed id="proof-card" tone="light" className="border-t border-[var(--color-pearl-line)] py-12">
+    <SectionFullBleed id="proof-card" tone="light" className="border-t border-[var(--color-pearl-line)] py-16 md:py-24 lg:py-28">
       <Reveal>
         <div className="max-w-[60ch]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">

@@ -21,13 +21,14 @@ interface CircleExpandButtonProps {
 /**
  * CTA pill button with a circle-expand hover animation.
  *
- * On hover:
- *  - A circle behind the arrow icon expands to fill the entire button
- *  - Text color crossfades (white ↔ dark)
- *  - Arrow rotates from -45° to 0°
- *  - Circle background changes to the contrasting brand colour
+ * Faithfully ported from Framer "Circle-Expand-Button-Animation":
+ *  - A circle (same colour as the arrow bg) expands from the arrow
+ *    position to fill the entire button on hover
+ *  - Text crossfades between two colour states
+ *  - Arrow rotates from -45deg to 0deg
+ *  - Arrow circle background changes to contrasting colour
  *
- * Reduced motion: no expand, keeps underline/focus feedback only.
+ * Reduced motion: no expand, keeps focus feedback only.
  */
 export function CircleExpandButton({
   children,
@@ -37,8 +38,9 @@ export function CircleExpandButton({
   className,
 }: CircleExpandButtonProps) {
   const wrapperRef = useRef<HTMLAnchorElement>(null);
-  const circleRef = useRef<HTMLSpanElement>(null);
-  const textRef = useRef<HTMLSpanElement>(null);
+  const expandCircleRef = useRef<HTMLSpanElement>(null);
+  const textDefaultRef = useRef<HTMLSpanElement>(null);
+  const textHoverRef = useRef<HTMLSpanElement>(null);
   const arrowCircleRef = useRef<HTMLSpanElement>(null);
   const arrowIconRef = useRef<SVGSVGElement>(null);
 
@@ -46,28 +48,37 @@ export function CircleExpandButton({
   const colors = {
     primary: {
       bg: "var(--color-gold)",
-      textDefault: "var(--color-ink)",
-      circleDefault: "var(--color-pearl)",
-      circleHover: "var(--color-sapphire)",
-      textHover: "var(--color-pearl)",
+      // Default text (visible when not hovered)
+      textDefaultColor: "var(--color-ink)",
+      // Hover text (visible when hovered — must contrast with expanding circle)
+      textHoverColor: "var(--color-pearl)",
+      // Arrow circle background
+      arrowCircleDefault: "var(--color-pearl)",
+      arrowCircleHover: "var(--color-sapphire)",
+      // Expanding circle — matches arrow circle default, stays same on hover
+      expandDefault: "var(--color-pearl)",
+      expandHover: "var(--color-pearl)",
+      // Arrow icon
       arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-pearl)",
     },
     sapphire: {
       bg: "var(--color-sapphire)",
-      textDefault: "var(--color-pearl)",
-      circleDefault: "var(--color-pearl)",
-      circleHover: "var(--color-gold)",
-      textHover: "var(--color-ink)",
+      textDefaultColor: "var(--color-pearl)",
+      textHoverColor: "var(--color-ink)",
+      arrowCircleDefault: "var(--color-pearl)",
+      arrowCircleHover: "var(--color-gold)",
+      expandDefault: "var(--color-pearl)",
+      expandHover: "var(--color-pearl)",
       arrowDefault: "var(--color-pearl)",
       arrowHover: "var(--color-ink)",
     },
   }[variant];
 
   useGSAP(() => {
-    if (!wrapperRef.current || !circleRef.current) return;
+    if (!wrapperRef.current || !expandCircleRef.current) return;
     const wrapper = wrapperRef.current;
-    const circle = circleRef.current;
+    const expandCircle = expandCircleRef.current;
     const mm = gsap.matchMedia();
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
@@ -75,23 +86,34 @@ export function CircleExpandButton({
 
       const handleMouseEnter = () => {
         expandTween?.kill();
-        // Expand circle to fill button (use % to handle any button width)
-        expandTween = gsap.to(circle, {
-          width: "320%",
-          height: "320%",
-          backgroundColor: colors.circleHover,
+        // Expand circle: 35px → 320px (Framer uses 320px fixed)
+        expandTween = gsap.to(expandCircle, {
+          width: 320,
+          height: 320,
+          backgroundColor: colors.expandHover,
           duration: 0.45,
           ease: "power3.out",
           overwrite: "auto",
         });
-        // Crossfade text
-        gsap.to(textRef.current, {
-          color: colors.textHover,
-          duration: 0.3,
+        // Crossfade text: default fades out, hover fades in
+        gsap.to(textDefaultRef.current, {
+          opacity: 0,
+          duration: 0.25,
+          overwrite: "auto",
+        });
+        gsap.to(textHoverRef.current, {
+          opacity: 1,
+          duration: 0.25,
           delay: 0.05,
           overwrite: "auto",
         });
-        // Rotate arrow
+        // Arrow circle background
+        gsap.to(arrowCircleRef.current, {
+          backgroundColor: colors.arrowCircleHover,
+          duration: 0.35,
+          overwrite: "auto",
+        });
+        // Rotate arrow -45° → 0°
         gsap.to(arrowIconRef.current, {
           rotate: 0,
           color: colors.arrowHover,
@@ -99,39 +121,42 @@ export function CircleExpandButton({
           ease: "power2.out",
           overwrite: "auto",
         });
-        // Arrow circle bg
-        gsap.to(arrowCircleRef.current, {
-          backgroundColor: colors.circleHover,
-          duration: 0.35,
-          overwrite: "auto",
-        });
       };
 
       const handleMouseLeave = () => {
         expandTween?.kill();
-        gsap.to(circle, {
-          width: circleSize,
-          height: circleSize,
-          backgroundColor: colors.circleDefault,
+        // Shrink circle back
+        expandTween = gsap.to(expandCircle, {
+          width: 35,
+          height: 35,
+          backgroundColor: colors.expandDefault,
           duration: 0.4,
           ease: "power2.inOut",
           overwrite: "auto",
         });
-        gsap.to(textRef.current, {
-          color: colors.textDefault,
-          duration: 0.3,
+        // Crossfade text back
+        gsap.to(textDefaultRef.current, {
+          opacity: 1,
+          duration: 0.25,
           overwrite: "auto",
         });
+        gsap.to(textHoverRef.current, {
+          opacity: 0,
+          duration: 0.25,
+          overwrite: "auto",
+        });
+        // Arrow circle background back
+        gsap.to(arrowCircleRef.current, {
+          backgroundColor: colors.arrowCircleDefault,
+          duration: 0.35,
+          overwrite: "auto",
+        });
+        // Rotate arrow back to -45°
         gsap.to(arrowIconRef.current, {
           rotate: -45,
           color: colors.arrowDefault,
           duration: 0.35,
           ease: "power2.inOut",
-          overwrite: "auto",
-        });
-        gsap.to(arrowCircleRef.current, {
-          backgroundColor: colors.circleDefault,
-          duration: 0.35,
           overwrite: "auto",
         });
       };
@@ -148,7 +173,6 @@ export function CircleExpandButton({
   }, { scope: wrapperRef, dependencies: [variant] });
 
   const isSm = size === "sm";
-  const circleSize = isSm ? 28 : 35;
 
   const sizeClasses = {
     sm: "h-9 px-[28px] text-xs gap-2",
@@ -169,37 +193,31 @@ export function CircleExpandButton({
       )}
       style={{ backgroundColor: colors.bg }}
     >
-      {/* Expanding circle — behind everything */}
+      {/* Default text (visible when not hovered) */}
       <span
-        ref={circleRef}
-        aria-hidden="true"
-        className="absolute rounded-full"
-        style={{
-          width: circleSize,
-          height: circleSize,
-          right: 8,
-          top: "50%",
-          transform: "translateY(-50%)",
-          backgroundColor: colors.circleDefault,
-          zIndex: 0,
-        }}
-      />
-
-      {/* Text label */}
-      <span
-        ref={textRef}
+        ref={textDefaultRef}
         className="relative z-10 whitespace-nowrap font-normal"
-        style={{ color: colors.textDefault }}
+        style={{ color: colors.textDefaultColor }}
       >
         {children}
       </span>
 
-      {/* Arrow circle */}
+      {/* Hover text (visible when hovered — positioned on top of default text) */}
+      <span
+        ref={textHoverRef}
+        className="absolute z-10 whitespace-nowrap font-normal left-[21px] top-1/2 -translate-y-1/2"
+        style={{ color: colors.textHoverColor, opacity: 0 }}
+        aria-hidden="true"
+      >
+        {children}
+      </span>
+
+      {/* Arrow circle — always on top */}
       <span
         ref={arrowCircleRef}
         aria-hidden="true"
-        className={`relative z-10 grid shrink-0 place-items-center rounded-full ${isSm ? "w-[28px] h-[28px]" : "w-[35px] h-[35px]"}`}
-        style={{ backgroundColor: colors.circleDefault }}
+        className={`relative z-20 grid shrink-0 place-items-center rounded-full ${isSm ? "w-[28px] h-[28px]" : "w-[35px] h-[35px]"}`}
+        style={{ backgroundColor: colors.arrowCircleDefault }}
       >
         <ArrowRight
           ref={arrowIconRef}
@@ -211,6 +229,21 @@ export function CircleExpandButton({
           }}
         />
       </span>
+
+      {/* Expanding circle — z-1, expands behind arrow circle */}
+      <span
+        ref={expandCircleRef}
+        aria-hidden="true"
+        className="absolute rounded-full z-[1]"
+        style={{
+          width: 35,
+          height: 35,
+          left: "49%",
+          top: "49%",
+          transform: "translate(-50%, -50%)",
+          backgroundColor: colors.expandDefault,
+        }}
+      />
     </Link>
   );
 }

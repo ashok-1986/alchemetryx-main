@@ -29,7 +29,7 @@ export function TheProblem() {
       {/* Eyebrow */}
       <Reveal>
         <div className="border-b border-[var(--color-pearl-line)]/50 pb-4">
-          <p className="text-xs uppercase tracking-[0.2em] text-[var(--color-gold-deep)]">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
             THE PROBLEM
           </p>
         </div>
@@ -71,7 +71,7 @@ export function TheProblem() {
                   </h3>
                 </div>
                 <div className="md:col-span-8 lg:col-span-9">
-                  <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[54ch]">
+                  <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[48ch]">
                     {row.copy}
                   </p>
                 </div>

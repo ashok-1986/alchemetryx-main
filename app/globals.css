@@ -99,6 +99,12 @@ p {
   text-wrap: pretty;
 }
 
+/* Browser surfaces: themed selection from the palette */
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
 /* Focus ring: Instant, 2px Gold outline. Never animated per motion spec */
 :focus-visible {
   outline: 2px solid var(--color-gold);
