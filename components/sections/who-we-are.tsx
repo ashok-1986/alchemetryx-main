@@ -18,6 +18,8 @@ interface WhoWeAreProps {
   showCareRotaReference?: boolean;
   /** The home page routes on to /about. The About page has nowhere to send you. */
   showCta?: boolean;
+  /** Extend dark background to top of viewport behind the nav (about page). */
+  bleedToTop?: boolean;
 }
 
 export function WhoWeAre({
@@ -26,6 +28,7 @@ export function WhoWeAre({
   heading = "We build the thing, not a deck about it.",
   showCareRotaReference = true,
   showCta = true,
+  bleedToTop = false,
 }: WhoWeAreProps = {}) {
   const HeadingTag = headingLevel;
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -73,11 +76,11 @@ export function WhoWeAre({
       id="who-we-are"
       tone="dark"
       fullHeight={false}
-      className="py-20 md:py-28"
+      className={bleedToTop ? "pt-0 pb-20 md:pb-28" : "py-20 md:py-28"}
     >
       <div
         ref={sectionRef}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+        className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center${bleedToTop ? " pt-20 md:pt-24" : ""}`}
       >
         {/* Left: the words */}
         <div ref={textRef} className="lg:col-span-7">

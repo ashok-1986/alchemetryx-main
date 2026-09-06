@@ -11,15 +11,14 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="pt-20 md:pt-24">
-        <WhoWeAre
-          headingLevel="h1"
-          eyebrow="WHO WE ARE"
-          heading="Who we are."
-          showCareRotaReference={false}
-          showCta={false}
-        />
-      </div>
+      <WhoWeAre
+        headingLevel="h1"
+        eyebrow="WHO WE ARE"
+        heading="Who we are."
+        showCareRotaReference={false}
+        showCta={false}
+        bleedToTop
+      />
       <CtaBlock />
     </>
   );
