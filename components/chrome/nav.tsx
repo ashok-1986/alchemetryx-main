@@ -1,73 +1,171 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { COMPANY } from "@/lib/constants";
-import { cn } from "@/lib/utils";
-
-const NAV_ITEMS = [
-  { label: "The Problem", href: "/#problem" },
-  { label: "How We Work", href: "/#how-we-work" },
-  { label: "Proof", href: "/proof" },
-  { label: "About", href: "/about" },
-];
+import { NAV_ITEMS } from "@/components/chrome/nav-items";
 
 export function Nav() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const activeIndex = hoveredIndex ?? focusedIndex;
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const navLinksRef = useRef<HTMLAnchorElement[]>([]);
+
+  // Body scroll lock
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  // Focus management when menu opens/closes
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    // Move focus to close button on open
+    closeButtonRef.current?.focus();
+
+    // Focus trap
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeMenu();
+        return;
+      }
+      if (e.key === "Tab") {
+        const focusableElements = getFocusableElements();
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
+
+  const getFocusableElements = (): HTMLElement[] => {
+    const elements: HTMLElement[] = [];
+    if (closeButtonRef.current) elements.push(closeButtonRef.current);
+    navLinksRef.current.forEach((link) => {
+      if (link) elements.push(link);
+    });
+    return elements;
+  };
+
+  const openMenu = () => {
+    setMenuOpen(true);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    // Restore focus to menu trigger after closing
+    menuTriggerRef.current?.focus();
+  };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60 transition-colors duration-200">
-      <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between gap-6">
-        <Link
-          href="/"
-          className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)] hover:opacity-90 transition-all duration-150 cursor-pointer shrink-0"
-        >
-          {COMPANY.name}
-        </Link>
+    <>
+      <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60">
+        <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between gap-6">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 shrink-0 cursor-pointer transition-opacity duration-150 hover:opacity-90"
+          >
+            <Image
+              src="/brand/alchemetryx-mark.png"
+              alt=""
+              width={28}
+              height={28}
+              className="w-7 h-7 object-contain"
+              priority
+            />
+            <span className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)]">
+              {COMPANY.name}
+            </span>
+          </Link>
 
-        <nav aria-label="Main Navigation" className="hidden md:flex items-center gap-4">
-          {NAV_ITEMS.map((item, index) => (
-            <div
-              key={item.label}
-              className="relative group"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              onFocus={() => setFocusedIndex(index)}
-              onBlur={() => setFocusedIndex(null)}
+          <div className="flex items-center gap-2 shrink-0">
+            <Button asChild variant="primary" size="sm">
+              <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>
+            </Button>
+            <button
+              ref={menuTriggerRef}
+              type="button"
+              onClick={openMenu}
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              className="xl:hidden grid place-items-center w-10 h-10 rounded-full border border-[var(--color-sapphire-line)] text-[var(--color-pearl)] cursor-pointer transition-colors duration-150 hover:bg-[var(--color-sapphire-raised)] focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 active:scale-[0.97]"
             >
+              <Menu className="w-5 h-5" strokeWidth={1.5} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {menuOpen && (
+        <div
+          id="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
+          className="xl:hidden fixed inset-0 z-[60] bg-[var(--color-sapphire)]"
+        >
+          <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-end">
+            <button
+              ref={closeButtonRef}
+              type="button"
+              onClick={closeMenu}
+              aria-label="Close menu"
+              className="grid place-items-center w-10 h-10 rounded-full border border-[var(--color-sapphire-line)] text-[var(--color-pearl)] cursor-pointer transition-colors duration-150 hover:bg-[var(--color-sapphire-raised)] focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 active:scale-[0.97]"
+            >
+              <X className="w-5 h-5" strokeWidth={1.5} />
+            </button>
+          </div>
+
+          <nav
+            aria-label="Main Navigation"
+            className="w-full max-w-[1440px] mx-auto px-[10px] mt-8 flex flex-col"
+          >
+            {NAV_ITEMS.filter((i) => i.href !== "/").map((item, index) => (
               <Link
+                ref={(el) => {
+                  if (el) navLinksRef.current[index] = el;
+                }}
+                key={item.label}
                 href={item.href}
-                className="flex items-center gap-2 px-2 py-3 transition-colors duration-150 cursor-pointer"
+                onClick={closeMenu}
+                className="group flex items-center gap-4 py-5 border-b border-[var(--color-sapphire-line)]/60 text-2xl font-light text-[var(--color-pearl)] cursor-pointer"
               >
                 <span
-                  className={cn(
-                    "h-[1px] w-8 bg-[var(--color-sapphire-line)] transition-all duration-300 ease-out origin-left",
-                    activeIndex === index && "w-32 bg-[var(--color-gold)]"
-                  )}
                   aria-hidden="true"
+                  className="h-px w-6 bg-[var(--color-gold)]/50 transition-all duration-300 ease-out group-hover:w-12 group-hover:bg-[var(--color-gold)]"
                 />
-                <span
-                  className={cn(
-                    "text-sm font-light text-transparent transition-all duration-300 ease-out whitespace-nowrap",
-                    activeIndex === index && "text-[var(--color-pearl)]"
-                  )}
-                >
-                  {item.label}
-                </span>
+                {item.label}
               </Link>
-            </div>
-          ))}
-        </nav>
-
-        <div className="shrink-0">
-          <Button asChild variant="primary" size="sm">
-            <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>
-          </Button>
+            ))}
+          </nav>
         </div>
-      </div>
-    </header>
+      )}
+    </>
   );
 }
