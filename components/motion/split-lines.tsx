@@ -17,16 +17,17 @@ export function SplitLines({ lines, className }: SplitLinesProps) {
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Only run staggered split-line animation on desktop screens with no-reduced-motion preference
+      // On mobile devices, keep native instant LCP paint to eliminate FID/LCP latency.
+      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
         const lineElements = containerRef.current?.querySelectorAll(".split-line-inner");
         if (lineElements && lineElements.length > 0) {
           gsap.from(lineElements, {
-            yPercent: 105,
-            opacity: 0,
-            duration: 0.9,
-            stagger: 0.12,
+            yPercent: 100,
+            opacity: 0.1,
+            duration: 0.8,
+            stagger: 0.1,
             ease: EASE.expo,
-            delay: 0.1,
           });
         }
       });

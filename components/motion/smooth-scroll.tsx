@@ -11,19 +11,21 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Respect prefers-reduced-motion: never initialize smooth scroll if reduce is preferred
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    const isTouchOrMobile =
+      window.matchMedia("(pointer: coarse)").matches ||
+      window.innerWidth < 1024;
 
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || isTouchOrMobile) {
       return;
     }
 
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Apple-like exponential decay
-      touchMultiplier: 2,
+      touchMultiplier: 1.5,
       infinite: false,
     });
 
@@ -38,13 +40,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     gsap.ticker.add(updateTicker);
     gsap.ticker.lagSmoothing(0);
-
-    // Refresh triggers once fonts are fully rendered to eliminate height inaccuracies
-    if (typeof document !== "undefined" && document.fonts) {
-      document.fonts.ready.then(() => {
-        ScrollTrigger.refresh();
-      });
-    }
 
     return () => {
       gsap.ticker.remove(updateTicker);

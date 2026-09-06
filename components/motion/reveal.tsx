@@ -29,7 +29,9 @@ export function Reveal({
     () => {
       const mm = gsap.matchMedia();
 
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // On mobile devices (< 768px), keep simple opacity/transform or let content paint immediately
+      // to avoid dozens of simultaneous ScrollTrigger instances locking the main thread.
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
         gsap.from(ref.current, {
           opacity: 0,
           y,
@@ -38,7 +40,7 @@ export function Reveal({
           ease: EASE.out,
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 85%",
+            start: "top 88%",
             toggleActions: "play none none none",
             once: true,
           },

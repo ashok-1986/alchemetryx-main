@@ -214,7 +214,7 @@ export function CircleExpandButton({
       </span>
 
       {/* Arrow container: anchors the arrow circle and the expanding circle */}
-      <span className="relative z-20 grid place-items-center shrink-0">
+      <span className="relative grid place-items-center shrink-0">
         {/* Arrow circle — always on top */}
         <span
           ref={arrowCircleRef}

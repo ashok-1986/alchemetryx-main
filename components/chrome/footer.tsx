@@ -41,9 +41,10 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="text-xs text-[var(--color-slate)]/80 space-y-1">
-              <p>{COMPANY.legalName || COMPANY.name}, Inc. © {currentYear}</p>
+            <div className="text-xs text-[var(--color-slate)]/80 space-y-1.5 leading-relaxed max-w-[38ch]">
+              <p>{COMPANY.legalName || COMPANY.name} © {currentYear}</p>
               <p>
+                Alchemetryx Ltd | Registered in England and Wales |{" "}
                 <a
                   href={COMPANY.companiesHouseUrl}
                   target="_blank"
@@ -51,7 +52,8 @@ export function Footer() {
                   className="hover:text-[var(--color-gold)] transition-colors underline underline-offset-2"
                 >
                   {COMPANY.companyNumberLabel}
-                </a>
+                </a>{" "}
+                | Registered Office: {COMPANY.registeredOffice}
               </p>
             </div>
           </div>

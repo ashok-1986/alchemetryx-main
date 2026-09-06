@@ -37,6 +37,11 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
+  icons: {
+    icon: "/brand/alchemetryx-mark.png",
+    shortcut: "/brand/alchemetryx-mark.png",
+    apple: "/brand/alchemetryx-mark.png",
+  },
 };
 
 export default function RootLayout({
