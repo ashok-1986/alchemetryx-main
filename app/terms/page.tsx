@@ -316,7 +316,11 @@ export default function TermsPage() {
               <strong>Third-Party Rights:</strong> A person who is not a party to these Terms has no right under the Contracts (Rights of Third Parties) Act 1999 to enforce any of its provisions.
             </p>
             <p>
-              <strong>Notices:</strong> Notices must be sent in writing by email to the primary business contact address or by postal delivery to the registered office address specified in Section 1.
+              <strong>Notices:</strong> All formal notices under these Terms must be in writing and sent by email to{" "}
+              <a href="mailto:notices@alchemetryx.com" className="text-[var(--color-gold-deep)] underline underline-offset-4">
+                notices@alchemetryx.com
+              </a>{" "}
+              or by postal delivery to {COMPANY.registeredOffice}. Each Statement of Work must specify the Client's designated notice email address and postal address for formal communications. Termination notices and dispute notices under Sections 11 and 13 must be sent to the addresses identified in this clause or the applicable SOW.
             </p>
           </div>
         </section>

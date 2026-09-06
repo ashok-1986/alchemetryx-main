@@ -22,7 +22,7 @@ export default function PrivacyPage() {
             Privacy Policy
           </h1>
           <p className="text-sm text-[var(--color-slate)]">
-            Effective Date: [TODO: insert effective date of publication, e.g. 1 October 2026]
+            Effective Date: 6 September 2026
           </p>
         </div>
 
@@ -48,9 +48,7 @@ export default function PrivacyPage() {
               </a>
               .
             </p>
-            <p className="text-sm text-[var(--color-slate)]">
-              Information Commissioner's Office (ICO) Registration: [TODO: insert once ico.org.uk registration completes].
-            </p>
+
           </div>
         </section>
 
@@ -310,7 +308,7 @@ export default function PrivacyPage() {
                   </tr>
                   <tr>
                     <td className="p-3 font-medium">Right to Data Portability</td>
-                    <td className="p-3">You can request your personal data in a structured, commonly used, machine-readable format.</td>
+                    <td className="p-3">Where the lawful basis for processing is consent or contract, and the data was provided by you and processed by automated means, you can request your personal data in a structured, commonly used, machine-readable format.</td>
                   </tr>
                   <tr>
                     <td className="p-3 font-medium">Right to Object</td>
