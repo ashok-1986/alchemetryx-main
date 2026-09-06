@@ -18,7 +18,7 @@ export type CaseStudy = {
 
 export const CARE_ROTA: CaseStudy = {
   slug: "care-rota",
-  kind: "client",
+  kind: "own-build",
   published: true,
   eyebrow: "Case study · Care operations",
   title: "A care home’s rota lived in a spreadsheet. We rebuilt it as a system.",

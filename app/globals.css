@@ -105,13 +105,7 @@ p {
   outline-offset: 2px;
 }
 
-/* Tactile press feedback (Apple Design / Motion QA finding 3) */
-button:active,
-[role="button"]:active,
-a:active {
-  transform: scale(0.97);
-  transition: transform 100ms ease-out;
-}
+/* Tactile press feedback — handled by button.tsx active:scale-[0.97] with 160ms transition */
 
 /* Apple Design Accessibility: Reduced Transparency */
 @media (prefers-reduced-transparency: reduce) {

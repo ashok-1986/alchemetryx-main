@@ -22,7 +22,7 @@ export function Hero() {
               "without the business",
               "falling apart.",
             ]}
-            className="text-[clamp(2.25rem,4.5vw,4.25rem)] font-light leading-[1.05] tracking-[-0.04em] max-w-[18ch]"
+            className="text-[clamp(3rem,7vw,5.5rem)] font-light leading-[1.05] tracking-[-0.04em] max-w-[18ch]"
           />
 
           <Reveal delay={0.3}>

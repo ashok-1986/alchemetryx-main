@@ -15,6 +15,8 @@ const NAV_ITEMS = [
 
 export function Nav() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+  const activeIndex = focusedIndex ?? hoveredIndex;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60 transition-colors duration-200">
@@ -33,6 +35,8 @@ export function Nav() {
               className="relative group"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onFocus={() => setFocusedIndex(index)}
+              onBlur={() => setFocusedIndex(null)}
             >
               <Link
                 href={item.href}
@@ -41,14 +45,14 @@ export function Nav() {
                 <span
                   className={cn(
                     "h-[1px] w-8 bg-[var(--color-sapphire-line)] transition-all duration-300 ease-out origin-left",
-                    hoveredIndex === index && "w-32 bg-[var(--color-gold)]"
+                    activeIndex === index && "w-32 bg-[var(--color-gold)]"
                   )}
                   aria-hidden="true"
                 />
                 <span
                   className={cn(
                     "text-sm font-light text-transparent transition-all duration-300 ease-out whitespace-nowrap",
-                    hoveredIndex === index && "text-[var(--color-pearl)]"
+                    activeIndex === index && "text-[var(--color-pearl)]"
                   )}
                 >
                   {item.label}
