@@ -219,7 +219,7 @@ Screenshot the full home page at 1440 wide, then eyeball the three-way split. If
 
 ### 11.1 Bug: the hub logo is not rendering
 
-`public/brand/alchemetryx-mark.png` was missing from the repo. It is now committed. Confirm `system-diagram.tsx` points at `/brand/alchemetryx-mark.png` and the mark appears in the hub. This is a missing-asset bug, not a design problem.
+`public/brand/alchemetryx-mark.png` was missing from the repo. It has since been added, but section 14a supersedes this: the file is tracked yet modified and uncommitted, so the deploy still serves the old placeholder. `public/brand/main-logo.png` is untracked and does not ship. See section 14a for the fix. Confirm `system-diagram.tsx` points at `/brand/alchemetryx-mark.png` and the mark appears in the hub.
 
 ### 11.2 Own-built platforms — a new proof section
 
@@ -287,18 +287,18 @@ Ten items were raised. Each one below, with where it is handled and what changed
 
 | # | Item | Where | Status |
 |---|---|---|---|
-| 1 | Fitosys, meetprerna, primeraskin as own-built proof | 11.2, revised in 12.1 | Unblocked |
-| 2 | Canvas 1440px, sections 100svh | 12.2 | Restated precisely |
+| 1 | Fitosys, meetprerna, primeraskin as own-built proof | 12.2 | Unblocked |
+| 2 | Canvas 1440px, sections 100svh | 12.4 | Restated precisely |
 | 3 | Hero headline too small | 11.3 | XL |
-| 3a | Logo not rendering in the hub | 11.1, revised in 12.3 | Asset committed, second asset needed |
+| 3a | Logo not rendering in the hub | 11.1, resolved in 14a | Asset committed, second asset untracked |
 | 3b | Light beam, RIGHT NOW to AFTER | 11.7 | GSAP, no library |
-| 4 | CTA pill shape | 12.4 | Specified |
+| 4 | CTA pill shape | 12.5 | Specified |
 | 5 | Problem rows, icon and text alignment | 11.5 | Fixed |
 | 6 | How We Work cards, same alignment fault | 11.5 | Fixed |
-| 7 | Who-we-are: CTA to /about, right side empty | 12.5 | Specified |
+| 7 | Who-we-are: CTA to /about, right side empty | 12.6 | Specified |
 | 8 | Framer preloader | 11.8 | Rebuild in our own stack |
 | 9 | Lottie missing | 11.9 | Replaced by 11.7 |
-| 10 | Framer TOC line nav | 11.8, 12.6 | Rebuild in our own stack |
+| 10 | Framer TOC line nav | 12.3 | Rebuild in our own stack |
 
 ### 12.1 meetprerna and primeraskin — unblocked
 
@@ -389,7 +389,7 @@ Structure it as data, same shape as `content/case-studies.ts`, so each new one d
 
 Both patterns get built on the locked stack. No `framer.com/m/*` imports.
 
-**Vertical line TOC nav.** Thin horizontal rules stacked vertically. Default state shows lines only. On hover a line widens and its label fades in. CSS width and opacity transitions, 200ms, `ease-out`. No library. Roughly thirty lines. Use it for in-page section navigation.
+**Vertical line TOC nav.** Thin horizontal rules stacked vertically. Default state shows lines only. On hover a line widens and its label fades in. CSS width and opacity transitions, 300ms, `ease-out`. No library. Roughly thirty lines. Use it for in-page section navigation.
 
 **Page transition.** If built, GSAP only, and it must not delay first paint. A fade on route change, under 300ms, is the ceiling. Anything that holds a loading screen breaks the LCP budget in `01_technical_foundation.md`.
 

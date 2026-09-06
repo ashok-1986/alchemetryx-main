@@ -16,14 +16,14 @@ const NAV_ITEMS = [
 export function Nav() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
-  const activeIndex = focusedIndex ?? hoveredIndex;
+  const activeIndex = hoveredIndex ?? focusedIndex;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60 transition-colors duration-200">
       <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between gap-6">
         <Link
           href="/"
-          className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)] hover:opacity-90 active:scale-[0.98] transition-all duration-150 cursor-pointer shrink-0"
+          className="text-xl font-light tracking-[-0.04em] text-[var(--color-pearl)] hover:opacity-90 transition-all duration-150 cursor-pointer shrink-0"
         >
           {COMPANY.name}
         </Link>

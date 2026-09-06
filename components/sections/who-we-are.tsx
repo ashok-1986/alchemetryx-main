@@ -11,7 +11,7 @@ interface WhoWeAreProps {
 export function WhoWeAre({
   headingLevel = "h2",
   eyebrow = "WHO YOU WOULD BE WORKING WITH",
-  heading = "We build the thing, not a deck about it.",
+  heading = "A firm that builds the thing, not a deck about it.",
   showCareRotaReference = true,
 }: WhoWeAreProps = {}) {
   const HeadingTag = headingLevel;
@@ -31,7 +31,7 @@ export function WhoWeAre({
         <Reveal delay={0.1}>
           <div className="max-w-[65ch]">
             <p className="text-base md:text-lg font-light leading-relaxed text-[var(--color-slate)]">
-              Alchemetryx is led by Ashok Verma. We scope each engagement to one process, build it properly, and stay while it settles. That discipline is why the systems we hand over keep running.
+              Alchemetryx is led by Ashok Verma. We take on one job at a time, build it properly, and stay while it settles. The systems we hand over keep running.
               {showCareRotaReference && (
                 <> The CareRota system above runs on our own infrastructure.</>
               )}

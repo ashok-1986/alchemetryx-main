@@ -105,7 +105,13 @@ p {
   outline-offset: 2px;
 }
 
-/* Tactile press feedback — handled by button.tsx active:scale-[0.97] with 160ms transition */
+/* Tactile press feedback for links and role="button" elements.
+   Button component handles its own active:scale via Tailwind class. */
+a:active,
+[role="button"]:active {
+  transform: scale(0.97);
+  transition: transform 160ms ease-out;
+}
 
 /* Apple Design Accessibility: Reduced Transparency */
 @media (prefers-reduced-transparency: reduce) {
