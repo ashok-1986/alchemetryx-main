@@ -7,7 +7,7 @@ import { COMPANY } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <SectionFullBleed tone="dark" className="pt-24 pb-20 md:pt-32 md:pb-28">
+    <SectionFullBleed tone="dark" className="pt-32 pb-20 md:pt-36 md:pb-28">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         {/* Left column: Value Proposition & CTA */}
         <div className="lg:col-span-6 flex flex-col justify-center">

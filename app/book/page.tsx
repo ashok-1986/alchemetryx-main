@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <SectionFullBleed tone="light" className="pt-16 pb-24 md:pt-24">
+    <SectionFullBleed tone="light" className="pt-32 pb-24 md:pt-36">
       <div className="max-w-[52ch]">
         <h1 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
           Book a 30-minute call

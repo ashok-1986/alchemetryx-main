@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <SectionFullBleed tone="light" className="pt-24 pb-20 md:pt-32 md:pb-28">
+    <SectionFullBleed tone="light" className="pt-32 pb-20 md:pt-36 md:pb-28">
       <div className="max-w-[78ch] mx-auto space-y-12">
         {/* Header */}
         <div className="space-y-4 border-b border-[var(--color-pearl-line)] pb-8">
@@ -43,8 +43,8 @@ export default function PrivacyPage() {
             </p>
             <p>
               Data Protection Officer / Privacy Contact: Ashok Verma. Email:{" "}
-              <a href="mailto:privacy@alchemetryx.com" className="text-[var(--color-gold-deep)] underline underline-offset-4">
-                privacy@alchemetryx.com
+              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gold-deep)] underline underline-offset-4">
+                {COMPANY.email}
               </a>
               .
             </p>
@@ -323,8 +323,8 @@ export default function PrivacyPage() {
             </div>
             <p>
               To exercise any of these rights, please write to{" "}
-              <a href="mailto:privacy@alchemetryx.com" className="text-[var(--color-gold-deep)] underline underline-offset-4">
-                privacy@alchemetryx.com
+              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gold-deep)] underline underline-offset-4">
+                {COMPANY.email}
               </a>
               . We respond to all verified requests within one calendar month.
             </p>
@@ -397,8 +397,8 @@ export default function PrivacyPage() {
             <p>Registered Office: {COMPANY.registeredOffice}</p>
             <p>
               Email:{" "}
-              <a href="mailto:privacy@alchemetryx.com" className="text-[var(--color-gold-deep)] underline underline-offset-4">
-                privacy@alchemetryx.com
+              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gold-deep)] underline underline-offset-4">
+                {COMPANY.email}
               </a>
             </p>
             <p>Company Number: {COMPANY.companyNumber}</p>

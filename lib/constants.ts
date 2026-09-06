@@ -13,6 +13,8 @@ export const COMPANY = {
   primaryCtaHref: "/book",
   ukAddress: "83 Arthur Grove, London, England, SE18 7ES",
   registeredOffice: "83 Arthur Grove, London, England, SE18 7ES",
+  email: "support@alchemetryx.com",
+  supportEmail: "support@alchemetryx.com",
   // TODO(ashok): confirm India address line before launch
   indiaAddress: "",
 } as const;

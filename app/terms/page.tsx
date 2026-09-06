@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <SectionFullBleed tone="light" className="pt-24 pb-20 md:pt-32 md:pb-28">
+    <SectionFullBleed tone="light" className="pt-32 pb-20 md:pt-36 md:pb-28">
       <div className="max-w-[78ch] mx-auto space-y-12">
         {/* Header */}
         <div className="space-y-4 border-b border-[var(--color-pearl-line)] pb-8">
@@ -317,8 +317,8 @@ export default function TermsPage() {
             </p>
             <p>
               <strong>Notices:</strong> All formal notices under these Terms must be in writing and sent by email to{" "}
-              <a href="mailto:notices@alchemetryx.com" className="text-[var(--color-gold-deep)] underline underline-offset-4">
-                notices@alchemetryx.com
+              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gold-deep)] underline underline-offset-4">
+                {COMPANY.email}
               </a>{" "}
               or by postal delivery to {COMPANY.registeredOffice}. Each Statement of Work must specify the Client's designated notice email address and postal address for formal communications. Termination notices and dispute notices under Sections 11 and 13 must be sent to the addresses identified in this clause or the applicable SOW.
             </p>
