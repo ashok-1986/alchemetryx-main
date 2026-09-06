@@ -70,7 +70,7 @@ export default function ProofCareRotaPage() {
   }, [activeImage]);
 
   return (
-    <SectionFullBleed id="proof" tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="proof" tone="light" className="pt-24 md:pt-28 border-t border-[var(--color-pearl-line)]">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           Case study · Care operations

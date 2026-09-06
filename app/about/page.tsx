@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      <div className="pt-10">
+      <div className="pt-20 md:pt-24">
         <WhoWeAre
           headingLevel="h1"
           eyebrow="WHO WE ARE"

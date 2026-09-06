@@ -46,7 +46,11 @@ export function NavRail() {
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActiveSection(visible.target.id);
+        if (visible) {
+          setActiveSection(visible.target.id);
+        } else {
+          setActiveSection(null);
+        }
       },
       // a band across the middle of the viewport, so "active" means
       // "the thing you are actually reading"

@@ -7,6 +7,8 @@
  * take one of them at a time. Inline SVG so the labels are real text, brand
  * tokens only so it cannot drift off-palette, no image request.
  */
+import { useId } from "react";
+
 const TILES = [
   { x: 0,   y: 0,   label: "Quoting" },
   { x: 148, y: 0,   label: "Rota" },
@@ -20,15 +22,19 @@ const TILES = [
 ];
 
 export function ScopeDiagram({ className }: { className?: string }) {
+  const id = useId();
+  const titleId = `scope-title-${id}`;
+  const descId = `scope-desc-${id}`;
+
   return (
     <svg
       viewBox="-8 -34 432 358"
       role="img"
-      aria-labelledby="scope-title scope-desc"
+      aria-labelledby={`${titleId} ${descId}`}
       className={className}
     >
-      <title id="scope-title">One process at a time</title>
-      <desc id="scope-desc">
+      <title id={titleId}>One process at a time</title>
+      <desc id={descId}>
         Nine processes a business runs. One of them, payroll in this example, is
         picked out and rebuilt first. The rest are left alone until it is working.
       </desc>

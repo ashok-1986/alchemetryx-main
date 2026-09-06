@@ -84,7 +84,7 @@ export function Nav() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-[var(--color-sapphire)]/80 backdrop-blur-[24px] supports-[backdrop-filter]:bg-[var(--color-sapphire)]/75 border-b border-[var(--color-sapphire-line)]/60">
+      <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
         <div className="w-full max-w-[1440px] mx-auto px-[10px] h-16 flex items-center justify-between gap-6">
           <Link
             href="/"
