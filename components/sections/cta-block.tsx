@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 import { COMPANY } from "@/lib/constants";
@@ -19,11 +18,13 @@ export function CtaBlock() {
             Tell us which job you would hand over first. Half an hour, no deck. If there is nothing here worth building, we will say so on the call.
           </p>
           <div className="mt-8 md:mt-10">
-            <Button asChild variant="primary" size="lg" className="shadow-[0_4px_16px_-4px_rgba(200,168,107,0.3)]">
-              <Link href={COMPANY.primaryCtaHref}>
-                {COMPANY.primaryCtaLabel}
-              </Link>
-            </Button>
+            <CircleExpandButton
+              href={COMPANY.primaryCtaHref}
+              variant="primary"
+              size="lg"
+            >
+              {COMPANY.primaryCtaLabel}
+            </CircleExpandButton>
           </div>
         </div>
       </Reveal>

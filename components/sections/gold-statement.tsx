@@ -1,12 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Button } from "@/components/ui/button";
-import { MagneticButton } from "@/components/ui/magnetic-button";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -91,16 +89,13 @@ export function GoldStatement() {
             businesses have plenty of the first and none of the second.
           </p>
           <div className="mt-8 md:mt-10">
-            <MagneticButton>
-              <Button
-                asChild
-                variant="sapphire"
-                size="lg"
-                className="shadow-[0_4px_16px_-4px_rgba(11,17,30,0.25)] focus-visible:outline-[var(--color-sapphire)]"
-              >
-                <Link href="/#how-we-work">See how we work →</Link>
-              </Button>
-            </MagneticButton>
+            <CircleExpandButton
+              href="/#how-we-work"
+              variant="sapphire"
+              size="lg"
+            >
+              See how we work →
+            </CircleExpandButton>
           </div>
         </div>
       </div>

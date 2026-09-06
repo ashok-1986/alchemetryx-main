@@ -1,10 +1,8 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { MagneticButton } from "@/components/ui/magnetic-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { SplitLines } from "@/components/motion/split-lines";
 import { Reveal } from "@/components/motion/reveal";
 import { SystemDiagram } from "@/components/sections/system-diagram";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { COMPANY } from "@/lib/constants";
 
 export function Hero() {
@@ -34,11 +32,13 @@ export function Hero() {
 
           <Reveal delay={0.5}>
             <div className="mt-8 md:mt-10">
-              <MagneticButton>
-                <Button asChild variant="primary" size="lg">
-                  <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>
-                </Button>
-              </MagneticButton>
+              <CircleExpandButton
+                href={COMPANY.primaryCtaHref}
+                variant="primary"
+                size="lg"
+              >
+                {COMPANY.primaryCtaLabel}
+              </CircleExpandButton>
             </div>
           </Reveal>
         </div>

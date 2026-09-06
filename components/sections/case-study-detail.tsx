@@ -15,8 +15,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 import { COMPANY } from "@/lib/constants";
@@ -201,11 +200,13 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
                 {cs.closingLine}
               </p>
               <div className="mt-8">
-                <Button asChild variant="primary" size="lg">
-                  <Link href={COMPANY.primaryCtaHref}>
-                    {COMPANY.primaryCtaLabel}
-                  </Link>
-                </Button>
+                <CircleExpandButton
+                  href={COMPANY.primaryCtaHref}
+                  variant="primary"
+                  size="lg"
+                >
+                  {COMPANY.primaryCtaLabel}
+                </CircleExpandButton>
               </div>
             </div>
             <div className="lg:col-span-7">

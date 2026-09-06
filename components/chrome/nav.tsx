@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { COMPANY } from "@/lib/constants";
 import { NAV_ITEMS } from "@/components/chrome/nav-items";
 
@@ -104,9 +105,13 @@ export function Nav() {
           </Link>
 
           <div className="flex items-center gap-2 shrink-0">
-            <Button asChild variant="primary" size="sm">
-              <Link href={COMPANY.primaryCtaHref}>{COMPANY.primaryCtaLabel}</Link>
-            </Button>
+            <CircleExpandButton
+              href={COMPANY.primaryCtaHref}
+              variant="primary"
+              size="sm"
+            >
+              {COMPANY.primaryCtaLabel}
+            </CircleExpandButton>
             <button
               ref={menuTriggerRef}
               type="button"
