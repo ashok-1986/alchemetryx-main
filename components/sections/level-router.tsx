@@ -16,8 +16,8 @@ const PANELS = {
       "Nothing needs replacing on day one. We look at the jobs that run on memory and paper, and pick the one costing you most time.",
       "Then we rebuild that one job as a system. AI sits inside it where it earns its place, and nowhere else.",
     ],
-    cta: "See what starting with one job looked like →",
-    href: "/#proof",
+    cta: "How starting with one job works →",
+    href: "/not-yet",
   },
   "yes": {
     label: "Yes, we have",
@@ -26,8 +26,8 @@ const PANELS = {
       "Plenty of businesses have bought a tool and cannot say what it changed. That is usually not a bad tool. It is a tool sitting next to a job instead of inside one.",
       "We look at what you already pay for, what it actually does, and what would need to be true for it to matter.",
     ],
-    cta: "See what we look at first →",
-    href: "/#how-we-work",
+    cta: "What to do when the tools are already there →",
+    href: "/already-bought",
   },
 } as const;
 
