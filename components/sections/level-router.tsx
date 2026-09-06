@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 import { cn } from "@/lib/utils";
@@ -34,6 +36,25 @@ type PanelKey = keyof typeof PANELS;
 export function LevelRouter() {
   const [active, setActive] = useState<PanelKey>("not-yet");
   const keys = Object.keys(PANELS) as PanelKey[];
+  const dotRef = useRef<HTMLSpanElement>(null);
+  const dotTweenRef = useRef<gsap.core.Tween | null>(null);
+
+  useGSAP(() => {
+    if (!dotRef.current) return;
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      dotTweenRef.current?.kill();
+      dotTweenRef.current = gsap.to(dotRef.current!, {
+        scale: 1.4,
+        opacity: 0.5,
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+      });
+    });
+  });
 
   const handleKeyDown = (e: React.KeyboardEvent, currentKey: PanelKey) => {
     const currentIndex = keys.indexOf(currentKey);
@@ -49,7 +70,12 @@ export function LevelRouter() {
   };
 
   return (
-    <SectionFullBleed id="diagnostic" tone="dark" fullHeight={false} className="border-t border-[var(--color-sapphire-line)] py-20 md:py-28">
+    <SectionFullBleed
+      id="diagnostic"
+      tone="dark"
+      fullHeight={false}
+      className="border-t border-[var(--color-sapphire-line)] py-20 md:py-28"
+    >
       <Reveal>
         <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[20ch] text-[var(--color-pearl)]">
           Have you bought AI yet?
@@ -76,22 +102,29 @@ export function LevelRouter() {
                 onClick={() => setActive(key)}
                 onKeyDown={(e) => handleKeyDown(e, key)}
                 className={cn(
-                  "flex-1 flex flex-col justify-between text-left rounded-md border p-6 cursor-pointer",
-                  "transition-all duration-200 active:scale-[0.985] outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-2",
+                  "flex-1 flex flex-col justify-between text-left rounded-lg p-6 cursor-pointer",
+                  "transition-all duration-300 active:scale-[0.97] outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-2",
                   isActive
-                    ? "border-[var(--color-gold-deep)] bg-[var(--color-sapphire-raised)] text-[var(--color-pearl)] shadow-[0_4px_16px_-4px_rgba(11,17,30,0.2)]"
-                    : "border-[var(--color-sapphire-line)] bg-transparent text-[var(--color-pearl)] hover:border-[var(--color-gold-deep)]/70 hover:bg-[var(--color-sapphire-raised)]/50"
+                    ? "backdrop-blur-[12px] bg-[var(--color-sapphire-raised)]/50 border border-[var(--color-gold-deep)]/60 text-[var(--color-pearl)] shadow-[0_4px_24px_-4px_rgba(11,17,30,0.25),inset_0_1px_1px_0_rgba(255,255,255,0.04)]"
+                    : "backdrop-blur-[8px] bg-[var(--color-sapphire-raised)]/20 border border-[var(--color-sapphire-line)]/40 text-[var(--color-pearl)] hover:border-[var(--color-gold-deep)]/50 hover:bg-[var(--color-sapphire-raised)]/35"
                 )}
               >
                 <div className="flex items-center justify-between w-full">
-                  <span className={cn(
-                    "text-xs uppercase tracking-[0.16em]",
-                    isActive ? "text-[var(--color-gold)] opacity-100" : "opacity-60"
-                  )}>
+                  <span
+                    className={cn(
+                      "text-xs uppercase tracking-[0.16em]",
+                      isActive
+                        ? "text-[var(--color-gold)] opacity-100"
+                        : "opacity-60"
+                    )}
+                  >
                     {PANELS[key].label}
                   </span>
                   {isActive && (
-                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
+                    <span
+                      ref={dotRef}
+                      className="w-1.5 h-1.5 rounded-full bg-[var(--color-gold)]"
+                    />
                   )}
                 </div>
                 <span className="mt-3 block text-lg font-light leading-snug">
@@ -111,7 +144,10 @@ export function LevelRouter() {
         className="mt-10 min-h-[140px] md:min-h-[110px] max-w-[65ch] space-y-4 transition-opacity duration-200 ease-out animate-[fade-in_200ms_ease-out]"
       >
         {PANELS[active].body.map((para) => (
-          <p key={para} className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
+          <p
+            key={para}
+            className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85"
+          >
             {para}
           </p>
         ))}

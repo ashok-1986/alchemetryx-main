@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * components/sections/scope-diagram.tsx
  *
@@ -7,7 +9,9 @@
  * take one of them at a time. Inline SVG so the labels are real text, brand
  * tokens only so it cannot drift off-palette, no image request.
  */
-import { useId } from "react";
+import { useId, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const TILES = [
   { x: 0,   y: 0,   label: "Quoting" },
@@ -25,6 +29,22 @@ export function ScopeDiagram({ className }: { className?: string }) {
   const id = useId();
   const titleId = `scope-title-${id}`;
   const descId = `scope-desc-${id}`;
+  const dashedRef = useRef<SVGRectElement>(null);
+
+  useGSAP(() => {
+    if (!dashedRef.current) return;
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      // Marching ants — animate strokeDashoffset to create movement
+      gsap.to(dashedRef.current!, {
+        strokeDashoffset: -14,
+        duration: 1.2,
+        repeat: -1,
+        ease: "none",
+      });
+    });
+  }, { scope: dashedRef });
 
   return (
     <svg
@@ -67,8 +87,9 @@ export function ScopeDiagram({ className }: { className?: string }) {
         </g>
       ))}
 
-      {/* the one we are on */}
+      {/* the one we are on — marching ants dashed border */}
       <rect
+        ref={dashedRef}
         x="140"
         y="-8"
         width="144"
