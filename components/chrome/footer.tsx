@@ -1,43 +1,198 @@
 import Link from "next/link";
+import Image from "next/image";
 import { COMPANY } from "@/lib/constants";
-import { Separator } from "@/components/ui/separator";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="w-full section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)] pt-14 pb-10">
-      <div className="w-full max-w-[1440px] mx-auto px-[10px] space-y-10">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="space-y-3">
-            <Link
-              href="/"
-              className="text-2xl font-light tracking-[-0.04em] text-[var(--color-pearl)] inline-block cursor-pointer"
-            >
-              {COMPANY.name}
-            </Link>
-            <p className="text-sm text-[var(--color-slate)] max-w-[45ch] leading-relaxed">
-              We rebuild the one job that runs on you, so it runs without you.
-            </p>
+    <footer className="w-full relative overflow-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 pt-20 pb-12">
+      {/* Massive subtle background watermark text */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none select-none absolute left-0 right-0 bottom-[-2vw] flex justify-center overflow-hidden opacity-[0.045] transition-opacity"
+      >
+        <span className="text-[clamp(6rem,19vw,19rem)] font-extrabold tracking-[-0.05em] uppercase leading-none text-[var(--color-pearl)]">
+          {COMPANY.name}
+        </span>
+      </div>
+
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 md:px-12 space-y-16">
+        {/* Main Columns Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          {/* Brand & Mission / Copyright Column */}
+          <div className="lg:col-span-4 flex flex-col justify-between space-y-8">
+            <div className="space-y-4">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-3 text-2xl font-light tracking-[-0.03em] text-[var(--color-pearl)] hover:opacity-90 transition-opacity"
+              >
+                <Image
+                  src="/brand/alchemetryx-mark.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                  className="w-7 h-7 object-contain"
+                />
+                <span className="font-medium tracking-tight">{COMPANY.name}</span>
+              </Link>
+              <p className="text-sm font-normal text-[var(--color-slate)] max-w-[34ch] leading-relaxed">
+                We rebuild the job that lives in one person's head, so the process is clear, repeatable, and easy for anyone to run.
+              </p>
+            </div>
+
+            <div className="text-xs text-[var(--color-slate)]/80 space-y-1">
+              <p>{COMPANY.legalName || COMPANY.name}, Inc. © {currentYear}</p>
+              <p>
+                <a
+                  href={COMPANY.companiesHouseUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--color-gold)] transition-colors underline underline-offset-2"
+                >
+                  {COMPANY.companyNumberLabel}
+                </a>
+              </p>
+            </div>
           </div>
-          <Link
-            href={COMPANY.primaryCtaHref}
-            className="text-sm text-[var(--color-gold)] underline underline-offset-4 hover:opacity-80 transition-opacity cursor-pointer"
-          >
-            {COMPANY.primaryCtaLabel}
-          </Link>
-        </div>
 
-        <Separator className="bg-[var(--color-sapphire-line)]" />
+          {/* Navigation Links Columns */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-8">
+            {/* Column 1: Product / Work */}
+            <div className="space-y-4">
+              <p className="text-sm font-medium text-[var(--color-pearl)]">Product</p>
+              <ul className="space-y-2.5 text-sm text-[var(--color-slate)]">
+                <li>
+                  <Link href="/#problem" className="hover:text-[var(--color-pearl)] transition-colors">
+                    The Problem
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#how-we-work" className="hover:text-[var(--color-pearl)] transition-colors">
+                    How We Work
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/proof" className="hover:text-[var(--color-pearl)] transition-colors">
+                    Proof & Case Studies
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/book" className="hover:text-[var(--color-pearl)] transition-colors">
+                    Book Call
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-xs text-[var(--color-slate)]">
-          <p>© {new Date().getFullYear()} {COMPANY.name}. All rights reserved.</p>
-          <a
-            href={COMPANY.companiesHouseUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[var(--color-pearl)]/90 hover:text-[var(--color-gold)] transition-colors cursor-pointer"
-          >
-            {COMPANY.companyNumberLabel}
-          </a>
+            {/* Column 2: Company */}
+            <div className="space-y-4">
+              <p className="text-sm font-medium text-[var(--color-pearl)]">Company</p>
+              <ul className="space-y-2.5 text-sm text-[var(--color-slate)]">
+                <li>
+                  <Link href="/about" className="hover:text-[var(--color-pearl)] transition-colors">
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/proof/care-rota" className="hover:text-[var(--color-pearl)] transition-colors">
+                    CareRota
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/proof/fitosys" className="hover:text-[var(--color-pearl)] transition-colors">
+                    Fitosys
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href={COMPANY.companiesHouseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[var(--color-pearl)] transition-colors"
+                  >
+                    Companies House
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3: Social */}
+            <div className="space-y-4">
+              <p className="text-sm font-medium text-[var(--color-pearl)]">Social</p>
+              <ul className="space-y-2.5 text-sm text-[var(--color-slate)]">
+                <li>
+                  <a
+                    href="https://linkedin.com/company/alchemetryx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-[var(--color-pearl)] transition-colors group"
+                  >
+                    {/* LinkedIn Icon */}
+                    <svg className="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24" />
+                    </svg>
+                    <span>LinkedIn</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://instagram.com/alchemetryx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-[var(--color-pearl)] transition-colors group"
+                  >
+                    {/* Instagram Icon */}
+                    <svg className="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                    </svg>
+                    <span>Instagram</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://facebook.com/alchemetryx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 hover:text-[var(--color-pearl)] transition-colors group"
+                  >
+                    {/* Facebook Icon */}
+                    <svg className="w-4 h-4 fill-current transition-transform group-hover:scale-110" viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span>Facebook</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 4: Legal */}
+            <div className="space-y-4">
+              <p className="text-sm font-medium text-[var(--color-pearl)]">Legal</p>
+              <ul className="space-y-2.5 text-sm text-[var(--color-slate)]">
+                <li>
+                  <Link href="/privacy" className="hover:text-[var(--color-pearl)] transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms" className="hover:text-[var(--color-pearl)] transition-colors">
+                    Terms
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href={COMPANY.companiesHouseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[var(--color-pearl)] transition-colors"
+                  >
+                    Registry Data
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

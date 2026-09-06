@@ -125,10 +125,11 @@ export function CircleExpandButton({
 
       const handleMouseLeave = () => {
         expandTween?.kill();
+        const initialSize = isSm ? 28 : 35;
         // Shrink circle back
         expandTween = gsap.to(expandCircle, {
-          width: 35,
-          height: 35,
+          width: initialSize,
+          height: initialSize,
           backgroundColor: colors.expandDefault,
           duration: 0.4,
           ease: "power2.inOut",
@@ -205,45 +206,48 @@ export function CircleExpandButton({
       {/* Hover text (visible when hovered — positioned on top of default text) */}
       <span
         ref={textHoverRef}
-        className="absolute z-10 whitespace-nowrap font-normal left-[21px] top-1/2 -translate-y-1/2"
+        className="absolute z-10 whitespace-nowrap font-normal left-[28px] top-1/2 -translate-y-1/2"
         style={{ color: colors.textHoverColor, opacity: 0 }}
         aria-hidden="true"
       >
         {children}
       </span>
 
-      {/* Arrow circle — always on top */}
-      <span
-        ref={arrowCircleRef}
-        aria-hidden="true"
-        className={`relative z-20 grid shrink-0 place-items-center rounded-full ${isSm ? "w-[28px] h-[28px]" : "w-[35px] h-[35px]"}`}
-        style={{ backgroundColor: colors.arrowCircleDefault }}
-      >
-        <ArrowRight
-          ref={arrowIconRef}
-          className="w-4 h-4"
-          strokeWidth={1.5}
+      {/* Arrow container: anchors the arrow circle and the expanding circle */}
+      <span className="relative z-20 grid place-items-center shrink-0">
+        {/* Arrow circle — always on top */}
+        <span
+          ref={arrowCircleRef}
+          aria-hidden="true"
+          className={`relative z-20 grid shrink-0 place-items-center rounded-full ${isSm ? "w-[28px] h-[28px]" : "w-[35px] h-[35px]"}`}
+          style={{ backgroundColor: colors.arrowCircleDefault }}
+        >
+          <ArrowRight
+            ref={arrowIconRef}
+            className="w-4 h-4"
+            strokeWidth={1.5}
+            style={{
+              color: colors.arrowDefault,
+              transform: "rotate(-45deg)",
+            }}
+          />
+        </span>
+
+        {/* Expanding circle — z-1, expands behind arrow circle originating from arrow center */}
+        <span
+          ref={expandCircleRef}
+          aria-hidden="true"
+          className="absolute rounded-full z-[1] pointer-events-none"
           style={{
-            color: colors.arrowDefault,
-            transform: "rotate(-45deg)",
+            width: isSm ? 28 : 35,
+            height: isSm ? 28 : 35,
+            left: "50%",
+            top: "50%",
+            transform: "translate(-50%, -50%)",
+            backgroundColor: colors.expandDefault,
           }}
         />
       </span>
-
-      {/* Expanding circle — z-1, expands behind arrow circle */}
-      <span
-        ref={expandCircleRef}
-        aria-hidden="true"
-        className="absolute rounded-full z-[1]"
-        style={{
-          width: 35,
-          height: 35,
-          left: "49%",
-          top: "49%",
-          transform: "translate(-50%, -50%)",
-          backgroundColor: colors.expandDefault,
-        }}
-      />
     </Link>
   );
 }
