@@ -50,13 +50,13 @@ Three gold buttons on the whole page, nothing more. Five identical asks means th
 | Element | Copy | Status |
 |---|---|---|
 | Eyebrow | Make the business easier to run | LOCKED |
-| H1 | **Take a fortnight off without the business falling apart.** | NEEDS YOUR CALL — "fortnight" or "two weeks" |
-| Sub | Right now the job lives in your head and a spreadsheet only you understand. We rebuild it so it runs without you. | LOCKED |
+| H1 | **Good work shouldn't depend on who knows how.** | LOCKED — replaces the fortnight headline, 6 Sep |
+| Sub | Right now, the job lives in someone's head and a spreadsheet only they understand. We rebuild the way it gets done, so the process is clear, repeatable, and easier for everyone to run. | LOCKED |
 | CTA | Book a 30-minute call → `/book` | LOCKED |
 
-**Why this headline.** It is the only version that gives the reader a picture they can hold. Taking two weeks off is something an owner has thought about and failed to do. It carries no claim about our delivery, no number, no absolute.
+**Why this headline.** It closes the fortnight-vs-two-weeks question by removing the duration claim entirely, which also clears the "no duration string on the home page" acceptance check the fortnight version was quietly breaking. It also moves the bottleneck claim off the owner specifically and onto the pattern: knowledge sitting with one person, not hours worked by any one person. That is a claim CareRota's own copy already backs up ("leave lived in heads," "only you know the order" in the diagram), so it does not need a stat behind it.
 
-**Not a guarantee.** This is the buyer's wish stated back to them, not a promise that their business will run for fourteen days. Do not let it drift into the second thing.
+**Matching change.** The hero diagram (`system-diagram.tsx`) used second-person labels — "In your head," "Runs without you" — that would have argued with this new third-person headline sitting next to it. Updated to "In one person's head" and "Runs on its own" so the visual and the headline say the same thing.
 
 ---
 

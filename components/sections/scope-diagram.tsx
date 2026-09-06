@@ -11,10 +11,10 @@ import { useId } from "react";
 
 const TILES = [
   { x: 0,   y: 0,   label: "Quoting" },
-  { x: 148, y: 0,   label: "Rota" },
+  { x: 148, y: 0,   label: "Rota", active: true },
   { x: 296, y: 0,   label: "Invoicing" },
   { x: 0,   y: 104, label: "Onboarding" },
-  { x: 148, y: 104, label: "Payroll", active: true },
+  { x: 148, y: 104, label: "Payroll" },
   { x: 296, y: 104, label: "Reporting" },
   { x: 0,   y: 208, label: "Stock" },
   { x: 148, y: 208, label: "Compliance" },
@@ -35,7 +35,7 @@ export function ScopeDiagram({ className }: { className?: string }) {
     >
       <title id={titleId}>One process at a time</title>
       <desc id={descId}>
-        Nine processes a business runs. One of them, payroll in this example, is
+        Nine processes a business runs. One of them, rota in this example, is
         picked out and rebuilt first. The rest are left alone until it is working.
       </desc>
 
@@ -70,7 +70,7 @@ export function ScopeDiagram({ className }: { className?: string }) {
       {/* the one we are on */}
       <rect
         x="140"
-        y="96"
+        y="-8"
         width="144"
         height="100"
         rx="8"
@@ -79,7 +79,7 @@ export function ScopeDiagram({ className }: { className?: string }) {
         strokeOpacity="0.45"
         strokeDasharray="3 4"
       />
-      <text x="140" y="212" fill="var(--color-gold)" fontSize="11" letterSpacing="2.2">
+      <text x="140" y="108" fill="var(--color-gold)" fontSize="11" letterSpacing="2.2">
         THIS ONE FIRST
       </text>
     </svg>

@@ -9,13 +9,13 @@ import { cn } from "@/lib/utils";
 const LEFT_BOXES = [
   { y: 40, t: "Spreadsheets", s: "Five tabs, ninety columns" },
   { y: 182, t: "Chasing", s: "Invoices, updates, people" },
-  { y: 324, t: "In your head", s: "Only you know the order" },
+  { y: 324, t: "In one person's head", s: "Only they know the order" },
 ];
 
 const RIGHT_BOXES = [
   { y: 40, t: "One place", s: "Not five files" },
-  { y: 182, t: "Live numbers", s: "While you can still act" },
-  { y: 324, t: "Runs without you", s: "Nobody has to remember" },
+  { y: 182, t: "Live numbers", s: "While there's still time to act" },
+  { y: 324, t: "Runs on its own", s: "Nobody has to remember" },
 ];
 
 /**

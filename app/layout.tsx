@@ -17,11 +17,11 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://alchemetryx.com"),
   title: {
-    default: "Alchemetryx — the job that runs on you, rebuilt",
+    default: "Alchemetryx — good work shouldn't depend on who knows how",
     template: "%s | Alchemetryx",
   },
   description:
-    "We rebuild the one job that runs on you, so it runs without you. UK registered company 17199377.",
+    "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run. UK registered company 17199377.",
   alternates: {
     canonical: "/",
     languages: {
