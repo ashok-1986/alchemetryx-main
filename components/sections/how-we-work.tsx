@@ -1,24 +1,25 @@
 import Link from "next/link";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
-import { Search } from "lucide-react";
-import { GitBranch } from "lucide-react";
-import { TrendingUp } from "lucide-react";
+import { Search, GitBranch, TrendingUp } from "lucide-react";
 
 const STEPS = [
   {
     step: "Look",
     service: "The Diagnostic",
+    icon: Search,
     body: "We work out what is actually happening. Which jobs run on memory, what they cost you in hours, and which one is worth changing first.",
   },
   {
     step: "Decide",
     service: "The Build",
+    icon: GitBranch,
     body: "We rebuild that one job as a working system, inside the tools you already have where that makes sense. You see it running before it takes over.",
   },
   {
     step: "Improve",
     service: "The Retainer",
+    icon: TrendingUp,
     body: "We stay while it settles, fix what the real world breaks, and pick up the next job when you are ready. If there is nothing worth doing, we say so.",
   },
 ];
@@ -42,18 +43,21 @@ export function HowWeWork() {
       <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
         {STEPS.map((s, i) => (
           <Reveal key={s.step} delay={i * 0.08} className="h-full">
-            <div className="h-full flex flex-col justify-between rounded-md border border-[var(--color-pearl-line)] p-7 transition-all duration-200 ease-out hover:border-[var(--color-gold-deep)]/50 hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-8px_rgba(17,25,43,0.06)] bg-[var(--color-pearl)]">
+            <div className="group h-full flex flex-col justify-between rounded-md border border-[var(--color-pearl-line)] p-7 transition-all duration-200 ease-out hover:border-[var(--color-gold-deep)]/50 hover:-translate-y-[2px] hover:shadow-[0_8px_24px_-8px_rgba(17,25,43,0.06)] bg-[var(--color-pearl)]">
               <div>
                 <div>
                   <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
                     {String(i + 1).padStart(2, "0")} / {s.step}
                   </p>
                 </div>
-                <h3 className="mt-5 text-xl sm:text-2xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
-                  <span className="mr-2">
-                    {i === 0 ? <Search className="w-5 h-5 text-[var(--color-gold-deep)]" /> : i === 1 ? <GitBranch className="w-5 h-5 text-[var(--color-gold-deep)]" /> : <TrendingUp className="w-5 h-5 text-[var(--color-gold-deep)]" />}
+                <h3 className="mt-5 flex items-center gap-3 text-xl sm:text-2xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
+                  <span
+                    aria-hidden="true"
+                    className="grid place-items-center shrink-0 w-10 h-10 rounded-full border border-[var(--color-pearl-line)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
+                  >
+                    <s.icon className="w-[18px] h-[18px] text-[var(--color-gold-deep)]" strokeWidth={1.5} />
                   </span>
-                  {s.service}
+                  <span className="leading-none">{s.service}</span>
                 </h3>
               </div>
               <p className="mt-6 text-base font-normal leading-relaxed text-[var(--color-ink)]">

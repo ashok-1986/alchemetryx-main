@@ -58,13 +58,16 @@ export function TheProblem() {
         {ROWS.map((row, i) => (
           <Reveal key={row.label} delay={0.08 * i}>
             <div className="group -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-md transition-colors duration-250 ease-out hover:bg-[var(--color-ink)]/[0.02] border-b border-[var(--color-pearl-line)] py-8 md:py-10">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-baseline">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
                 <div className="md:col-span-4 lg:col-span-3">
-                  <h3 className="text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)] group-hover:text-[var(--color-gold-deep)] transition-colors duration-200">
-                    <span className="mr-2">
-                      <row.icon className="w-5 h-5 text-[var(--color-gold)]" />
+                  <h3 className="flex items-center gap-3 text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)] group-hover:text-[var(--color-gold-deep)] transition-colors duration-200">
+                    <span
+                      aria-hidden="true"
+                      className="grid place-items-center shrink-0 w-10 h-10 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
+                    >
+                      <row.icon className="w-[18px] h-[18px] text-[var(--color-gold-deep)]" strokeWidth={1.5} />
                     </span>
-                    {row.label}
+                    <span className="leading-none">{row.label}</span>
                   </h3>
                 </div>
                 <div className="md:col-span-8 lg:col-span-9">

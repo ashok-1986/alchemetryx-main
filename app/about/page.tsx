@@ -17,6 +17,7 @@ export default function AboutPage() {
           eyebrow="WHO WE ARE"
           heading="Who we are."
           showCareRotaReference={false}
+          showCta={false}
         />
       </div>
       <CtaBlock />
