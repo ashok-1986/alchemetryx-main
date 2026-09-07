@@ -43,7 +43,7 @@ export default function AboutPage() {
           console.error("ScrollCraft failed to load");
         }}
       />
-      <Script src="/scrollcraft/builds/about/scrollcraft.css" strategy="beforeInteractive" />
+      <link rel="stylesheet" href="/scrollcraft/builds/about/scrollcraft.css" />
 
       <style>{`
         :root {
