@@ -86,18 +86,18 @@ export function Nav() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
-        <div className="w-full max-w-[1440px] mx-auto px-[10px] h-[108px] flex items-center justify-between gap-6">
+        <div className="w-full max-w-[1440px] mx-auto px-[10px] h-20 flex items-center justify-between gap-6">
           <Link
             href="/"
             className="flex items-center shrink-0 cursor-pointer transition-opacity duration-150 hover:opacity-90"
             aria-label="Alchemetryx Home"
           >
             <Image
-              src="/brand/alchemetryx-mark.png"
+              src="/brand/main-logo.png"
               alt="Alchemetryx"
               width={100}
-              height={100}
-              className="h-[100px] w-[100px] object-contain"
+              height={32}
+              className="w-[100px] h-auto object-contain"
               priority
             />
           </Link>

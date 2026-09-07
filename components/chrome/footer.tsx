@@ -25,11 +25,11 @@ export function Footer() {
               aria-label="Alchemetryx Home"
             >
               <Image
-                src="/brand/alchemetryx-mark.png"
+                src="/brand/main-logo.png"
                 alt="Alchemetryx"
                 width={100}
-                height={100}
-                className="w-[100px] h-[100px] object-contain"
+                height={32}
+                className="w-[100px] h-auto object-contain"
               />
             </Link>
             <p className="text-sm font-normal text-[var(--color-slate)] max-w-[32ch] leading-relaxed">
