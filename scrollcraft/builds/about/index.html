@@ -55,9 +55,13 @@
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--sc-ink-soft);
+    color: var(--sc-ink);
     z-index: 100;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; disabled for Safari compatibility */
+    background: color-mix(in oklab, var(--sc-canvas) 85%, transparent);
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
     transition: opacity 0.3s;
   }
   .folio__num {

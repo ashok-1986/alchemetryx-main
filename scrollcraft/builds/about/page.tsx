@@ -69,9 +69,13 @@ export default function AboutPage() {
         .folio {
           position: fixed; top: clamp(1.5rem, 3vw, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem);
           font-family: var(--sc-font-text); font-size: 0.75rem; letter-spacing: 0.12em;
-          text-transform: uppercase; color: var(--sc-ink-soft); z-index: 100;
+          text-transform: uppercase; color: var(--sc-ink); z-index: 100;
           /* mix-blend-mode: difference; disabled for Safari compatibility */
-          opacity: 0.7;
+          /* Removed opacity: 0.7; use solid ink color with background for contrast */
+          background: color-mix(in oklab, var(--sc-canvas) 85%, transparent);
+          padding: 0.375rem 0.75rem;
+          border-radius: 4px;
+          backdrop-filter: blur(4px);
         }
         .folio__num { font-weight: 300; font-size: 0.625rem; display: block; margin-bottom: 0.25rem; }
         .title-page {
