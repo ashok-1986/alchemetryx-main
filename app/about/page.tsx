@@ -183,9 +183,12 @@ export default function AboutPage() {
       <main id="top">
         {/* TITLE PAGE */}
         <section className="title-page" data-sc-act="flow" data-sc-drift="#F8F6F0">
-          <p className="title-page__eyebrow" data-sc-cue="0.06 0.5">Alchemetryx</p>
-          <h1 className="title-page__heading" data-sc-cue="0 0.6 0">Clarity before you commit.</h1>
-          <p className="title-page__sub" data-sc-cue="0.12 0.7">Business systems, decision and growth intelligence partner for owner-led businesses.</p>
+          <p className="title-page__eyebrow" data-sc-cue="0.06 0.5">Business systems consultancy</p>
+          <h1 className="title-page__heading" data-sc-cue="0 0.6 0">Your software doesn't talk. Your team does the work. You make every decision.</h1>
+          <p className="title-page__sub" data-sc-cue="0.12 0.7">We connect your tools, automate the manual work, and give you the dashboards to decide — so the business runs without you in the room.</p>
+          <div className="title-page__cta" data-sc-cue="0.2 0.8">
+            <a href="/proof" className="title-page__link" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See how we've done it for others →</a>
+          </div>
         </section>
 
         {/* 01 · THE PATTERN */}
@@ -319,7 +322,10 @@ export default function AboutPage() {
         <section className="colophon" data-sc-act="pin" data-sc-span="1.15" data-sc-drift="#1A2642">
           <div data-sc-stage>
             <p className="colophon__text" data-sc-cue="0.06" data-sc-kinetic="lines">If we do not think there is a problem worth paying to solve, we will tell you that instead.</p>
-            <a className="colophon__cta" href="/book" data-sc-cue="0.12">Book a 30-minute call</a>
+            <div className="colophon__cta-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start', marginTop: '1rem' }}>
+              <a className="colophon__cta" href="/book" data-sc-cue="0.12">Book a 30-minute call</a>
+              <a className="colophon__cta colophon__cta--secondary" href="/proof" data-sc-cue="0.18" style={{ background: 'transparent', color: 'var(--sc-accent)', border: '1px solid var(--sc-accent)', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--sc-accent)'; e.currentTarget.style.color = 'var(--sc-accent-ink)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--sc-accent)'; }}>See our work first →</a>
+            </div>
             <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 16350617</p>
           </div>
         </section>
