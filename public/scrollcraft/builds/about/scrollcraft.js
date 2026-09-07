@@ -1073,7 +1073,8 @@
     }
     function prime() {
       for (var i = 0; i < playheads.length; i++) primeClip(playheads[i]);
-      if (playheads.length && primedCount >= playheads.length) {
+      // Clean up prime listeners when all clips are primed OR when there are no clips
+      if (!playheads.length || primedCount >= playheads.length) {
         removeEventListener('touchstart', prime);
         removeEventListener('touchend', prime);
         removeEventListener('pointerdown', prime);
