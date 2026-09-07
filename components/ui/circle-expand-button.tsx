@@ -51,11 +51,11 @@ export function CircleExpandButton({
       // Default text (visible when not hovered)
       textDefaultColor: "var(--color-ink)",
       // Hover text (visible when hovered — must contrast with expanding circle)
-      textHoverColor: "var(--color-pearl)",
+      textHoverColor: "var(--color-gold)",
       // Arrow circle background
       arrowCircleDefault: "var(--color-pearl)",
       arrowCircleHover: "var(--color-sapphire)",
-      // Expanding circle — matches arrow circle default initially, then sapphire on hover to contrast white text
+      // Expanding circle — matches arrow circle default initially, then sapphire on hover
       expandDefault: "var(--color-pearl)",
       expandHover: "var(--color-sapphire)",
       // Arrow icon
