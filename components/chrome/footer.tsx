@@ -27,9 +27,9 @@ export function Footer() {
               <Image
                 src="/brand/main-logo.png"
                 alt="Alchemetryx"
-                width={100}
-                height={32}
-                className="w-[100px] h-auto object-contain"
+                width={200}
+                height={64}
+                className="w-[200px] h-auto object-contain"
               />
             </Link>
             <p className="text-sm font-normal text-[var(--color-slate)] max-w-[32ch] leading-relaxed">
