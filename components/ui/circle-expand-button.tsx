@@ -55,9 +55,9 @@ export function CircleExpandButton({
       // Arrow circle background
       arrowCircleDefault: "var(--color-pearl)",
       arrowCircleHover: "var(--color-sapphire)",
-      // Expanding circle — matches arrow circle default, stays same on hover
+      // Expanding circle — matches arrow circle default initially, then sapphire on hover to contrast white text
       expandDefault: "var(--color-pearl)",
-      expandHover: "var(--color-pearl)",
+      expandHover: "var(--color-sapphire)",
       // Arrow icon
       arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-pearl)",
