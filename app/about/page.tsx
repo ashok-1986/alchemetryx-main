@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Script from "next/script";
 
 declare global {
@@ -188,7 +189,7 @@ export default function AboutPage() {
           <p className="title-page__category" data-sc-cue="0.08 0.65" style={{ fontSize: 'clamp(1rem, 1.25vw, 1.125rem)', fontWeight: 400, lineHeight: 1.6, color: 'var(--sc-ink-soft)', maxWidth: '52ch', marginTop: '1.5rem' }}>We rebuild one critical process into a system that runs itself</p>
           <p className="title-page__sub" data-sc-cue="0.12 0.7">Connected stack. Automated workflow. One dashboard to decide.</p>
           <div className="title-page__cta" data-sc-cue="0.2 0.8">
-            <a href="/proof" className="title-page__link" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See our work</a>
+            <a href="/proof/care-rota" className="title-page__link" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See our work</a>
           </div>
         </section>
 
@@ -248,6 +249,39 @@ export default function AboutPage() {
               <p>Most businesses buy a hammer when they need a workshop. A hammer is a tool. A workshop is a system. The hammer does one thing. The workshop does everything, because every tool in it has a place, a purpose, and a connection to every other tool.</p>
               <p>We build workshops. Systems where every piece connects. Where the output of one process is the input of the next. Where decisions happen because the information is there, not because someone spent three hours pulling it together.</p>
             </div>
+          </div>
+        </section>
+
+        {/* PROOF BLOCK · CareRota live system */}
+        <section className="chapter--light" data-sc-act="flow" data-sc-drift="#F8F6F0" data-sc-chapter="Proof · CareRota">
+          <div className="chapter-body chapter--light" data-sc-act="flow" data-sc-in data-sc-stagger="70" data-sc-drift="#F8F6F0">
+            <div className="chapter-body__inner" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 4rem)', alignItems: 'center' }}>
+              <div>
+                <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-4">Proof</p>
+                <h2 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-light leading-[1.17] tracking-[-0.02em] text-[var(--color-ink)] mb-4 max-w-[20ch]">One system replaced a 90-column spreadsheet</h2>
+                <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--sc-ink-soft)] mb-6 max-w-[52ch]">CareRota runs live on our infrastructure. One system replaced a fragmented 90-column spreadsheet — cost, coverage, and compliance in one view. Built and hosted by Alchemetryx.</p>
+                <a href="/proof/care-rota" className="inline-flex items-center gap-2 text-sm font-normal text-[var(--sc-accent)] underline underline-offset-4 hover:text-[var(--color-gold-deep)] transition-colors">View case study</a>
+              </div>
+              <div>
+                <Image
+                  src="/proof/carerota-dashboard.jpg"
+                  alt="CareRota dashboard showing live cost, coverage, and compliance in one view"
+                  width={800}
+                  height={522}
+                  className="w-full h-auto rounded-md border border-[var(--color-pearl-line)]"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* MID-PAGE CTA */}
+        <section className="chapter--dark" data-sc-act="flow" data-sc-drift="#1A2642" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div className="chapter-body__inner" style={{ textAlign: 'center' }}>
+            <a href="/book" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-gold)] text-[var(--color-ink)] text-sm font-medium transition-all duration-200 hover:bg-[var(--color-gold)]/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm" style={{ minWidth: '200px' }}>
+              Book a 30 min call
+            </a>
           </div>
         </section>
 
@@ -325,7 +359,7 @@ export default function AboutPage() {
             <p className="colophon__text" data-sc-cue="0.06" data-sc-kinetic="lines">If we do not think there is a problem worth paying to solve, we will tell you that instead.</p>
             <div className="colophon__cta-group" style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', alignItems: 'flex-start', marginTop: '1rem' }}>
               <a className="colophon__cta" href="/book" data-sc-cue="0.12">Book a 30-minute call</a>
-              <a className="colophon__cta colophon__cta--secondary" href="/proof" data-sc-cue="0.18" style={{ background: 'transparent', color: 'var(--sc-accent)', border: '1px solid var(--sc-accent)', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--sc-accent)'; e.currentTarget.style.color = 'var(--sc-accent-ink)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--sc-accent)'; }}>See our work first →</a>
+              <a className="colophon__cta colophon__cta--secondary" href="/proof/care-rota" data-sc-cue="0.18" style={{ background: 'transparent', color: 'var(--sc-accent)', border: '1px solid var(--sc-accent)', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--sc-accent)'; e.currentTarget.style.color = 'var(--sc-accent-ink)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--sc-accent)'; }}>View case study</a>
             </div>
             <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 16350617</p>
           </div>

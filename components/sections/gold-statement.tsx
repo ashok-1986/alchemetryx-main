@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
+import { ThePointDiagram } from "@/components/sections/the-point-diagram";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,6 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
 export function GoldStatement() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wordsRef = useRef<HTMLSpanElement[]>([]);
+  const diagramRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -44,6 +46,20 @@ export function GoldStatement() {
             },
           }
         );
+
+        // Subtle animation for diagram
+        if (diagramRef.current) {
+          gsap.from(diagramRef.current, {
+            opacity: 0.4,
+            y: 20,
+            duration: 1,
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 70%",
+              toggleActions: "play none none none",
+            },
+          });
+        }
       });
 
       mm.add("(max-width: 767px)", () => {
@@ -66,22 +82,27 @@ export function GoldStatement() {
       fullHeight={false}
       className="py-20 md:py-28"
     >
-      <div ref={sectionRef}>
-        <div className="max-w-[48ch]">
+      <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="lg:col-span-7 max-w-[48ch]">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-sapphire)]/80 font-normal mb-6">
             THE POINT
           </p>
-          <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)]">
+          <h2
+            aria-label="Your tools are not a system."
+            className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)]"
+          >
             {headlineWords.map((word, i) => (
-              <span
-                key={i}
-                ref={(el) => {
-                  if (el) wordsRef.current.push(el);
-                }}
-                className="inline-block"
-              >
-                {word}{" "}
-              </span>
+              <Fragment key={i}>
+                <span
+                  ref={(el) => {
+                    if (el) wordsRef.current[i] = el;
+                  }}
+                  className="inline-block"
+                >
+                  {word}
+                </span>
+                {i < headlineWords.length - 1 && " "}
+              </Fragment>
             ))}
           </h2>
           <p className="mt-6 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]/90">
@@ -98,7 +119,12 @@ export function GoldStatement() {
             </CircleExpandButton>
           </div>
         </div>
+
+        <div ref={diagramRef} className="lg:col-span-5 flex justify-center lg:justify-end">
+          <ThePointDiagram />
+        </div>
       </div>
     </SectionFullBleed>
   );
 }
+
