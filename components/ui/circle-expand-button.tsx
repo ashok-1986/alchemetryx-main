@@ -16,6 +16,8 @@ interface CircleExpandButtonProps {
   size?: "sm" | "default" | "lg";
   /** Additional class names */
   className?: string;
+  /** Additional aria attributes */
+  "aria-label"?: string;
 }
 
 /**
@@ -62,14 +64,14 @@ export function CircleExpandButton({
       arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-pearl)",
     },
-    sapphire: {
+sapphire: {
       bg: "var(--color-sapphire)",
       textDefaultColor: "var(--color-pearl)",
-      textHoverColor: "var(--color-ink)",
+      textHoverColor: "var(--color-pearl)",
       arrowCircleDefault: "var(--color-pearl)",
       arrowCircleHover: "var(--color-gold)",
       expandDefault: "var(--color-pearl)",
-      expandHover: "var(--color-pearl)",
+      expandHover: "var(--color-sapphire)",
       arrowDefault: "var(--color-pearl)",
       arrowHover: "var(--color-ink)",
     },

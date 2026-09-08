@@ -119,7 +119,7 @@ export function Nav() {
               aria-controls="mobile-menu"
               className="xl:hidden grid place-items-center w-10 h-10 rounded-full border border-[var(--color-sapphire-line)] text-[var(--color-pearl)] cursor-pointer transition-colors duration-150 hover:bg-[var(--color-sapphire-raised)] focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 active:scale-[0.97]"
             >
-              <Menu className="w-5 h-5" strokeWidth={1.5} />
+              <Menu className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -141,7 +141,7 @@ export function Nav() {
               aria-label="Close menu"
               className="grid place-items-center w-10 h-10 rounded-full border border-[var(--color-sapphire-line)] text-[var(--color-pearl)] cursor-pointer transition-colors duration-150 hover:bg-[var(--color-sapphire-raised)] focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 active:scale-[0.97]"
             >
-              <X className="w-5 h-5" strokeWidth={1.5} />
+              <X className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
             </button>
           </div>
 

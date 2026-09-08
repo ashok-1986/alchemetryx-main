@@ -114,10 +114,11 @@ export function GoldStatement() {
               href="/#how-we-work"
               variant="sapphire"
               size="lg"
+              aria-label="See how we work — scroll to process section"
             >
               See how we work →
-            </CircleExpandButton>
-          </div>
+           </CircleExpandButton>
+         </div>
         </div>
 
         <div ref={diagramRef} className="lg:col-span-5 flex justify-center lg:justify-end">

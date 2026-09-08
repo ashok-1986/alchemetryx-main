@@ -140,6 +140,7 @@ export function LevelRouter() {
         id={`panel-${active}`}
         role="tabpanel"
         aria-labelledby={`tab-${active}`}
+        aria-live="polite"
         key={active}
         className="mt-10 min-h-[140px] md:min-h-[110px] max-w-[65ch] space-y-4 transition-opacity duration-200 ease-out animate-[fade-in_200ms_ease-out]"
       >
