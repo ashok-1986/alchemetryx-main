@@ -35,11 +35,13 @@ export function CaseStudyLightbox({
 
   const [isLoading, setIsLoading] = React.useState(true);
   const [hasError, setHasError] = React.useState(false);
+  const [retryCount, setRetryCount] = React.useState(0);
 
   // Reset loading & error state whenever slide index changes
   React.useEffect(() => {
     setIsLoading(true);
     setHasError(false);
+    setRetryCount(0);
   }, [currentIndex]);
 
   // Preload adjacent images (prev & next) for snappy response
@@ -150,7 +152,6 @@ export function CaseStudyLightbox({
         {/* Backdrop overlay */}
         <DialogPrimitive.Overlay
           className="fixed inset-0 z-50 bg-[#0a0f1d]/95 backdrop-blur-xl transition-opacity duration-200 animate-in fade-in"
-          onClick={onClose}
         />
 
         {/* Modal content dialog */}
@@ -158,6 +159,7 @@ export function CaseStudyLightbox({
           onKeyDown={handleKeyDown}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onClick={onClose}
           aria-describedby="lightbox-caption"
           className="fixed inset-0 z-50 flex flex-col justify-between p-4 sm:p-6 md:p-8 outline-none select-none overflow-hidden"
         >
@@ -167,7 +169,10 @@ export function CaseStudyLightbox({
           </div>
 
           {/* TOP BAR: System identifier, counter badge & close button */}
-          <header className="relative z-10 flex items-center justify-between gap-4 w-full max-w-7xl mx-auto shrink-0 pb-2">
+          <header
+            onClick={(e) => e.stopPropagation()}
+            className="relative z-10 flex items-center justify-between gap-4 w-full max-w-7xl mx-auto shrink-0 pb-2"
+          >
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs uppercase tracking-widest text-[var(--color-slate)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
@@ -203,7 +208,10 @@ export function CaseStudyLightbox({
             {total > 1 && (
               <button
                 type="button"
-                onClick={handlePrev}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrev();
+                }}
                 aria-label="Previous image"
                 className="absolute left-0 sm:left-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[#1A2642]/80 hover:bg-[#2A354E] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
               >
@@ -241,6 +249,7 @@ export function CaseStudyLightbox({
                     onClick={() => {
                       setHasError(false);
                       setIsLoading(true);
+                      setRetryCount((prev) => prev + 1);
                     }}
                     className="px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
                   >
@@ -257,7 +266,7 @@ export function CaseStudyLightbox({
                 )}
               >
                 <Image
-                  key={currentItem.image}
+                  key={`${currentItem.image}-${retryCount}`}
                   src={currentItem.image}
                   alt={currentItem.alt}
                   fill
@@ -277,7 +286,10 @@ export function CaseStudyLightbox({
             {total > 1 && (
               <button
                 type="button"
-                onClick={handleNext}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
                 aria-label="Next image"
                 className="absolute right-0 sm:right-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[#1A2642]/80 hover:bg-[#2A354E] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
               >
