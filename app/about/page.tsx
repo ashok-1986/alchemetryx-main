@@ -255,7 +255,10 @@ export default function AboutPage() {
         {/* PROOF BLOCK · CareRota live system */}
         <section className="chapter--light" data-sc-act="flow" data-sc-drift="#F8F6F0" data-sc-chapter="Proof · CareRota">
           <div className="chapter-body chapter--light" data-sc-act="flow" data-sc-in data-sc-stagger="70" data-sc-drift="#F8F6F0">
-            <div className="chapter-body__inner" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(2rem, 4vw, 4rem)', alignItems: 'center' }}>
+            <div
+              className="chapter-body__inner grid grid-cols-1 md:grid-cols-2 items-center gap-[clamp(2rem,4vw,4rem)]"
+              style={{ display: 'grid', gap: 'clamp(2rem, 4vw, 4rem)', alignItems: 'center' }}
+            >
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-4">Proof</p>
                 <h2 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-light leading-[1.17] tracking-[-0.02em] text-[var(--color-ink)] mb-4 max-w-[20ch]">One system replaced a 90-column spreadsheet</h2>

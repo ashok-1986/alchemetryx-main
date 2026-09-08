@@ -61,6 +61,9 @@ export function ThePointDiagram({ className = "" }: ThePointDiagramProps) {
         <div className="inline-flex items-center gap-2 rounded-lg border border-[var(--color-sapphire)]/15 bg-white px-3 py-1.5 shadow-sm">
           {/* Minimal Document Icon */}
           <svg
+            width="16"
+            height="16"
+            style={{ width: "16px", height: "16px" }}
             className="w-4 h-4 text-[var(--color-sapphire)]/70 shrink-0"
             viewBox="0 0 24 24"
             fill="none"
