@@ -183,11 +183,12 @@ export default function AboutPage() {
       <main id="top">
         {/* TITLE PAGE */}
         <section className="title-page" data-sc-act="flow" data-sc-drift="#F8F6F0">
-          <p className="title-page__eyebrow" data-sc-cue="0.06 0.5">Business systems consultancy</p>
+          <p className="title-page__eyebrow" data-sc-cue="0.06 0.5">We fix the software mess teams inherit</p>
           <h1 className="title-page__heading" data-sc-cue="0 0.6 0">Your software doesn't talk. Your team does the work. You make every decision.</h1>
-          <p className="title-page__sub" data-sc-cue="0.12 0.7">We connect your tools, automate the manual work, and give you the dashboards to decide — so the business runs without you in the room.</p>
+          <p className="title-page__category" data-sc-cue="0.08 0.65" style={{ fontSize: 'clamp(1rem, 1.25vw, 1.125rem)', fontWeight: 400, lineHeight: 1.6, color: 'var(--sc-ink-soft)', maxWidth: '52ch', marginTop: '1.5rem' }}>We rebuild one critical process into a system that runs itself</p>
+          <p className="title-page__sub" data-sc-cue="0.12 0.7">Connected stack. Automated workflow. One dashboard to decide.</p>
           <div className="title-page__cta" data-sc-cue="0.2 0.8">
-            <a href="/proof" className="title-page__link" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See how we've done it for others →</a>
+            <a href="/proof" className="title-page__link" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See our work</a>
           </div>
         </section>
 
