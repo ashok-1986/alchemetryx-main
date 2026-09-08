@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Terms of Service · Alchemetryx",
   description:
     "Standard terms of service governing software development, system rebuild, and consulting engagements by Alchemetryx Ltd.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {

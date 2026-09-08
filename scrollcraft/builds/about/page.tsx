@@ -320,7 +320,7 @@ export default function AboutPage() {
           <div data-sc-stage>
             <p className="colophon__text" data-sc-cue="0.06" data-sc-kinetic="lines">If we do not think there is a problem worth paying to solve, we will tell you that instead.</p>
             <a className="colophon__cta" href="/book" data-sc-cue="0.12">Book a 30-minute call</a>
-            <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 16350617</p>
+            <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 17199377</p>
           </div>
         </section>
       </main>

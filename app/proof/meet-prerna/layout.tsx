@@ -4,6 +4,9 @@ import { MEET_PRERNA } from "@/content/case-studies";
 export const metadata: Metadata = {
   title: `${MEET_PRERNA.title.split(".")[0]} · Alchemetryx`,
   description: MEET_PRERNA.standfirst,
+  alternates: {
+    canonical: "/proof/meet-prerna",
+  },
 };
 
 export default function MEETPRERNALayout({

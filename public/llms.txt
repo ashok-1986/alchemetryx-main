@@ -1,0 +1,35 @@
+# Alchemetryx
+
+> We rebuild the job that lives in someone's head and a spreadsheet into a working system that runs itself.
+
+Alchemetryx Ltd is an operational systems and software automation firm based in London, UK. We specialize in taking one critical, high-friction operational workflow inside growing businesses and turning it into a repeatable, automated system.
+
+## Company Identity
+- **Legal Name**: Alchemetryx Ltd
+- **Company Number**: 17199377 (Registered in England & Wales)
+- **Registered Office**: 83 Arthur Grove, London, England, SE18 7ES
+- **Primary Contact**: support@alchemetryx.com
+- **Website**: https://alchemetryx.com
+
+## Core Value Proposition
+- **The Problem**: Growing businesses accumulate disconnected software tools. A CRM here, a spreadsheet there. Tools don't connect, decisions slow down, and operations depend entirely on the owner.
+- **The Philosophy**: "Your tools are not a system. Buying software is not the same as having something that runs."
+- **The Solution**: Start with one job. We scope the engagement to a single critical process, map it, rebuild it as an automated system, and deliver one view to decide. AI sits inside it where it earns its place, and nowhere else.
+
+## Key Pages & Resources
+- [Homepage](https://alchemetryx.com/): Core proposition, operational leak diagnostic, and how we work.
+- [About](https://alchemetryx.com/about): The thinking and systems philosophy behind Alchemetryx.
+- [Book a Call](https://alchemetryx.com/book): Direct 30-minute consultation with Ashok Verma.
+- [Starting Out (Not Yet)](https://alchemetryx.com/not-yet): Guidance for businesses that haven't purchased AI tools yet.
+- [Fixing Stack (Already Bought)](https://alchemetryx.com/already-bought): Guidance for businesses that bought tools but saw no operational change.
+
+## Published Case Studies (Proof)
+- [Proof Overview](https://alchemetryx.com/proof): Real systems built and hosted on Alchemetryx infrastructure.
+- [CareRota](https://alchemetryx.com/proof/care-rota): UK care staffing operations. Replaced a fragmented 90-column spreadsheet with a live system for cost, coverage, and compliance.
+- [Fitosys](https://alchemetryx.com/proof/fitosys): Indian fitness coaching platform. Rebuilt lead capture, workout delivery, and client retention into an automated workflow.
+- [Meet Prerna](https://alchemetryx.com/proof/meet-prerna): Independent artist booking & intake workflow. Automated consultation scheduling and artwork commissions.
+- [PrimeraSkin](https://alchemetryx.com/proof/primeraskin): Dermatology and aesthetics clinic workflow. Structured digital intake and patient triage pipeline.
+
+## Legal & Compliance
+- [Terms of Service](https://alchemetryx.com/terms): Contractual terms governing systems development engagements.
+- [Privacy Policy](https://alchemetryx.com/privacy): Data protection compliance under UK GDPR and DPA 2018.

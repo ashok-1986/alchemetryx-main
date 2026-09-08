@@ -5,6 +5,9 @@ import { BookingEmbed } from "@/components/sections/booking-embed";
 export const metadata: Metadata = {
   title: "Book a call",
   description: "Half an hour with Ashok Verma. Tell us which job you would hand over first.",
+  alternates: {
+    canonical: "/book",
+  },
 };
 
 export default function BookPage() {
@@ -20,6 +23,36 @@ export default function BookPage() {
       </div>
       <div className="mt-12 min-h-[70vh] rounded-md border border-[var(--color-pearl-line)] overflow-hidden">
         <BookingEmbed />
+      </div>
+
+      {/* Fallback & crawler-accessible direct booking link */}
+      <div className="mt-6 text-sm text-[var(--color-slate)]">
+        <p>
+          Having trouble viewing the calendar or prefer a direct link?{" "}
+          <a
+            href="https://cal.id/ashok-verma/quick-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-ink)] underline underline-offset-4 hover:text-[var(--color-gold-deep)] transition-colors"
+          >
+            Open scheduling page directly on cal.id ↗
+          </a>{" "}
+          or email us at{" "}
+          <a
+            href="mailto:support@alchemetryx.com"
+            className="text-[var(--color-ink)] underline underline-offset-4 hover:text-[var(--color-gold-deep)] transition-colors"
+          >
+            support@alchemetryx.com
+          </a>.
+        </p>
+        <noscript>
+          <p className="mt-2 text-red-600">
+            JavaScript is required to display the interactive calendar. Please{" "}
+            <a href="https://cal.id/ashok-verma/quick-call" className="underline">
+              click here to book directly on cal.id
+            </a>.
+          </p>
+        </noscript>
       </div>
     </SectionFullBleed>
   );

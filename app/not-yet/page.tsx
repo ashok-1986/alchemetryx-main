@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Not bought AI yet? · Alchemetryx",
   description:
     "You have not bought any AI or automation tool yet. That might be the right call. Here is how to think about when to start.",
+  alternates: {
+    canonical: "/not-yet",
+  },
 };
 
 export default function NotYetPage() {

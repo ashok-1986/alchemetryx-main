@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy · Alchemetryx",
   description:
     "How Alchemetryx Ltd collects, uses, stores, and protects personal data under UK GDPR and the Data Protection Act 2018.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPage() {

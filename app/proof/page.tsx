@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Proof · Alchemetryx",
   description:
     "Real systems we've built: care operations, coaching automation, client intake, and consultation booking pipelines.",
+  alternates: {
+    canonical: "/proof",
+  },
 };
 
 /**

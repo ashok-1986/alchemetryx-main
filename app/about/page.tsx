@@ -364,7 +364,7 @@ export default function AboutPage() {
               <a className="colophon__cta" href="/book" data-sc-cue="0.12">Book a 30-minute call</a>
               <a className="colophon__cta colophon__cta--secondary" href="/proof/care-rota" data-sc-cue="0.18" style={{ background: 'transparent', color: 'var(--sc-accent)', border: '1px solid var(--sc-accent)', padding: '0.75rem 1.5rem', borderRadius: '6px', textDecoration: 'none', transition: 'background 0.2s, color 0.2s' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'var(--sc-accent)'; e.currentTarget.style.color = 'var(--sc-accent-ink)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = 'var(--sc-accent)'; }}>View case study</a>
             </div>
-            <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 16350617</p>
+            <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 17199377</p>
           </div>
         </section>
       </main>

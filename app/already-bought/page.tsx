@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Already bought AI? · Alchemetryx",
   description:
     "You bought the tools. Nobody checked what they changed. We look at what you already pay for and whether it is actually running anything.",
+  alternates: {
+    canonical: "/already-bought",
+  },
 };
 
 export default function AlreadyBoughtPage() {
