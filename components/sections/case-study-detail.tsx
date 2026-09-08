@@ -3,77 +3,36 @@
 /**
  * components/sections/case-study-detail.tsx
  *
- * The full case study page body — before / build / honesty, with a lightbox
- * for inspecting each screenshot at size. Was hardcoded per-study inside
- * app/proof/care-rota/page.tsx; pulled out so a second case study (Fitosys)
- * doesn't mean copy-pasting 260 lines and hoping both copies stay in sync.
+ * The full case study page body — before / build / honesty, with an immersive
+ * lightbox for inspecting each screenshot at size.
  *
- * Each route (/proof/care-rota, /proof/fitosys) is a thin wrapper that passes
- * its CaseStudy in. All the copy differences live in content/case-studies.ts,
- * not here.
+ * UX Flow:
+ * Case study -> Large contextual image -> "View full image" -> Immersive lightbox
+ * with counter (e.g. 03 / 07), rich contextual caption, full keyboard navigation,
+ * touch gestures, and WCAG 2.2 AA accessibility.
  */
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
+import { Maximize2 } from "lucide-react";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
+import { CaseStudyLightbox } from "@/components/ui/case-study-lightbox";
 import { COMPANY } from "@/lib/constants";
 import type { CaseStudy } from "@/content/case-studies";
 
 export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
-  const [activeImage, setActiveImage] = useState<(typeof cs.build.items)[0] | null>(null);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
-  const dialogRef = useRef<HTMLDivElement | null>(null);
-  const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
+  const triggerRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  useEffect(() => {
-    if (!activeImage) return;
-
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    const timer = setTimeout(() => {
-      closeBtnRef.current?.focus();
-    }, 50);
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setActiveImage(null);
-        return;
-      }
-      if (e.key === "Tab") {
-        if (!dialogRef.current) return;
-        const focusableElements = dialogRef.current.querySelectorAll<HTMLElement>(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        if (focusableElements.length === 0) return;
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (e.shiftKey) {
-          if (document.activeElement === firstElement) {
-            e.preventDefault();
-            lastElement.focus();
-          }
-        } else {
-          if (document.activeElement === lastElement) {
-            e.preventDefault();
-            firstElement.focus();
-          }
-        }
-      }
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = prevOverflow;
-      triggerRef.current?.focus();
-    };
-  }, [activeImage]);
+  const handleCloseLightbox = () => {
+    const closedIndex = activeImageIndex;
+    setActiveImageIndex(null);
+    if (closedIndex !== null && triggerRefs.current[closedIndex]) {
+      triggerRefs.current[closedIndex]?.focus();
+    }
+  };
 
   return (
     <SectionFullBleed id="proof" tone="light" className="pt-24 md:pt-28 border-t border-[var(--color-pearl-line)]">
@@ -139,7 +98,13 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
         {cs.build.items.map((item, i) => (
           <Reveal key={item.title} delay={i * 0.05}>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Contextual Narrative Column */}
               <div className="lg:col-span-4">
+                <div className="inline-flex items-center gap-2 mb-2">
+                  <span className="font-mono text-xs text-[var(--color-gold-deep)] font-semibold tracking-wider">
+                    {String(i + 1).padStart(2, "0")} / {String(cs.build.items.length).padStart(2, "0")}
+                  </span>
+                </div>
                 <h4 className="text-xl sm:text-2xl font-normal text-[var(--color-ink)] tracking-[-0.02em]">
                   {item.title}
                 </h4>
@@ -147,38 +112,43 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
                   {item.caption}
                 </p>
               </div>
+
+              {/* Large Contextual Image Column with "View full image" affordance */}
               <div className="lg:col-span-8">
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    triggerRef.current = e.currentTarget;
-                    setActiveImage(item);
-                  }}
-                  aria-label={`Expand and inspect ${item.title}`}
-                  className="group relative block w-full overflow-hidden rounded-md border border-[var(--color-pearl-line)] bg-[var(--color-sapphire)] cursor-zoom-in text-left focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    width={1500}
-                    height={979}
-                    className="w-full h-auto"
-                    sizes="(max-width: 1024px) 100vw, 66vw"
-                  />
-                  <div className="absolute bottom-3 right-3 rounded-full bg-[var(--color-sapphire)]/85 px-3 py-1 text-xs text-[var(--color-pearl)] opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 flex items-center gap-1.5 border border-[var(--color-sapphire-line)]">
-                    <svg
-                      className="w-3.5 h-3.5 text-[var(--color-gold)]"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle cx="11" cy="11" r="7" />
-                      <path d="M21 21l-4.35-4.35" />
-                    </svg>
-                    <span>Click to inspect</span>
-                  </div>
-                </button>
+                <div className="group relative rounded-xl border border-[var(--color-pearl-line)] bg-[var(--color-sapphire)] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:shadow-[0_12px_40px_rgba(26,38,66,0.14)] hover:border-[var(--color-gold-deep)]/40 transition-all duration-300">
+                  <button
+                    ref={(el) => {
+                      triggerRefs.current[i] = el;
+                    }}
+                    type="button"
+                    onClick={() => setActiveImageIndex(i)}
+                    aria-label={`View full image: ${item.title} (${String(i + 1).padStart(2, "0")} / ${String(cs.build.items.length).padStart(2, "0")})`}
+                    className="relative block w-full text-left cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2"
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-sapphire)]">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 66vw"
+                        className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                      />
+                      {/* Vignette on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1d]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </div>
+
+                    {/* "View full image" affordance badge */}
+                    <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex items-center gap-2">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#11192B]/90 text-white text-xs font-medium backdrop-blur-md border border-white/20 shadow-lg group-hover:border-[var(--color-gold)]/60 group-hover:bg-[#1A2642]/95 transition-all">
+                        <Maximize2 className="w-3.5 h-3.5 text-[var(--color-gold)] transition-transform group-hover:scale-110" aria-hidden="true" />
+                        <span>View full image</span>
+                        <span className="font-mono text-[10px] text-[var(--color-gold)] bg-white/10 px-1.5 py-0.5 rounded tabular-nums">
+                          {String(i + 1).padStart(2, "0")} / {String(cs.build.items.length).padStart(2, "0")}
+                        </span>
+                      </span>
+                    </div>
+                  </button>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -218,54 +188,16 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
         </div>
       </Reveal>
 
-      {/* Lightbox Modal for 1:1 image inspection */}
-      {activeImage && (
-        <div
-          ref={dialogRef}
-          role="dialog"
-          aria-modal="true"
-          aria-label={activeImage.title}
-          onClick={() => setActiveImage(null)}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-[var(--color-sapphire)]/90 backdrop-blur-md p-4 sm:p-6 md:p-10 cursor-zoom-out"
-        >
-          <div
-            onClick={(e) => e.stopPropagation()}
-            className="relative max-w-6xl w-full bg-[var(--color-sapphire-raised)] rounded-lg border border-[var(--color-gold)]/40 p-4 sm:p-6 shadow-2xl overflow-hidden cursor-default"
-          >
-            <div className="flex items-center justify-between pb-4 border-b border-[var(--color-sapphire-line)]">
-              <div>
-                <h4 className="text-lg sm:text-xl font-light text-[var(--color-pearl)]">
-                  {activeImage.title}
-                </h4>
-                <p className="text-xs sm:text-sm text-[var(--color-slate)] mt-1">
-                  {cs.screenshotLabel}
-                </p>
-              </div>
-              <button
-                ref={closeBtnRef}
-                type="button"
-                onClick={() => setActiveImage(null)}
-                aria-label="Close dialog"
-                className="text-xs uppercase tracking-wider text-[var(--color-slate)] hover:text-[var(--color-pearl)] px-3 py-1.5 rounded border border-[var(--color-sapphire-line)] hover:border-[var(--color-gold)] transition-colors cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)]"
-              >
-                Close [Esc]
-              </button>
-            </div>
-            <div className="mt-4 overflow-auto max-h-[75vh] rounded border border-[var(--color-sapphire-line)]/50">
-              <Image
-                src={activeImage.image}
-                alt={activeImage.alt}
-                width={1800}
-                height={1175}
-                className="w-full h-auto"
-                priority
-              />
-              <p className="mt-4 text-xs sm:text-sm text-[var(--color-slate)] leading-relaxed">
-                {activeImage.caption}
-              </p>
-            </div>
-          </div>
-        </div>
+      {/* Immersive Lightbox Modal */}
+      {activeImageIndex !== null && (
+        <CaseStudyLightbox
+          isOpen={activeImageIndex !== null}
+          onClose={handleCloseLightbox}
+          items={cs.build.items}
+          currentIndex={activeImageIndex}
+          onIndexChange={(newIdx) => setActiveImageIndex(newIdx)}
+          systemLabel={cs.screenshotLabel}
+        />
       )}
     </SectionFullBleed>
   );
