@@ -57,8 +57,14 @@ export default function AboutPage() {
           --sc-font-display: var(--font-urbanist), system-ui, sans-serif;
           --sc-font-text:    var(--font-urbanist), system-ui, sans-serif;
         }
+        main#top {
+          position: relative;
+          z-index: 100;
+        }
         .chapter {
-          padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+          position: relative;
+          z-index: 50;
+          padding: clamp(4rem, 8vw, 8rem) clamp(6rem, 12vw, 8rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem);
           min-height: 100vh;
           display: flex;
           flex-direction: column;
@@ -70,7 +76,7 @@ export default function AboutPage() {
         .folio {
           position: fixed; top: clamp(1.5rem, 3vw, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem);
           font-family: var(--sc-font-text); font-size: 0.75rem; letter-spacing: 0.12em;
-          text-transform: uppercase; color: var(--sc-ink); z-index: 100;
+          text-transform: uppercase; color: var(--sc-ink); z-index: 1000;
           /* mix-blend-mode: difference; disabled for Safari compatibility */
           /* Removed opacity: 0.7; use solid ink color with background for contrast */
           background: color-mix(in oklab, var(--sc-canvas) 85%, transparent);
@@ -80,8 +86,10 @@ export default function AboutPage() {
         }
         .folio__num { font-weight: 300; font-size: 0.625rem; display: block; margin-bottom: 0.25rem; }
         .title-page {
+          position: relative;
+          z-index: 50;
           min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
-          padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem); background: #F8F6F0;
+          padding: clamp(4rem, 8vw, 8rem) clamp(6rem, 12vw, 8rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem); background: #F8F6F0;
         }
         .title-page__eyebrow {
           font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -97,7 +105,9 @@ export default function AboutPage() {
           color: #5D6476; max-width: 45ch; margin-top: 2rem;
         }
         .intertitle {
-          padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+          position: relative;
+          z-index: 50;
+          padding: clamp(3rem, 6vw, 6rem) clamp(6rem, 12vw, 8rem) clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem);
           min-height: 40vh; display: flex; flex-direction: column; justify-content: center;
         }
         .intertitle__num {
@@ -110,7 +120,7 @@ export default function AboutPage() {
           font-size: clamp(1.75rem, 3.5vw, 2.25rem); letter-spacing: -0.02em;
           line-height: 1.17; max-width: 20ch;
         }
-        .chapter-body { padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem); }
+        .chapter-body { position: relative; z-index: 50; padding: clamp(3rem, 6vw, 6rem) clamp(6rem, 12vw, 8rem) clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem); }
         .chapter-body__inner { max-width: 52ch; }
         .chapter-body p {
           font-size: clamp(1rem, 1.25vw, 1.125rem); line-height: 1.6;
@@ -118,8 +128,10 @@ export default function AboutPage() {
         }
         .chapter-body p:last-child { margin-bottom: 0; }
         .pillars {
+          position: relative;
+          z-index: 50;
           display: grid; grid-template-columns: 1fr; gap: clamp(2rem, 4vw, 4rem);
-          padding: clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+          padding: clamp(3rem, 6vw, 6rem) clamp(6rem, 12vw, 8rem) clamp(3rem, 6vw, 6rem) clamp(1.5rem, 5vw, 4rem);
         }
         @media (min-width: 768px) { .pillars { grid-template-columns: repeat(3, 1fr); } }
         .pillar { border-top: 1px solid #D4AF37; padding-top: 1.5rem; }
@@ -148,7 +160,7 @@ export default function AboutPage() {
           font-size: clamp(1.125rem, 1.75vw, 1.375rem); letter-spacing: -0.01em; line-height: 1.3;
         }
         .values-list li span { font-weight: 400; font-size: 0.875rem; color: #5D6476; display: block; margin-top: 0.375rem; max-width: 45ch; }
-        .transform-stage { min-height: 200vh; position: relative; }
+        .transform-stage { position: relative; z-index: 50; min-height: 200vh; position: relative; }
         .transform-word {
           position: sticky; top: 50%; transform: translateY(-50%);
           font-family: var(--sc-font-display); font-weight: 300;
@@ -156,8 +168,10 @@ export default function AboutPage() {
           text-align: center; color: #F8F6F0;
         }
         .colophon {
+          position: relative;
+          z-index: 50;
           min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
-          padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+          padding: clamp(4rem, 8vw, 8rem) clamp(6rem, 12vw, 8rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem);
           background: #1A2642; color: #F8F6F0;
         }
         .colophon__text {
@@ -280,7 +294,7 @@ export default function AboutPage() {
         </section>
 
         {/* MID-PAGE CTA */}
-        <section className="chapter--dark" data-sc-act="flow" data-sc-drift="#1A2642" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <section className="chapter--dark" data-sc-act="flow" data-sc-drift="#1A2642" style={{ position: 'relative', zIndex: 50, minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingRight: 'clamp(6rem, 12vw, 8rem)' }}>
           <div className="chapter-body__inner" style={{ textAlign: 'center' }}>
             <a href="/book" className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[var(--color-gold)] text-[var(--color-ink)] text-sm font-medium transition-all duration-200 hover:bg-[var(--color-gold)]/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm" style={{ minWidth: '200px' }}>
               Book a 30 min call
@@ -385,6 +399,8 @@ export default function AboutPage() {
               var rect = transformStage.getBoundingClientRect();
               var viewH = window.innerHeight;
               var p = Math.max(0, Math.min(1, 1 - (rect.bottom / (rect.height + viewH))));
+              
+              // Safety: ensure at least one word is always visible
               if (p > 0.4) {
                 wordFrom.style.display = 'none';
                 wordTo.style.display = 'inline';
@@ -393,6 +409,14 @@ export default function AboutPage() {
                 wordFrom.style.display = 'inline';
                 wordTo.style.display = 'none';
                 wordFrom.style.opacity = 1;
+              }
+              
+              // Fallback: if both words somehow become hidden, restore HAMMER
+              if (wordFrom.style.display === 'none' && wordTo.style.display === 'none') {
+                wordFrom.style.display = 'inline';
+                wordFrom.style.opacity = 1;
+                wordTo.style.display = 'none';
+                wordTo.style.opacity = 0;
               }
             };
             transformHandler = updateTransform;
@@ -428,6 +452,13 @@ export default function AboutPage() {
           window.__scrollcraftCleanup = function() {
             if (transformHandler) window.removeEventListener('scroll', transformHandler);
             if (folioHandler) window.removeEventListener('scroll', folioHandler);
+            // Safety: ensure words are always visible
+            if (wordFrom && wordTo) {
+              wordFrom.style.display = 'inline';
+              wordFrom.style.opacity = 1;
+              wordTo.style.display = 'none';
+              wordTo.style.opacity = 0;
+            }
             window.__scrollcraftCleanup = null;
           };
         })();
