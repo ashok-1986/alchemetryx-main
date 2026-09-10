@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   trailingSlash: false,
   experimental: {
     optimizePackageImports: ["lucide-react", "gsap", "@gsap/react", "@radix-ui/react-accordion", "@radix-ui/react-dialog"],
+    urlImports: ["https://framer.com/m/"],
   },
   async redirects() {
     return [
