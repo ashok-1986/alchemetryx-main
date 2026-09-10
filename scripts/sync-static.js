@@ -16,6 +16,7 @@ if (fs.existsSync(hostingerPublicHtml) && fs.existsSync(sourceDir)) {
     console.log("[Deployment] Successfully synced static assets to public_html/_next/static!");
   } catch (err) {
     console.error("[Deployment] Error syncing static assets:", err);
+    process.exit(1);
   }
 } else {
   // Silent or info when running locally on Windows

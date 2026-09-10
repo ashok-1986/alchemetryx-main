@@ -58,14 +58,14 @@ export default function AboutPage() {
           --sc-font-display: var(--font-urbanist), system-ui, sans-serif;
           --sc-font-text:    var(--font-urbanist), system-ui, sans-serif;
         }
-        main#top {
+        div#top {
           position: relative;
           z-index: 100;
         }
         .chapter {
           position: relative;
           z-index: 50;
-          padding: clamp(4rem, 8vw, 8rem) clamp(6rem, 12vw, 8rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+          padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 5vw, 4rem);
           min-height: 100vh;
           display: flex;
           flex-direction: column;
@@ -75,7 +75,7 @@ export default function AboutPage() {
         .chapter--light { background: #F8F6F0; color: #11192B; }
         .chapter--gold { background: #D4AF37; color: #11192B; }
         .folio {
-          position: fixed; top: clamp(1.5rem, 3vw, 2.5rem); right: clamp(1.5rem, 3vw, 2.5rem);
+          position: fixed; top: 5.5rem; right: clamp(1.5rem, 3vw, 2.5rem);
           font-family: var(--sc-font-text); font-size: 0.75rem; letter-spacing: 0.12em;
           text-transform: uppercase; color: var(--sc-ink); z-index: 1000;
           /* mix-blend-mode: difference; disabled for Safari compatibility */
@@ -90,7 +90,7 @@ export default function AboutPage() {
           position: relative;
           z-index: 50;
           min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
-          padding: clamp(4rem, 8vw, 8rem) clamp(6rem, 12vw, 8rem) clamp(4rem, 8vw, 8rem) clamp(1.5rem, 5vw, 4rem); background: #F8F6F0;
+          padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 5vw, 4rem); background: #F8F6F0;
         }
         .title-page__eyebrow {
           font-size: 0.6875rem; letter-spacing: 0.18em; text-transform: uppercase;
@@ -196,14 +196,14 @@ export default function AboutPage() {
         <span data-sc-folio-title />
       </div>
 
-      <main id="top">
+      <div id="top">
         {/* TITLE PAGE */}
         <section className="title-page" data-sc-act="flow" data-sc-drift="#F8F6F0">
-          <p className="title-page__eyebrow" data-sc-cue="0.06 0.5">We fix the software mess teams inherit</p>
-          <h1 className="title-page__heading" data-sc-cue="0 0.6 0">Your software doesn't talk. Your team does the work. You make every decision.</h1>
-          <p className="title-page__category" data-sc-cue="0.08 0.65" style={{ fontSize: 'clamp(1rem, 1.25vw, 1.125rem)', fontWeight: 400, lineHeight: 1.6, color: 'var(--sc-ink-soft)', maxWidth: '52ch', marginTop: '1.5rem' }}>We rebuild one critical process into a system that runs itself</p>
-          <p className="title-page__sub" data-sc-cue="0.12 0.7">Connected stack. Automated workflow. One dashboard to decide.</p>
-          <div className="title-page__cta" data-sc-cue="0.2 0.8">
+          <p className="title-page__eyebrow">We fix the software mess teams inherit</p>
+          <h1 className="title-page__heading">Your software doesn't talk. Your team does the work. You make every decision.</h1>
+          <p className="title-page__category" style={{ fontSize: 'clamp(1rem, 1.25vw, 1.125rem)', fontWeight: 400, lineHeight: 1.6, color: 'var(--sc-ink-soft)', maxWidth: '52ch', marginTop: '1.5rem' }}>We rebuild one critical process into a system that runs itself</p>
+          <p className="title-page__sub">Connected stack. Automated workflow. One dashboard to decide.</p>
+          <div className="title-page__cta">
             <Link href="/proof/care-rota" className="title-page__link" aria-label="See the CareRota case study" style={{ color: 'var(--sc-accent)', textDecoration: 'underline', fontWeight: 400, fontSize: 'clamp(1rem, 1.25vw, 1.125rem)' }}>See our work</Link>
           </div>
         </section>
@@ -382,7 +382,7 @@ export default function AboutPage() {
             <p className="colophon__small">Alchemetryx Ltd · Registered in England and Wales · Company No. 17199377</p>
           </div>
         </section>
-      </main>
+      </div>
 
       <Script id="scrollcraft-init" strategy="afterInteractive">{`
         (function() {
