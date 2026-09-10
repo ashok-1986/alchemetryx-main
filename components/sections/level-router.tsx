@@ -54,7 +54,7 @@ export function LevelRouter() {
         ease: "sine.inOut",
       });
     });
-  });
+  }, { dependencies: [active] });
 
   const handleKeyDown = (e: React.KeyboardEvent, currentKey: PanelKey) => {
     const currentIndex = keys.indexOf(currentKey);

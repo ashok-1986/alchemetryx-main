@@ -137,47 +137,8 @@ export function HowWeWork() {
           </div>
         </Reveal>
 
-        {/* Step 3: Improve — top right */}
-        <Reveal delay={0.2}>
-          <div
-            data-step-card
-            className="group relative h-full flex flex-col justify-between rounded-lg p-8 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-gradient-to-br from-[var(--color-pearl)]/80 to-[var(--color-pearl)]/50 border border-white/15 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_4px_16px_-8px_rgba(17,25,43,0.04)]"
-          >
-            <div
-              data-glow-border
-              className="absolute inset-0 rounded-lg border border-[var(--color-gold-deep)]/0 opacity-0 pointer-events-none transition-colors duration-300 group-hover:border-[var(--color-gold-deep)]/30"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 opacity-[0.015] pointer-events-none rounded-lg"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-              }}
-              aria-hidden="true"
-            />
-            <div className="relative z-10">
-              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                {STEPS[2].step} / {STEPS[2].label}
-              </p>
-              <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
-                {STEPS[2].service}
-              </h3>
-            </div>
-            <p className="relative z-10 mt-5 text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
-              {STEPS[2].body}
-            </p>
-            <span
-              className="absolute -bottom-4 -right-3 text-[60px] md:text-[80px] font-light leading-none text-[var(--color-gold-deep)]/[0.06] select-none pointer-events-none"
-              aria-hidden="true"
-            >
-              {STEPS[2].step}
-            </span>
-          </div>
-        </Reveal>
-
         {/* Step 2: Decide — bottom right */}
-        <Reveal delay={0.3}>
+        <Reveal delay={0.3} className="md:col-start-2 md:row-start-2">
           <div
             data-step-card
             className="group relative h-full flex flex-col justify-between rounded-lg p-8 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-[var(--color-pearl)]/70 border-l-[3px] border-l-[var(--color-gold-deep)]/40 border border-white/15 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_4px_16px_-8px_rgba(17,25,43,0.04)]"
@@ -211,6 +172,45 @@ export function HowWeWork() {
               aria-hidden="true"
             >
               {STEPS[1].step}
+            </span>
+          </div>
+        </Reveal>
+
+        {/* Step 3: Improve — top right */}
+        <Reveal delay={0.2} className="md:col-start-2 md:row-start-1">
+          <div
+            data-step-card
+            className="group relative h-full flex flex-col justify-between rounded-lg p-8 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-gradient-to-br from-[var(--color-pearl)]/80 to-[var(--color-pearl)]/50 border border-white/15 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_4px_16px_-8px_rgba(17,25,43,0.04)]"
+          >
+            <div
+              data-glow-border
+              className="absolute inset-0 rounded-lg border border-[var(--color-gold-deep)]/0 opacity-0 pointer-events-none transition-colors duration-300 group-hover:border-[var(--color-gold-deep)]/30"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-0 opacity-[0.015] pointer-events-none rounded-lg"
+              style={{
+                backgroundImage:
+                  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+              }}
+              aria-hidden="true"
+            />
+            <div className="relative z-10">
+              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                {STEPS[2].step} / {STEPS[2].label}
+              </p>
+              <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
+                {STEPS[2].service}
+              </h3>
+            </div>
+            <p className="relative z-10 mt-5 text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
+              {STEPS[2].body}
+            </p>
+            <span
+              className="absolute -bottom-4 -right-3 text-[60px] md:text-[80px] font-light leading-none text-[var(--color-gold-deep)]/[0.06] select-none pointer-events-none"
+              aria-hidden="true"
+            >
+              {STEPS[2].step}
             </span>
           </div>
         </Reveal>

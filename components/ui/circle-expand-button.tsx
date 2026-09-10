@@ -77,6 +77,8 @@ sapphire: {
     },
   }[variant];
 
+  const isSm = size === "sm";
+
   useGSAP(() => {
     if (!wrapperRef.current || !expandCircleRef.current) return;
     const wrapper = wrapperRef.current;
@@ -173,9 +175,7 @@ sapphire: {
         expandTween?.kill();
       };
     });
-  }, { scope: wrapperRef, dependencies: [variant] });
-
-  const isSm = size === "sm";
+  }, { scope: wrapperRef, dependencies: [variant, isSm] });
 
   const sizeClasses = {
     sm: "h-9 px-[28px] text-xs gap-2",
