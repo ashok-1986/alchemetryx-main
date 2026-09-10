@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/sync-static.js",
     "start": "next start"
   },
   "dependencies": {
