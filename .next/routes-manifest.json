@@ -1,0 +1,191 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/about/",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/about/(?:/)?$"
+    },
+    {
+      "source": "/blueprints",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/blueprints(?:/)?$"
+    },
+    {
+      "source": "/blueprints/:path*",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/blueprints(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/approach",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/approach(?:/)?$"
+    },
+    {
+      "source": "/approach/:path*",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/approach(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/insights",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/insights(?:/)?$"
+    },
+    {
+      "source": "/insights/:path*",
+      "destination": "/about",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/insights(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    },
+    {
+      "source": "/start-your-pilot",
+      "destination": "/book",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/start-your-pilot(?:/)?$"
+    },
+    {
+      "source": "/start-your-pilot/:path*",
+      "destination": "/book",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/start-your-pilot(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/already-bought",
+      "regex": "^/already\\-bought(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/already\\-bought(?:/)?$"
+    },
+    {
+      "page": "/book",
+      "regex": "^/book(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/book(?:/)?$"
+    },
+    {
+      "page": "/icon.png",
+      "regex": "^/icon\\.png(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/icon\\.png(?:/)?$"
+    },
+    {
+      "page": "/not-yet",
+      "regex": "^/not\\-yet(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/not\\-yet(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/proof",
+      "regex": "^/proof(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof(?:/)?$"
+    },
+    {
+      "page": "/proof/care-rota",
+      "regex": "^/proof/care\\-rota(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof/care\\-rota(?:/)?$"
+    },
+    {
+      "page": "/proof/fitosys",
+      "regex": "^/proof/fitosys(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof/fitosys(?:/)?$"
+    },
+    {
+      "page": "/proof/meet-prerna",
+      "regex": "^/proof/meet\\-prerna(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof/meet\\-prerna(?:/)?$"
+    },
+    {
+      "page": "/proof/primeraskin",
+      "regex": "^/proof/primeraskin(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/proof/primeraskin(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
