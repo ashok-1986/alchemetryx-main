@@ -38,84 +38,80 @@ export function BlurNavigation() {
       <header
         className={`fixed top-0 inset-x-0 z-50 flex justify-center w-full transition-all duration-300 ease-out px-4 py-4 md:py-6 pointer-events-none`}
       >
-        <motion.nav
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-          className={`pointer-events-auto relative flex items-center justify-between w-full max-w-[1440px] mx-auto rounded-full px-4 md:px-6 py-3 md:py-4 transition-all duration-300 ${
-            scrolled
-              ? "bg-[var(--color-pearl)]/70 backdrop-blur-lg border border-[var(--color-ink)]/5 shadow-sm shadow-[var(--color-ink)]/5"
-              : "bg-transparent border border-transparent"
-          }`}
-        >
-          {/* Logo */}
-          <Link
-            href="/"
-            onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center shrink-0 transition-opacity hover:opacity-80"
-            aria-label="Alchemetryx Home"
-          >
-            <Image
-              src="/brand/main-logo.png"
-              alt="Alchemetryx"
-              width={160}
-              height={40}
-              className="h-8 md:h-10 w-auto object-contain"
-              priority
-            />
-          </Link>
-
-          {/* Desktop Nav Items */}
-          <div className="hidden lg:flex items-center gap-1 xl:gap-2">
-            {NAV_ITEMS.map((item, i) => {
-              // Ensure we check pathname correctly for active states
-              const isActive =
-                item.href === "/"
-                  ? pathname === "/"
-                  : pathname?.startsWith(item.href.split("#")[0]);
-
-              return (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onMouseEnter={() => setHoveredIndex(i)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                  className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
-                    isActive
-                      ? "text-[var(--color-ink)]"
-                      : "text-[var(--color-ink)]/70 hover:text-[var(--color-ink)]"
-                  }`}
-                >
-                  <span className="relative z-10">{item.label}</span>
-
-                  {/* Active Indicator (optional, could use if needed) */}
-                  {/* {isActive && (
-                    <motion.div
-                      layoutId="active-indicator"
-                      className="absolute bottom-1 left-4 right-4 h-0.5 bg-[var(--color-gold)] z-0 rounded-full"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )} */}
-
-                  {/* Hover Pill Background */}
-                  {hoveredIndex === i && (
-                    <motion.div
-                      layoutId="hover-pill"
-                      className="absolute inset-0 bg-[var(--color-ink)]/5 rounded-full -z-10"
-                      transition={{
-                        type: "spring",
-                        bounce: 0.15,
-                        duration: 0.5,
-                      }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
+        {/* Full width container, Grid layout for 3 equal sections */}
+        <div className="pointer-events-auto relative grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center w-full max-w-[1440px] mx-auto px-2 transition-all duration-300">
+          
+          {/* Left: Logo */}
+          <div className="flex justify-start">
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center shrink-0 transition-opacity hover:opacity-80"
+              aria-label="Alchemetryx Home"
+            >
+              <Image
+                src="/brand/main-logo-white.png"
+                alt="Alchemetryx"
+                width={160}
+                height={40}
+                className="h-7 md:h-8 w-auto object-contain"
+                priority
+              />
+            </Link>
           </div>
 
-          {/* Right Actions */}
-          <div className="flex items-center gap-3 shrink-0">
+          {/* Center: Menu Items with dynamic glassmorphism pill on scroll */}
+          <div className="hidden lg:flex justify-center">
+            <motion.nav
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+              className={`flex items-center gap-1 xl:gap-2 px-3 py-2 transition-all duration-300 rounded-full ${
+                scrolled
+                  ? "bg-[var(--color-sapphire)]/70 backdrop-blur-lg shadow-lg shadow-[var(--color-ink)]/10 border border-[var(--color-pearl)]/10"
+                  : "bg-transparent border border-transparent"
+              }`}
+            >
+              {NAV_ITEMS.map((item, i) => {
+                const isActive =
+                  item.href === "/"
+                    ? pathname === "/"
+                    : pathname?.startsWith(item.href.split("#")[0]);
+
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onMouseEnter={() => setHoveredIndex(i)}
+                    onMouseLeave={() => setHoveredIndex(null)}
+                    className={`relative px-4 py-2 rounded-full text-xs uppercase tracking-[0.15em] font-semibold transition-colors duration-200 ${
+                      isActive
+                        ? "text-[var(--color-pearl)]"
+                        : "text-[var(--color-pearl)]/70 hover:text-[var(--color-pearl)]"
+                    }`}
+                  >
+                    <span className="relative z-10">{item.label}</span>
+
+                    {/* Hover Pill Background */}
+                    {hoveredIndex === i && (
+                      <motion.div
+                        layoutId="hover-pill"
+                        className="absolute inset-0 bg-[var(--color-pearl)]/10 rounded-full -z-10"
+                        transition={{
+                          type: "spring",
+                          bounce: 0.15,
+                          duration: 0.5,
+                        }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </motion.nav>
+          </div>
+
+          {/* Right: Actions */}
+          <div className="flex items-center justify-end gap-3">
             <div className="hidden sm:block">
               <CircleExpandButton
                 href={COMPANY.primaryCtaHref}
@@ -129,7 +125,7 @@ export function BlurNavigation() {
             {/* Mobile Menu Trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-sapphire)] text-[var(--color-pearl)] hover:bg-[var(--color-sapphire-raised)] transition-colors"
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-sapphire-raised)] text-[var(--color-pearl)] transition-colors"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
@@ -139,7 +135,7 @@ export function BlurNavigation() {
               )}
             </button>
           </div>
-        </motion.nav>
+        </div>
       </header>
 
       {/* Mobile Menu Full Screen Overlay */}
@@ -151,7 +147,7 @@ export function BlurNavigation() {
           closed: { opacity: 0, pointerEvents: "none", backdropFilter: "blur(0px)" },
         }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 z-40 bg-[var(--color-pearl)]/80 lg:hidden flex flex-col pt-28 px-6 pb-10"
+        className="fixed inset-0 z-40 bg-[var(--color-sapphire)]/90 lg:hidden flex flex-col pt-28 px-6 pb-10"
       >
         <div className="flex flex-col gap-6 w-full max-w-sm mx-auto">
           {NAV_ITEMS.map((item, i) => (
@@ -165,7 +161,7 @@ export function BlurNavigation() {
               <Link
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-3xl font-light tracking-tight text-[var(--color-ink)] block py-2 border-b border-[var(--color-ink)]/10"
+                className="text-2xl font-semibold uppercase tracking-[0.15em] text-[var(--color-pearl)] block py-3 border-b border-[var(--color-pearl)]/10"
               >
                 {item.label}
               </Link>
@@ -182,7 +178,7 @@ export function BlurNavigation() {
             <Link
               href={COMPANY.primaryCtaHref}
               onClick={() => setMobileMenuOpen(false)}
-              className="flex items-center justify-center w-full py-4 rounded-full bg-[var(--color-sapphire)] text-[var(--color-pearl)] font-medium text-lg"
+              className="flex items-center justify-center w-full py-4 rounded-full bg-[var(--color-gold)] text-[var(--color-ink)] font-bold text-lg uppercase tracking-wide"
             >
               {COMPANY.primaryCtaLabel}
             </Link>
