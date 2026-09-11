@@ -146,7 +146,7 @@ export function SystemDiagram({ className }: { className?: string }) {
   return (
     <div
       role="img"
-      aria-label="How the work changes: Three things that make the owner the bottleneck — spreadsheets, chasing, and knowledge held in their head — pass through one rebuilt system and come out as one place, live numbers, and a job that runs without them."
+      aria-label="How the work changes: Three things that make the owner the bottleneck (spreadsheets, chasing, and knowledge held in their head) pass through one rebuilt system and come out as one place, live numbers, and a job that runs without them."
       className={cn(
         "relative w-full aspect-[620/440] max-w-[620px] select-none [container-type:inline-size]",
         className

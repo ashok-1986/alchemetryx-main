@@ -16,7 +16,7 @@ const urbanist = Urbanist({
 export const metadata: Metadata = {
   metadataBase: new URL("https://alchemetryx.com"),
   title: {
-    default: "Alchemetryx — We rebuild the job in your head into a system that runs itself",
+    default: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
     template: "%s | Alchemetryx",
   },
   description:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Alchemetryx — We rebuild the job in your head into a system that runs itself",
+    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
     description:
       "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
     url: "https://alchemetryx.com",
@@ -49,13 +49,13 @@ export const metadata: Metadata = {
         url: "/brand/alchemetryx-featured.png",
         width: 1200,
         height: 630,
-        alt: "Alchemetryx — Decision Intelligence & Business Systems",
+        alt: "Alchemetryx · Business Systems",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alchemetryx — We rebuild the job in your head into a system that runs itself",
+    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
     description:
       "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
     images: ["/brand/alchemetryx-featured.png"],

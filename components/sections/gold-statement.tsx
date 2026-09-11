@@ -114,7 +114,7 @@ export function GoldStatement() {
               href="/#how-we-work"
               variant="sapphire"
               size="lg"
-              aria-label="See how we work — scroll to process section"
+              aria-label="See how we work, scroll to process section"
             >
               See how we work →
            </CircleExpandButton>

@@ -161,7 +161,7 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5">
               <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
-                What this is, and what it isn't — &quot;{cs.honesty.heading}&quot;
+                Practical measures · &quot;{cs.honesty.heading}&quot;
               </p>
               <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.025em] leading-snug">
                 {cs.honesty.heading}

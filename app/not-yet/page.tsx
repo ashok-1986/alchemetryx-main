@@ -23,7 +23,7 @@ export default function NotYetPage() {
             NOT BOUGHT AI YET?
           </p>
           <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.06] tracking-[-0.04em] max-w-[18ch] text-[var(--color-pearl)]">
-            Start with one job. Not a tool.
+            Start with one job before buying more software.
           </h1>
           <p className="mt-6 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[55ch]">
             You do not need to buy software to fix a problem you have not priced
@@ -44,16 +44,13 @@ export default function NotYetPage() {
               Pick the job that still runs on memory and paper.
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              Every business has one. The weekly rota. The invoicing that
-              happens when someone remembers. The onboarding step that takes an
-              afternoon because nobody wrote down how it works. The quoting
-              process that lives in someone&apos;s head.
+              Every business has one: the monthly rota, invoicing that happens
+              whenever someone remembers, onboarding steps that take an afternoon
+              because nobody wrote them down, or quotes that live in someone's head.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              We start with that one job. Not the whole business. Not a
-              platform. One process that costs you real time every week, and an
-              honest look at what it would take to make it run as a system
-              instead of a habit.
+              We focus on that one job, looking at what it actually costs you in
+              hours and what it takes to make it run reliably on its own.
             </p>
           </div>
         </Reveal>
@@ -76,8 +73,8 @@ export default function NotYetPage() {
               budget until the month was already spent.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
-              We rebuilt it as one system that handles shifts, cost, coverage
-              and compliance in a single place. It is running now.
+              We rebuilt it as one system that tracks shifts, staffing levels,
+              and running wage costs in one place. It is running now.
             </p>
             <div className="mt-6">
               <Link
@@ -99,9 +96,8 @@ export default function NotYetPage() {
               This may not be the right moment. That is fine.
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              If there is no process right now that is costing you real time or
-              real money, you do not need us yet. That is an honest answer, not
-              a sales tactic.
+              If no single routine is costing you substantial time or money right
+              now, you do not need outside help yet.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
               When a job starts eating hours you could spend on the work you

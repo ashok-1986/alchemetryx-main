@@ -14,7 +14,7 @@ const PANELS = {
     line: "Start with one job. AI is what makes it run without you.",
     body: [
       "Nothing needs replacing on day one. We look at the jobs that run on memory and paper, and pick the one costing you most time.",
-      "Then we rebuild that one job as a system. AI sits inside it where it earns its place, and nowhere else.",
+      "Then we rebuild that one job as a system, applying automation only where it actually saves time.",
     ],
     cta: "How starting with one job works →",
     href: "/not-yet",
@@ -23,7 +23,7 @@ const PANELS = {
     label: "Yes, we have",
     line: "You bought the AI. Did anything change?",
     body: [
-      "Plenty of businesses have bought a tool and cannot say what it changed. That is usually not a bad tool. It is a tool sitting next to a job instead of inside one.",
+      "Plenty of businesses pay for software without seeing what it changed. Usually the tool works fine, but nobody connected it into the team's weekly routines.",
       "We look at what you already pay for, what it actually does, and what would need to be true for it to matter.",
     ],
     cta: "What to do when the tools are already there →",

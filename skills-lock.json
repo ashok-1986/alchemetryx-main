@@ -43,6 +43,12 @@
       "skillPath": "skills/fix-security-vulnerabilities-with-strix/SKILL.md",
       "computedHash": "1f91d165671877f77b0c23f34a4596375dc425de388f5b17d2a4742194a8bfb8"
     },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "d1a90f19fa4c39cb8105998bf38a6e6a41788e3b4329be086952efa6a3aa362c"
+    },
     "managed-pentesting-with-strix": {
       "source": "usestrix/strix",
       "sourceType": "github",

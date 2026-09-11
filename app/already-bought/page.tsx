@@ -41,15 +41,14 @@ export default function AlreadyBoughtPage() {
               WHAT &quot;BOUGHT BUT UNPROVEN&quot; LOOKS LIKE
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-ink)]">
-              The tools are there. The results are not.
+              Software gets adopted, but the manual work continues.
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              You are not alone. According to the British Chambers of Commerce,
-              84% of UK SMEs have adopted at least one AI tool (BCC, 2024). The
-              Federation of Small Businesses reports that most small firms cite
-              lack of time and skills as the main barrier to getting value from
-              the tools they buy (FSB, 2024). The tools are in. The value is
-              not.
+              According to the British Chambers of Commerce, 84% of UK SMEs have
+              adopted at least one AI tool (BCC, 2024). The Federation of Small
+              Businesses reports that most small firms cite lack of time and skills
+              as the main barrier to getting value from the software they buy (FSB, 2024).
+              Subscriptions get paid, while daily habits stay unchanged.
             </p>
           </div>
         </Reveal>
@@ -94,19 +93,16 @@ export default function AlreadyBoughtPage() {
               WHAT WE SEE
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-pearl)]">
-              A tool sitting next to a job is not the same as a tool running a
-              job.
+              Software sitting next to a routine rarely changes how it gets done.
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
-              Most businesses do not have a tool problem. They have a &quot;nobody
-              connected the tool to the job&quot; problem. The subscription is paid.
-              The dashboard has activity. But the actual work, the one a person
-              still does by hand every week, has not changed.
+              Subscriptions get renewed and vendor dashboards show logins, but if
+              nobody wired the tool into your team's day-to-day handoffs, the
+              repetitive typing stays manual.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
-              That is not a technology failure. It is a missing step. Someone
-              needs to look at what you already pay for, what it actually does,
-              and what would need to be true for it to matter.
+              We review what you currently pay for, check what it handles in practice,
+              and connect it directly to the work that matters.
             </p>
           </div>
         </Reveal>
@@ -130,8 +126,8 @@ export default function AlreadyBoughtPage() {
               gaps.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              No price discussion during the Diagnostic. The point is clarity,
-              not a pitch.
+              The Diagnostic focuses entirely on mapping how work currently moves
+              through your business before discussing commercial scope.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
               If the tools you have are enough, we will say so. If something
@@ -155,7 +151,7 @@ export default function AlreadyBoughtPage() {
               REAL EXAMPLES
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-pearl)]">
-              This is not theoretical.
+              Delivered systems.
             </h2>
           </div>
         </Reveal>

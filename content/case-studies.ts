@@ -33,7 +33,7 @@ export const CARE_ROTA: CaseStudy = {
   eyebrow: "Case study · Care operations",
   title: "A care home’s rota lived in a spreadsheet. We rebuilt it as a system.",
   standfirst:
-    "How a fragmented monthly roster for a UK care home became one place to plan shifts, watch cost, and stay compliant.",
+    "How a fragmented monthly roster for a UK care home became one place to plan shifts, track staffing limits, and watch live wage costs.",
   attribution: "Built by Alchemetryx · Real UK care home · Site and staff names anonymised",
   before: {
     heading: "Five tabs, and a lot of trust.",
@@ -48,14 +48,14 @@ export const CARE_ROTA: CaseStudy = {
   build: {
     heading: "One system that understands a care home.",
     body:
-      "Not a generic scheduler. A tool shaped around how a care home actually runs: floors, bank staff, statutory leave and a live budget. Built and hosted by Alchemetryx.",
+      "A scheduling system shaped around residential care home routines: floors, bank staff, statutory leave, and live running budgets. Built and hosted by Alchemetryx.",
     items: [
       {
         title: "One view, every floor.",
         caption:
-          "Live cost against the budget cap, coverage across all three floors, pending leave and compliance alerts. All current, all in one place, instead of scattered across a workbook.",
+          "Live cost against the budget cap, coverage across all three floors, pending leave, and staffing alerts, gathered in one place rather than scattered across a workbook.",
         image: "/proof/carerota-dashboard.jpg",
-        alt: "CareRota dashboard showing active staff, rota status, pending leave, compliance alerts, floor coverage and a cost snapshot against budget.",
+        alt: "CareRota dashboard showing active staff, rota status, pending leave, staffing alerts, floor coverage and a cost snapshot against budget.",
       },
       {
         title: "A rota that does the maths.",
@@ -74,9 +74,9 @@ export const CARE_ROTA: CaseStudy = {
     ],
   },
   honesty: {
-    heading: "A capability build, not a savings headline.",
+    heading: "A working system rather than unverified savings claims.",
     body:
-      "The system is real and running on our own infrastructure, shaped around the way a UK care home operates. We are not putting a number on hours or pounds saved, because the honest measure of this work is the jump you can see above: a fragile spreadsheet becomes one system that holds cost, coverage and compliance in a single place.",
+      "The system is live and runs on our own infrastructure. We do not publish estimated hours or pounds saved, because the measure of this work is visible above: a fragile spreadsheet replaced by one system that coordinates costs, shift coverage, and leave entitlement in one place.",
   },
   closingLine: "If your rota still lives in a spreadsheet, that is a conversation worth having.",
   screenshotLabel: "CareRota Live Screenshot (Real system UI)",
@@ -104,7 +104,7 @@ export const FITOSYS: CaseStudy = {
   build: {
     heading: "A flat-fee system that runs the admin from WhatsApp.",
     body:
-      "Fitosys automates client check-ins, renewal reminders and onboarding natively on WhatsApp, where the client already is. Payments route directly from client to coach over UPI, and Fitosys takes zero commission — a flat monthly fee instead, regardless of how much the coach earns.",
+      "Fitosys automates client check-ins, renewal reminders and onboarding natively on WhatsApp, where the client already is. Payments route directly from client to coach over UPI, and Fitosys takes zero commission: a flat monthly fee instead, regardless of how much the coach earns.",
     items: [
       {
         title: "One thread, automated.",
@@ -116,7 +116,7 @@ export const FITOSYS: CaseStudy = {
       {
         title: "The admin it replaces.",
         caption:
-          "Fitosys's own product page breaks down where a coach's Sunday used to go: manual check-ins, payment follow-ups, onboarding messages and renewal reminders. The figures on this screen are Fitosys's own published estimate, not an Alchemetryx-audited number — see the note below.",
+          "Fitosys's own product page breaks down where a coach's Sunday used to go: manual check-ins, payment follow-ups, onboarding messages and renewal reminders. The figures on this screen are Fitosys's own published estimate, not an Alchemetryx-audited number (see note below).",
         image: "/proof/fitosys-savings.jpg",
         alt: "Fitosys marketing page showing a breakdown of hours lost weekly to manual check-ins, payment follow-ups, onboarding messages and renewal reminders, with a coach quote about losing Sunday evenings to admin.",
       },
@@ -130,9 +130,9 @@ export const FITOSYS: CaseStudy = {
     ],
   },
   honesty: {
-    heading: "Our own product, not a client engagement.",
+    heading: "An internal product, built and operated by Alchemetryx.",
     body:
-      "Fitosys is built and run by Alchemetryx, not delivered for an outside client, so it earns a different kind of honesty than CareRota. The hours-lost and revenue figures shown on its own screens are Fitosys's published estimates, not numbers we have independently audited against real client accounts. What we can state plainly: it is a live product, in real use, automating check-ins, renewals and onboarding for coaches over WhatsApp, on a flat fee with no commission taken from a coach's earnings.",
+      "Fitosys is built and run by Alchemetryx rather than delivered for an outside client. The hours-lost and revenue figures shown on its own screens are Fitosys's published estimates, not numbers we have independently audited against real client accounts. What we can state plainly: it is a live product, in real use, automating check-ins, renewals and onboarding for coaches over WhatsApp, on a flat fee with no commission taken from a coach's earnings.",
   },
   closingLine: "If admin is eating the evenings you built this business to have back, that's the same problem.",
   screenshotLabel: "Fitosys Live Product Screenshot",
@@ -170,7 +170,7 @@ export const MEET_PRERNA: CaseStudy = {
         alt: "Meet Prerna website homepage showing a portrait and the heading Visual Artist and Tattooist, with a Start a Conversation button.",
       },
       {
-        title: "A booking flow, not just a contact form.",
+        title: "Direct consultation booking.",
         caption:
           "Portfolio, About, Consultation and Connect as one sequence, so a client moves from seeing the work to starting a booking in the same visit.",
         image: "/proof/meetprerna-menu.jpg",
@@ -179,9 +179,9 @@ export const MEET_PRERNA: CaseStudy = {
     ],
   },
   honesty: {
-    heading: "A first system, so the honest measure is that it exists.",
+    heading: "Establishing a direct booking pipeline.",
     body:
-      "This replaced nothing, because there was nothing before it to replace. What we can state plainly: Prerna went from no booking system to one live, dedicated site with a working consultation flow. We are not putting a before/after number on it, since there was no prior system to measure against.",
+      "Prerna had no website or booking tool prior to this build. The practical outcome is that prospective clients can explore her portfolio and request consultations directly online, removing the manual message back-and-forth across social media.",
   },
   closingLine: "If your booking still runs through your DMs, that's the same starting point Prerna was at.",
   screenshotLabel: "Meet Prerna Live Site Screenshot",
@@ -228,9 +228,9 @@ export const PRIMERASKIN: CaseStudy = {
     ],
   },
   honesty: {
-    heading: "Zero-touch scheduling, not a measured savings figure.",
+    heading: "Self-service scheduling for new client consultations.",
     body:
-      "This replaced a manual process with a structured one, but there is no baseline number for hours or bookings before this site existed, so we are not stating one. What changed, plainly: appointment setting now runs as a scheduling flow the site handles on its own, not a task that lands on the founder for every enquiry.",
+      "Because the clinic had no prior software baseline, we do not quote speculative savings figures. The practical outcome is that new client intake and appointment booking now run automatically through the site, freeing the clinic founder from handling initial enquiries over the phone.",
   },
   closingLine: "If every new client still means a phone call before a booking exists, that's the gap this closes.",
   screenshotLabel: "PrimeraSkin Live Site Screenshot",

@@ -87,7 +87,7 @@ Note the rule this does not break. The design system forbids two full-bleed **go
 
 ### 4.4 Final CTA gets a secondary line — P2
 
-Sapphire section 8. Primary stays the gold "Book a 30-minute call". Add a single `outline-dark` secondary: "Not ready? Get your score first." Last-chance capture, 30 minutes of work.
+Sapphire section 9. Primary stays the gold "Book a 30-minute call". Add a single `outline-dark` secondary: "Not ready? Get your score first." Last-chance capture, 30 minutes of work.
 
 ### 4.5 Hero — P1, but as a text link only
 
@@ -288,8 +288,9 @@ Banned-language checked against the IA list. No "operations" as a standalone nou
 | 12 | Final CTA secondary line | P2 | 30 minutes | #3 |
 | 13 | Result-screen count-up | P3 | 2 hours | #3 |
 | 14 | Benchmark and distribution copy | P3 | 0.5 day | 40 real submissions, ~mid-November |
+| 15 | DKIM verification and inbox-delivery test | P0 | 0.5 day | Nothing. (Launch gate for emailed assessments: both must pass, or remove email promise from v1 scope) |
 
-**Critical path to the festival:** items 1, 2, 3, 5. Everything else can follow. Total roughly 6 to 8 working days of build, which fits the October window only if the four decisions are made this week.
+**Critical path to the festival:** items 1, 2, 3, 4, 5 (and 15, if emailed assessments remain in v1). Everything else can follow. Total roughly 6 to 8 working days of build, which fits the October window only if the four decisions are made this week.
 
 **Spec amendments this requires.** Both should be written into the PRD rather than left as undocumented drift.
 
@@ -305,8 +306,8 @@ Mapped to the idea bank. The X-Ray gives four genuinely strong angles and one th
 | Angle | Category | Why it works |
 |---|---|---|
 | "We removed AI from our own AI diagnostic. Here is what the numbers showed." | #5 Behind the scenes | The v0.1 to v0.2 change is a real decision with real arithmetic behind it, and it is exactly on-positioning. Strongest of the five. |
-| "More software does not mean worse systems. We tested it." | #11 Common myths | A 16-tool business scored 82. A fragmented one scored 36. Concrete, contrarian, defensible. |
-| "Most owners think their problem is AI. In our model it was named the main problem 54% of the time, and it was the wrong answer 54% of the time." | #3 Unpopular opinions | Sharp hook, invites pushback, and lands the core positioning without pitching. |
+| "More software does not mean worse systems. We tested it." | #11 Common myths | A 16-tool business scored 82. A fragmented one scored 36. Concrete, contrarian, defensible. **Must clearly label figures as synthetic model outputs; retain this label until the 40-real-submission calibration gate is met to substantiate them.** |
+| "Most owners think their problem is AI. In our model it was named the main problem 54% of the time, and it was the wrong answer 54% of the time." | #3 Unpopular opinions | Sharp hook, invites pushback, and lands the core positioning without pitching. **Must clearly label figures as synthetic model outputs; retain this label until the 40-real-submission calibration gate is met to substantiate them.** |
 | "Here are the nine questions. Take them or use them yourself." | #29 My exact process | Giving the questions away is the trust play. Nobody can copy the weights or the bands. |
 | Before and after, with real scores | #10 Before vs after | **Hold until calibration.** No real distribution exists yet. |
 
