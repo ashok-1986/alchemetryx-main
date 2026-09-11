@@ -62,8 +62,8 @@ export function SplitNavigation() {
             ))}
           </div>
 
-          {/* CENTER: Logo */}
-          <div className="flex justify-start md:justify-center self-start pt-2">
+          {/* CENTER: Logo (Negative margin pulls the transparent PNG padding up so the 'a' aligns with HOME) */}
+          <div className="flex justify-start md:justify-center self-start pt-2 -mt-3 md:-mt-6">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
@@ -74,8 +74,8 @@ export function SplitNavigation() {
                 src="/brand/main-logo.png"
                 alt="Alchemetryx"
                 width={400}
-                height={100}
-                className="w-[180px] md:w-[280px] h-auto"
+                height={200}
+                className="h-[50px] md:h-[80px] w-auto object-contain"
                 priority
               />
             </Link>
