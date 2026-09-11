@@ -49,20 +49,21 @@ export function SplitNavigation() {
         <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col gap-1.5 self-start pt-3">
+          <div className="hidden md:flex flex-col gap-1.5 self-start">
             {leftLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none"
+                className="group flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none py-1"
               >
-                {item.label}
+                <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">—</span>
+                <span>{item.label}</span>
               </Link>
             ))}
           </div>
 
           {/* CENTER: Logo */}
-          <div className="flex justify-start md:justify-center self-center">
+          <div className="flex justify-start md:justify-center self-start">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
@@ -74,14 +75,14 @@ export function SplitNavigation() {
                 alt="Alchemetryx"
                 width={400}
                 height={100}
-                className="h-[60px] md:h-[80px] w-auto object-contain"
+                className="h-[60px] md:h-[80px] w-auto object-contain object-top"
                 priority
               />
             </Link>
           </div>
 
           {/* RIGHT: Actions (Pill CTA + Outline Menu Button) */}
-          <div className="flex justify-end items-center gap-4 self-start pt-2">
+          <div className="flex justify-end items-start gap-4 self-start">
             <div className="hidden sm:block">
               {/* As requested: Pill button consistent across the site */}
               <CircleExpandButton
