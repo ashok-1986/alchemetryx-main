@@ -1,19 +1,19 @@
 {
   "/_not-found/page": "/_not-found",
   "/api/debug/route": "/api/debug",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/robots.txt/route": "/robots.txt",
   "/icon.png/route": "/icon.png",
-  "/sitemap.xml/route": "/sitemap.xml",
   "/page": "/",
-  "/book/page": "/book",
   "/already-bought/page": "/already-bought",
   "/not-yet/page": "/not-yet",
+  "/book/page": "/book",
   "/proof/page": "/proof",
   "/privacy/page": "/privacy",
   "/terms/page": "/terms",
-  "/about/page": "/about",
+  "/proof/meet-prerna/page": "/proof/meet-prerna",
   "/proof/care-rota/page": "/proof/care-rota",
-  "/proof/primeraskin/page": "/proof/primeraskin",
+  "/about/page": "/about",
   "/proof/fitosys/page": "/proof/fitosys",
-  "/proof/meet-prerna/page": "/proof/meet-prerna"
+  "/proof/primeraskin/page": "/proof/primeraskin"
 }

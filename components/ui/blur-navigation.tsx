@@ -36,7 +36,9 @@ export function BlurNavigation() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 flex justify-center w-full transition-all duration-300 ease-out px-4 py-4 md:py-6 pointer-events-none`}
+        className={`fixed top-0 inset-x-0 z-50 flex justify-center w-full transition-all duration-300 ease-out px-4 py-2 pointer-events-none ${
+          scrolled ? "backdrop-blur-md bg-transparent" : "bg-transparent"
+        }`}
       >
         {/* Full width container, Grid layout for 3 equal sections */}
         <div className="pointer-events-auto relative grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center w-full max-w-[1440px] mx-auto px-2 transition-all duration-300">
@@ -50,33 +52,30 @@ export function BlurNavigation() {
               aria-label="Alchemetryx Home"
             >
               <Image
-                src="/brand/main-logo-white.png"
+                src="/brand/main-logo.png"
                 alt="Alchemetryx"
-                width={160}
-                height={40}
-                className="h-7 md:h-8 w-auto object-contain"
+                width={400}
+                height={100}
+                className="h-[100px] w-auto object-contain"
                 priority
               />
             </Link>
           </div>
 
-          {/* Center: Menu Items with dynamic glassmorphism pill on scroll */}
+          {/* Center: Menu Items */}
           <div className="hidden lg:flex justify-center">
             <motion.nav
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-              className={`flex items-center gap-1 xl:gap-2 px-3 py-2 transition-all duration-300 rounded-full ${
-                scrolled
-                  ? "bg-[var(--color-sapphire)]/70 backdrop-blur-lg shadow-lg shadow-[var(--color-ink)]/10 border border-[var(--color-pearl)]/10"
-                  : "bg-transparent border border-transparent"
-              }`}
+              className="flex items-center gap-1 xl:gap-2 px-3 py-2 transition-all duration-300 rounded-full"
             >
               {NAV_ITEMS.map((item, i) => {
+                const isAnchor = item.href.includes("#");
                 const isActive =
                   item.href === "/"
                     ? pathname === "/"
-                    : pathname?.startsWith(item.href.split("#")[0]);
+                    : !isAnchor && pathname?.startsWith(item.href.split("#")[0]);
 
                 return (
                   <Link
@@ -84,7 +83,7 @@ export function BlurNavigation() {
                     href={item.href}
                     onMouseEnter={() => setHoveredIndex(i)}
                     onMouseLeave={() => setHoveredIndex(null)}
-                    className={`relative px-4 py-2 rounded-full text-xs uppercase tracking-[0.15em] font-semibold transition-colors duration-200 ${
+                    className={`relative px-4 py-2 rounded-full text-xs uppercase tracking-[0.15em] font-normal transition-colors duration-200 ${
                       isActive
                         ? "text-[var(--color-pearl)]"
                         : "text-[var(--color-pearl)]/70 hover:text-[var(--color-pearl)]"

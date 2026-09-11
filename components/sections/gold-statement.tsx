@@ -79,7 +79,7 @@ export function GoldStatement() {
     <SectionFullBleed
       id="statement"
       tone="gold"
-      fullHeight={false}
+      fullHeight={true}
       className="py-20 md:py-28"
     >
       <div ref={sectionRef} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
