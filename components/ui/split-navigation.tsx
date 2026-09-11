@@ -49,7 +49,7 @@ export function SplitNavigation() {
         <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col gap-1.5 self-start">
+          <div className="hidden md:flex flex-col gap-1.5 self-start pt-2">
             {leftLinks.map((item) => (
               <Link
                 key={item.label}
@@ -63,7 +63,7 @@ export function SplitNavigation() {
           </div>
 
           {/* CENTER: Logo */}
-          <div className="flex justify-start md:justify-center self-start">
+          <div className="flex justify-start md:justify-center self-start pt-2">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
@@ -82,7 +82,7 @@ export function SplitNavigation() {
           </div>
 
           {/* RIGHT: Actions (Pill CTA + Outline Menu Button) */}
-          <div className="flex justify-end items-start gap-4 self-start">
+          <div className="flex justify-end items-start gap-4 self-start pt-2">
             <div className="hidden sm:block">
               {/* As requested: Pill button consistent across the site */}
               <CircleExpandButton

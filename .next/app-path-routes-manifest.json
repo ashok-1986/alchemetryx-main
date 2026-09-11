@@ -1,0 +1,19 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/debug/route": "/api/debug",
+  "/robots.txt/route": "/robots.txt",
+  "/icon.png/route": "/icon.png",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/page": "/",
+  "/already-bought/page": "/already-bought",
+  "/book/page": "/book",
+  "/not-yet/page": "/not-yet",
+  "/privacy/page": "/privacy",
+  "/proof/page": "/proof",
+  "/terms/page": "/terms",
+  "/proof/meet-prerna/page": "/proof/meet-prerna",
+  "/proof/care-rota/page": "/proof/care-rota",
+  "/proof/fitosys/page": "/proof/fitosys",
+  "/about/page": "/about",
+  "/proof/primeraskin/page": "/proof/primeraskin"
+}
