@@ -45,7 +45,12 @@ export function SplitNavigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-6 md:px-8">
+      <motion.header 
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-6 md:px-8"
+      >
         <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
@@ -63,7 +68,7 @@ export function SplitNavigation() {
           </div>
 
           {/* CENTER: Logo (Negative margin pulls the transparent PNG padding up so the 'a' aligns with HOME) */}
-          <div className="flex justify-start md:justify-center self-start pt-2 -mt-3 md:-mt-6">
+          <div className="flex justify-start md:justify-center self-start pt-2 -mt-5 md:-mt-9">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
@@ -75,7 +80,7 @@ export function SplitNavigation() {
                 alt="Alchemetryx"
                 width={400}
                 height={200}
-                className="h-[50px] md:h-[80px] w-auto object-contain"
+                className="h-[70px] md:h-[100px] w-auto object-contain"
                 priority
               />
             </Link>
@@ -104,7 +109,7 @@ export function SplitNavigation() {
             </button>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       {/* RIGHT SIDEBAR MEGA MENU */}
       <AnimatePresence>
