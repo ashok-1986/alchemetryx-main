@@ -1,19 +1,19 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/api/debug/route": "app/api/debug/route.js",
-  "/robots.txt/route": "app/robots.txt/route.js",
   "/icon.png/route": "app/icon.png/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
   "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/page": "app/page.js",
-  "/already-bought/page": "app/already-bought/page.js",
   "/book/page": "app/book/page.js",
+  "/already-bought/page": "app/already-bought/page.js",
   "/not-yet/page": "app/not-yet/page.js",
-  "/privacy/page": "app/privacy/page.js",
   "/proof/page": "app/proof/page.js",
   "/terms/page": "app/terms/page.js",
-  "/proof/meet-prerna/page": "app/proof/meet-prerna/page.js",
-  "/proof/care-rota/page": "app/proof/care-rota/page.js",
+  "/privacy/page": "app/privacy/page.js",
   "/proof/fitosys/page": "app/proof/fitosys/page.js",
+  "/proof/care-rota/page": "app/proof/care-rota/page.js",
+  "/proof/primeraskin/page": "app/proof/primeraskin/page.js",
   "/about/page": "app/about/page.js",
-  "/proof/primeraskin/page": "app/proof/primeraskin/page.js"
+  "/proof/meet-prerna/page": "app/proof/meet-prerna/page.js"
 }

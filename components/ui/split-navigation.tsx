@@ -75,7 +75,7 @@ export function SplitNavigation() {
                 alt="Alchemetryx"
                 width={400}
                 height={100}
-                className="h-[60px] md:h-[80px] w-auto object-contain object-top"
+                className="w-[180px] md:w-[280px] h-auto"
                 priority
               />
             </Link>
