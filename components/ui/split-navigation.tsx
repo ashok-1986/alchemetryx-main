@@ -46,15 +46,15 @@ export function SplitNavigation() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-6 md:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 items-start max-w-[1920px] mx-auto pointer-events-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col gap-1 mt-2">
+          <div className="hidden md:flex flex-col gap-1.5 self-start pt-3">
             {leftLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference"
+                className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none"
               >
                 {item.label}
               </Link>
@@ -62,7 +62,7 @@ export function SplitNavigation() {
           </div>
 
           {/* CENTER: Logo */}
-          <div className="flex justify-start md:justify-center">
+          <div className="flex justify-start md:justify-center self-center">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
@@ -81,8 +81,8 @@ export function SplitNavigation() {
           </div>
 
           {/* RIGHT: Actions (Pill CTA + Outline Menu Button) */}
-          <div className="flex justify-end items-center gap-4">
-            <div className="hidden sm:block mt-1">
+          <div className="flex justify-end items-center gap-4 self-start pt-2">
+            <div className="hidden sm:block">
               {/* As requested: Pill button consistent across the site */}
               <CircleExpandButton
                 href={COMPANY.primaryCtaHref}
@@ -96,7 +96,7 @@ export function SplitNavigation() {
             {/* Menu Toggle Button: Outline style as per reference image */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-[60] flex items-center justify-center px-4 py-2 border border-[var(--color-pearl)] mix-blend-difference text-[var(--color-pearl)] text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[var(--color-pearl)] hover:text-[var(--color-ink)] transition-colors rounded-sm mt-1"
+              className="relative z-[60] flex items-center justify-center px-4 py-2 border border-[var(--color-pearl)] mix-blend-difference text-[var(--color-pearl)] text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[var(--color-pearl)] hover:text-[var(--color-ink)] transition-colors rounded-sm"
               style={{ mixBlendMode: menuOpen ? "normal" : "difference", borderColor: menuOpen ? "var(--color-pearl)" : "", color: menuOpen ? "var(--color-pearl)" : "" }}
             >
               {menuOpen ? "CLOSE" : "MENU"}
