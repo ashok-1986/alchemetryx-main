@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Urbanist } from "next/font/google";
 import "./globals.css";
-import { BlurNavigation } from "@/components/ui/blur-navigation";
+import { SplitNavigation } from "@/components/ui/split-navigation";
 import { Footer } from "@/components/chrome/footer";
 import { OrganizationJsonLd } from "@/components/seo/structured-data";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
@@ -79,7 +79,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-[var(--color-pearl)] text-[var(--color-ink)] antialiased flex flex-col">
         <SmoothScroll>
-          <BlurNavigation />
+          <SplitNavigation />
           <main className="flex-1 w-full">{children}</main>
           <Footer />
         </SmoothScroll>
