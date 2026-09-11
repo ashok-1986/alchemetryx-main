@@ -1,8 +1,0 @@
-/*
- * Blur Navigation
- *
- * Learn More: https://www.framer.com/asset-urls
- */
-
-export * from "https://framerusercontent.com/modules/9VKj6FUP5Ak4fuqzTY7a/jKudVwbocFvo9wTjG4Q6/nRL2gSWud.js"
-export { default } from "https://framerusercontent.com/modules/9VKj6FUP5Ak4fuqzTY7a/jKudVwbocFvo9wTjG4Q6/nRL2gSWud.js"
