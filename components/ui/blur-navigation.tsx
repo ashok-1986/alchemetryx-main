@@ -35,11 +35,7 @@ export function BlurNavigation() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 inset-x-0 z-50 flex justify-center w-full transition-all duration-300 ease-out px-4 py-2 pointer-events-none ${
-          scrolled ? "backdrop-blur-md bg-transparent" : "bg-transparent"
-        }`}
-      >
+      <header className="fixed top-0 inset-x-0 z-50 flex justify-center w-full transition-all duration-300 ease-out px-4 py-2 pointer-events-none bg-transparent">
         {/* Full width container, Grid layout for 3 equal sections */}
         <div className="pointer-events-auto relative grid grid-cols-2 lg:grid-cols-[1fr_auto_1fr] items-center w-full max-w-[1440px] mx-auto px-2 transition-all duration-300">
           
@@ -68,7 +64,11 @@ export function BlurNavigation() {
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-              className="flex items-center gap-1 xl:gap-2 px-3 py-2 transition-all duration-300 rounded-full"
+              className={`flex items-center gap-1 xl:gap-2 px-3 py-2 transition-all duration-300 rounded-full ${
+                scrolled
+                  ? "bg-transparent backdrop-blur-md border border-[var(--color-pearl)]/10 shadow-lg shadow-black/10"
+                  : "bg-transparent border border-transparent"
+              }`}
             >
               {NAV_ITEMS.map((item, i) => {
                 const isAnchor = item.href.includes("#");
