@@ -61,7 +61,7 @@ export function SplitNavigation() {
                 href={item.href}
                 className="group flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none py-1"
               >
-                <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">—</span>
+                <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">·</span>
                 <span>{item.label}</span>
               </Link>
             ))}

@@ -8,7 +8,7 @@ import { PUBLISHED_CASE_STUDIES } from "@/content/case-studies";
 export const metadata: Metadata = {
   title: "Proof · Alchemetryx",
   description:
-    "Real systems we've built: care operations, coaching automation, client intake, and consultation booking pipelines.",
+    "Real systems we've built: care home staffing, coaching automation, client intake, and consultation booking pipelines.",
   alternates: {
     canonical: "/proof",
   },

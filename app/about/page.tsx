@@ -27,10 +27,10 @@ export default function AboutPage() {
               About Alchemetryx
             </p>
             <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.05] tracking-[-0.03em] text-white">
-              When software doesn't talk, your team does the typing and you carry every decision.
+              When software is disconnected, your team spends their day copying data and you carry every decision.
             </h1>
             <p className="mt-8 text-lg md:text-xl font-normal leading-relaxed text-white/80 max-w-[52ch]">
-              We rebuild critical business routines into systems that run on their own: connected tools, live numbers, and less repetitive paperwork.
+              We rebuild critical business routines into systems that run on their own, linking your existing tools so numbers update automatically.
             </p>
             <div className="mt-10">
               <Link

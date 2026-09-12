@@ -44,7 +44,7 @@ export default function TermsPage() {
                 <strong>"Client", "you", or "your"</strong> means the business, entity, or individual purchasing or receiving Services from Alchemetryx.
               </li>
               <li>
-                <strong>"Services"</strong> means the software engineering, technical rebuild, workflow automation, and consultancy services provided by Alchemetryx under an agreed Statement of Work or commercial quote.
+                <strong>"Services"</strong> means the software engineering, technical rebuild, business systems automation, and consultancy services provided by Alchemetryx under an agreed Statement of Work or commercial quote.
               </li>
               <li>
                 <strong>"Statement of Work" or "SOW"</strong> means the document, written proposal, or quote agreed between the parties setting out the deliverables, timelines, and fees for a specific engagement.

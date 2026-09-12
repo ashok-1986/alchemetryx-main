@@ -13,6 +13,25 @@ Where the older documents and these two disagree, these two win. In particular: 
 
 Three routes are deliberately not built: `/diagnostic`, `/build`, `/retainer`. They are blocked on real content from Ashok and must not be filled with plausible-sounding process. Do not add them to the nav.
 
+## `/week` — the free diagnostic build (separate track, not blocked)
+
+This is a different route from the blocked `/diagnostic` placeholder above. Real name: "Where's your week going?" Public-facing name only — never call it "Tech Stack X-Ray" or "Systems Check" in copy, URLs, or email. Routes: `/week` (marketing/entry page) and `/week/result` (the score page). Unlike `/diagnostic`, this one has real, locked content and is ready to build once picked up.
+
+Read in this order, all in `product/`:
+
+- `alchemetryx_week_scoring_and_form_spec_v2_2026-09-11.md` — current source of truth. Covers the architecture, the live Tally form's exact structure, the answer-text-to-rating lookup tables (§4), the unchanged `lib/score.ts` scoring engine (§5), and a ready-to-adapt `lib/parseWeekAnswers.ts` (§6) for parsing the redirect URL into scores.
+- `alchemetryx_week_build_brief_v1_2026-09-11.md` — the original build brief. Superseded on sections 1 (row 7), 4, 5, and 7 by the v2 doc above. Everything else in it (marketing page copy, band labels, design treatment, acceptance checklist) still stands.
+- `alchemetryx_xray_scoring_matrix_v0.2.md` — the underlying scoring matrix: question text, weights, band boundaries, and the ten synthetic acceptance-test profiles.
+- `alchemetryx_xray_homepage_integration_2026-09-11.md` — how `/week` links from and back to the home page.
+
+**Canonical Tally form:** "Where's your week going?" — public URL `https://tally.so/r/jajPEJ`, form ID `jajPEJ`. This is the only form to build against. It does zero scoring: Tally only asks questions, branches two AI-use questions on the first gate question, and redirects on completion with every raw answer as URL query-string text. All scoring happens in `lib/score.ts` and `lib/parseWeekAnswers.ts` on the Next.js side.
+
+**Do not use** the form called "MCP Test — Where's your week going?" (form ID `QKbR91`). It was a scratch form used only to validate a conditional-logic fix, and it still has old-style calculated fields (`aiReturn`) computed inside Tally itself — an approach deliberately abandoned because Q8's group-coverage scoring rule is too risky to replicate correctly in Tally's conditional logic. If it comes up anywhere, it's stale — ignore it.
+
+**Open item:** Form A's redirect currently points to `https://alchemetryx.com/week/result`, taken from the legal docs and not yet confirmed live by Ashok. Confirm the domain before wiring up the route; if it's wrong, the fix is a one-line change in Tally's form settings, not in the Next.js code.
+
+**Status as of 12 Sept 2026:** Form A is live and validated end to end (a real test submission was traced through the full scoring pipeline and matched expectations). Form B (context questions, email capture) and the `/week` / `/week/result` Next.js pages themselves are not started.
+
 ## Read first, in this order
 
 1. `05_prd.md` — what this site is for, requirements, launch gate. Start here.

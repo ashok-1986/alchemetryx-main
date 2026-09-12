@@ -3,7 +3,7 @@
  * Care Rota is cleared for publication. Home identity and staff names are
  * anonymised in the screenshots.
  *
- * Fitosys is our own product, not a client engagement — see its honesty
+ * Fitosys is our own product, not a client engagement: see its honesty
  * block. The hours/revenue figures shown in its screenshots are Fitosys's
  * own published positioning, not numbers Alchemetryx has independently
  * audited, and the honesty block says so plainly rather than restating
@@ -30,7 +30,7 @@ export const CARE_ROTA: CaseStudy = {
   slug: "care-rota",
   kind: "own-build",
   published: true,
-  eyebrow: "Case study · Care operations",
+  eyebrow: "Case study · Care home staffing",
   title: "A care home’s rota lived in a spreadsheet. We rebuilt it as a system.",
   standfirst:
     "How a fragmented monthly roster for a UK care home became one place to plan shifts, track staffing limits, and watch live wage costs.",
@@ -74,7 +74,7 @@ export const CARE_ROTA: CaseStudy = {
     ],
   },
   honesty: {
-    heading: "A working system rather than unverified savings claims.",
+    heading: "A working system instead of unverified savings figures.",
     body:
       "The system is live and runs on our own infrastructure. We do not publish estimated hours or pounds saved, because the measure of this work is visible above: a fragile spreadsheet replaced by one system that coordinates costs, shift coverage, and leave entitlement in one place.",
   },
@@ -86,7 +86,7 @@ export const FITOSYS: CaseStudy = {
   slug: "fitosys",
   kind: "own-build",
   published: true,
-  eyebrow: "Own build · Coaching operations, India",
+  eyebrow: "Own build · Coaching platform, India",
   title: "A fitness coach’s Sundays went to admin. We built a system that runs without them.",
   standfirst:
     "Independent coaches in India were losing evenings to manual check-ins and renewal chasing, and losing margin to commission-based software on top of it. Fitosys automates the admin and takes no cut of what a coach earns.",
@@ -132,7 +132,7 @@ export const FITOSYS: CaseStudy = {
   honesty: {
     heading: "An internal product, built and operated by Alchemetryx.",
     body:
-      "Fitosys is built and run by Alchemetryx rather than delivered for an outside client. The hours-lost and revenue figures shown on its own screens are Fitosys's published estimates, not numbers we have independently audited against real client accounts. What we can state plainly: it is a live product, in real use, automating check-ins, renewals and onboarding for coaches over WhatsApp, on a flat fee with no commission taken from a coach's earnings.",
+      "Fitosys was developed and is operated directly by Alchemetryx as an internal product. The hours-lost and revenue figures shown on its own screens are Fitosys's published estimates, not numbers we have independently audited against real client accounts. What we can state plainly: it is a live product, in real use, automating check-ins, renewals and onboarding for coaches over WhatsApp, on a flat fee with no commission taken from a coach's earnings.",
   },
   closingLine: "If admin is eating the evenings you built this business to have back, that's the same problem.",
   screenshotLabel: "Fitosys Live Product Screenshot",
@@ -154,7 +154,7 @@ export const MEET_PRERNA: CaseStudy = {
     points: [
       { label: "No digital front door", body: "Nothing to point a new client to beyond a social profile." },
       { label: "Manual scheduling", body: "Every consultation was arranged by hand, one message at a time." },
-      { label: "A first system", body: "This is Prerna's first dedicated site and booking flow, not a replacement for an older one." },
+      { label: "A first system", body: "This is Prerna's first dedicated site and booking flow, built from scratch." },
     ],
   },
   build: {
