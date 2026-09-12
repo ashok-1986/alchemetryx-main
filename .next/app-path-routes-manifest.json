@@ -9,11 +9,13 @@
   "/book/page": "/book",
   "/not-yet/page": "/not-yet",
   "/proof/page": "/proof",
-  "/privacy/page": "/privacy",
+  "/week/page": "/week",
+  "/week/result/page": "/week/result",
   "/terms/page": "/terms",
+  "/privacy/page": "/privacy",
   "/proof/meet-prerna/page": "/proof/meet-prerna",
   "/proof/care-rota/page": "/proof/care-rota",
-  "/proof/primeraskin/page": "/proof/primeraskin",
   "/proof/fitosys/page": "/proof/fitosys",
+  "/proof/primeraskin/page": "/proof/primeraskin",
   "/about/page": "/about"
 }

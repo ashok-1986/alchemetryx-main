@@ -169,6 +169,18 @@
       "regex": "^/terms(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/week",
+      "regex": "^/week(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/week(?:/)?$"
+    },
+    {
+      "page": "/week/result",
+      "regex": "^/week/result(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/week/result(?:/)?$"
     }
   ],
   "dataRoutes": [],

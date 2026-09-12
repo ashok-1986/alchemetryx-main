@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { COMPANY } from "@/lib/constants";
 import { NAV_ITEMS } from "@/components/chrome/nav-items";
@@ -45,11 +44,8 @@ export function SplitNavigation() {
 
   return (
     <>
-      <motion.header 
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-6 md:px-8"
+      <header 
+        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 py-6 md:px-8 animate-in fade-in slide-in-from-top-5 duration-700 ease-out fill-mode-both"
       >
         <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
@@ -104,98 +100,78 @@ export function SplitNavigation() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="relative z-[60] flex items-center justify-center px-4 py-2 border border-[var(--color-pearl)] mix-blend-difference text-[var(--color-pearl)] text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[var(--color-pearl)] hover:text-[var(--color-ink)] transition-colors rounded-sm"
               style={{ mixBlendMode: menuOpen ? "normal" : "difference", borderColor: menuOpen ? "var(--color-pearl)" : "", color: menuOpen ? "var(--color-pearl)" : "" }}
+              aria-expanded={menuOpen}
+              aria-controls="mega-menu-panel"
             >
               {menuOpen ? "CLOSE" : "MENU"}
             </button>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* RIGHT SIDEBAR MEGA MENU */}
-      <AnimatePresence>
-        {menuOpen && (
-          <>
-            {/* Backdrop for the rest of the screen */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm cursor-pointer"
-              onClick={() => setMenuOpen(false)}
-            />
+      {/* Backdrop for the rest of the screen */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm cursor-pointer transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        onClick={() => setMenuOpen(false)}
+      />
 
-            {/* Slide-out Panel */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "tween", ease: [0.76, 0, 0.24, 1], duration: 0.7 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full md:w-[45vw] max-w-[600px] bg-[var(--color-sapphire)] border-l border-[var(--color-pearl-line)]/10 shadow-2xl flex flex-col justify-center px-10 md:px-20"
-            >
-              <div className="flex flex-col gap-4">
-                {NAV_ITEMS.map((item, i) => (
-                  <div key={item.label} className="overflow-hidden">
-                    <motion.div
-                      initial={{ y: "100%" }}
-                      animate={{ y: 0 }}
-                      exit={{ y: "100%" }}
-                      transition={{ 
-                        delay: 0.3 + (i * 0.05),
-                        duration: 0.5,
-                        ease: [0.33, 1, 0.68, 1]
-                      }}
-                    >
-                      <Link
-                        href={item.href}
-                        onClick={() => setMenuOpen(false)}
-                        className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors leading-[0.9] block font-display"
-                      >
-                        {item.label}
-                      </Link>
-                    </motion.div>
-                  </div>
-                ))}
-
-                {/* Mobile CTA inside menu */}
-                <div className="overflow-hidden sm:hidden mt-8">
-                  <motion.div
-                    initial={{ y: "100%" }}
-                    animate={{ y: 0 }}
-                    exit={{ y: "100%" }}
-                    transition={{ delay: 0.3 + (NAV_ITEMS.length * 0.05), duration: 0.5 }}
-                  >
-                    <Link
-                      href={COMPANY.primaryCtaHref}
-                      onClick={() => setMenuOpen(false)}
-                      className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-semibold tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] w-full"
-                    >
-                      {COMPANY.primaryCtaLabel}
-                    </Link>
-                  </motion.div>
-                </div>
-              </div>
-
-              {/* Bottom Info / Socials */}
-              <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-                className="absolute bottom-12 left-10 right-10 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-pearl)]/50 border-t border-[var(--color-pearl-line)]/10 pt-8"
+      {/* Slide-out Panel */}
+      <div
+        id="mega-menu-panel"
+        inert={!menuOpen ? true : undefined}
+        aria-hidden={!menuOpen}
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full md:w-[45vw] max-w-[600px] bg-[var(--color-sapphire)] border-l border-[var(--color-pearl-line)]/10 shadow-2xl flex flex-col justify-center px-10 md:px-20 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+      >
+        <div className="flex flex-col gap-4">
+          {NAV_ITEMS.map((item, i) => (
+            <div key={item.label} className="overflow-hidden">
+              <div
+                className={`transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${menuOpen ? "translate-y-0" : "translate-y-full"}`}
+                style={{ transitionDelay: menuOpen ? `${0.3 + (i * 0.05)}s` : "0s" }}
               >
-                <div className="flex gap-4">
-                  <a href="#" className="hover:text-[var(--color-gold)] transition-colors">LinkedIn</a>
-                  <a href="#" className="hover:text-[var(--color-gold)] transition-colors">X (Twitter)</a>
-                </div>
-                <div>
-                  © {new Date().getFullYear()} Alchemetryx
-                </div>
-              </motion.div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+                <Link
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors leading-[0.9] block font-display"
+                >
+                  {item.label}
+                </Link>
+              </div>
+            </div>
+          ))}
+
+          {/* Mobile CTA inside menu */}
+          <div className="overflow-hidden sm:hidden mt-8">
+            <div
+              className={`transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${menuOpen ? "translate-y-0" : "translate-y-full"}`}
+              style={{ transitionDelay: menuOpen ? `${0.3 + (NAV_ITEMS.length * 0.05)}s` : "0s" }}
+            >
+              <Link
+                href={COMPANY.primaryCtaHref}
+                onClick={() => setMenuOpen(false)}
+                className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-semibold tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] w-full"
+              >
+                {COMPANY.primaryCtaLabel}
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Info / Socials */}
+        <div 
+          className={`absolute bottom-12 left-10 right-10 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-pearl)]/50 border-t border-[var(--color-pearl-line)]/10 pt-8 transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
+          style={{ transitionDelay: menuOpen ? "0.6s" : "0s" }}
+        >
+          <div className="flex gap-4">
+            <a href="#" className="hover:text-[var(--color-gold)] transition-colors">LinkedIn</a>
+            <a href="#" className="hover:text-[var(--color-gold)] transition-colors">X (Twitter)</a>
+          </div>
+          <div>
+            © {new Date().getFullYear()} Alchemetryx
+          </div>
+        </div>
+      </div>
     </>
   );
 }

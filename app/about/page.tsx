@@ -246,9 +246,6 @@ export default function AboutPage() {
                 View case studies
               </Link>
             </div>
-            <p className="mt-16 text-xs text-white/40 tracking-wider uppercase">
-              Alchemetryx Ltd &middot; Registered in England and Wales &middot; Company No. 17199377
-            </p>
           </div>
         </Reveal>
       </SectionFullBleed>
