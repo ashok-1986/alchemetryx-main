@@ -21,7 +21,7 @@ export default function TermsPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
             Legal & Compliance
           </p>
-          <h1 className="text-[clamp(2.25rem,4.5vw,3.5rem)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
+          <h1 className="text-[var(--text-display-xl)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
             Terms of Service
           </h1>
           <p className="text-sm text-[var(--color-slate)]">

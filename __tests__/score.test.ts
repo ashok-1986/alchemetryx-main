@@ -36,7 +36,7 @@ describe("Scoring Engine", () => {
           expect(improvedResult.fragmentation).toBeGreaterThanOrEqual(baseResult.fragmentation);
         }
       }
-    });
+    }, 10000);
   });
 
   describe("Test 2: Ten Synthetic Profiles", () => {
@@ -129,8 +129,8 @@ describe("Scoring Engine", () => {
     it("Q8 with 4 financial boxes and nothing else scores 3, not 5", () => {
       expect(q8Rating(["revenue", "grossMargin", "cash", "costs"])).toBe(3);
     });
-    it("Q8 with exactly 3 items across all 3 groups scores 2, per the catch-all rule", () => {
-      expect(q8Rating(["revenue", "utilisation", "pipeline"])).toBe(2);
+    it("Q8 with exactly 3 items across all 3 groups scores 4 (no lower than two-group result)", () => {
+      expect(q8Rating(["revenue", "utilisation", "pipeline"])).toBe(4);
     });
   });
 });

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 
 export const metadata: Metadata = {
   title: "Where's your week going? — Alchemetryx",
@@ -32,7 +33,7 @@ export default function WeekMarketingPage() {
         {/* SECTION 1: HERO (Sapphire) */}
         <section className="bg-sapphire text-pearl pt-32 pb-20 md:pt-40 md:pb-32 px-6">
           <div className="max-w-7xl mx-auto flex flex-col items-start gap-8">
-            <h1 className="font-urbanist font-light text-5xl md:text-7xl lg:text-[100px] leading-[0.9] tracking-[-0.04em] max-w-4xl">
+            <h1 className="font-urbanist font-light text-[var(--text-display-xl)] leading-[0.9] tracking-[-0.04em] max-w-4xl">
               Where is your week going?
             </h1>
 
@@ -42,12 +43,13 @@ export default function WeekMarketingPage() {
               days. No charge, no login.
             </p>
 
-            <a
+            <CircleExpandButton
               href={tallyUrl}
-              className="inline-flex items-center justify-center bg-gold text-ink font-medium px-8 py-4 rounded-[6px] active:scale-97 transition-transform duration-160 ease-out"
+              variant="primary"
+              size="lg"
             >
               Start
-            </a>
+            </CircleExpandButton>
           </div>
         </section>
 
@@ -169,8 +171,9 @@ export default function WeekMarketingPage() {
               </p>
               <p className="text-body text-slate">
                 Your answers are used to write your assessment and to improve
-                the scoring. They are not sold, not shared, and not added to any
-                list you did not ask for.
+                the scoring. They are processed securely by Tally as our service
+                provider, but are never sold and not added to any list you did
+                not ask for.
               </p>
             </div>
           </div>
@@ -183,12 +186,13 @@ export default function WeekMarketingPage() {
               Nine questions. Four minutes.
             </p>
 
-            <a
+            <CircleExpandButton
               href={tallyUrl}
-              className="inline-flex items-center justify-center bg-gold text-ink font-medium px-8 py-4 rounded-[6px] active:scale-97 transition-transform duration-160 ease-out"
+              variant="primary"
+              size="lg"
             >
               Start
-            </a>
+            </CircleExpandButton>
           </div>
         </section>
       </main>

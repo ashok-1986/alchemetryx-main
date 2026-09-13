@@ -63,8 +63,10 @@ export default async function WeekResultPage(props: { searchParams: Promise<Reco
   const strongestLabel = LABELS[result.strongest];
   const bandLabel = BAND_LABELS[result.band];
 
-  // Placeholder form B link - to be replaced when Form B is built
-  const formBUrlObj = new URL(process.env.NEXT_PUBLIC_FORM_B_URL || "https://tally.so/r/xxx");
+  if (!process.env.NEXT_PUBLIC_FORM_B_URL) {
+    throw new Error("NEXT_PUBLIC_FORM_B_URL is not configured.");
+  }
+  const formBUrlObj = new URL(process.env.NEXT_PUBLIC_FORM_B_URL);
   formBUrlObj.searchParams.set("score", result.score.toString());
   formBUrlObj.searchParams.set("leakage", result.leakage.toString());
   formBUrlObj.searchParams.set("visibility", result.visibility.toString());

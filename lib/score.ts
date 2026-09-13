@@ -98,7 +98,7 @@ export function q8Rating(selected: string[]): Rating {
     .filter(g => g.some((o: string) => picked.includes(o))).length;
 
   if (groups === 3 && picked.length >= 4) return 5;
-  if (groups === 2) return 4;
+  if (groups >= 2) return 4;
   if (groups === 1 && picked.length >= 3) return 3;
   if (picked.length >= 1) return 2;
   return 1;

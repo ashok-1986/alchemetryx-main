@@ -26,7 +26,7 @@ export default function AboutPage() {
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
               About Alchemetryx
             </p>
-            <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-light leading-[1.05] tracking-[-0.03em] text-white">
+            <h1 className="text-[var(--text-display-xl)] font-light leading-[1.05] tracking-[-0.03em] text-white">
               When software is disconnected, your team spends their day copying data and you carry every decision.
             </h1>
             <p className="mt-8 text-lg md:text-xl font-normal leading-relaxed text-white/80 max-w-[52ch]">

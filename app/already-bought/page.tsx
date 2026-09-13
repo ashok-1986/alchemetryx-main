@@ -23,7 +23,7 @@ export default function AlreadyBoughtPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
             ALREADY BOUGHT AI?
           </p>
-          <h1 className="text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.06] tracking-[-0.04em] max-w-[22ch] text-[var(--color-pearl)]">
+          <h1 className="text-[var(--text-display-xl)] font-light leading-[1.06] tracking-[-0.04em] max-w-[22ch] text-[var(--color-pearl)]">
             You bought the tools. Nobody checked what they changed.
           </h1>
           <p className="mt-6 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[55ch]">
