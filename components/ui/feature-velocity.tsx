@@ -9,7 +9,7 @@ interface FeatureVelocityProps {
   features: {
     title: string;
     description: string;
-    icon: LucideIcon;
+    icon: React.ReactNode;
   }[];
   className?: string;
 }
@@ -45,7 +45,7 @@ export const FeatureVelocity = ({ title, description, features, className }: Fea
               />
               <div className="relative z-10 space-y-10">
                 <div className="size-12 rounded-md bg-white border border-pearl-line flex items-center justify-center group-hover:bg-pearl-line transition-colors duration-500">
-                  <card.icon className="size-5 text-ink" strokeWidth={1.5} />
+                  {card.icon}
                 </div>
                 <div className="space-y-4">
                   <h3 className="font-semibold text-lg text-ink">

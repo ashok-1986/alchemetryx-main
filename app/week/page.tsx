@@ -62,17 +62,17 @@ export default function WeekMarketingPage() {
             {
               title: "Rework.",
               description: "Work done twice because something was missing, wrong, or never passed on.",
-              icon: Repeat,
+              icon: <Repeat className="size-5 text-ink" strokeWidth={1.5} />,
             },
             {
               title: "Slow answers.",
               description: "How long it takes you to find out how the business is actually doing.",
-              icon: Clock,
+              icon: <Clock className="size-5 text-ink" strokeWidth={1.5} />,
             },
             {
               title: "Manual handoffs.",
               description: "A person carrying information from one system to the next because nothing else will.",
-              icon: ArrowRightLeft,
+              icon: <ArrowRightLeft className="size-5 text-ink" strokeWidth={1.5} />,
             },
           ]}
           className="px-6 !py-20 md:!py-[120px]"
