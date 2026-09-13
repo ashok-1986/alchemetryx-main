@@ -163,9 +163,10 @@ export function SplitNavigation() {
           className={`absolute bottom-12 left-10 right-10 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-pearl)]/50 border-t border-[var(--color-pearl-line)]/10 pt-8 transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
           style={{ transitionDelay: menuOpen ? "0.6s" : "0s" }}
         >
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-[var(--color-gold)] transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-[var(--color-gold)] transition-colors">X (Twitter)</a>
+          <div className="flex flex-wrap gap-4">
+            <a href="https://www.linkedin.com/company/alchemetryx" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)] transition-colors">LinkedIn</a>
+            <a href="https://www.instagram.com/thealchemetryx/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)] transition-colors">Instagram</a>
+            <a href="https://www.facebook.com/alchemalytic" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-gold)] transition-colors">Facebook</a>
           </div>
           <div>
             © {new Date().getFullYear()} Alchemetryx
