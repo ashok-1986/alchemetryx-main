@@ -145,7 +145,7 @@ export const MEET_PRERNA: CaseStudy = {
   eyebrow: "Case study · Independent artist booking",
   title: "A tattoo artist had no way to book a client online. We built her first one.",
   standfirst:
-    "Meet Prerna ran her tattoo and fine-art practice through Instagram and word of mouth. We built her first dedicated site, with a consultation flow that takes a client from browsing the work to starting a booking.",
+    "Replaced a completely manual, ad-hoc process with a zero-to-one automated client intake pipeline. This gave the solopreneur brand its first dedicated digital booking system, permanently eliminating manual scheduling.",
   attribution: "Built by Alchemetryx · Live client site · meetprerna.com",
   before: {
     heading: "Every enquiry, a manual reply.",
@@ -194,7 +194,7 @@ export const PRIMERASKIN: CaseStudy = {
   eyebrow: "Case study · Clinic consultation booking",
   title: "A skin clinic's consultations ran on manual back-and-forth. We built a booking pipeline instead.",
   standfirst:
-    "PrimeraSkin needed a new client to book a consultation without a phone call or a message chain. We built a site where the booking flow itself moves a visitor toward a scheduled consultation.",
+    "Transformed a chaotic, manual appointment process into a fully structured customer acquisition pipeline. By implementing zero-touch scheduling, we eliminated administrative friction and gave the founder their time back to focus exclusively on marketing and clinic growth.",
   attribution: "Built by Alchemetryx · Live client site",
   before: {
     heading: "A consultation took a conversation to arrange.",

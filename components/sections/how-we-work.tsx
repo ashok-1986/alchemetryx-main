@@ -1,32 +1,58 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
+import { Search, Brain, TrendingUp } from "lucide-react";
 
-const STEPS = [
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+const STEPS: Array<{
+  step: string;
+  label: string;
+  service: string;
+  icon: "search" | "brain" | "trendingUp";
+  body: string;
+}> = [
   {
     step: "01",
     label: "Look",
     service: "The Diagnostic",
+    icon: "search",
     body: "We work out what is actually happening. Which jobs run on memory, what they cost you in hours, and which one is worth changing first.",
   },
   {
     step: "02",
     label: "Decide",
     service: "The Build",
+    icon: "brain",
     body: "We rebuild that one job as a working system, inside the tools you already have where that makes sense. You see it running before it takes over.",
   },
   {
     step: "03",
     label: "Improve",
     service: "The Retainer",
+    icon: "trendingUp",
     body: "We stay while it settles, fix what the real world breaks, and pick up the next job when you are ready. If there is nothing worth doing, we say so.",
   },
 ];
+
+const ICON_MAP = {
+  search: Search,
+  brain: Brain,
+  trendingUp: TrendingUp,
+} as const;
+
+function StepIcon({ name }: { name: keyof typeof ICON_MAP }) {
+  const IconComponent = ICON_MAP[name];
+  return <IconComponent className="w-4 h-4 text-[var(--color-gold-deep)]" strokeWidth={1.5} />;
+}
 
 export function HowWeWork() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -116,9 +142,17 @@ export function HowWeWork() {
             />
             <div className="relative z-10">
               <div className="flex items-start justify-between">
-                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                  {STEPS[0].step} / {STEPS[0].label}
-                </p>
+                <div className="flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
+                  >
+                    <StepIcon name={STEPS[0].icon} />
+                  </span>
+                  <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                    {STEPS[0].step} / {STEPS[0].label}
+                  </p>
+                </div>
               </div>
               <h3 className="mt-6 text-2xl sm:text-3xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
                 {STEPS[0].service}
@@ -157,9 +191,17 @@ export function HowWeWork() {
               aria-hidden="true"
             />
             <div className="relative z-10">
-              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                {STEPS[1].step} / {STEPS[1].label}
-              </p>
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden="true"
+                  className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
+                >
+                  <StepIcon name={STEPS[1].icon} />
+                </span>
+                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                  {STEPS[1].step} / {STEPS[1].label}
+                </p>
+              </div>
               <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
                 {STEPS[1].service}
               </h3>
@@ -196,9 +238,17 @@ export function HowWeWork() {
               aria-hidden="true"
             />
             <div className="relative z-10">
-              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                {STEPS[2].step} / {STEPS[2].label}
-              </p>
+              <div className="flex items-center gap-3">
+                <span
+                  aria-hidden="true"
+                  className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
+                >
+                  <StepIcon name={STEPS[2].icon} />
+                </span>
+                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                  {STEPS[2].step} / {STEPS[2].label}
+                </p>
+              </div>
               <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
                 {STEPS[2].service}
               </h3>

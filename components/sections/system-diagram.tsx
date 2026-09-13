@@ -5,6 +5,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cn } from "@/lib/utils";
+import { Lottie } from "lottie-react";
 
 const LEFT_BOXES = [
   { y: 40, t: "Spreadsheets", s: "Five tabs, ninety columns" },
@@ -143,6 +144,10 @@ export function SystemDiagram({ className }: { className?: string }) {
     });
   }, { scope: svgRef });
 
+  // Lottie animation data — load from content/animations to avoid double-bundling
+  // const systemFlowAnimation = await import("@/content/animations/system-flow.json");
+  // When file is available, uncomment above and add <Lottie /> layer below
+
   return (
     <div
       role="img"
@@ -152,6 +157,14 @@ export function SystemDiagram({ className }: { className?: string }) {
         className
       )}
     >
+      {/* Lottie Animation Layer — renders behind SVG, respects prefers-reduced-motion */}
+      {/* <Lottie
+        animationData={systemFlowAnimation.default}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+        loop={true}
+        renderer="svg"
+      /> */}
+
       {/* SVG Canvas — always rendered, GSAP animates on top */}
       <svg
         ref={svgRef}

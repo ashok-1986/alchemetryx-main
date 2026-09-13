@@ -2,12 +2,13 @@
 
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
-import { ScopeDiagram } from "@/components/sections/scope-diagram";
 import { Button } from "@/components/ui/button";
+import { COMPANY } from "@/lib/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,6 +23,37 @@ interface WhoWeAreProps {
   bleedToTop?: boolean;
 }
 
+const BUILT_THINGS = [
+  {
+    name: "CareRota",
+    description: "Rota & cost system for a UK care home",
+    href: "/proof/care-rota",
+    image: "/proof/carerota-dashboard.jpg",
+    alt: "CareRota dashboard showing live cost, coverage, and compliance",
+  },
+  {
+    name: "Fitosys",
+    description: "Zero-commission platform for India coaches",
+    href: "/proof/fitosys",
+    image: "/proof/fitosys-main.jpg",
+    alt: "Fitosys product view showing automated WhatsApp check-in",
+  },
+  {
+    name: "Meet Prerna",
+    description: "Portfolio site with automated booking pipeline",
+    href: "/proof/meet-prerna",
+    image: "/proof/meetprerna-hero.jpg",
+    alt: "Meet Prerna website homepage with portfolio and booking flow",
+  },
+  {
+    name: "PrimeraSkin",
+    description: "Clinic consultation booking pipeline",
+    href: "/proof/primeraskin",
+    image: "/proof/primeraskin-hero.jpg",
+    alt: "PrimeraSkin website homepage with consultation booking",
+  },
+];
+
 export function WhoWeAre({
   headingLevel = "h2",
   eyebrow = "WHO YOU WOULD BE WORKING WITH",
@@ -33,7 +65,7 @@ export function WhoWeAre({
   const HeadingTag = headingLevel;
   const sectionRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
-  const diagramRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -54,20 +86,23 @@ export function WhoWeAre({
         },
       });
 
-      // Right diagram slides in from right
-      gsap.from(diagramRef.current, {
-        x: 30,
-        opacity: 0,
-        duration: 0.8,
-        delay: 0.15,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
-        },
-      });
+      // Right grid cards stagger in
+      if (gridRef.current) {
+        gsap.from(gridRef.current!.querySelectorAll<HTMLElement>(".built-tile"), {
+          y: 30,
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          delay: 0.2,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        });
+      }
     });
   }, { scope: sectionRef });
 
@@ -115,9 +150,37 @@ export function WhoWeAre({
           )}
         </div>
 
-        {/* Right: the visual */}
-        <div ref={diagramRef} className="lg:col-span-5">
-          <ScopeDiagram className="w-full h-auto max-w-[460px] lg:ml-auto" />
+        {/* Right: 2×2 grid of built things */}
+        <div ref={gridRef} className="lg:col-span-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {BUILT_THINGS.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="group relative rounded-xl border border-[var(--color-sapphire-line)] overflow-hidden bg-[var(--color-sapphire-raised)]/30 transition-all duration-300 hover:bg-[var(--color-sapphire-raised)]/50 hover:border-[var(--color-gold-deep)]/40 hover:-translate-y-[2px] focus-visible:outline-2 focus-visible:outline-[var(--color-gold-deep)] focus-visible:outline-offset-2"
+                aria-label={`${item.name}: ${item.description}`}
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </div>
+                <div className="p-4">
+                  <h3 className="text-base font-light text-[var(--color-pearl)] group-hover:text-[var(--color-gold)] transition-colors">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm text-[var(--color-slate)] mt-1 line-clamp-1">
+                    {item.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </SectionFullBleed>
