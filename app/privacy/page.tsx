@@ -182,6 +182,11 @@ export default function PrivacyPage() {
                 </thead>
                 <tbody className="divide-y divide-[var(--color-pearl-line)]">
                   <tr>
+                    <td className="p-3 font-medium">Tally</td>
+                    <td className="p-3">Secure processing of diagnostic answers and generation of systems efficiency assessments.</td>
+                    <td className="p-3">EU (Adequacy Decision)</td>
+                  </tr>
+                  <tr>
                     <td className="p-3 font-medium">Cal.com</td>
                     <td className="p-3">Appointment scheduling and calendar booking embed.</td>
                     <td className="p-3">EU / US (Standard Contractual Clauses)</td>
@@ -226,7 +231,7 @@ export default function PrivacyPage() {
               For personnel access between the UK and India, Alchemetryx is currently implementing a formal UK International Data Transfer Agreement (IDTA) and standard contractual safeguards to ensure an equivalent standard of protection for all client and business data.
             </p>
             <p>
-              For cloud vendors based in the United States or other jurisdictions, we rely on the UK extension to the EU-US Data Privacy Framework or the UK International Data Transfer Addendum to the European Commission standard contractual clauses.
+              For cloud vendors based in the United States or other jurisdictions, we rely on the UK extension to the EU-US Data Privacy Framework or the UK International Data Transfer Addendum to the European Commission standard contractual clauses. For providers based in the European Economic Area (EEA), such as Tally, we rely on the UK's adequacy regulations for the EEA.
             </p>
           </div>
         </section>
