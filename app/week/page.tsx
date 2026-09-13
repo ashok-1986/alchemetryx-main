@@ -33,7 +33,7 @@ export default function WeekMarketingPage() {
         {/* SECTION 1: HERO (Sapphire) */}
         <section className="bg-sapphire text-pearl pt-32 pb-20 md:pt-40 md:pb-32 px-6">
           <div className="max-w-7xl mx-auto flex flex-col items-start gap-8">
-            <h1 className="font-urbanist font-light text-[var(--text-display-xl)] leading-[0.9] tracking-[-0.04em] max-w-4xl">
+            <h1 className="font-urbanist font-light text-[length:var(--text-display-xl)] leading-[0.9] tracking-[-0.04em] max-w-4xl">
               Where is your week going?
             </h1>
 

@@ -14,7 +14,7 @@ export default function BookPage() {
   return (
     <SectionFullBleed tone="light" className="pt-32 pb-24 md:pt-36">
       <div className="max-w-[52ch]">
-        <h1 className="text-[var(--text-display-xl)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
+        <h1 className="text-[length:var(--text-display-xl)] font-light leading-[1.1] tracking-[-0.035em] text-[var(--color-ink)]">
           Book a 30-minute call
         </h1>
         <p className="mt-5 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">

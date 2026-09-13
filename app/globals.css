@@ -22,9 +22,9 @@
   --text-body-sm: 14px;
   --text-body: 16px;
   --text-heading: 24px;
-  --text-heading-lg: clamp(1.75rem, 3.5vw, 2.25rem);
-  --text-display: clamp(2.25rem, 5vw, 4rem);
-  --text-display-xl: clamp(2.75rem, 7vw, 5.5rem);
+  --text-heading-lg: clamp(1.75rem, 4.5vw, 3.25rem);
+  --text-display: clamp(2.25rem, 6.5vw, 5rem);
+  --text-display-xl: clamp(2.75rem, 9vw, 7rem);
 
   /* Radii */
   --radius-sm: 6px;

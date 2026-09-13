@@ -21,7 +21,7 @@ export function Hero() {
               "shouldn't depend",
               "on who knows how.",
             ]}
-            className="text-[var(--text-display-xl)] font-light leading-[1.05] tracking-[-0.04em] max-w-[18ch]"
+            className="text-[length:var(--text-display-xl)] font-light leading-[1.05] tracking-[-0.04em] max-w-[18ch]"
           />
 
           <Reveal delay={0.3}>
