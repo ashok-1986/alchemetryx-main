@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
-
+import { FeatureVelocity } from "@/components/ui/feature-velocity";
+import { Repeat, Clock, ArrowRightLeft } from "lucide-react";
 export const metadata: Metadata = {
   title: "Where's your week going? — Alchemetryx",
   description:
@@ -54,42 +55,28 @@ export default function WeekMarketingPage() {
         </section>
 
         {/* SECTION 2: THE THREE THINGS (Pearl) */}
-        <section className="bg-pearl text-ink py-20 md:py-[120px] px-6">
-          <div className="max-w-7xl mx-auto flex flex-col gap-12 md:gap-16">
-            <h2 className="font-urbanist font-light text-3xl md:text-5xl tracking-tight">
-              Three things eat the week
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex flex-col gap-4">
-                <h3 className="font-semibold text-lg">Rework.</h3>
-                <p className="text-body text-ink-light">
-                  Work done twice because something was missing, wrong, or never
-                  passed on.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <h3 className="font-semibold text-lg">Slow answers.</h3>
-                <p className="text-body text-ink-light">
-                  How long it takes you to find out how the business is actually
-                  doing.
-                </p>
-              </div>
-              <div className="flex flex-col gap-4">
-                <h3 className="font-semibold text-lg">Manual handoffs.</h3>
-                <p className="text-body text-ink-light">
-                  A person carrying information from one system to the next
-                  because nothing else will.
-                </p>
-              </div>
-            </div>
-
-            <p className="text-body text-ink-light max-w-2xl">
-              Most owner-led businesses lose the largest part of the week to one
-              of these three. Almost none can say which one.
-            </p>
-          </div>
-        </section>
+        <FeatureVelocity
+          title="Three things eat the week"
+          description="Most owner-led businesses lose the largest part of the week to one of these three. Almost none can say which one."
+          features={[
+            {
+              title: "Rework.",
+              description: "Work done twice because something was missing, wrong, or never passed on.",
+              icon: Repeat,
+            },
+            {
+              title: "Slow answers.",
+              description: "How long it takes you to find out how the business is actually doing.",
+              icon: Clock,
+            },
+            {
+              title: "Manual handoffs.",
+              description: "A person carrying information from one system to the next because nothing else will.",
+              icon: ArrowRightLeft,
+            },
+          ]}
+          className="px-6 !py-20 md:!py-[120px]"
+        />
 
         {/* SECTION 3: WHAT YOU GET (Pearl) */}
         <section className="bg-pearl text-ink pb-20 md:pb-[120px] px-6">
