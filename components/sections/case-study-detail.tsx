@@ -40,7 +40,7 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           {cs.eyebrow}
         </p>
-        <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] text-[var(--color-ink)] max-w-[24ch]">
+        <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch] text-[var(--color-ink)]">
           {cs.title}
         </h2>
         <p className="mt-6 max-w-[60ch] text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)]">
