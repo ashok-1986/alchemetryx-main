@@ -22,7 +22,7 @@ export default function NotYetPage() {
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
             NOT BOUGHT AI YET?
           </p>
-          <h1 className="text-[length:var(--text-display-xl)] font-light leading-[1.06] tracking-[-0.04em] max-w-[18ch] text-[var(--color-pearl)]">
+          <h1 className="text-[length:var(--text-display-xl)] font-light leading-[1.06] tracking-[-0.04em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch] text-[var(--color-pearl)]">
             Start with one job before buying more software.
           </h1>
           <p className="mt-6 text-lg md:text-xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[55ch]">
