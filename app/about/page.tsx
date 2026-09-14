@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 
@@ -232,6 +233,19 @@ export default function AboutPage() {
               If we do not think there is a problem worth paying to solve, we will tell you that
               instead.
             </h2>
+            {/* Ashok photo */}
+            <div className="mb-10">
+              <Image
+                src="/brand/ashok-business.png"
+                alt="Ashok Verma, Co-Founder & Principal Consultant"
+                width={200}
+                height={200}
+                className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full object-cover border-2 border-[var(--color-gold)] mx-auto"
+              />
+              <p className="mt-4 text-sm font-light text-white/70">
+                Ashok Verma — Co-Founder & Principal Consultant
+              </p>
+            </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <Link
                 href="/book"
