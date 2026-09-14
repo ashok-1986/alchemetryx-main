@@ -275,7 +275,7 @@ export function SystemDiagram({ className }: { className?: string }) {
       <div className="absolute inset-0 pointer-events-none z-10">
         {/* Left Column Header */}
         <div
-          className="absolute text-[clamp(9px,1.75cqw,11px)] font-medium tracking-[0.2em] uppercase text-[var(--color-slate)]"
+          className="absolute text-[clamp(9px,1.75cqw,11px)] font-normal tracking-[0.2em] uppercase text-[var(--color-slate)]"
           style={{ left: "2.58%", top: "3.2%" }}
         >
           RIGHT NOW
@@ -304,7 +304,7 @@ export function SystemDiagram({ className }: { className?: string }) {
 
         {/* Right Column Header */}
         <div
-          className="absolute text-[clamp(9px,1.75cqw,11px)] font-medium tracking-[0.2em] uppercase text-[var(--color-gold)]"
+          className="absolute text-[clamp(9px,1.75cqw,11px)] font-normal tracking-[0.2em] uppercase text-[var(--color-gold)]"
           style={{ left: "71.61%", top: "3.2%" }}
         >
           AFTER

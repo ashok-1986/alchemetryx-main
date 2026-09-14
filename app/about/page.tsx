@@ -55,7 +55,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="max-w-[65ch]">
-              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-semibold">
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-normal">
                 The Pattern
               </p>
               <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-[var(--color-ink)] mb-8">
@@ -88,7 +88,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="max-w-[65ch]">
-              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] mb-4 font-semibold">
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] mb-4 font-normal">
                 The Insight
               </p>
               <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-white mb-8">
@@ -121,7 +121,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <div className="max-w-[65ch]">
-              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-semibold">
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-normal">
                 The Fix
               </p>
               <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-[var(--color-ink)] mb-8">
@@ -162,7 +162,7 @@ export default function AboutPage() {
           </Reveal>
           <div className="w-full">
             <Reveal delay={0.1}>
-              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-semibold">
+              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] mb-4 font-normal">
                 What We Do
               </p>
               <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-[var(--color-ink)] mb-16">
@@ -249,13 +249,13 @@ export default function AboutPage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
               <Link
                 href="/book"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-semibold tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold)] shadow-sm hover:-translate-y-0.5"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-normal tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold)] shadow-sm hover:-translate-y-0.5"
               >
                 Book a 30-minute call
               </Link>
               <Link
                 href="/proof"
-                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-[var(--color-gold)] px-8 py-4 text-base font-semibold tracking-wide text-[var(--color-gold)] transition-all hover:bg-[var(--color-gold)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold)]"
+                className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border border-[var(--color-gold)] px-8 py-4 text-base font-normal tracking-wide text-[var(--color-gold)] transition-all hover:bg-[var(--color-gold)] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold)]"
               >
                 View case studies
               </Link>

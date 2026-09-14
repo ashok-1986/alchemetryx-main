@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "alchemetryx-product-strategist": {
+      "command": "node",
+      "args": ["mcp-servers/product-strategist/mcp-server.js"],
+      "cwd": ".",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/.agents/skills/claude-skills-main/product-team/product-strategist/scripts"
+      }
+    }
+  }
+}

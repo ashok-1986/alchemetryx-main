@@ -41,7 +41,7 @@ export function Footer() {
           <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-4 gap-8">
             {/* Column 1: Explore / Product */}
             <div className="space-y-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-[var(--color-slate)]/70">
+              <p className="text-xs font-normal uppercase tracking-wider text-[var(--color-slate)]/70">
                 Product
               </p>
               <ul className="space-y-2.5 text-sm text-[var(--color-pearl)]/85">
@@ -70,7 +70,7 @@ export function Footer() {
 
             {/* Column 2: Company */}
             <div className="space-y-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-[var(--color-slate)]/70">
+              <p className="text-xs font-normal uppercase tracking-wider text-[var(--color-slate)]/70">
                 Company
               </p>
               <ul className="space-y-2.5 text-sm text-[var(--color-pearl)]/85">
@@ -104,7 +104,7 @@ export function Footer() {
 
             {/* Column 3: Social */}
             <div className="space-y-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-[var(--color-slate)]/70">
+              <p className="text-xs font-normal uppercase tracking-wider text-[var(--color-slate)]/70">
                 Social
               </p>
               <ul className="space-y-2.5 text-sm text-[var(--color-pearl)]/85">
@@ -152,7 +152,7 @@ export function Footer() {
 
             {/* Column 4: Legal */}
             <div className="space-y-4">
-              <p className="text-xs font-medium uppercase tracking-wider text-[var(--color-slate)]/70">
+              <p className="text-xs font-normal uppercase tracking-wider text-[var(--color-slate)]/70">
                 Legal
               </p>
               <ul className="space-y-2.5 text-sm text-[var(--color-pearl)]/85">
@@ -189,7 +189,7 @@ export function Footer() {
               {/* Button 1: Solid White Pill with Calendar icon */}
               <Link
                 href="/book"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-white text-black text-sm font-medium transition-all duration-200 hover:bg-white/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-white text-black text-sm font-normal transition-all duration-200 hover:bg-white/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm"
               >
                 <span>Book a call</span>
                 <Calendar className="w-4 h-4 text-black" strokeWidth={1.75} />
@@ -198,7 +198,7 @@ export function Footer() {
               {/* Button 2: Dark Outline Glass Pill with Mail icon */}
               <a
                 href={`mailto:${COMPANY.email}`}
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-medium transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:scale-[1.01] active:scale-[0.99] backdrop-blur-sm"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-normal transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:scale-[1.01] active:scale-[0.99] backdrop-blur-sm"
               >
                 <span>Write an email</span>
                 <Mail className="w-4 h-4 text-white" strokeWidth={1.75} />

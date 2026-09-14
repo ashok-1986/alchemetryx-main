@@ -87,29 +87,29 @@ export default function PrivacyPage() {
               <table className="w-full text-left text-sm border-collapse border border-[var(--color-pearl-line)]">
                 <thead>
                   <tr className="bg-[var(--color-pearl)] border-b border-[var(--color-pearl-line)]">
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Category</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Examples of Data Collected</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Collection Method</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Category</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Examples of Data Collected</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Collection Method</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-pearl-line)]">
                   <tr>
-                    <td className="p-3 font-medium">Contact Details</td>
+                    <td className="p-3 font-normal">Contact Details</td>
                     <td className="p-3">Full name, business email address, phone number, company name, job title.</td>
                     <td className="p-3">Call booking form, email, or direct correspondence.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Consultation Details</td>
+                    <td className="p-3 font-normal">Consultation Details</td>
                     <td className="p-3">Notes on your existing operational bottlenecks, current software, spreadsheets, and processes.</td>
                     <td className="p-3">Shared directly by you during intro or discovery calls.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Commercial Data</td>
+                    <td className="p-3 font-normal">Commercial Data</td>
                     <td className="p-3">Invoices, billing contacts, payment confirmations, and contract records.</td>
                     <td className="p-3">Client agreements and accounting transactions.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Technical & Usage Data</td>
+                    <td className="p-3 font-normal">Technical & Usage Data</td>
                     <td className="p-3">IP address, browser type, device details, and basic anonymous page visit timestamps.</td>
                     <td className="p-3">Server access logs and hosting infrastructure.</td>
                   </tr>
@@ -175,34 +175,34 @@ export default function PrivacyPage() {
               <table className="w-full text-left text-sm border-collapse border border-[var(--color-pearl-line)]">
                 <thead>
                   <tr className="bg-[var(--color-pearl)] border-b border-[var(--color-pearl-line)]">
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Processor</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Purpose</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Location</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Processor</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Purpose</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Location</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-pearl-line)]">
                   <tr>
-                    <td className="p-3 font-medium">Tally</td>
+                    <td className="p-3 font-normal">Tally</td>
                     <td className="p-3">Secure processing of diagnostic answers and generation of systems efficiency assessments.</td>
                     <td className="p-3">EU (Adequacy Decision)</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Cal.com</td>
+                    <td className="p-3 font-normal">Cal.com</td>
                     <td className="p-3">Appointment scheduling and calendar booking embed.</td>
                     <td className="p-3">EU / US (Standard Contractual Clauses)</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Vercel Inc.</td>
+                    <td className="p-3 font-normal">Vercel Inc.</td>
                     <td className="p-3">Website hosting, edge delivery, and deployment infrastructure.</td>
                     <td className="p-3">US / Global (Data Privacy Framework / SCCs)</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Google Workspace</td>
+                    <td className="p-3 font-normal">Google Workspace</td>
                     <td className="p-3">Business email, document storage, and direct correspondence.</td>
                     <td className="p-3">EU / US (Standard Contractual Clauses)</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Professional Advisers</td>
+                    <td className="p-3 font-normal">Professional Advisers</td>
                     <td className="p-3">Accountants, legal counsel, and banking partners.</td>
                     <td className="p-3">United Kingdom</td>
                   </tr>
@@ -249,29 +249,29 @@ export default function PrivacyPage() {
               <table className="w-full text-left text-sm border-collapse border border-[var(--color-pearl-line)]">
                 <thead>
                   <tr className="bg-[var(--color-pearl)] border-b border-[var(--color-pearl-line)]">
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Data Type</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Retention Period</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Reason</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Data Type</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Retention Period</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Reason</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-pearl-line)]">
                   <tr>
-                    <td className="p-3 font-medium">Prospective client inquiries</td>
+                    <td className="p-3 font-normal">Prospective client inquiries</td>
                     <td className="p-3">12 months from last interaction</td>
                     <td className="p-3">To respond to follow-ups and assess past requirements.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Active client engagement records</td>
+                    <td className="p-3 font-normal">Active client engagement records</td>
                     <td className="p-3">Duration of contract plus 6 years</td>
                     <td className="p-3">Limitation Act 1980 (contract claim limitation period).</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Financial and accounting records</td>
+                    <td className="p-3 font-normal">Financial and accounting records</td>
                     <td className="p-3">6 full financial years plus current year</td>
                     <td className="p-3">HMRC and Companies Act statutory obligations.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Server access logs</td>
+                    <td className="p-3 font-normal">Server access logs</td>
                     <td className="p-3">90 days</td>
                     <td className="p-3">Security monitoring, incident investigation, and error analysis.</td>
                   </tr>
@@ -293,37 +293,37 @@ export default function PrivacyPage() {
               <table className="w-full text-left text-sm border-collapse border border-[var(--color-pearl-line)]">
                 <thead>
                   <tr className="bg-[var(--color-pearl)] border-b border-[var(--color-pearl-line)]">
-                    <th className="p-3 font-medium text-[var(--color-ink)]">Right</th>
-                    <th className="p-3 font-medium text-[var(--color-ink)]">What It Means</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">Right</th>
+                    <th className="p-3 font-normal text-[var(--color-ink)]">What It Means</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[var(--color-pearl-line)]">
                   <tr>
-                    <td className="p-3 font-medium">Right to Access</td>
+                    <td className="p-3 font-normal">Right to Access</td>
                     <td className="p-3">You can request confirmation of whether we process your personal data and obtain a copy of it.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Rectification</td>
+                    <td className="p-3 font-normal">Right to Rectification</td>
                     <td className="p-3">You can ask us to correct inaccurate or incomplete personal data.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Erasure</td>
+                    <td className="p-3 font-normal">Right to Erasure</td>
                     <td className="p-3">You can ask us to delete your personal data where there is no ongoing lawful reason to hold it.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Restriction</td>
+                    <td className="p-3 font-normal">Right to Restriction</td>
                     <td className="p-3">You can ask us to suspend the processing of your data in specific circumstances.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Data Portability</td>
+                    <td className="p-3 font-normal">Right to Data Portability</td>
                     <td className="p-3">Where the lawful basis for processing is consent or contract, and the data was provided by you and processed by automated means, you can request your personal data in a structured, commonly used, machine-readable format.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Object</td>
+                    <td className="p-3 font-normal">Right to Object</td>
                     <td className="p-3">You can object to processing based on legitimate interests or direct communications.</td>
                   </tr>
                   <tr>
-                    <td className="p-3 font-medium">Right to Withdraw Consent</td>
+                    <td className="p-3 font-normal">Right to Withdraw Consent</td>
                     <td className="p-3">Where processing relies on consent, you may withdraw that consent at any time without penalty.</td>
                   </tr>
                 </tbody>
@@ -401,7 +401,7 @@ export default function PrivacyPage() {
           </h2>
           <div className="space-y-2 text-base text-[var(--color-ink)]/85 leading-relaxed">
             <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
-            <p className="font-medium text-[var(--color-ink)]">{COMPANY.legalName}</p>
+            <p className="font-normal text-[var(--color-ink)]">{COMPANY.legalName}</p>
             <p>Registered Office: {COMPANY.registeredOffice}</p>
             <p>
               Email:{" "}

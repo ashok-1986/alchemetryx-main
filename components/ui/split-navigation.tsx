@@ -55,7 +55,7 @@ export function SplitNavigation() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="group flex items-center text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none py-1"
+                className="group flex items-center text-[11px] font-normal uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none py-1"
               >
                 <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">·</span>
                 <span>{item.label}</span>
@@ -98,7 +98,7 @@ export function SplitNavigation() {
             {/* Menu Toggle Button: Outline style as per reference image */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-[60] flex items-center justify-center px-4 py-2 border border-[var(--color-pearl)] mix-blend-difference text-[var(--color-pearl)] text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-[var(--color-pearl)] hover:text-[var(--color-ink)] transition-colors rounded-sm"
+              className="relative z-[60] flex items-center justify-center px-4 py-2 border border-[var(--color-pearl)] mix-blend-difference text-[var(--color-pearl)] text-[11px] font-normal uppercase tracking-[0.2em] hover:bg-[var(--color-pearl)] hover:text-[var(--color-ink)] transition-colors rounded-sm"
               style={{ mixBlendMode: menuOpen ? "normal" : "difference", borderColor: menuOpen ? "var(--color-pearl)" : "", color: menuOpen ? "var(--color-pearl)" : "" }}
               aria-expanded={menuOpen}
               aria-controls="mega-menu-panel"
@@ -133,7 +133,7 @@ export function SplitNavigation() {
                 <Link
                   href={item.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-[clamp(3rem,6vw,5rem)] font-bold uppercase tracking-tighter text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors leading-[0.9] block font-display"
+                  className="text-[clamp(3rem,6vw,5rem)] font-normal uppercase tracking-tighter text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors leading-[0.9] block font-display"
                 >
                   {item.label}
                 </Link>
@@ -150,7 +150,7 @@ export function SplitNavigation() {
               <Link
                 href={COMPANY.primaryCtaHref}
                 onClick={() => setMenuOpen(false)}
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-semibold tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] w-full"
+                className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-8 py-4 text-base font-normal tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] w-full"
               >
                 {COMPANY.primaryCtaLabel}
               </Link>
@@ -160,7 +160,7 @@ export function SplitNavigation() {
 
         {/* Bottom Info / Socials */}
         <div 
-          className={`absolute bottom-12 left-10 right-10 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em] font-bold text-[var(--color-pearl)]/50 border-t border-[var(--color-pearl-line)]/10 pt-8 transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
+          className={`absolute bottom-12 left-10 right-10 flex flex-col md:flex-row justify-between gap-6 text-[10px] uppercase tracking-[0.2em] font-normal text-[var(--color-pearl)]/50 border-t border-[var(--color-pearl-line)]/10 pt-8 transition-opacity duration-500 ${menuOpen ? "opacity-100" : "opacity-0"}`}
           style={{ transitionDelay: menuOpen ? "0.6s" : "0s" }}
         >
           <div className="flex flex-wrap gap-4">

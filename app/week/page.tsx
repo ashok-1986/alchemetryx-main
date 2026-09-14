@@ -4,7 +4,7 @@ import { FeatureVelocity } from "@/components/ui/feature-velocity";
 import { Repeat, Clock, ArrowRightLeft } from "lucide-react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 export const metadata: Metadata = {
-  title: "Where's your week going? — Alchemetryx",
+  title: { absolute: "Where's your week going? — Alchemetryx" },
   description:
     "Nine questions, four minutes. Find out which of three things is costing your business the most time, and what to do about it.",
   openGraph: {
@@ -137,16 +137,16 @@ export default function WeekMarketingPage() {
 
             <div className="flex flex-col gap-8">
               <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                <strong className="text-[var(--color-ink)] font-semibold">One.</strong> Nine
+                <strong className="text-[var(--color-ink)] font-normal">One.</strong> Nine
                 questions about how work actually moves through your business.
                 Four minutes, no preparation.
               </p>
               <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                <strong className="text-[var(--color-ink)] font-semibold">Two.</strong> Your
+                <strong className="text-[var(--color-ink)] font-normal">Two.</strong> Your
                 score, on screen, immediately.
               </p>
               <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                <strong className="text-[var(--color-ink)] font-semibold">Three.</strong> Four
+                <strong className="text-[var(--color-ink)] font-normal">Three.</strong> Four
                 more questions so the written assessment is about your business
                 and not a generic one. Then it lands in your inbox.
               </p>

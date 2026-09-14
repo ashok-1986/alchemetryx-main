@@ -159,7 +159,7 @@ export default async function WeekResultPage(props: { searchParams: Promise<Reco
             </p>
             <a 
               href={formBUrl}
-              className="inline-flex items-center justify-center bg-gold text-ink font-medium px-8 py-4 rounded-[6px] active:scale-97 transition-transform duration-160 ease-out"
+              className="inline-flex items-center justify-center bg-gold text-ink font-normal px-8 py-4 rounded-[6px] active:scale-97 transition-transform duration-160 ease-out"
             >
               Continue
             </a>

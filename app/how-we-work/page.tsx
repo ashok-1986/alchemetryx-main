@@ -128,14 +128,14 @@ export default function HowWeWorkPage() {
                 <div className="flex flex-col gap-12 md:gap-20">
                   {STEPS.map((step, idx) => (
                     <Reveal key={idx} delay={idx * 0.1}>
-                      <div className="relative flex flex-col md:flex-row gap-6 md:gap-12 md:items-start group">
+                      <div className="relative grid grid-cols-[80px_1fr] md:grid-cols-[140px_1fr] gap-4 md:gap-8 md:items-start group">
                         {/* Step Number - aligned to line on desktop */}
-                        <div className="relative z-10 flex-shrink-0 font-urbanist font-light text-[var(--color-gold)] text-4xl md:text-5xl bg-[var(--color-pearl)] md:pt-2 md:pr-4">
+                        <div className="relative z-10 font-urbanist font-light text-[var(--color-gold)] text-3xl md:text-5xl bg-[var(--color-pearl)] md:pt-1">
                           {["One.", "Two.", "Three.", "Four.", "Five.", "Six."][idx]}
                         </div>
                         
                         <div className="flex flex-col gap-4">
-                          <p className="text-xl md:text-2xl font-semibold leading-tight text-[var(--color-ink)]">
+                          <p className="text-xl md:text-2xl font-urbanist font-light tracking-[-0.02em] leading-tight text-[var(--color-ink)]">
                             {step.title}
                           </p>
                           <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
@@ -191,7 +191,7 @@ export default function HowWeWorkPage() {
                 
                 <Link 
                   href="/proof"
-                  className="inline-flex items-center text-lg md:text-xl font-medium text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-pearl)] rounded-sm"
+                  className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-pearl)] rounded-sm"
                 >
                   See the proof →
                 </Link>

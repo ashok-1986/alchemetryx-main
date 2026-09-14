@@ -178,7 +178,7 @@ export function CaseStudyLightbox({
                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-gold)] animate-pulse" />
                 {systemLabel}
               </span>
-              <span className="font-mono text-xs md:text-sm font-medium tracking-wider text-[var(--color-gold)] px-2.5 py-0.5 rounded bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/25 tabular-nums">
+              <span className="font-mono text-xs md:text-sm font-normal tracking-wider text-[var(--color-gold)] px-2.5 py-0.5 rounded bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/25 tabular-nums">
                 {counterString}
               </span>
             </div>
@@ -243,7 +243,7 @@ export function CaseStudyLightbox({
                   className="flex flex-col items-center justify-center gap-3 p-6 text-center rounded-lg border border-red-500/30 bg-red-950/20 text-[var(--color-pearl)] max-w-md"
                 >
                   <AlertCircle className="w-8 h-8 text-red-400" />
-                  <p className="text-sm font-medium">Failed to load screenshot.</p>
+                  <p className="text-sm font-normal">Failed to load screenshot.</p>
                   <button
                     type="button"
                     onClick={() => {
@@ -251,7 +251,7 @@ export function CaseStudyLightbox({
                       setIsLoading(true);
                       setRetryCount((prev) => prev + 1);
                     }}
-                    className="px-4 py-1.5 rounded-full text-xs font-medium bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
+                    className="px-4 py-1.5 rounded-full text-xs font-normal bg-white/10 hover:bg-white/20 border border-white/20 transition-colors"
                   >
                     Retry
                   </button>
@@ -311,7 +311,7 @@ export function CaseStudyLightbox({
                     type="button"
                     onClick={handlePrev}
                     aria-label="Previous image"
-                    className="inline-flex items-center gap-1 min-h-[44px] px-3 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-[var(--color-pearl)] active:bg-white/15"
+                    className="inline-flex items-center gap-1 min-h-[44px] px-3 rounded-lg bg-white/5 border border-white/10 text-xs font-normal text-[var(--color-pearl)] active:bg-white/15"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     <span>Previous</span>
@@ -338,7 +338,7 @@ export function CaseStudyLightbox({
                     type="button"
                     onClick={handleNext}
                     aria-label="Next image"
-                    className="inline-flex items-center gap-1 min-h-[44px] px-3 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-[var(--color-pearl)] active:bg-white/15"
+                    className="inline-flex items-center gap-1 min-h-[44px] px-3 rounded-lg bg-white/5 border border-white/10 text-xs font-normal text-[var(--color-pearl)] active:bg-white/15"
                   >
                     <span>Next</span>
                     <ChevronRight className="w-4 h-4" />
@@ -353,7 +353,7 @@ export function CaseStudyLightbox({
                     <span className="font-mono text-xs text-[var(--color-gold)] tabular-nums">
                       {counterString}
                     </span>
-                    <span className="font-medium text-[var(--color-pearl)]">
+                    <span className="font-normal text-[var(--color-pearl)]">
                       {currentItem.title}
                     </span>
                   </DialogPrimitive.Title>
