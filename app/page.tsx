@@ -1,9 +1,24 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/hero";
 import { WhoThisIsFor } from "@/components/sections/who-this-is-for";
 import { TheProblem } from "@/components/sections/the-problem";
 import { GoldStatement } from "@/components/sections/gold-statement";
 import { HowWeWork } from "@/components/sections/how-we-work";
+
+export const metadata: Metadata = {
+  openGraph: {
+    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
+    description: "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
+    images: [{ url: "/og/home.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
+    description: "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
+    images: ["/og/home.png"],
+  },
+};
 
 // Below-the-fold sections code-split dynamically to reduce initial JS payload and TTI on mobile
 const LevelRouter = dynamic(() => import("@/components/sections/level-router").then((mod) => mod.LevelRouter));

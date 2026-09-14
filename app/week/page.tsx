@@ -7,6 +7,19 @@ export const metadata: Metadata = {
   title: "Where's your week going? — Alchemetryx",
   description:
     "Nine questions, four minutes. Find out which of three things is costing your business the most time, and what to do about it.",
+  openGraph: {
+    title: "Where's your week going? — Alchemetryx",
+    description:
+      "Nine questions, four minutes. Find out which of three things is costing your business the most time, and what to do about it.",
+    images: [{ url: "/og/week.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Where's your week going? — Alchemetryx",
+    description:
+      "Nine questions, four minutes. Find out which of three things is costing your business the most time, and what to do about it.",
+    images: ["/og/week.png"],
+  },
 };
 
 export default function WeekMarketingPage() {

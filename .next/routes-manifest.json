@@ -105,6 +105,12 @@
       "namedRegex": "^/book(?:/)?$"
     },
     {
+      "page": "/how-we-work",
+      "regex": "^/how\\-we\\-work(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/how\\-we\\-work(?:/)?$"
+    },
+    {
       "page": "/icon.png",
       "regex": "^/icon\\.png(?:/)?$",
       "routeKeys": {},

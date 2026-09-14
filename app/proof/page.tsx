@@ -12,6 +12,19 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/proof",
   },
+  openGraph: {
+    title: "Proof · Alchemetryx",
+    description:
+      "Real systems we've built: care home staffing, coaching automation, client intake, and consultation booking pipelines.",
+    images: [{ url: "/og/proof.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Proof · Alchemetryx",
+    description:
+      "Real systems we've built: care home staffing, coaching automation, client intake, and consultation booking pipelines.",
+    images: ["/og/proof.png"],
+  },
 };
 
 /**

@@ -9,7 +9,7 @@ export type NavItem = {
 export const NAV_ITEMS: readonly NavItem[] = [
   { label: "Home", href: "/", sectionId: null },
   { label: "The Problem", href: "/#problem", sectionId: "problem" },
-  { label: "How We Work", href: "/#how-we-work", sectionId: "how-we-work" },
-  { label: "Proof", href: "/proof", sectionId: null },
   { label: "About", href: "/about", sectionId: null },
+  { label: "How we work", href: "/how-we-work", sectionId: null },
+  { label: "Proof", href: "/proof", sectionId: null },
 ];

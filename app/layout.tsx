@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     locale: "en_GB",
     images: [
       {
-        url: "/brand/alchemetryx-featured.png",
+        url: "/og/default.png",
         width: 1200,
         height: 630,
         alt: "Alchemetryx · Business Systems",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
     description:
       "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
-    images: ["/brand/alchemetryx-featured.png"],
+    images: ["/og/default.png"],
   },
   icons: {
     icon: "/brand/alchemetryx-mark.png",
