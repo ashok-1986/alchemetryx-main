@@ -7,11 +7,11 @@ import { COMPANY } from "@/lib/constants";
 
 export function Hero() {
   return (
-    <SectionFullBleed tone="dark" className="pt-32 pb-20 md:pt-36 md:pb-28">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <SectionFullBleed tone="dark" className="pt-40 pb-32 md:pt-56 md:pb-40">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
         {/* Left column: Value Proposition & CTA */}
         <div className="lg:col-span-6 flex flex-col justify-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6 md:mb-8">
+          <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-8 md:mb-12">
             Make the business easier to run
           </p>
 
@@ -21,7 +21,7 @@ export function Hero() {
               "shouldn't depend",
               "on who knows how.",
             ]}
-            className="text-[length:var(--text-display-xl)] font-light leading-[1.05] tracking-[-0.04em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch]"
+            className="text-[clamp(3.5rem,8vw,7rem)] font-light leading-[1.02] tracking-[-0.04em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch]"
           />
 
           <Reveal delay={0.3}>

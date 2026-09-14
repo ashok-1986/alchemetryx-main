@@ -33,13 +33,13 @@ export default function WeekMarketingPage() {
       />
       <main className="w-full">
         {/* SECTION 1: HERO (Sapphire) */}
-        <SectionFullBleed tone="dark" fullHeight={false} className="pt-32 pb-20 md:pt-40 md:pb-32">
-          <div className="flex flex-col items-start gap-8">
-            <h1 className="font-urbanist font-light text-[length:var(--text-display-xl)] leading-[0.9] tracking-[-0.04em] max-w-[20ch]">
+        <SectionFullBleed tone="dark" fullHeight={false} className="pt-40 pb-32 md:pt-56 md:pb-48">
+          <div className="flex flex-col items-start gap-12 md:gap-16">
+            <h1 className="font-urbanist font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.04em] max-w-[20ch]">
               Where is your week going?
             </h1>
 
-            <p className="text-lg md:text-xl font-normal text-[var(--color-slate)] max-w-[55ch]">
+            <p className="text-lg md:text-2xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[55ch]">
               Nine questions. Four minutes. You get a score, the one thing
               costing you most, and a written assessment inside two working
               days. No charge, no login.

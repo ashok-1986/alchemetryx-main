@@ -17,9 +17,8 @@ export function SplitLines({ lines, className }: SplitLinesProps) {
     () => {
       const mm = gsap.matchMedia();
 
-      // Only run staggered split-line animation on desktop screens with no-reduced-motion preference
-      // On mobile devices, keep native instant LCP paint to eliminate FID/LCP latency.
-      mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+      // Only run staggered split-line animation if no-reduced-motion preference is set
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         const lineElements = containerRef.current?.querySelectorAll(".split-line-inner");
         if (lineElements && lineElements.length > 0) {
           gsap.from(lineElements, {

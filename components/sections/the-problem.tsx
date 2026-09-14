@@ -25,7 +25,7 @@ const ROWS = [
 
 export function TheProblem() {
   return (
-    <SectionFullBleed id="problem" tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="problem" tone="light" className="py-32 md:py-48 border-t border-[var(--color-pearl-line)]">
       {/* Eyebrow */}
       <Reveal>
         <div className="border-b border-[var(--color-pearl-line)]/50 pb-4">

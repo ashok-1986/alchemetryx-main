@@ -111,11 +111,11 @@ export function WhoWeAre({
       id="who-we-are"
       tone="dark"
       fullHeight={false}
-      className={bleedToTop ? "pt-0 pb-20 md:pb-28" : "py-20 md:py-28"}
+      className={bleedToTop ? "pt-0 pb-32 md:pb-48" : "py-32 md:py-48"}
     >
       <div
         ref={sectionRef}
-        className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center${bleedToTop ? " pt-20 md:pt-24" : ""}`}
+        className={`grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center${bleedToTop ? " pt-32 md:pt-40" : ""}`}
       >
         {/* Left: the words */}
         <div ref={textRef} className="lg:col-span-7">
