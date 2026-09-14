@@ -36,15 +36,15 @@ export function TheProblem() {
       </Reveal>
     
       {/* Headline & Supporting paragraph */}
-      <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-baseline">
-        <div className="lg:col-span-6">
+      <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-baseline">
+        <div className="lg:col-span-5">
           <Reveal delay={0.1}>
             <h2 className="text-[clamp(2.25rem,4.5vw,3.75rem)] font-light leading-[1.08] tracking-[-0.035em] max-w-[20ch] text-[var(--color-ink)]">
               The leak isn't visible on your P&L.
             </h2>
           </Reveal>
         </div>
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-7">
           <Reveal delay={0.2}>
             <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[48ch]">
               It's in the gap between the work you pay for and the work that actually moves the business forward.
@@ -58,8 +58,8 @@ export function TheProblem() {
         {ROWS.map((row, i) => (
           <Reveal key={row.label} delay={0.08 * i}>
             <div className="group -mx-4 sm:-mx-6 px-4 sm:px-6 rounded-md transition-colors duration-250 ease-out hover:bg-[var(--color-ink)]/[0.02] border-b border-[var(--color-pearl-line)] py-8 md:py-10">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
-                <div className="md:col-span-4 lg:col-span-3">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-12 lg:gap-24 items-start">
+                <div className="md:col-span-5">
                   <h3 className="flex items-center gap-3 text-2xl md:text-3xl font-normal tracking-[-0.02em] text-[var(--color-ink)] group-hover:text-[var(--color-gold-deep)] transition-colors duration-200">
                     <span
                       aria-hidden="true"
@@ -70,7 +70,7 @@ export function TheProblem() {
                     <span className="leading-none">{row.label}</span>
                   </h3>
                 </div>
-                <div className="md:col-span-8 lg:col-span-9">
+                <div className="md:col-span-7">
                   <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-ink)] max-w-[48ch]">
                     {row.copy}
                   </p>

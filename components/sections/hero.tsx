@@ -44,10 +44,10 @@ export function Hero() {
         </div>
 
         {/* Right column: System Architecture Diagram */}
-        <div className="lg:col-span-6 flex items-center justify-center">
-          <Reveal delay={0.3} className="w-full">
-            <div className="w-full max-w-[620px] mx-auto">
-              <SystemDiagram className="w-full h-auto" />
+        <div className="lg:col-span-6 flex items-center justify-center relative">
+          <Reveal delay={0.6} y={40} className="w-full relative z-10">
+            <div className="w-full max-w-[620px] mx-auto transform transition-transform duration-700 hover:scale-[1.02]">
+              <SystemDiagram className="w-full h-auto drop-shadow-2xl" />
             </div>
           </Reveal>
         </div>
