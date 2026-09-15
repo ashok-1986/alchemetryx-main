@@ -1,12 +1,8 @@
 {
   "mcpServers": {
-    "alchemetryx-product-strategist": {
-      "command": "node",
-      "args": ["mcp-servers/product-strategist/mcp-server.js"],
-      "cwd": ".",
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}/.agents/skills/claude-skills-main/product-team/product-strategist/scripts"
-      }
+    "supabase": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://xgdzyqfalbibzelpdpvr.supabase.co/functions/v1/mcp"]
     }
   }
 }
