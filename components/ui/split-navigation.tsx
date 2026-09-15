@@ -50,12 +50,12 @@ export function SplitNavigation() {
         <div className="grid grid-cols-2 md:grid-cols-3 max-w-[1920px] mx-auto pointer-events-auto">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col gap-1.5 self-start pt-2">
+          <div className="hidden md:flex flex-col gap-1.5 self-start p-[5px] backdrop-blur-md mix-blend-difference rounded-md">
             {leftLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group flex items-center text-[11px] font-normal uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit mix-blend-difference leading-none py-1"
+                className="group flex items-center text-[11px] font-normal uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit leading-none py-1"
               >
                 <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">·</span>
                 <span>{item.label}</span>
@@ -102,6 +102,7 @@ export function SplitNavigation() {
               style={{ mixBlendMode: menuOpen ? "normal" : "difference", borderColor: menuOpen ? "var(--color-pearl)" : "", color: menuOpen ? "var(--color-pearl)" : "" }}
               aria-expanded={menuOpen}
               aria-controls="mega-menu-panel"
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
             >
               {menuOpen ? "CLOSE" : "MENU"}
             </button>
@@ -123,8 +124,10 @@ export function SplitNavigation() {
         aria-hidden={!menuOpen}
         className={`fixed top-0 right-0 bottom-0 z-50 w-full md:w-[45vw] max-w-[600px] bg-[var(--color-sapphire)] border-l border-[var(--color-pearl-line)]/10 shadow-2xl flex flex-col justify-center px-10 md:px-20 transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div className="flex flex-col gap-4">
-          {NAV_ITEMS.map((item, i) => (
+        <nav aria-label="Main navigation" role="navigation">
+          <h2 className="sr-only">Main navigation</h2>
+          <div className="flex flex-col gap-4">
+            {NAV_ITEMS.map((item, i) => (
             <div key={item.label} className="overflow-hidden">
               <div
                 className={`transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${menuOpen ? "translate-y-0" : "translate-y-full"}`}
@@ -140,6 +143,8 @@ export function SplitNavigation() {
               </div>
             </div>
           ))}
+          </div>
+        </nav>
 
           {/* Mobile CTA inside menu */}
           <div className="overflow-hidden sm:hidden mt-8">
@@ -172,7 +177,6 @@ export function SplitNavigation() {
             © {new Date().getFullYear()} Alchemetryx
           </div>
         </div>
-      </div>
     </>
   );
 }

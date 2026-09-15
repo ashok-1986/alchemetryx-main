@@ -20,23 +20,23 @@ export default function AboutPage() {
       <SectionFullBleed
         id="about-hero"
         tone="dark"
-        className="pt-40 pb-20 md:pt-56 md:pb-32 border-b border-[var(--color-pearl-line)]/20"
+        className="pt-48 pb-20 md:pt-64 md:pb-32 border-b border-[var(--color-pearl-line)]/20"
       >
         <Reveal>
-          <div className="max-w-[70ch]">
-            <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
+          <div className="flex flex-col items-start gap-12 md:gap-16">
+            <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)]">
               About Alchemetryx
             </p>
-            <h1 className="text-[length:var(--text-display-xl)] font-light leading-[1.05] tracking-[-0.03em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch] text-white">
+            <h1 className="font-urbanist font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.04em] max-w-[20ch] text-white">
               When software is disconnected, your team spends their day copying data and you carry every decision.
             </h1>
-            <p className="mt-8 text-lg md:text-xl font-normal leading-relaxed text-white/80 max-w-[52ch]">
+            <p className="text-lg md:text-2xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[45ch]">
               We rebuild critical business routines into systems that run on their own, linking your existing tools so numbers update automatically.
             </p>
-            <div className="mt-10">
+            <div>
               <Link
                 href="/proof"
-                className="inline-flex items-center text-lg font-normal text-[var(--color-gold)] hover:text-white underline underline-offset-4 transition-colors cursor-pointer"
+                className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-gold)] hover:text-white underline underline-offset-4 transition-colors cursor-pointer focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
               >
                 See our work →
               </Link>

@@ -59,7 +59,7 @@ export function TocNav({ items, className, offset = 100 }: TocNavProps) {
             href={`#${item.id}`}
             className={cn(
               "flex items-center gap-3 group",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-sapphire)]"
+              "focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2"
             )}
             onClick={(e) => {
               e.preventDefault();

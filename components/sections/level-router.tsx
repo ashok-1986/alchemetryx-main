@@ -103,7 +103,7 @@ export function LevelRouter() {
                 onKeyDown={(e) => handleKeyDown(e, key)}
                 className={cn(
                   "flex-1 flex flex-col justify-between text-left rounded-lg p-6 cursor-pointer",
-                  "transition-all duration-300 active:scale-[0.97] outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-2",
+                  "transition-all duration-300 active:scale-[0.97] outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2",
                   isActive
                     ? "backdrop-blur-[12px] bg-[var(--color-sapphire-raised)]/50 border border-[var(--color-gold-deep)]/60 text-[var(--color-pearl)] shadow-[0_4px_24px_-4px_rgba(11,17,30,0.25),inset_0_1px_1px_0_rgba(255,255,255,0.04)]"
                     : "backdrop-blur-[8px] bg-[var(--color-sapphire-raised)]/20 border border-[var(--color-sapphire-line)]/40 text-[var(--color-pearl)] hover:border-[var(--color-gold-deep)]/50 hover:bg-[var(--color-sapphire-raised)]/35"

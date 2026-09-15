@@ -191,7 +191,7 @@ export default function HowWeWorkPage() {
                 
                 <Link 
                   href="/proof"
-                  className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-gold-deep)] focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-pearl)] rounded-sm"
+                  className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
                 >
                   See the proof →
                 </Link>

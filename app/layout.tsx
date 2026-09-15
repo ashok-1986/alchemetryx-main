@@ -78,9 +78,15 @@ export default function RootLayout({
         <OrganizationJsonLd />
       </head>
       <body className="min-h-screen bg-[var(--color-pearl)] text-[var(--color-ink)] antialiased flex flex-col">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only fixed top-4 left-4 z-[100] bg-[var(--color-gold)] px-4 py-2 rounded text-[var(--color-ink)] font-medium text-sm transition-colors hover:bg-[var(--color-gold-deep)] focus:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2"
+        >
+          Skip to main content
+        </a>
         <SmoothScroll>
           <SplitNavigation />
-          <main className="flex-1 w-full">{children}</main>
+          <main id="main-content" className="flex-1 w-full">{children}</main>
           <Footer />
         </SmoothScroll>
       </body>
