@@ -2,6 +2,7 @@
   "name": "alchemetryx-product-strategist",
   "version": "1.0.0",
   "description": "MCP server for Alchemetryx Product Strategist - OKR cascade generation aligned with Alchemetryx brand philosophy",
+  "type": "module",
   "main": "mcp-server.js",
   "scripts": {
     "start": "node mcp-server.js",

@@ -17,13 +17,13 @@ npm install
 ### 2. Test the OKR Generator
 ```bash
 # Test growth strategy (Hammer vs Workshop)
-python ../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py growth
+python ../../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py growth
 
 # Test operational strategy (Systems before scale)
-python ../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py operational --teams "Growth,Platform,Data"
+python ../../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py operational --teams "Growth,Platform,Data"
 
 # Test with Alchemetryx brand context
-python ../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py growth --teams "Growth,Platform,Data" --json
+python ../../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py growth --teams "Growth,Platform,Data" --json
 ```
 
 ### 3. Run MCP Server

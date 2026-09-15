@@ -13,10 +13,14 @@ import {
 } from '@modelcontextprotocol/sdk/types.js';
 import { spawn } from 'child_process';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const OKR_GENERATOR_PATH = path.join(
-  process.env.HOME || process.env.USERPROFILE,
-  '.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py'
+  __dirname,
+  '../../.agents/skills/claude-skills-main/product-team/product-strategist/scripts/okr_cascade_generator.py'
 );
 
 // Alchemetryx brand-aligned defaults
@@ -157,12 +161,12 @@ class ProductStrategistServer {
     }
 
     const metricsArgs = {
-      current: metrics.current || 100000,
-      target: metrics.target || 150000,
-      current_nps: metrics.current_nps || 40,
-      target_nps: metrics.target_nps || 60,
-      current_revenue: metrics.current_revenue || 10,
-      target_revenue: metrics.target_revenue || 15
+      current: metrics.current ?? 100000,
+      target: metrics.target ?? 150000,
+      current_nps: metrics.current_nps ?? 40,
+      target_nps: metrics.target_nps ?? 60,
+      current_revenue: metrics.current_revenue ?? 10,
+      target_revenue: metrics.target_revenue ?? 15
     };
 
     const cmd = [
@@ -184,6 +188,9 @@ class ProductStrategistServer {
       let stdout = '';
       let stderr = '';
 
+      child.on('error', (err) => reject(new McpError(ErrorCode.InternalError, 'Failed to start subprocess: ' + err.message)));
+
+
       child.stdout.on('data', (data) => { stdout += data.toString(); });
       child.stderr.on('data', (data) => { stderr += data.toString(); });
 
@@ -197,7 +204,7 @@ class ProductStrategistServer {
             content: [
               {
                 type: 'text',
-                text: stdout + brandNote
+                text: output_format === 'json' ? stdout : stdout + brandNote
               }
             ]
           });
@@ -219,6 +226,8 @@ class ProductStrategistServer {
     return new Promise((resolve, reject) => {
       let stdout = '';
       let stderr = '';
+
+      child.on('error', (err) => reject(new McpError(ErrorCode.InternalError, 'Failed to start subprocess: ' + err.message)));
 
       child.stdout.on('data', (data) => { stdout += data.toString(); });
       child.stderr.on('data', (data) => { stderr += data.toString(); });
