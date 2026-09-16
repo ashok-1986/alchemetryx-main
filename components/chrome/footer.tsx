@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full relative overflow-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 p-[1em]">
+    <footer className="w-full relative overflow-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 px-[1em] lg:px-[2em] py-[2em]">
       {/* Subtle ambient lighting for atmospheric studio mood */}
       <div
         className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(212,175,55,0.06),transparent)] pointer-events-none"
@@ -215,7 +215,7 @@ export function Footer() {
             Bleeds edge-to-edge and has 30% transparency 
         */}
         <div className="w-full overflow-hidden select-none pointer-events-none pb-4 flex items-center justify-center opacity-30">
-          <p className="text-[15.5vw] font-light tracking-[-0.03em] leading-[0.75] text-[var(--color-pearl)] whitespace-nowrap">
+          <p className="text-[20vw] font-light tracking-[-0.03em] leading-[0.75] text-[var(--color-pearl)] whitespace-nowrap">
             Alchemetryx<span className="text-[var(--color-gold)]">.</span>
           </p>
         </div>

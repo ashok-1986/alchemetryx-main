@@ -13,8 +13,8 @@ interface SectionFullBleedProps extends React.HTMLAttributes<HTMLElement> {
 /**
  * Canvas rules, set in one place:
  *   min-height 100svh  — fills at least the viewport, grows when content needs more
- *   padding    10px    — left and right, edge of canvas
- *   width      100%, max 1440px
+ *   width      100%    — edge-to-edge
+ *   padding    1em to 2em — fluid edge padding
  */
 export function SectionFullBleed({
   tone = "light",
@@ -43,7 +43,7 @@ export function SectionFullBleed({
       )}
       {...props}
     >
-      <div className={cn("w-full max-w-[1440px] mx-auto px-[10px]", containerClassName)}>
+      <div className={cn("w-full px-[1em] lg:px-[2em]", containerClassName)}>
         {children}
       </div>
     </Component>
