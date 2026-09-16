@@ -72,7 +72,7 @@ sapphire: {
       arrowCircleHover: "var(--color-gold)",
       expandDefault: "var(--color-pearl)",
       expandHover: "var(--color-sapphire)",
-      arrowDefault: "var(--color-pearl)",
+      arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-ink)",
     },
   }[variant];

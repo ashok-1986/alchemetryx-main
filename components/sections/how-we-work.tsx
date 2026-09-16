@@ -270,7 +270,7 @@ export function HowWeWork() {
       <Reveal delay={0.35}>
         <div className="mt-12 md:mt-16 flex items-center">
           <Link
-            href="/#proof"
+            href="/#proof-card"
             className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
           >
             See it on a real one →
