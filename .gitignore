@@ -43,3 +43,5 @@ yarn-error.log*
 skills-lock.json
 temp.txt
 
+
+.vercel
