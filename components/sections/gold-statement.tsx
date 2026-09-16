@@ -27,18 +27,20 @@ export function GoldStatement() {
   useGSAP(() => {
     if (!sectionRef.current) return;
     const mm = gsap.matchMedia();
+    const triggerEl = sectionRef.current.closest("section") || sectionRef.current;
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       mm.add("(min-width: 768px)", () => {
         // Pinned word-by-word reveal — desktop only
         gsap.fromTo(
           wordsRef.current,
-          { opacity: 0.25 },
+          { opacity: 0, y: 15 },
           {
             opacity: 1,
-            stagger: 0.05,
+            y: 0,
+            stagger: 0.1,
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: triggerEl,
               start: "top top",
               end: "+=60%",
               pin: true,
@@ -54,7 +56,7 @@ export function GoldStatement() {
             y: 20,
             duration: 1,
             scrollTrigger: {
-              trigger: sectionRef.current,
+              trigger: triggerEl,
               start: "top 70%",
               toggleActions: "play none none none",
             },
