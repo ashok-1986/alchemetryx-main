@@ -1,0 +1,22 @@
+{
+  "/api/debug/route": "/api/debug",
+  "/_not-found/page": "/_not-found",
+  "/robots.txt/route": "/robots.txt",
+  "/icon.png/route": "/icon.png",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/page": "/",
+  "/not-yet/page": "/not-yet",
+  "/proof/page": "/proof",
+  "/week/page": "/week",
+  "/already-bought/page": "/already-bought",
+  "/book/page": "/book",
+  "/how-we-work/page": "/how-we-work",
+  "/week/result/page": "/week/result",
+  "/privacy/page": "/privacy",
+  "/terms/page": "/terms",
+  "/proof/primeraskin/page": "/proof/primeraskin",
+  "/proof/meet-prerna/page": "/proof/meet-prerna",
+  "/proof/fitosys/page": "/proof/fitosys",
+  "/proof/care-rota/page": "/proof/care-rota",
+  "/about/page": "/about"
+}
