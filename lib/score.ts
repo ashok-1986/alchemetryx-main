@@ -30,21 +30,21 @@ export type Category = "leakage" | "visibility" | "fragmentation";
 
 export function categories(a: Answers) {
   return {
-    leakage:       (health(a.q1) * 10 + health(a.q2) * 10 + health(a.q3) * 8) / 28,
-    visibility:    (health(a.q7) * 12 + health(a.q8) * 8  + health(a.q9) * 10) / 30,
-    fragmentation: (health(a.q4) * 9  + health(a.q5) * 9  + health(a.q6) * 9)  / 27,
+    leakage:       (health(a.q1) + health(a.q2) + health(a.q3)) / 3,
+    visibility:    (health(a.q7) + health(a.q8) + health(a.q9)) / 3,
+    fragmentation: (health(a.q4) + health(a.q5) + health(a.q6)) / 3,
   };
 }
 
 export function overall(c: ReturnType<typeof categories>): number {
-  return c.leakage * 0.40 + c.visibility * 0.33 + c.fragmentation * 0.27;
+  return (c.leakage + c.visibility + c.fragmentation) / 3;
 }
 
 export function band(score: number): 1 | 2 | 3 | 4 | 5 {
-  if (score <= 33) return 1;
-  if (score <= 40) return 2;
-  if (score <= 48) return 3;
-  if (score <= 56) return 4;
+  if (score <= 34) return 1;
+  if (score <= 49) return 2;
+  if (score <= 64) return 3;
+  if (score <= 84) return 4;
   return 5;
 }
 

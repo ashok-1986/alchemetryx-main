@@ -46,22 +46,54 @@ export default async function WeekResultPage(props: { searchParams: Promise<Reco
   }
 
   const LABELS: Record<string, string> = {
-    leakage: "Rework",
-    visibility: "Slow answers",
-    fragmentation: "Manual handoffs",
+    leakage: "Routine handled",
+    visibility: "Numbers on demand",
+    fragmentation: "Tools connected",
   };
 
   const BAND_LABELS: Record<number, string> = {
-    1: "Running on people, not systems",
-    2: "You have the tools. They do not talk to each other.",
-    3: "Connected, but you cannot see it",
-    4: "You can see it, but it still takes effort",
-    5: "Systems-led. You probably do not need us",
+    1: "Run by you, not by systems",
+    2: "Tools in place, not yet joined up",
+    3: "Coming together, still hands-on",
+    4: "Mostly runs itself, some effort left",
+    5: "Runs without you. You likely do not need us.",
   };
 
-  const costingMostLabel = LABELS[result.costingMost];
-  const strongestLabel = LABELS[result.strongest];
+  const getTier = (score: number) => {
+    if (score <= 33) return "weak";
+    if (score <= 66) return "partial";
+    return "strong";
+  };
+
+  const COPY: Record<string, Record<string, { basis: string, improvement: string }>> = {
+    leakage: {
+      weak: { basis: "Most recurring work still runs by hand. Fires get put out often, and a lot of how-to lives in people's heads, not on paper.", improvement: "Pick the one task you repeat most each week and write the steps down. That is the first thing worth handing to a system." },
+      partial: { basis: "Some routine work is written down and repeatable. A few important tasks still need a person to remember and do them.", improvement: "Take the recurring task that eats the most time and make it run on its own." },
+      strong: { basis: "Recurring work is mostly documented and runs with little manual effort. Firefighting is rare.", improvement: "Hold the line. Add each new routine to the same setup before it becomes another manual habit." }
+    },
+    visibility: {
+      weak: { basis: "Seeing a basic number takes real effort. You wait for someone to pull it, and by then it is already old.", improvement: "Pick the one number you check most, revenue or cash, and get it somewhere you can see any day without asking." },
+      partial: { basis: "You can see some numbers quickly, but not all of them, and some are only current near month-end.", improvement: "Close the gap on the numbers that lag. Aim to see the key ones during the month, not after it." },
+      strong: { basis: "You can see the numbers that matter quickly, and they are current enough to act on.", improvement: "Keep it current. As you add numbers to track, hold the same speed so nothing slips back to month-end." }
+    },
+    fragmentation: {
+      weak: { basis: "The same detail gets typed into more than one place. Your tools do not pass information to each other, so people bridge the gap by hand.", improvement: "Find the detail you re-type most, customer or order info, and connect the two tools so it moves once." },
+      partial: { basis: "Some tools are connected, but a few handoffs are still manual and details do not always sit in one place.", improvement: "Take the one handoff people still do by hand and let the tools pass it across." },
+      strong: { basis: "Your tools pass information across without much re-typing, and key details sit in one place.", improvement: "Keep new tools to the same rule. Anything you add should read from the same source, not start a new island." }
+    }
+  };
+
   const bandLabel = BAND_LABELS[result.band];
+
+  const PRECEDENCE = ["leakage", "visibility", "fragmentation"];
+  const sortedAreas = [
+    { key: "leakage", val: result.leakage },
+    { key: "visibility", val: result.visibility },
+    { key: "fragmentation", val: result.fragmentation },
+  ].sort((a, b) => {
+    if (a.val !== b.val) return a.val - b.val;
+    return PRECEDENCE.indexOf(a.key) - PRECEDENCE.indexOf(b.key);
+  });
 
   if (!process.env.NEXT_PUBLIC_FORM_B_URL) {
     throw new Error("NEXT_PUBLIC_FORM_B_URL is not configured.");
@@ -88,47 +120,51 @@ export default async function WeekResultPage(props: { searchParams: Promise<Reco
           </h1>
         </Reveal>
 
-        <div className="flex flex-col gap-4">
-          <div className="font-urbanist font-light text-[120px] md:text-[160px] leading-none text-gold">
-            {result.score}
+          <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-6">
+            <div className="font-urbanist font-light text-[80px] md:text-[100px] leading-none text-gold">
+              {result.score}
+              <span className="text-4xl md:text-5xl text-pearl/40 font-urbanist font-light">/100</span>
+            </div>
+            <Reveal delay={0.1}>
+              <p className="text-body text-slate max-w-sm">
+                Higher is better. This is the average of the three areas below.
+              </p>
+            </Reveal>
           </div>
-          <Reveal delay={0.1}>
-            <p className="font-urbanist font-light text-2xl md:text-3xl uppercase tracking-tight text-pearl">
+          <Reveal delay={0.15}>
+            <p className="text-xl md:text-2xl text-pearl">
               {bandLabel}
             </p>
           </Reveal>
-        </div>
 
-        {/* Categories */}
-        <div className="flex flex-col border-t border-sapphire-line">
-          {[
-            { key: "leakage", val: result.leakage },
-            { key: "visibility", val: result.visibility },
-            { key: "fragmentation", val: result.fragmentation },
-          ].map((cat, i) => (
-            <Reveal key={cat.key} delay={0.2 + i * 0.05}>
-              <div className="flex justify-between items-center py-4 border-b border-sapphire-line">
-                <span className="text-body text-pearl">{LABELS[cat.key]}</span>
-                <span className="text-body text-gold">{Math.round(cat.val)}</span>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Costing most / Strongest */}
-        <div className="flex flex-col gap-2">
-          <Reveal delay={0.4}>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-pearl/60 text-sm tracking-widest uppercase">Costing you most</span>
-              <span className="font-urbanist font-light text-xl text-gold">{costingMostLabel}</span>
-            </div>
-          </Reveal>
-          <Reveal delay={0.45}>
-            <div className="flex justify-between items-center py-2">
-              <span className="text-pearl/60 text-sm tracking-widest uppercase">Strongest</span>
-              <span className="font-urbanist font-light text-xl text-pearl">{strongestLabel}</span>
-            </div>
-          </Reveal>
+        {/* Categories as weak-first cards */}
+        <div className="flex flex-col gap-6 border-t border-sapphire-line pt-8">
+          {sortedAreas.map((cat, i) => {
+            const copy = COPY[cat.key][getTier(cat.val)];
+            const isTop = i === 0;
+            return (
+              <Reveal key={cat.key} delay={0.2 + i * 0.1}>
+                <div className="flex flex-col gap-4 p-6 border border-sapphire-line bg-sapphire/50 rounded-xl">
+                  <div className="flex justify-between items-start md:items-center border-b border-sapphire-line/50 pb-4 mb-2">
+                    <div className="flex items-center gap-3">
+                      <h3 className="font-urbanist font-light text-2xl text-pearl">{LABELS[cat.key]}</h3>
+                      {isTop && (
+                        <span className="bg-gold text-ink text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded">Start here</span>
+                      )}
+                    </div>
+                    <div className="font-urbanist font-light text-3xl text-gold mt-2 md:mt-0">
+                      {Math.round(cat.val)}
+                      <span className="text-xl text-pearl/40 font-urbanist font-light">/100</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <p className="text-body text-pearl">{copy.basis}</p>
+                    <p className="text-body-sm text-slate">{copy.improvement}</p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* AI Return */}
