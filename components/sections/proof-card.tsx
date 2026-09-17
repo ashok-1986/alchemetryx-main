@@ -5,10 +5,12 @@ import { Reveal } from "@/components/motion/reveal";
 import { PUBLISHED_CASE_STUDIES } from "@/content/case-studies";
 
 export default function ProofCard() {
-  const firstStudy = PUBLISHED_CASE_STUDIES[0];
-  const firstScreenshot = firstStudy?.build.items[0];
+  // Feature the CareRota system build explicitly, not the first array entry,
+  // so reordering the published list can't silently switch the home card.
+  const featured = PUBLISHED_CASE_STUDIES.find((s) => s.slug === "care-rota") ?? PUBLISHED_CASE_STUDIES[0];
+  const firstScreenshot = featured?.build.items[0];
 
-  if (!firstStudy) return null;
+  if (!featured) return null;
 
   return (
     <SectionFullBleed id="proof-card" tone="light" className="border-t border-[var(--color-pearl-line)] py-20 md:py-32">
@@ -17,17 +19,17 @@ export default function ProofCard() {
         <div className="lg:col-span-5 order-2 lg:order-1">
           <Reveal>
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-4 md:mb-6">
-              {firstStudy.eyebrow}
+              {featured.eyebrow}
             </p>
             <h2 className="text-[clamp(2rem,3.5vw,3rem)] font-light leading-[1.1] tracking-[-0.02em] text-[var(--color-ink)]">
-              {firstStudy.title}
+              {featured.title}
             </h2>
             <p className="mt-5 md:mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[45ch]">
-              {firstStudy.standfirst}
+              {featured.standfirst}
             </p>
             <div className="mt-8 md:mt-10">
               <Link
-                href={`/proof/${firstStudy.slug}`}
+                href={`/proof/${featured.slug}`}
                 className="inline-flex items-center justify-center rounded-full bg-[var(--color-gold)] px-6 py-3 text-sm font-normal tracking-wide text-white transition-all hover:bg-[var(--color-gold-deep)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-gold)] shadow-sm hover:-translate-y-0.5"
               >
                 View full case study
@@ -40,7 +42,7 @@ export default function ProofCard() {
         <div className="lg:col-span-7 order-1 lg:order-2">
           <Reveal delay={0.1}>
             {firstScreenshot && (
-              <Link href={`/proof/${firstStudy.slug}`} className="block group">
+              <Link href={`/proof/${featured.slug}`} className="block group">
                 <div className="relative rounded-xl border border-[var(--color-pearl-line)] overflow-hidden shadow-lg transition-transform duration-500 ease-out group-hover:scale-[1.02]">
                   <Image
                     src={firstScreenshot.image}

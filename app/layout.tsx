@@ -25,7 +25,6 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: {
       "en-GB": "/",
-      "en-IN": "/india",
     },
   },
   robots: {

@@ -84,10 +84,11 @@ export default function ResultClient() {
 
   let formBUrl = "";
   try {
-    if (!process.env.NEXT_PUBLIC_FORM_B_URL) {
-      throw new Error("NEXT_PUBLIC_FORM_B_URL is not configured.");
-    }
-    const formBUrlObj = new URL(process.env.NEXT_PUBLIC_FORM_B_URL);
+    // Defensive: NEXT_PUBLIC_FORM_B_URL is the source of truth, but if it is
+    // ever absent at runtime, fall back to the live Form B URL rather than
+    // blanking an otherwise valid score page.
+    const formBBase = process.env.NEXT_PUBLIC_FORM_B_URL ?? "https://tally.so/r/GxZOKe";
+    const formBUrlObj = new URL(formBBase);
     formBUrlObj.searchParams.set("score", result.score.toString());
     formBUrlObj.searchParams.set("leakage", result.leakage.toString());
     formBUrlObj.searchParams.set("visibility", result.visibility.toString());

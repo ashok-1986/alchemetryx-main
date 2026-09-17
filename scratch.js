@@ -1,1 +1,0 @@
-const fs = require('fs'); const file = 'app/week/page.tsx'; let content = fs.readFileSync(file, 'utf8'); content = content.replace(/<Reveal[^>]*>\s*/g, ''); content = content.replace(/\s*<\/Reveal>/g, ''); content = content.replace(/import \{ Reveal \} from .@\/components\/motion\/reveal.;\r?\n/, ''); fs.writeFileSync(file, content);
