@@ -82,20 +82,32 @@ export default function ResultClient() {
     return PRECEDENCE.indexOf(a.key) - PRECEDENCE.indexOf(b.key);
   });
 
-  if (!process.env.NEXT_PUBLIC_FORM_B_URL) {
-    throw new Error("NEXT_PUBLIC_FORM_B_URL is not configured.");
+  let formBUrl = "";
+  try {
+    if (!process.env.NEXT_PUBLIC_FORM_B_URL) {
+      throw new Error("NEXT_PUBLIC_FORM_B_URL is not configured.");
+    }
+    const formBUrlObj = new URL(process.env.NEXT_PUBLIC_FORM_B_URL);
+    formBUrlObj.searchParams.set("score", result.score.toString());
+    formBUrlObj.searchParams.set("leakage", result.leakage.toString());
+    formBUrlObj.searchParams.set("visibility", result.visibility.toString());
+    formBUrlObj.searchParams.set("fragmentation", result.fragmentation.toString());
+    formBUrlObj.searchParams.set("band", result.band.toString());
+    formBUrlObj.searchParams.set("costingMost", result.costingMost);
+    if (result.aiReturn !== null) {
+      formBUrlObj.searchParams.set("aiReturn", result.aiReturn.toString());
+    }
+    formBUrl = formBUrlObj.toString();
+  } catch (err: any) {
+    return (
+      <div className="flex-1 flex items-center justify-center p-6">
+        <div className="max-w-md w-full text-center">
+          <h1 className="font-urbanist font-light text-3xl mb-4">Cannot calculate score</h1>
+          <p className="text-body text-slate">{err.message || "Invalid form configuration"}</p>
+        </div>
+      </div>
+    );
   }
-  const formBUrlObj = new URL(process.env.NEXT_PUBLIC_FORM_B_URL);
-  formBUrlObj.searchParams.set("score", result.score.toString());
-  formBUrlObj.searchParams.set("leakage", result.leakage.toString());
-  formBUrlObj.searchParams.set("visibility", result.visibility.toString());
-  formBUrlObj.searchParams.set("fragmentation", result.fragmentation.toString());
-  formBUrlObj.searchParams.set("band", result.band.toString());
-  formBUrlObj.searchParams.set("costingMost", result.costingMost);
-  if (result.aiReturn !== null) {
-    formBUrlObj.searchParams.set("aiReturn", result.aiReturn.toString());
-  }
-  const formBUrl = formBUrlObj.toString();
 
   return (
     <div className="max-w-3xl mx-auto w-full flex flex-col gap-12 md:gap-16">
