@@ -136,7 +136,7 @@ export default function AlreadyBoughtPage() {
             </p>
             <div className="mt-8 md:mt-10">
               <CircleExpandButton href="/week" variant="primary" size="lg">
-                Take the 4-minute diagnostic
+                Take the diagnostic
               </CircleExpandButton>
             </div>
           </div>
