@@ -131,7 +131,7 @@ export function WhoWeAre({
                   width={880}
                   height={660}
                   className="w-full h-full object-cover transition-transform duration-500 ease-out motion-safe:group-hover:scale-[1.04]"
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(max-width: 1023px) 100vw, 60vw"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-[2px] bg-[var(--color-gold)]/0 transition-colors duration-300 group-hover:bg-[var(--color-gold)]/70" />
               </div>
