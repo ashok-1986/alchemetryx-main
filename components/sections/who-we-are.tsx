@@ -8,7 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Button } from "@/components/ui/button";
-import { COMPANY } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,34 +24,10 @@ interface WhoWeAreProps {
 }
 
 const BUILT_THINGS = [
-  {
-    name: "CareRota",
-    description: "Rota & cost system for a UK care home",
-    href: "/proof/care-rota",
-    image: "/proof/carerota-dashboard.jpg",
-    alt: "CareRota dashboard showing live cost, coverage, and compliance",
-  },
-  {
-    name: "Fitosys",
-    description: "Zero-commission platform for India coaches",
-    href: "/proof/fitosys",
-    image: "/proof/fitosys-main.jpg",
-    alt: "Fitosys product view showing automated WhatsApp check-in",
-  },
-  {
-    name: "Meet Prerna",
-    description: "Portfolio site with automated booking pipeline",
-    href: "/proof/meet-prerna",
-    image: "/proof/meetprerna-hero.jpg",
-    alt: "Meet Prerna website homepage with portfolio and booking flow",
-  },
-  {
-    name: "PrimeraSkin",
-    description: "Clinic consultation booking pipeline",
-    href: "/proof/primeraskin",
-    image: "/proof/primeraskin-hero.jpg",
-    alt: "PrimeraSkin website homepage with consultation booking",
-  },
+  { name: "CareRota", description: "Rota & cost system for a UK care home", href: "/proof/care-rota", image: "/proof/carerota-dashboard.jpg", alt: "CareRota dashboard showing live cost, coverage, and compliance" },
+  { name: "Fitosys", description: "Zero-commission platform for India coaches", href: "/proof/fitosys", image: "/proof/fitosys-main.jpg", alt: "Fitosys product view showing automated WhatsApp check-in" },
+  { name: "Meet Prerna", description: "Portfolio site with automated booking pipeline", href: "/proof/meet-prerna", image: "/proof/meetprerna-hero.jpg", alt: "Meet Prerna website homepage with portfolio and booking flow" },
+  { name: "PrimeraSkin", description: "Clinic consultation booking pipeline", href: "/proof/primeraskin", image: "/proof/primeraskin-hero.jpg", alt: "PrimeraSkin website homepage with consultation booking" },
 ];
 
 export function WhoWeAre({
@@ -64,45 +40,26 @@ export function WhoWeAre({
 }: WhoWeAreProps = {}) {
   const HeadingTag = headingLevel;
   const sectionRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (!sectionRef.current) return;
+    const section = sectionRef.current;
+    if (!section) return;
     const mm = gsap.matchMedia();
-
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      // Left text slides in from left
-      gsap.from(textRef.current, {
-        x: -30,
+    // One authored reveal: the four gallery tiles step in as a film strip on desktop.
+    mm.add("(min-width: 1024px) and (prefers-reduced-motion: no-preference)", () => {
+      gsap.from(section.querySelectorAll<HTMLElement>(".who-tile"), {
+        y: 40,
         opacity: 0,
-        duration: 0.8,
-        ease: "power2.out",
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "expo.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 78%",
           toggleActions: "play none none none",
           once: true,
         },
       });
-
-      // Right grid cards stagger in
-      if (gridRef.current) {
-        gsap.from(gridRef.current!.querySelectorAll<HTMLElement>(".built-tile"), {
-          y: 30,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          delay: 0.2,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none",
-            once: true,
-          },
-        });
-      }
     });
   }, { scope: sectionRef });
 
@@ -111,18 +68,18 @@ export function WhoWeAre({
       id="who-we-are"
       tone="dark"
       fullHeight={false}
-      className={bleedToTop ? "pt-0 pb-32 md:pb-48" : "py-32 md:py-48"}
+      className={bleedToTop ? "pt-0 pb-24 md:pb-36" : "py-24 md:py-40"}
     >
       <div
         ref={sectionRef}
-        className={`grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center${bleedToTop ? " pt-32 md:pt-40" : ""}`}
+        className={`flex flex-col gap-16 md:gap-24${bleedToTop ? " pt-32 md:pt-40" : ""}`}
       >
-        {/* Left: the words */}
-        <div ref={textRef} className="lg:col-span-7">
+        {/* Headline block */}
+        <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-6">
             {eyebrow}
           </p>
-          <HeadingTag className="text-[clamp(1.75rem,4vw,3rem)] font-light leading-tight tracking-[-0.03em] max-w-[22ch]">
+          <HeadingTag className="text-[clamp(2rem,5vw,3.75rem)] font-light leading-[1.06] tracking-[-0.03em] max-w-[20ch]">
             {heading}
           </HeadingTag>
 
@@ -150,37 +107,47 @@ export function WhoWeAre({
           )}
         </div>
 
-        {/* Right: 2×2 grid of built things */}
-        <div ref={gridRef} className="lg:col-span-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {BUILT_THINGS.map((item, index) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="group relative rounded-xl border border-[var(--color-sapphire-line)] overflow-hidden bg-[var(--color-sapphire-raised)]/30 transition-all duration-300 hover:bg-[var(--color-sapphire-raised)]/50 hover:border-[var(--color-gold-deep)]/40 hover:-translate-y-[2px] focus-visible:outline-2 focus-visible:outline-[var(--color-gold-deep)] focus-visible:outline-offset-2"
-                aria-label={`${item.name}: ${item.description}`}
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Immersive 4-across cinematic gallery */}
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          {BUILT_THINGS.map((item) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className="who-tile group relative block overflow-hidden rounded-xl border border-[var(--color-sapphire-line)] bg-[var(--color-sapphire-raised)]/40 transition-all duration-300 hover:border-[var(--color-gold-deep)]/50 hover:-translate-y-[3px] focus-visible:outline-2 focus-visible:outline-[var(--color-gold-deep)] focus-visible:outline-offset-2"
+              aria-label={`${item.name}: ${item.description}`}
+            >
+              <div className="relative aspect-[4/5] overflow-hidden">
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-sapphire)]/85 via-[var(--color-sapphire)]/15 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-[var(--color-gold)]/0 transition-colors duration-300 group-hover:bg-[var(--color-gold)]/70" />
+              </div>
+
+              <div className="relative z-10 -mt-[86px] p-4 md:p-5">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <h3 className="text-base md:text-lg font-light text-[var(--color-pearl)] leading-tight tracking-[-0.01em] group-hover:text-[var(--color-gold)] transition-colors">
+                      {item.name}
+                    </h3>
+                    <p className="mt-1 text-xs md:text-sm text-[var(--color-slate)] line-clamp-2">
+                      {item.description}
+                    </p>
+                  </div>
+                  <span
+                    className="mt-0.5 shrink-0 grid place-items-center w-7 h-7 rounded-full border border-[var(--color-pearl)]/25 text-[var(--color-gold)] opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+                    aria-hidden="true"
+                  >
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-base font-light text-[var(--color-pearl)] group-hover:text-[var(--color-gold)] transition-colors">
-                    {item.name}
-                  </h3>
-                  <p className="text-sm text-[var(--color-slate)] mt-1 line-clamp-1">
-                    {item.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </SectionFullBleed>

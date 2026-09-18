@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
-import { Search, Brain, TrendingUp } from "lucide-react";
+import { ArrowRight, Search, Brain, TrendingUp } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -51,45 +51,66 @@ const ICON_MAP = {
 
 function StepIcon({ name }: { name: keyof typeof ICON_MAP }) {
   const IconComponent = ICON_MAP[name];
-  return <IconComponent className="w-4 h-4 text-[var(--color-gold-deep)]" strokeWidth={1.5} />;
+  return <IconComponent className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />;
 }
 
 export function HowWeWork() {
-  const gridRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    if (!gridRef.current) return;
+    if (!railRef.current) return;
     const mm = gsap.matchMedia();
 
-    mm.add("(prefers-reduced-motion: no-preference)", () => {
-      const cards = gridRef.current!.querySelectorAll<HTMLElement>(
-        "[data-step-card]"
-      );
+    // One authored motion moment, desktop only: the connecting thread draws
+    // left-to-right, then the three steps step in as an ordered sequence.
+    // Under prefers-reduced-motion (or on mobile) the content stays visible
+    // and static — the timeline is never created.
+    mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      const gf = gsap.utils.selector(railRef);
+      const thread = gf("[data-thread-path]")[0] as unknown as SVGPathElement | undefined;
 
-      cards.forEach((card) => {
-        const border = card.querySelector<HTMLElement>("[data-glow-border]");
-        if (!border) return;
-
-        let glowTween: gsap.core.Tween | null = null;
-
-        card.addEventListener("mouseenter", () => {
-          glowTween?.kill();
-          glowTween = gsap.to(border, {
-            opacity: 0.5,
-            duration: 1.5,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut",
-          });
-        });
-
-        card.addEventListener("mouseleave", () => {
-          glowTween?.kill();
-          gsap.to(border, { opacity: 0, duration: 0.4, ease: "power2.out" });
-        });
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: railRef.current,
+          start: "top 82%",
+          toggleActions: "play none none none",
+          once: true,
+        },
+        defaults: { ease: "power2.out" },
       });
+
+      // Draw the SVG map-thread (geometry, not a picture).
+      if (thread) {
+        const length = thread.getTotalLength();
+        gsap.set(thread, { strokeDasharray: length, strokeDashoffset: length });
+        tl.to(thread, { strokeDashoffset: 0, duration: 1.0, ease: "expo.out" }, 0);
+      }
+
+      // Ordered sequence: index chip, then card head, then body.
+      tl.from(gf("[data-step-index]"), {
+        opacity: 0,
+        y: 10,
+        duration: 0.35,
+        stagger: { each: 0.14, from: "start" },
+      }, 0.15)
+        .from(gf("[data-step-card-head]"), {
+          y: 16,
+          duration: 0.5,
+          stagger: { each: 0.14, from: "start" },
+        }, 0.3)
+        .from(gf("[data-step-body]"), {
+          opacity: 0,
+          y: 12,
+          duration: 0.4,
+          stagger: { each: 0.14, from: "start" },
+        }, 0.55)
+        .from(gf("[data-look-badge]"), {
+          opacity: 0,
+          y: 8,
+          duration: 0.4,
+        }, 0.85);
     });
-  }, { scope: gridRef });
+  }, { scope: railRef });
 
   return (
     <SectionFullBleed
@@ -114,166 +135,146 @@ export function HowWeWork() {
         </p>
       </Reveal>
 
-      {/* Asymmetric bento grid */}
+      {/* Bento: Sapphire hero card (left, tall) + two Pearl cards (right rail) */}
       <div
-        ref={gridRef}
-        className="mt-14 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-5"
+        ref={railRef}
+        className="relative mt-14 grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-5"
       >
-        {/* Step 1: Look — spans 2 rows, left column */}
-        <Reveal delay={0.08} className="md:row-span-2">
+        {/* Connecting thread — the authored geometry moment */}
+        <svg
+          className="hidden md:block absolute inset-0 w-full h-full text-[var(--color-gold-deep)]/35 pointer-events-none"
+          viewBox="0 0 1200 800"
+          fill="none"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            data-thread-path
+            d="M 780 130 C 900 130, 980 150, 1050 190"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        {/* Step 1 — The Diagnostic: Sapphire hero, spans both rail rows */}
+        <div className="md:row-span-2 relative">
           <div
-            data-step-card
-            className="group relative h-full flex flex-col justify-between rounded-lg p-8 md:p-10 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-[var(--color-pearl)]/70 border border-white/20 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.08),0_4px_24px_-8px_rgba(17,25,43,0.06)]"
+            className="group relative h-full flex flex-col justify-between overflow-hidden rounded-lg p-8 md:p-10 text-[var(--color-pearl)] bg-[var(--color-sapphire)] border border-[var(--color-sapphire-line)]/60 transition-all duration-300 ease-out motion-safe:hover:-translate-y-[2px]"
           >
-            {/* Glass glow border — animated on hover */}
-            <div
-              data-glow-border
-              className="absolute inset-0 rounded-lg border border-[var(--color-gold-deep)]/0 opacity-0 pointer-events-none transition-colors duration-300 group-hover:border-[var(--color-gold-deep)]/30"
-              aria-hidden="true"
-            />
-            {/* Noise texture */}
-            <div
-              className="absolute inset-0 opacity-[0.015] pointer-events-none rounded-lg"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-              }}
-              aria-hidden="true"
-            />
-            <div className="relative z-10">
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
-                  >
-                    <StepIcon name={STEPS[0].icon} />
-                  </span>
-                  <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                    {STEPS[0].step} / {STEPS[0].label}
-                  </p>
-                </div>
+            <div className="relative z-10" data-step-card-head>
+              <div data-step-index className="flex items-center gap-3">
+                <span
+                  aria-hidden="true"
+                  className="grid place-items-center shrink-0 w-6 h-6 rounded-full text-[11px] leading-none text-[var(--color-ink)] bg-[var(--color-gold)]"
+                >
+                  {STEPS[0].step}
+                </span>
+                <span className="grid place-items-center w-9 h-9 rounded-full border border-[var(--color-pearl)]/25 text-[var(--color-gold)]">
+                  <StepIcon name={STEPS[0].icon} />
+                </span>
+                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-pearl)]/70">
+                  {STEPS[0].label}
+                </p>
               </div>
-              <h3 className="mt-6 text-2xl sm:text-3xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
+              <h3 className="mt-7 text-2xl sm:text-3xl md:text-4xl font-light text-[var(--color-pearl)] tracking-[-0.02em]">
                 {STEPS[0].service}
               </h3>
             </div>
-            <p className="relative z-10 mt-8 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]/80">
+            <p
+              data-step-body
+              className="relative z-10 mt-8 max-w-[42ch] text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/80"
+            >
               {STEPS[0].body}
             </p>
-            {/* Large decorative step number */}
-            <span
-              className="absolute -bottom-6 -right-4 text-[80px] md:text-[120px] font-light leading-none text-[var(--color-gold-deep)]/[0.06] select-none pointer-events-none"
-              aria-hidden="true"
+            <div
+              data-look-badge
+              className="hidden md:inline-flex items-center gap-3 self-start mt-10 text-xs uppercase tracking-[0.18em] text-[var(--color-gold)]"
             >
-              {STEPS[0].step}
-            </span>
-          </div>
-        </Reveal>
-
-        {/* Step 2: Decide — bottom right */}
-        <Reveal delay={0.3} className="md:col-start-2 md:row-start-2">
-          <div
-            data-step-card
-            className="group relative h-full flex flex-col justify-between rounded-lg p-8 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-[var(--color-pearl)]/70 border-l-[3px] border-l-[var(--color-gold-deep)]/40 border border-white/15 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_4px_16px_-8px_rgba(17,25,43,0.04)]"
-          >
-            <div
-              data-glow-border
-              className="absolute inset-0 rounded-lg border border-[var(--color-gold-deep)]/0 opacity-0 pointer-events-none transition-colors duration-300 group-hover:border-[var(--color-gold-deep)]/30"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 opacity-[0.015] pointer-events-none rounded-lg"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-              }}
-              aria-hidden="true"
-            />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3">
-                <span
-                  aria-hidden="true"
-                  className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
-                >
-                  <StepIcon name={STEPS[1].icon} />
-                </span>
-                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                  {STEPS[1].step} / {STEPS[1].label}
-                </p>
-              </div>
-              <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
-                {STEPS[1].service}
-              </h3>
+              <span className="inline-block w-6 h-px bg-[var(--color-gold)]/60" aria-hidden="true" />
+              Where it starts
             </div>
-            <p className="relative z-10 mt-5 text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
+          </div>
+        </div>
+
+        {/* Step 2 — Decide / The Build: top-right rail */}
+        <div className="md:col-start-2 md:row-start-1">
+          <div className="group relative h-full flex flex-col justify-between overflow-hidden rounded-lg p-7 md:p-8 text-[var(--color-ink)] bg-[var(--color-pearl)] border border-[var(--color-pearl-line)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-[2px]">
+            <div className="relative z-10" data-step-card-head>
+            <div data-step-index className="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                className="grid place-items-center shrink-0 w-6 h-6 rounded-full text-[11px] leading-none text-[var(--color-pearl)] bg-[var(--color-gold-deep)]"
+              >
+                {STEPS[1].step}
+              </span>
+              <span className="grid place-items-center w-9 h-9 rounded-full border border-[var(--color-pearl-line)] text-[var(--color-gold-deep)]">
+                <StepIcon name={STEPS[1].icon} />
+              </span>
+              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                {STEPS[1].label}
+              </p>
+            </div>
+            <h3 className="mt-6 text-xl sm:text-2xl font-light tracking-[-0.02em] text-[var(--color-ink)]">
+              {STEPS[1].service}
+            </h3>
+            </div>
+            <p
+              data-step-body
+              className="relative z-10 mt-4 text-base font-normal leading-relaxed text-[var(--color-ink)]/80"
+            >
               {STEPS[1].body}
             </p>
-            <span
-              className="absolute -bottom-4 -right-3 text-[60px] md:text-[80px] font-light leading-none text-[var(--color-gold-deep)]/[0.06] select-none pointer-events-none"
-              aria-hidden="true"
-            >
-              {STEPS[1].step}
-            </span>
           </div>
-        </Reveal>
+        </div>
 
-        {/* Step 3: Improve — top right */}
-        <Reveal delay={0.2} className="md:col-start-2 md:row-start-1">
-          <div
-            data-step-card
-            className="group relative h-full flex flex-col justify-between rounded-lg p-8 transition-all duration-300 ease-out hover:-translate-y-[2px] overflow-hidden backdrop-blur-[12px] bg-gradient-to-br from-[var(--color-pearl)]/80 to-[var(--color-pearl)]/50 border border-white/15 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.06),0_4px_16px_-8px_rgba(17,25,43,0.04)]"
-          >
-            <div
-              data-glow-border
-              className="absolute inset-0 rounded-lg border border-[var(--color-gold-deep)]/0 opacity-0 pointer-events-none transition-colors duration-300 group-hover:border-[var(--color-gold-deep)]/30"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute inset-0 opacity-[0.015] pointer-events-none rounded-lg"
-              style={{
-                backgroundImage:
-                  "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-              }}
-              aria-hidden="true"
-            />
-            <div className="relative z-10">
-              <div className="flex items-center gap-3">
-                <span
-                  aria-hidden="true"
-                  className="grid place-items-center shrink-0 w-8 h-8 rounded-full border border-[var(--color-pearl-line)] bg-[var(--color-pearl)] transition-colors duration-200 group-hover:border-[var(--color-gold-deep)]/45"
-                >
-                  <StepIcon name={STEPS[2].icon} />
-                </span>
-                <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
-                  {STEPS[2].step} / {STEPS[2].label}
-                </p>
-              </div>
-              <h3 className="mt-5 text-xl sm:text-2xl font-light text-[var(--color-ink)] tracking-[-0.02em]">
-                {STEPS[2].service}
-              </h3>
+        {/* Step 3 — Improve: bottom-right rail */}
+        <div className="md:col-start-2 md:row-start-2">
+          <div className="group relative h-full flex flex-col justify-between overflow-hidden rounded-lg p-7 md:p-8 text-[var(--color-ink)] bg-[var(--color-pearl)] border border-[var(--color-pearl-line)] transition-all duration-300 ease-out motion-safe:hover:-translate-y-[2px]">
+            <div className="relative z-10" data-step-card-head>
+            <div data-step-index className="flex items-center gap-3">
+              <span
+                aria-hidden="true"
+                className="grid place-items-center shrink-0 w-6 h-6 rounded-full text-[11px] leading-none text-[var(--color-pearl)] bg-[var(--color-gold-deep)]"
+              >
+                {STEPS[2].step}
+              </span>
+              <span className="grid place-items-center w-9 h-9 rounded-full border border-[var(--color-pearl-line)] text-[var(--color-gold-deep)]">
+                <StepIcon name={STEPS[2].icon} />
+              </span>
+              <p className="text-xs font-normal uppercase tracking-[0.16em] text-[var(--color-gold-deep)]">
+                {STEPS[2].label}
+              </p>
             </div>
-            <p className="relative z-10 mt-5 text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
+            <h3 className="mt-6 text-xl sm:text-2xl font-light tracking-[-0.02em] text-[var(--color-ink)]">
+              {STEPS[2].service}
+            </h3>
+            </div>
+            <p
+              data-step-body
+              className="relative z-10 mt-4 text-base font-normal leading-relaxed text-[var(--color-ink)]/80"
+            >
               {STEPS[2].body}
             </p>
-            <span
-              className="absolute -bottom-4 -right-3 text-[60px] md:text-[80px] font-light leading-none text-[var(--color-gold-deep)]/[0.06] select-none pointer-events-none"
-              aria-hidden="true"
-            >
-              {STEPS[2].step}
-            </span>
           </div>
-        </Reveal>
+        </div>
       </div>
 
-      {/* CTA ladder: Text link to CareRota */}
+      {/* Closer: proof link + the real method route */}
       <Reveal delay={0.35}>
-        <div className="mt-12 md:mt-16 flex items-center">
+        <div className="mt-12 md:mt-16 flex flex-wrap items-center gap-x-8 gap-y-4">
           <Link
             href="/#proof-card"
-            className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-2 text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] transition-colors cursor-pointer"
           >
-            See it on a real one →
+            See it on a real one
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 motion-safe:group-hover:translate-x-0.5" aria-hidden="true" />
+          </Link>
+          <Link
+            href="/how-we-work"
+            className="text-sm font-normal text-[var(--color-ink)]/60 hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
+          >
+            The full method
           </Link>
         </div>
       </Reveal>
