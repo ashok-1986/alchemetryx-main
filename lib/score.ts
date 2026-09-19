@@ -28,30 +28,34 @@ export interface Result {
 
 export type Category = "leakage" | "visibility" | "fragmentation";
 
+/** Matrix §9: Weighted category scores */
 export function categories(a: Answers) {
   return {
-    leakage:       (health(a.q1) + health(a.q2) + health(a.q3)) / 3,
-    visibility:    (health(a.q7) + health(a.q8) + health(a.q9)) / 3,
-    fragmentation: (health(a.q4) + health(a.q5) + health(a.q6)) / 3,
+    // Leakage: Q1(10) + Q2(10) + Q3(8) = 28 total weight
+    leakage:       (health(a.q1) * 10 + health(a.q2) * 10 + health(a.q3) * 8) / 28,
+    // Visibility: Q7(12) + Q8(8) + Q9(10) = 30 total weight
+    visibility:    (health(a.q7) * 12 + health(a.q8) * 8  + health(a.q9) * 10) / 30,
+    // Fragmentation: Q4(9) + Q5(9) + Q6(9) = 27 total weight
+    fragmentation: (health(a.q4) * 9  + health(a.q5) * 9  + health(a.q6) * 9)  / 27,
   };
 }
 
+/** Matrix §9: Category weights 40 / 33 / 27 */
 export function overall(c: ReturnType<typeof categories>): number {
-  return (c.leakage + c.visibility + c.fragmentation) / 3;
+  return c.leakage * 0.40 + c.visibility * 0.33 + c.fragmentation * 0.27;
 }
 
+/** Matrix §10: Band boundaries (calibrated) */
 export function band(score: number): 1 | 2 | 3 | 4 | 5 {
-  if (score <= 34) return 1;
-  if (score <= 49) return 2;
-  if (score <= 64) return 3;
-  if (score <= 84) return 4;
+  if (score <= 33) return 1;
+  if (score <= 40) return 2;
+  if (score <= 48) return 3;
+  if (score <= 56) return 4;
   return 5;
 }
 
-/**
- * Tie-break is mandatory and ordered by category weight:
- * Leakage (40) beats Visibility (33) beats Fragmentation (27).
- */
+/** Matrix §11: Tie-break is mandatory and ordered by category weight:
+ * Leakage (40) beats Visibility (33) beats Fragmentation (27). */
 const PRECEDENCE: Category[] = ["leakage", "visibility", "fragmentation"];
 
 export function costingMost(c: Record<Category, number>): Category {
@@ -69,6 +73,25 @@ export function aiReturn(a: Answers): number | null {
   return (health(a.q10) * 8 + health(a.q11) * 7) / 15;
 }
 
+// ---- Q8 checkbox scoring, group coverage not raw count ----
+
+const FINANCIAL = ["revenue", "grossMargin", "cash", "costs"] as const;
+const OPERATIONAL = ["utilisation", "capacity", "retention"] as const;
+const FORWARD = ["pipeline", "conversion"] as const;
+
+export function q8Rating(selected: string[]): Rating {
+  const KNOWN = [...FINANCIAL, ...OPERATIONAL, ...FORWARD];
+  const picked = Array.from(new Set(selected.filter(s => s !== "other" && KNOWN.includes(s as any))));
+  const groups = [FINANCIAL, OPERATIONAL, FORWARD]
+    .filter(g => g.some(o => picked.includes(o as any))).length;
+
+  if (groups === 3 && picked.length >= 4) return 5;
+  if (groups >= 2) return 4;
+  if (groups === 1 && picked.length >= 3) return 3;
+  if (picked.length >= 1) return 2;
+  return 1;
+}
+
 export function computeResult(a: Answers): Result {
   const cats = categories(a);
   const scoreExact = overall(cats);
@@ -83,23 +106,4 @@ export function computeResult(a: Answers): Result {
     strongest: strongest(cats),
     aiReturn: aiReturn(a) !== null ? Math.round(aiReturn(a)!) : null,
   };
-}
-
-// ---- Q8 checkbox scoring, group coverage not raw count ----
-
-const FINANCIAL = ["revenue", "grossMargin", "cash", "costs"] as const;
-const OPERATIONAL = ["utilisation", "capacity", "retention"] as const;
-const FORWARD = ["pipeline", "conversion"] as const;
-
-export function q8Rating(selected: string[]): Rating {
-  const validOptions = new Set([...FINANCIAL, ...OPERATIONAL, ...FORWARD] as string[]);
-  const picked = Array.from(new Set(selected.filter(s => validOptions.has(s))));
-  const groups = [FINANCIAL, OPERATIONAL, FORWARD]
-    .filter(g => g.some((o: string) => picked.includes(o))).length;
-
-  if (groups === 3 && picked.length >= 4) return 5;
-  if (groups >= 2) return 4;
-  if (groups === 1 && picked.length >= 3) return 3;
-  if (picked.length >= 1) return 2;
-  return 1;
 }

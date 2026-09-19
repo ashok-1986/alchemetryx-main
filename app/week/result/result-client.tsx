@@ -55,18 +55,18 @@ export default function ResultClient() {
   const COPY: Record<string, Record<string, { basis: string, improvement: string }>> = {
     leakage: {
       weak: { basis: "Most recurring work still runs by hand. Fires get put out often, and a lot of how-to lives in people's heads, not on paper.", improvement: "Pick the one task you repeat most each week and write the steps down. That is the first thing worth handing to a system." },
-      partial: { basis: "Some routine work is written down and repeatable. A few important tasks still need a person to remember and do them.", improvement: "Take the recurring task that eats the most time and make it run on its own." },
-      strong: { basis: "Recurring work is mostly documented and runs with little manual effort. Firefighting is rare.", improvement: "Hold the line. Add each new routine to the same setup before it becomes another manual habit." }
+      partial: { basis: "Some routine work is documented and repeatable. A few important tasks still slip through the cracks.", improvement: "Document the next most frequent task and hand it to the same setup." },
+      strong: { basis: "Routine work runs on its own. You do not remember how things get done because the system does it.", improvement: "Keep reviewing quarterly. If a new manual habit appears, capture it immediately." }
     },
     visibility: {
       weak: { basis: "Seeing a basic number takes real effort. You wait for someone to pull it, and by then it is already old.", improvement: "Pick the one number you check most, revenue or cash, and get it somewhere you can see any day without asking." },
-      partial: { basis: "You can see some numbers quickly, but not all of them, and some are only current near month-end.", improvement: "Close the gap on the numbers that lag. Aim to see the key ones during the month, not after it." },
-      strong: { basis: "You can see the numbers that matter quickly, and they are current enough to act on.", improvement: "Keep it current. As you add numbers to track, hold the same speed so nothing slips back to month-end." }
+      partial: { basis: "Most key numbers are visible during the month, but a few still only land at month-end.", improvement: "Bring the last lagging number forward so the full picture is current." },
+      strong: { basis: "The numbers that matter are visible in real time. You act on them the same day they change.", improvement: "Audit quarterly: if a new metric matters, wire it to the same dashboard before it becomes a request." }
     },
     fragmentation: {
       weak: { basis: "The same detail gets typed into more than one place. Your tools do not pass information to each other, so people bridge the gap by hand.", improvement: "Find the detail you re-type most, customer or order info, and connect the two tools so it moves once." },
-      partial: { basis: "Some tools are connected, but a few handoffs are still manual and details do not always sit in one place.", improvement: "Take the one handoff people still do by hand and let the tools pass it across." },
-      strong: { basis: "Your tools pass information across without much re-typing, and key details sit in one place.", improvement: "Keep new tools to the same rule. Anything you add should read from the same source, not start a new island." }
+      partial: { basis: "Some tools are connected, but a few handoffs are still manual and details do not always sit in one place.", improvement: "Connect the next most frequent handoff. Keep the source of truth for each detail in one place." },
+      strong: { basis: "Data flows across tools without re-entry. Every detail has one canonical home.", improvement: "When you adopt a new tool, enforce the same rule: read from the canonical source, never create a second one." }
     }
   };
 
