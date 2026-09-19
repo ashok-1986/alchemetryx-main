@@ -31,26 +31,26 @@ export type Category = "leakage" | "visibility" | "fragmentation";
 /** Matrix §9: Weighted category scores */
 export function categories(a: Answers) {
   return {
-    // Leakage: Q1(10) + Q2(10) + Q3(8) = 28 total weight
-    leakage:       (health(a.q1) * 10 + health(a.q2) * 10 + health(a.q3) * 8) / 28,
-    // Visibility: Q7(12) + Q8(8) + Q9(10) = 30 total weight
-    visibility:    (health(a.q7) * 12 + health(a.q8) * 8  + health(a.q9) * 10) / 30,
-    // Fragmentation: Q4(9) + Q5(9) + Q6(9) = 27 total weight
-    fragmentation: (health(a.q4) * 9  + health(a.q5) * 9  + health(a.q6) * 9)  / 27,
+    // Leakage: Q1 + Q2 + Q3 averaged
+    leakage: (health(a.q1) + health(a.q2) + health(a.q3)) / 3,
+    // Visibility: Q7 + Q8 + Q9 averaged
+    visibility: (health(a.q7) + health(a.q8) + health(a.q9)) / 3,
+    // Fragmentation: Q4 + Q5 + Q6 averaged
+    fragmentation: (health(a.q4) + health(a.q5) + health(a.q6)) / 3,
   };
 }
 
 /** Matrix §9: Category weights 40 / 33 / 27 */
 export function overall(c: ReturnType<typeof categories>): number {
-  return c.leakage * 0.40 + c.visibility * 0.33 + c.fragmentation * 0.27;
+  return (c.leakage + c.visibility + c.fragmentation) / 3;
 }
 
 /** Matrix §10: Band boundaries (calibrated) */
 export function band(score: number): 1 | 2 | 3 | 4 | 5 {
-  if (score <= 33) return 1;
-  if (score <= 40) return 2;
-  if (score <= 48) return 3;
-  if (score <= 56) return 4;
+  if (score <= 34) return 1;
+  if (score <= 49) return 2;
+  if (score <= 64) return 3;
+  if (score <= 84) return 4;
   return 5;
 }
 
