@@ -163,6 +163,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/equality-and-diversity-policy" className="hover:text-[var(--color-gold)] transition-colors">
+                  Equality and Diversity Policy
+                </Link>
+              </li>
+              <li>
                 <Link href="/terms" className="hover:text-[var(--color-gold)] transition-colors">
                   Terms
                 </Link>
