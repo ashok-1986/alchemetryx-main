@@ -45,9 +45,9 @@ export function SplitNavigation() {
   return (
     <>
       <header 
-        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-[1em] lg:px-[2em] py-[2em] animate-in fade-in slide-in-from-top-5 duration-700 ease-out fill-mode-both"
+        className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-[1em] lg:px-[2em] py-[0.5em] animate-in fade-in slide-in-from-top-5 duration-700 ease-out fill-mode-both"
       >
-        <div className="grid grid-cols-2 md:grid-cols-3 w-full pointer-events-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 w-full pointer-events-auto items-start">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
           <div className="hidden md:flex flex-col gap-1.5 self-start p-[5px] backdrop-blur-md mix-blend-difference rounded-md">

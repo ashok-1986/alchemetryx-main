@@ -47,7 +47,8 @@ export function TocNav({ items, className, offset = 100 }: TocNavProps) {
     <nav
       aria-label="Page sections"
       className={cn(
-        "fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-end gap-3 z-40",
+        "fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-40",
+        "p-5 rounded-3xl bg-[var(--color-pearl)]/30 backdrop-blur-md border border-white/50 shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.6)]",
         className
       )}
     >
@@ -72,10 +73,10 @@ export function TocNav({ items, className, offset = 100 }: TocNavProps) {
           >
             <span
               className={cn(
-                "h-px w-6 shrink-0 transition-all duration-300 ease-out",
+                "h-px shrink-0 transition-all duration-300 ease-out",
                 isActive
-                  ? "w-12 bg-[var(--color-gold)]"
-                  : "w-6 bg-[var(--color-sapphire-line)] group-hover:w-10 group-hover:bg-[var(--color-gold-deep)]/50"
+                  ? "w-12 bg-[var(--color-ink)]"
+                  : "w-6 bg-[var(--color-ink)]/30 group-hover:w-10 group-hover:bg-[var(--color-ink)]/60"
               )}
               aria-hidden="true"
             />
@@ -83,8 +84,8 @@ export function TocNav({ items, className, offset = 100 }: TocNavProps) {
               className={cn(
                 "text-xs font-normal uppercase tracking-[0.12em] whitespace-nowrap opacity-0 transition-opacity duration-200",
                 isActive
-                  ? "opacity-100 text-[var(--color-gold)]"
-                  : "text-[var(--color-slate)] group-hover:opacity-100 group-hover:text-[var(--color-pearl)]"
+                  ? "opacity-100 text-[var(--color-ink)]"
+                  : "text-[var(--color-ink)]/70 group-hover:opacity-100 group-hover:text-[var(--color-ink)]"
               )}
             >
               {item.label}

@@ -253,7 +253,20 @@ export const DIVERSITY_FESTIVAL: CaseStudy = {
   build: {
     heading: "We delivered the festival's website with an online stallholder application built in.",
     body: "Every application is recorded automatically in one place, and each applicant gets an instant acknowledgement, so they know they are in.",
-    items: [],
+    items: [
+      {
+        title: "The festival's new digital home.",
+        caption: "A complete website for the community event, providing a single place for attendees to find information and for stallholders to apply.",
+        image: "/proof/diversity-home.jpg",
+        alt: "Diversity Festival homepage."
+      },
+      {
+        title: "Online stallholder application.",
+        caption: "A built-in application flow that records every enquiry automatically and sends an instant acknowledgement to the applicant.",
+        image: "/proof/diversity-get.jpg",
+        alt: "Diversity Festival stallholder application form."
+      }
+    ],
   },
   honesty: {
     heading: "The result",
