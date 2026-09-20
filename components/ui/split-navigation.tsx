@@ -50,12 +50,12 @@ export function SplitNavigation() {
         <div className="grid grid-cols-2 md:grid-cols-3 w-full pointer-events-auto items-start">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile) */}
-          <div className="hidden md:flex flex-col gap-1.5 self-start p-[5px] backdrop-blur-md mix-blend-difference rounded-md">
+          <div className="hidden md:flex flex-col gap-1.5 self-start p-[15px] bg-transparent backdrop-blur-md border border-white/30 shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.6)] rounded-2xl">
             {leftLinks.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="group flex items-center text-[11px] font-normal uppercase tracking-[0.2em] text-[var(--color-pearl)] hover:text-[var(--color-gold)] transition-colors w-fit leading-none py-1"
+                className="group flex items-center text-[11px] font-medium uppercase tracking-[0.2em] text-[var(--color-ink)] hover:text-[var(--color-gold)] transition-colors w-fit leading-none py-1"
               >
                 <span className="inline-block max-w-0 overflow-hidden opacity-0 transition-all duration-300 group-hover:max-w-[20px] group-hover:opacity-100 group-hover:mr-1">·</span>
                 <span>{item.label}</span>
