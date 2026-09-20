@@ -65,16 +65,25 @@ export class InvalidSubmission extends Error {}
 
 function lookup(question: string, text: string | null): Rating {
   if (!text) throw new InvalidSubmission(`${question} missing`);
-  const rating = RATING_MAPS[question][text];
+  const rating = RATING_MAPS[question][text.trim()];
   if (!rating) throw new InvalidSubmission(`${question} has unrecognised answer: "${text}"`);
   return rating;
 }
 
 export function parseWeekAnswers(searchParams: URLSearchParams) {
-  const g1 = searchParams.get("g1");
+  const rawG1 = searchParams.get("g1");
+  const g1 = rawG1?.trim();
+  if (g1 !== "Yes" && g1 !== "No" && g1 !== "Not sure") {
+    throw new InvalidSubmission(`g1 missing or unrecognised: "${rawG1}"`);
+  }
+
   const q8Text = searchParams.get("q8") ?? "";
   const q8Selected = q8Text.split(",").map(s => s.trim()).filter(Boolean)
-    .map(label => Q8_KEYS[label] ?? "other");
+    .map(label => {
+      const mapped = Q8_KEYS[label];
+      if (!mapped) throw new InvalidSubmission(`q8 has unrecognised answer: "${label}"`);
+      return mapped;
+    });
 
   const answers = {
     q1: lookup("q1", searchParams.get("q1")),

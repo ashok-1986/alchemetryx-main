@@ -51,9 +51,10 @@ describe("Scoring Engine", () => {
       { name: "Systemised solo consultancy", target: { Leak: 92, Vis: 83, Frag: 75, Score: 83, Band: 4, CostingMost: "fragmentation", AI: null }, fixture: { q1: 4, q2: 5, q3: 5, q4: 2, q5: 5, q6: 5, q7: 5, q8: 4, q9: 4 } as Answers },
       { name: "Bought AI and it failed", target: { Leak: 25, Vis: 42, Frag: 25, Score: 31, Band: 1, CostingMost: "leakage", AI: 13 }, fixture: { q1: 1, q2: 3, q3: 2, q4: 1, q5: 1, q6: 4, q7: 2, q8: 2, q9: 4, q10: 2, q11: 1 } as Answers },
       { name: "16+ tools, all well integrated", target: { Leak: 75, Vis: 75, Frag: 100, Score: 83, Band: 4, CostingMost: "leakage", AI: 63 }, fixture: { q1: 3, q2: 5, q3: 4, q4: 5, q5: 5, q6: 5, q7: 4, q8: 4, q9: 4, q10: 4, q11: 3 } as Answers },
+      { name: "Fully systemised (Band 5)", target: { Leak: 100, Vis: 100, Frag: 100, Score: 100, Band: 5, CostingMost: "leakage", AI: 100 }, fixture: { q1: 5, q2: 5, q3: 5, q4: 5, q5: 5, q6: 5, q7: 5, q8: 5, q9: 5, q10: 5, q11: 5 } as Answers },
     ];
 
-    it("verifies all 10 profiles match matrix v0.2 §16 exactly", () => {
+    it("verifies all 11 profiles match matrix v0.2 §16 exactly", () => {
       for (const p of profiles) {
         const r = computeResult(p.fixture);
         expect(r.leakage, `Leakage mismatch for ${p.name}`).toBe(p.target.Leak);

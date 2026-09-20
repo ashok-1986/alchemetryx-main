@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { parseWeekAnswers } from "@/lib/parseWeekAnswers";
 import { computeResult } from "@/lib/score";
@@ -7,9 +8,21 @@ import { Reveal } from "@/components/motion/reveal";
 
 export default function ResultClient() {
   const searchParams = useSearchParams();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
   
   // Build real URLSearchParams
-  const urlSearchParams = new URLSearchParams(searchParams.toString());
+  // Next.js useSearchParams might be empty before the router is ready on static exports,
+  // so we fall back to window.location.search to ensure we don't prematurely throw "q1 missing".
+  const queryStr = searchParams.toString() || window.location.search;
+  const urlSearchParams = new URLSearchParams(queryStr);
 
   let result;
   let errorMsg = null;
