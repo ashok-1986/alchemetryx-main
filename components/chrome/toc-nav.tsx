@@ -47,7 +47,7 @@ export function TocNav({ items, className, offset = 100 }: TocNavProps) {
     <nav
       aria-label="Page sections"
       className={cn(
-        "fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-40",
+        "fixed right-6 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-40 max-h-[90vh] overflow-y-auto",
         "p-5 rounded-3xl bg-[var(--color-pearl)]/30 backdrop-blur-md border border-white/50 shadow-[4px_4px_10px_rgba(0,0,0,0.05),-4px_-4px_10px_rgba(255,255,255,0.6)]",
         className
       )}
