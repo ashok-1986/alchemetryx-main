@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 // Below-the-fold sections code-split dynamically to reduce initial JS payload and TTI on mobile
 const LevelRouter = dynamic(() => import("@/components/sections/level-router").then((mod) => mod.LevelRouter));
 const ProofCard = dynamic(() => import("@/components/sections/proof-card"));
+const TestimonialBlock = dynamic(() => import("@/components/sections/testimonial-block").then((mod) => mod.TestimonialBlock));
 const WhoWeAre = dynamic(() => import("@/components/sections/who-we-are").then((mod) => mod.WhoWeAre));
 const CtaBlock = dynamic(() => import("@/components/sections/cta-block").then((mod) => mod.CtaBlock));
 
@@ -50,10 +51,13 @@ export default function HomePage() {
       {/* Section 7 — Proof: CareRota (Pearl) */}
       <ProofCard />
       
-      {/* Section 8 — Who you'd be working with (Sapphire) */}
+      {/* Section 8 — Testimonial (Pearl) */}
+      <TestimonialBlock />
+
+      {/* Section 9 — Who you'd be working with (Sapphire) */}
       <WhoWeAre />
       
-      {/* Section 9 — Final CTA (Pearl) */}
+      {/* Section 10 — Final CTA (Pearl) */}
       <CtaBlock />
     </>
   );

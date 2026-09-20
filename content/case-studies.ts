@@ -236,4 +236,31 @@ export const PRIMERASKIN: CaseStudy = {
   screenshotLabel: "PrimeraSkin Live Site Screenshot",
 };
 
-export const PUBLISHED_CASE_STUDIES: CaseStudy[] = [CARE_ROTA, FITOSYS, MEET_PRERNA, PRIMERASKIN].filter((c) => c.published);
+export const DIVERSITY_FESTIVAL: CaseStudy = {
+  slug: "diversity-festival",
+  kind: "client",
+  published: true,
+  eyebrow: "Case study · Community event, UK",
+  title: "Stallholder sign-ups moved off calls and inboxes into one system.",
+  standfirst:
+    "The new system has already saved hours of admin and follow-up. Every application is captured in one place and acknowledged straight away, so Martine can see every enquiry at a glance and nothing slips through.",
+  attribution: "Built by Alchemetryx · Diversity Festival",
+  before: {
+    heading: "Stallholder applications came in by phone, email and message.",
+    body: "Martine tracked them by hand, checking different conversations to see who had applied, who had confirmed, and who still needed a reply. Enquiries were easy to miss.",
+    points: [],
+  },
+  build: {
+    heading: "We delivered the festival's website with an online stallholder application built in.",
+    body: "Every application is recorded automatically in one place, and each applicant gets an instant acknowledgement, so they know they are in.",
+    items: [],
+  },
+  honesty: {
+    heading: "The result",
+    body: "The new system has already saved hours of admin and follow-up. Every application is captured in one place and acknowledged straight away, so Martine can see every enquiry at a glance and nothing slips through.",
+  },
+  closingLine: "",
+  screenshotLabel: "",
+};
+
+export const PUBLISHED_CASE_STUDIES: CaseStudy[] = [CARE_ROTA, FITOSYS, MEET_PRERNA, PRIMERASKIN, DIVERSITY_FESTIVAL].filter((c) => c.published);
