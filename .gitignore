@@ -49,3 +49,15 @@ live2.html
 # tool artifacts
 skills-lock.json
 temp.txt
+
+# Claude and script artifacts
+Claude outputs/
+antigravity-review-prompt.md
+xray_landing_page_brief.md
+lib/*.js
+scripts/*.js
+!scripts/sync-static.js
+!scripts/quick-validate.js
+!scripts/fix-all-profiles.js
+scripts/lib/
+scripts/scripts/

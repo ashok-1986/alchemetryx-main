@@ -243,7 +243,7 @@ export default function AboutPage() {
                 className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full object-cover border-2 border-[var(--color-gold)] mx-auto"
               />
               <p className="mt-4 text-sm font-light text-white/70">
-                Ashok Verma — Co-Founder & Principal Consultant
+                Ashok Verma - Co-Founder & Principal Consultant
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">

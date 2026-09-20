@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import ResultClient from "./result-client";
 
 export const metadata: Metadata = {
-  title: "Your Systems Efficiency Score — Alchemetryx",
+  title: "Your Systems Efficiency Score · Alchemetryx",
   robots: {
     index: false,
     follow: false,

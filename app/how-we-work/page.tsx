@@ -5,21 +5,21 @@ import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
-  title: { absolute: "How we work — Alchemetryx" },
+  title: { absolute: "How we work · Alchemetryx" },
   description:
     "How we take one process off your plate and make it run on its own. The full method, step by step. We work inside your systems, ship a working thing, and stay to prove it worked.",
   alternates: {
     canonical: "/how-we-work",
   },
   openGraph: {
-    title: "How we work — Alchemetryx",
+    title: "How we work · Alchemetryx",
     description:
       "How we take one process off your plate and make it run on its own. The full method, step by step. We work inside your systems, ship a working thing, and stay to prove it worked.",
     images: [{ url: "/og/how-we-work.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "How we work — Alchemetryx",
+    title: "How we work · Alchemetryx",
     description:
       "How we take one process off your plate and make it run on its own. The full method, step by step. We work inside your systems, ship a working thing, and stay to prove it worked.",
     images: ["/og/how-we-work.png"],

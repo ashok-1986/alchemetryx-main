@@ -10,7 +10,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Where's your week going? · Alchemetryx",
     description: "Nine questions, four minutes. Find out which of three things is costing your business the most time, and what to do about it.",
-    url: "https://alchemetryx.com/week",
+    url: "https://alchemetryx.com/festival",
+  },
+  robots: {
+    index: false,
+    follow: false,
   }
 };
 
@@ -34,7 +38,7 @@ export default function WeekPage() {
           <Reveal delay={0.5}>
             <div className="mt-10">
               <CircleExpandButton
-                href="https://tally.so/r/jajPEJ"
+                href="https://tally.so/r/jajPEJ?src=festival"
                 variant="primary"
                 size="lg"
               >
@@ -212,7 +216,7 @@ export default function WeekPage() {
           
           <Reveal delay={0.2}>
             <CircleExpandButton
-              href="https://tally.so/r/jajPEJ"
+              href="https://tally.so/r/jajPEJ?src=festival"
               variant="primary"
               size="lg"
             >
