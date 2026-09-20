@@ -64,19 +64,21 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
             {cs.before.body}
           </p>
         </div>
-        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cs.before.points.map((p) => (
-            <div
-              key={p.label}
-              className="rounded-md border border-[var(--color-pearl-line)] p-6 bg-[var(--color-pearl)] flex flex-col justify-between"
-            >
-              <p className="text-base font-normal text-[var(--color-ink)] tracking-[-0.01em]">{p.label}</p>
-              <p className="mt-3 text-sm md:text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
-                {p.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        {cs.before.points && cs.before.points.length > 0 && (
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cs.before.points.map((p) => (
+              <div
+                key={p.label}
+                className="rounded-md border border-[var(--color-pearl-line)] p-6 bg-[var(--color-pearl)] flex flex-col justify-between"
+              >
+                <p className="text-base font-normal text-[var(--color-ink)] tracking-[-0.01em]">{p.label}</p>
+                <p className="mt-3 text-sm md:text-base font-normal leading-relaxed text-[var(--color-ink)]/80">
+                  {p.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
       </Reveal>
 
       {/* The build */}
@@ -160,9 +162,11 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
         <div className="mt-20 md:mt-24 border-t border-[var(--color-pearl-line)] pt-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             <div className="lg:col-span-5">
-              <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
-                Practical measures · &quot;{cs.honesty.heading}&quot;
-              </p>
+              {cs.honesty.heading !== "The result" && (
+                <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal">
+                  Practical measures · &quot;{cs.honesty.heading}&quot;
+                </p>
+              )}
               <h3 className="mt-3 text-2xl sm:text-3xl font-normal text-[var(--color-ink)] tracking-[-0.025em] leading-snug">
                 {cs.honesty.heading}
               </h3>
@@ -183,6 +187,18 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
               <p className="text-base sm:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
                 {cs.honesty.body}
               </p>
+              {cs.honesty.highlights && cs.honesty.highlights.length > 0 && (
+                <ul className="mt-8 space-y-4">
+                  {cs.honesty.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-gold)] shrink-0" />
+                      <span className="text-base sm:text-lg font-normal text-[var(--color-ink)]">
+                        {highlight}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           </div>
         </div>

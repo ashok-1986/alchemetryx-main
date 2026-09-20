@@ -7,10 +7,10 @@ export function TestimonialBlock() {
       <Reveal>
         <div className="max-w-4xl mx-auto text-center px-4 md:px-8">
           <blockquote className="text-[clamp(1.5rem,3vw,2.25rem)] font-light leading-snug tracking-[-0.02em] text-[var(--color-ink)]">
-            &quot;Alchemetryx completely changed how we ran the festival. The application system saved us hours of confusing emails, and they really understood what we needed as a community event. Highly recommend!&quot;
+            &quot;Before, stallholder applications came through calls, emails and messages, and I was constantly checking conversations to see who had applied and who still needed a reply. Now they apply through the website, everything lands in one place, and they get an instant acknowledgement. It has saved me hours and I can see every enquiry at a glance.&quot;
           </blockquote>
           <cite className="block mt-8 text-base md:text-lg font-normal text-[var(--color-ink)]/70 not-italic">
-            — Martine Eni, Founder, Diversity Festival
+            — Martine Eni, Diversity Festival
           </cite>
         </div>
       </Reveal>

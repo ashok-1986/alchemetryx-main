@@ -19,7 +19,7 @@ export type CaseStudy = {
   attribution: string;
   before: { heading: string; body: string; points: { label: string; body: string }[] };
   build: { heading: string; body: string; items: { title: string; caption: string; image: string; alt: string }[] };
-  honesty: { heading: string; body: string };
+  honesty: { heading: string; body: string; highlights?: string[] };
   /** One line under the honesty heading on the full case study page. */
   closingLine: string;
   /** Small caption shown under the title inside the lightbox. */
@@ -258,9 +258,14 @@ export const DIVERSITY_FESTIVAL: CaseStudy = {
   honesty: {
     heading: "The result",
     body: "The new system has already saved hours of admin and follow-up. Every application is captured in one place and acknowledged straight away, so Martine can see every enquiry at a glance and nothing slips through.",
+    highlights: [
+      "One place for every application",
+      "Instant acknowledgement for every applicant",
+      "Every enquiry visible at a glance"
+    ]
   },
   closingLine: "",
   screenshotLabel: "",
 };
 
-export const PUBLISHED_CASE_STUDIES: CaseStudy[] = [CARE_ROTA, FITOSYS, MEET_PRERNA, PRIMERASKIN, DIVERSITY_FESTIVAL].filter((c) => c.published);
+export const PUBLISHED_CASE_STUDIES: CaseStudy[] = [DIVERSITY_FESTIVAL, CARE_ROTA, FITOSYS, MEET_PRERNA, PRIMERASKIN].filter((c) => c.published);
