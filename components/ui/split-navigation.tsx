@@ -97,7 +97,7 @@ export function SplitNavigation() {
 
             <button
               onClick={() => setMenuOpen(!menuOpen)}
-              className="relative z-[60] flex items-center justify-center px-6 py-2.5 bg-[var(--color-pearl)] text-[var(--color-ink)] border border-[var(--color-pearl)] mix-blend-difference text-[11px] font-normal uppercase tracking-[0.2em] transition-colors rounded-full hover:bg-transparent hover:text-[var(--color-pearl)]"
+              className="relative z-[60] flex items-center justify-center px-6 py-2.5 bg-[var(--color-pearl)] text-[var(--color-ink)] border border-[var(--color-pearl)] mix-blend-difference text-[11px] font-normal uppercase tracking-[0.2em] transition-colors rounded-full hover:bg-transparent hover:text-[var(--color-gold)]"
               style={{ mixBlendMode: menuOpen ? "normal" : "difference", borderColor: menuOpen ? "transparent" : "", backgroundColor: menuOpen ? "transparent" : "", color: menuOpen ? "var(--color-pearl)" : "" }}
               aria-expanded={menuOpen}
               aria-controls="mega-menu-panel"
