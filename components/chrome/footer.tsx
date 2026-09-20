@@ -217,11 +217,22 @@ export function Footer() {
         </div>
 
         {/* Large Cinematic Typography: Alchemetryx. 
-            Bleeds edge-to-edge and has 30% transparency 
+            Outlined stroke with gradient fade-out to bottom. Bleeds edge-to-edge.
         */}
-        <div className="w-full overflow-hidden select-none pointer-events-none pb-4 flex items-center justify-center opacity-30">
-          <p className="text-[20vw] font-light tracking-[-0.03em] leading-[0.75] text-[var(--color-pearl)] whitespace-nowrap">
-            Alchemetryx<span className="text-[var(--color-gold)]">.</span>
+        <div 
+          className="w-[100vw] relative left-1/2 -translate-x-1/2 overflow-hidden select-none pointer-events-none flex items-center justify-center"
+          style={{
+            WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+            maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+          }}
+        >
+          <p 
+            className="text-[21vw] font-medium tracking-tighter leading-none text-transparent whitespace-nowrap"
+            style={{ 
+              WebkitTextStroke: "1px var(--color-gold)",
+            }}
+          >
+            Alchemetryx<span style={{ WebkitTextStroke: "1px var(--color-gold)" }}>.</span>
           </p>
         </div>
 
