@@ -116,7 +116,7 @@ p {
 a:active,
 [role="button"]:active {
   transform: scale(0.97);
-  transition: transform 160ms ease-out;
+  transition: transform 150ms ease-out;
 }
 
 /* Apple Design Accessibility: Reduced Transparency */

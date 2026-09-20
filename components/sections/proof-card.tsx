@@ -43,7 +43,7 @@ export default function ProofCard() {
           <Reveal delay={0.1}>
             {firstScreenshot && (
               <Link href={`/proof/${featured.slug}`} className="block group">
-                <div className="relative rounded-xl border border-[var(--color-pearl-line)] overflow-hidden shadow-lg transition-transform duration-500 ease-out group-hover:scale-[1.02]">
+                <div className="relative rounded-xl border border-[var(--color-pearl-line)] overflow-hidden shadow-lg transition-transform duration-200 ease-out group-hover:scale-[1.03]">
                   <Image
                     src={firstScreenshot.image}
                     alt={firstScreenshot.alt}
