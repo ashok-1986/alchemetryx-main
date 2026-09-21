@@ -3,6 +3,7 @@ import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { SplitLines } from "@/components/motion/split-lines";
 import { Reveal } from "@/components/motion/reveal";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
+import { AnimatedScoreCard } from "@/components/week/animated-score-card";
 
 export const metadata: Metadata = {
   title: "Where's your week going? · Alchemetryx",
@@ -14,6 +15,86 @@ export const metadata: Metadata = {
   }
 };
 
+// Crisp SVG icons — geometric, one stroke weight, brand-consistent
+function IconRework({ className }: { className?: string }) {
+  return (
+    <svg
+      width="32" height="32" viewBox="0 0 32 32" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Circular arrow — redo/repeat */}
+      <path
+        d="M26 16a10 10 0 1 1-2.93-7.07"
+        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
+      />
+      <polyline
+        points="22 6 23.07 8.93 26 10"
+        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconSlowAnswers({ className }: { className?: string }) {
+  return (
+    <svg
+      width="32" height="32" viewBox="0 0 32 32" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Clock face */}
+      <circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="1.5" />
+      {/* Hour hand pointing to ~2 o'clock */}
+      <line x1="16" y1="16" x2="21" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Minute hand pointing to 12 */}
+      <line x1="16" y1="16" x2="16" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Centre dot */}
+      <circle cx="16" cy="16" r="1.5" fill="currentColor" />
+    </svg>
+  );
+}
+
+function IconManualHandoffs({ className }: { className?: string }) {
+  return (
+    <svg
+      width="32" height="32" viewBox="0 0 32 32" fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      {/* Two nodes connected by a line with an arrow — handoff */}
+      <circle cx="7" cy="16" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="25" cy="16" r="4" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="11" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <polyline
+        points="16.5 13 19.5 16 16.5 19"
+        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+const THREE_THINGS = [
+  {
+    icon: IconRework,
+    heading: "Rework.",
+    body: "Work done twice because something was missing, wrong, or never passed on.",
+  },
+  {
+    icon: IconSlowAnswers,
+    heading: "Slow answers.",
+    body: "How long it takes you to find out how the business is actually doing.",
+  },
+  {
+    icon: IconManualHandoffs,
+    heading: "Manual handoffs.",
+    body: "A person carrying information from one system to the next because nothing else will.",
+  },
+];
+
 export default function WeekPage() {
   return (
     <>
@@ -24,7 +105,7 @@ export default function WeekPage() {
             lines={["Where is your", "week going?"]}
             className="text-[clamp(3rem,7vw,6rem)] font-light leading-[1.02] tracking-[-0.04em] text-[var(--color-pearl)]"
           />
-          
+
           <Reveal delay={0.3}>
             <p className="mt-8 text-lg md:text-xl font-light text-[var(--color-slate)] max-w-[520px] leading-relaxed">
               Nine questions. Four minutes. You get a score, the one thing costing you most, and a written assessment inside two working days. No charge, no login.
@@ -52,34 +133,22 @@ export default function WeekPage() {
             Three things eat the week
           </h2>
         </Reveal>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-16">
-          <Reveal delay={0.1}>
-            <div>
-              <h3 className="text-xl font-medium mb-4">Rework.</h3>
-              <p className="text-[var(--color-slate)] leading-relaxed">
-                Work done twice because something was missing, wrong, or never passed on.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <div>
-              <h3 className="text-xl font-medium mb-4">Slow answers.</h3>
-              <p className="text-[var(--color-slate)] leading-relaxed">
-                How long it takes you to find out how the business is actually doing.
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={0.3}>
-            <div>
-              <h3 className="text-xl font-medium mb-4">Manual handoffs.</h3>
-              <p className="text-[var(--color-slate)] leading-relaxed">
-                A person carrying information from one system to the next because nothing else will.
-              </p>
-            </div>
-          </Reveal>
+          {THREE_THINGS.map(({ icon: Icon, heading, body }, i) => (
+            <Reveal key={heading} delay={0.1 * (i + 1)}>
+              <div className="flex flex-col gap-5">
+                {/* Icon badge */}
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[var(--color-pearl-line)] text-[var(--color-gold-deep)]">
+                  <Icon />
+                </span>
+                <h3 className="text-xl font-normal tracking-[-0.01em] text-[var(--color-ink)]">{heading}</h3>
+                <p className="text-[var(--color-slate)] leading-relaxed">{body}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-        
+
         <Reveal delay={0.4}>
           <p className="text-lg md:text-xl text-[var(--color-slate)] max-w-3xl leading-relaxed">
             Most owner-led businesses lose the largest part of the week to one of these three. Almost none can say which one.
@@ -88,7 +157,7 @@ export default function WeekPage() {
       </SectionFullBleed>
 
       {/* Section 3: What you get (Pearl) */}
-      <SectionFullBleed tone="light" className="py-24 md:py-32 bg-[var(--color-ink)]/5">
+      <SectionFullBleed tone="light" className="py-24 md:py-32 border-t border-[var(--color-pearl-line)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <Reveal>
@@ -108,30 +177,7 @@ export default function WeekPage() {
             </Reveal>
           </div>
           <Reveal delay={0.3}>
-            {/* Sample output placeholder */}
-            <div className="bg-[var(--color-sapphire)] rounded-2xl p-8 md:p-12 text-[var(--color-pearl)] shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-1 bg-[var(--color-gold)] opacity-50"></div>
-              <p className="text-xs uppercase tracking-widest text-[var(--color-slate)] mb-6">Your Systems Efficiency Score</p>
-              <div className="text-[clamp(4rem,10vw,8rem)] font-light text-[var(--color-gold)] leading-none mb-6">43</div>
-              <p className="text-xl md:text-2xl font-light tracking-tight mb-12 uppercase text-[var(--color-slate)]">Connected, but you cannot see it</p>
-              
-              <div className="space-y-4 mb-12 font-mono text-sm border-t border-[var(--color-slate)]/20 pt-6">
-                <div className="flex justify-between"><span>Rework</span><span className="text-[var(--color-gold)]">50</span></div>
-                <div className="flex justify-between"><span>Slow answers</span><span className="text-[var(--color-gold)]">50</span></div>
-                <div className="flex justify-between"><span>Manual handoffs</span><span className="text-[var(--color-gold)]">25</span></div>
-              </div>
-              
-              <div className="text-sm">
-                <div className="grid grid-cols-[140px_1fr] gap-4 mb-3">
-                  <span className="text-[var(--color-slate)] uppercase tracking-wider text-xs">Costing you most</span>
-                  <span className="text-[var(--color-gold)]">Manual handoffs</span>
-                </div>
-                <div className="grid grid-cols-[140px_1fr] gap-4">
-                  <span className="text-[var(--color-slate)] uppercase tracking-wider text-xs">Strongest</span>
-                  <span className="text-[var(--color-pearl)]">Rework</span>
-                </div>
-              </div>
-            </div>
+            <AnimatedScoreCard />
           </Reveal>
         </div>
       </SectionFullBleed>
@@ -143,29 +189,29 @@ export default function WeekPage() {
             How it works
           </h2>
         </Reveal>
-        
+
         <div className="space-y-12 max-w-3xl">
           <Reveal delay={0.1}>
             <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1">One.</div>
+              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">One.</div>
               <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
                 Nine questions about how work actually moves through your business. Four minutes, no preparation.
               </p>
             </div>
           </Reveal>
-          
+
           <Reveal delay={0.2}>
             <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1">Two.</div>
+              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">Two.</div>
               <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
                 Your score, on screen, immediately.
               </p>
             </div>
           </Reveal>
-          
+
           <Reveal delay={0.3}>
             <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1">Three.</div>
+              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">Three.</div>
               <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
                 Four more questions so the written assessment is about your business and not a generic one. Then it lands in your inbox.
               </p>
@@ -175,23 +221,22 @@ export default function WeekPage() {
       </SectionFullBleed>
 
       {/* Section 5: The honest bit (Sapphire) */}
-      <SectionFullBleed tone="dark" className="py-24 md:py-32 border-t border-[var(--color-gold)]/30 relative">
-        {/* Hairline rule requested by brief above Section 5 */}
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-[var(--color-gold)]"></div>
-        
+      <SectionFullBleed tone="dark" className="py-24 md:py-32 relative">
+        <div className="absolute top-0 left-0 w-full h-[1px] bg-[var(--color-gold)]" aria-hidden="true" />
+
         <Reveal>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 text-[var(--color-pearl)]">
             Two honest things
           </h2>
         </Reveal>
-        
+
         <div className="space-y-8 max-w-3xl">
           <Reveal delay={0.1}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
               If your business already runs well, we will say so. The top band reads: systems-led, you probably do not need us. That is a real result and some people get it.
             </p>
           </Reveal>
-          
+
           <Reveal delay={0.2}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
               Your answers are used to write your assessment and to improve the scoring. They are not sold, not shared, and not added to any list you did not ask for.
@@ -199,7 +244,6 @@ export default function WeekPage() {
           </Reveal>
         </div>
       </SectionFullBleed>
-
 
       {/* Section 6: CTA (Sapphire) */}
       <SectionFullBleed tone="dark" className="py-24 md:py-32">
@@ -209,7 +253,7 @@ export default function WeekPage() {
               Nine questions. Four minutes.
             </h2>
           </Reveal>
-          
+
           <Reveal delay={0.2}>
             <CircleExpandButton
               href="https://tally.so/r/jajPEJ"
