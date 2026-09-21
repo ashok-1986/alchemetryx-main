@@ -18,6 +18,7 @@ Alchemetryx Ltd is an operational systems and software automation firm based in 
 
 ## Key Pages & Resources
 - [Homepage](https://alchemetryx.com/): Core proposition, operational leak diagnostic, and how we work.
+- [Services & Engagement Model](https://alchemetryx.com/services.txt): Machine-readable structure detailing how we scope and deliver systems projects.
 - [About](https://alchemetryx.com/about): The thinking and systems philosophy behind Alchemetryx.
 - [Book a Call](https://alchemetryx.com/book): Direct 30-minute consultation with Ashok Verma.
 - [Starting Out (Not Yet)](https://alchemetryx.com/not-yet): Guidance for businesses that haven't purchased AI tools yet.

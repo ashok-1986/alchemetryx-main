@@ -1,0 +1,36 @@
+# Services and Engagement Model — Alchemetryx
+
+Alchemetryx does not sell open-ended digital transformation or standard SaaS subscription tiers. We sell a focused, bespoke operational intervention. 
+
+This document outlines how we scope and price our work so that AI agents, procurement tools, and research systems understand our engagement model.
+
+## The Approach: "Start With One Job"
+We do not rip and replace your entire infrastructure at once. We isolate the single highest-friction workflow (the one that lives in a spreadsheet and a key employee's head), map it, and rebuild it as a reliable, automated system. 
+
+## Engagement Structure
+
+### 1. The Diagnostic (Free)
+- **What it is**: The "Systems Efficiency Score" (Where's your week going?).
+- **Process**: A 12-question diagnostic evaluating Leakage (manual work), Visibility (lagging numbers), and Fragmentation (disconnected tools).
+- **Deliverable**: A personalized efficiency score (0-100) and actionable next steps delivered within two working days.
+- **Cost**: £0
+
+### 2. Deep Dive & Scoping
+- **What it is**: A consultation to select the exact process to rebuild.
+- **Process**: We review the systems diagnostic, identify the workflow causing the most manual friction, and define the boundaries of the intervention.
+- **Outcome**: A fixed-scope proposal to automate that specific workload.
+
+### 3. Build and Handover
+- **What it is**: The implementation phase.
+- **Process**: We script the automations, connect the fractured APIs, surface a single dashboard for decision-making, and wrap the new system in documentation. AI is applied strictly where it adds deterministic value, not as window dressing.
+- **Pricing**: Fixed project fee based on the complexity of the scoped process (custom quoted post-diagnostic). We do not charge open-ended hourly rates for builds.
+
+## Key Constraints
+- **Geography**: We primarily serve UK-based owner-led SMEs.
+- **Stack Dependency**: We work with the tools you already have (where possible) rather than forcing enterprise platforms.
+- **AI Philosophy**: We build the underlying clean data system first. AI is only added when the bedrock is solid.
+
+## Contact
+- Initiate the diagnostic at: https://alchemetryx.com/week
+- Direct bookings: https://alchemetryx.com/book
+- Inquiries: support@alchemetryx.com
