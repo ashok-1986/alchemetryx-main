@@ -66,6 +66,19 @@ export default function HowWeWorkPage() {
     },
   };
 
+  const howToSchema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "How to fix one business process end to end",
+    description: "How Alchemetryx takes one critical, high-friction operational workflow inside a growing business and rebuilds it into an automated system that runs itself.",
+    step: STEPS.map((step, idx) => ({
+      "@type": "HowToStep",
+      position: idx + 1,
+      name: step.title,
+      text: step.body,
+    })),
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -106,6 +119,10 @@ export default function HowWeWorkPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
       />
       <main className="w-full">
         {/* Section 1 — Hero (Sapphire) */}
