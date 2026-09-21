@@ -66,11 +66,46 @@ export default function HowWeWorkPage() {
     },
   };
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What does Alchemetryx do?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Alchemetryx takes one critical, high-friction operational workflow inside growing businesses and rebuilds it into an automated system that runs itself."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "How does Alchemetryx price engagements?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "We scope and charge a fixed project fee. We never bill by the day so that we are not paid to go slow."
+        }
+      },
+      {
+        "@type": "Question",
+        name: "Who owns the systems Alchemetryx builds?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You own it. You own the system, the setup, and the documentation. No vendor lock-in."
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <main className="w-full">
         {/* Section 1 — Hero (Sapphire) */}
@@ -195,6 +230,52 @@ export default function HowWeWorkPage() {
                 >
                   See the proof →
                 </Link>
+              </div>
+            </div>
+          </Reveal>
+        </SectionFullBleed>
+
+        {/* Section 5.5 — FAQ (Pearl) */}
+        <SectionFullBleed tone="light" fullHeight={false} className="py-20 md:py-[120px] bg-[var(--color-pearl)]">
+          <Reveal>
+            <div className="flex flex-col gap-12 md:gap-16">
+              <h2 className="font-urbanist font-light text-[clamp(2.5rem,5vw,4.5rem)] tracking-tight text-[var(--color-ink)] max-w-[25ch]">
+                Common questions
+              </h2>
+              
+              <div className="flex flex-col gap-8 md:gap-12 pl-4 md:pl-0 border-l border-[var(--color-pearl-line)] md:border-none">
+                <Reveal delay={0.1}>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-xl md:text-2xl font-urbanist font-light tracking-[-0.02em] text-[var(--color-ink)]">
+                      What does Alchemetryx do?
+                    </h3>
+                    <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
+                      Alchemetryx takes one critical, high-friction operational workflow inside growing businesses and rebuilds it into an automated system that runs itself.
+                    </p>
+                  </div>
+                </Reveal>
+                
+                <Reveal delay={0.2}>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-xl md:text-2xl font-urbanist font-light tracking-[-0.02em] text-[var(--color-ink)]">
+                      How does Alchemetryx price engagements?
+                    </h3>
+                    <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
+                      We scope and charge a fixed project fee. We never bill by the day so that we are not paid to go slow.
+                    </p>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={0.3}>
+                  <div className="flex flex-col gap-2">
+                    <h3 className="text-xl md:text-2xl font-urbanist font-light tracking-[-0.02em] text-[var(--color-ink)]">
+                      Who owns the systems Alchemetryx builds?
+                    </h3>
+                    <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
+                      You own it. You own the system, the setup, and the documentation. No vendor lock-in.
+                    </p>
+                  </div>
+                </Reveal>
               </div>
             </div>
           </Reveal>
