@@ -1,7 +1,7 @@
 # Equality and Diversity Policy
 
 *Alchemetryx Consulting (OPC) Pvt. Ltd.*
-*Last reviewed: [Month, Year]*
+*Last reviewed: September 2026*
 
 ## Our commitment
 

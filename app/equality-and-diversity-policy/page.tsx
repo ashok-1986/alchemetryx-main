@@ -24,7 +24,7 @@ export default function EqualityAndDiversityPolicyPage() {
           </h1>
           <p className="text-sm text-[var(--color-slate)]">
             Alchemetryx Consulting (OPC) Pvt. Ltd.<br />
-            Last reviewed: [Month, Year]
+            Last reviewed: September 2026
           </p>
         </div>
 
