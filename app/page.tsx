@@ -28,8 +28,51 @@ const WhoWeAre = dynamic(() => import("@/components/sections/who-we-are").then((
 const CtaBlock = dynamic(() => import("@/components/sections/cta-block").then((mod) => mod.CtaBlock));
 
 export default function HomePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Alchemetryx?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Alchemetryx is an operational systems and software automation firm based in London, UK. We take one critical, high-friction workflow inside a growing business and rebuild it into an automated system that runs itself.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Who is Alchemetryx for?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Alchemetryx works with owner-led SMEs in the UK that have accumulated disconnected software tools — a CRM here, a spreadsheet there — and find that decisions still depend on one person because nothing talks to anything else.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What problem does Alchemetryx solve?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Most growing businesses have tools but not a system. Staff re-enter the same data across multiple platforms, numbers differ depending on who you ask, and the owner carries every decision. Alchemetryx fixes the single process causing the most friction and makes it run without manual intervention.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I get started with Alchemetryx?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Take the free diagnostic at alchemetryx.com/week — a 12-question assessment that identifies where your business is leaking time and money. Or book a 30-minute call directly at alchemetryx.com/book.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Section 1 — Hero (Sapphire) */}
       <Hero />
       

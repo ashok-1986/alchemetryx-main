@@ -14,8 +14,51 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What does Alchemetryx actually do?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Alchemetryx rebuilds critical business routines into systems that run on their own. We link existing tools so data moves automatically, removing the manual copying and owner dependency that builds up as a business grows.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why does Alchemetryx focus on one process at a time?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Broad programmes spread attention too thin and rarely deliver a result you can measure. Starting with one process means the scope is tight, the outcome is clear, and the improvement is visible before we move to the next thing.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Alchemetryx replace our existing software?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Rarely. We work with the tools you already have and connect them so data enters once and updates everywhere. Replacing software is a last resort, not a default.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Where is Alchemetryx based?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Alchemetryx Ltd is registered in England and Wales (company number 17199377) and works primarily with UK-based owner-led SMEs.",
+        },
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* TITLE PAGE */}
       <SectionFullBleed
         id="about-hero"
