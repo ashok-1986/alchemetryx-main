@@ -31,6 +31,9 @@ Alchemetryx Ltd is an operational systems and software automation firm based in 
 - [Meet Prerna](https://alchemetryx.com/proof/meet-prerna): Independent artist booking & intake workflow. Automated consultation scheduling and artwork commissions.
 - [PrimeraSkin](https://alchemetryx.com/proof/primeraskin): Dermatology and aesthetics clinic workflow. Structured digital intake and patient triage pipeline.
 
+## External Profiles
+- [LinkedIn](https://www.linkedin.com/company/alchemetryx): Company updates, team, and professional presence.
+
 ## Legal & Compliance
 - [Terms of Service](https://alchemetryx.com/terms): Contractual terms governing systems development engagements.
 - [Privacy Policy](https://alchemetryx.com/privacy): Data protection compliance under UK GDPR and DPA 2018.

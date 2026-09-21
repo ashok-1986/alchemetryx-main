@@ -12,7 +12,7 @@ export function OrganizationJsonLd() {
     name: COMPANY.name,
     url: "https://alchemetryx.com",
     identifier: COMPANY.companyNumber,
-    sameAs: [COMPANY.companiesHouseUrl],
+    sameAs: [COMPANY.companiesHouseUrl, "https://www.linkedin.com/company/alchemetryx"],
     founder: { "@type": "Person", name: "Ashok Verma" },
   };
 
