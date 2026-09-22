@@ -17,9 +17,9 @@ export function Hero() {
 
           <SplitLines
             lines={[
-              "Good work",
-              "shouldn't depend",
-              "on who knows how.",
+              "Your business",
+              "shouldn't depend on",
+              "what only you know.",
             ]}
             className="text-[clamp(3.5rem,8vw,7rem)] font-light leading-[1.02] tracking-[-0.04em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch]"
           />
