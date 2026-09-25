@@ -17,7 +17,12 @@ const METRICS = [
 const SCORE = 43;
 const BAND = "Connected, but you cannot see it";
 
-export function AnimatedScoreCard() {
+interface AnimatedScoreCardProps {
+  isExample?: boolean;
+  className?: string;
+}
+
+export function AnimatedScoreCard({ isExample = false, className = "" }: AnimatedScoreCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const scoreRef = useRef<HTMLSpanElement>(null);
   const barRefs = useRef<(HTMLSpanElement | null)[]>([]);
@@ -84,10 +89,17 @@ export function AnimatedScoreCard() {
     <figure
       ref={cardRef}
       aria-label={`Example systems efficiency score: ${SCORE} out of 100. Manual handoffs identified as primary constraint.`}
-      className="bg-[var(--color-sapphire)] rounded-2xl p-8 md:p-12 text-[var(--color-pearl)] shadow-xl relative overflow-hidden"
+      className={`bg-[var(--color-sapphire)] rounded-2xl p-8 md:p-12 text-[var(--color-pearl)] shadow-xl relative overflow-hidden ${className}`}
     >
       {/* Gold top rule */}
       <div className="absolute top-0 left-0 w-full h-[3px] bg-[var(--color-gold)]" aria-hidden="true" />
+
+      {/* Example label if requested */}
+      {isExample && (
+        <div className="absolute top-4 right-4 bg-[var(--color-sapphire-raised)] text-[var(--color-slate)] text-[10px] uppercase tracking-wider px-2 py-1 rounded-sm border border-[var(--color-sapphire-line)]">
+          Example
+        </div>
+      )}
 
       {/* Label */}
       <p className="text-xs uppercase tracking-widest text-[var(--color-slate)] mb-6" aria-hidden="true">

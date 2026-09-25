@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { SystemDiagram } from "@/components/sections/system-diagram";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { COMPANY } from "@/lib/constants";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -31,14 +32,20 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.5}>
-            <div className="mt-8 md:mt-10">
+            <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-6">
               <CircleExpandButton
-                href={COMPANY.primaryCtaHref}
+                href="/week"
                 variant="primary"
                 size="lg"
               >
-                {COMPANY.primaryCtaLabel}
+                Check your score
               </CircleExpandButton>
+              <Link 
+                href={COMPANY.primaryCtaHref}
+                className="text-base font-normal text-[var(--color-pearl)] hover:text-[var(--color-gold)] underline underline-offset-4 transition-colors"
+              >
+                {COMPANY.primaryCtaLabel}
+              </Link>
             </div>
           </Reveal>
         </div>

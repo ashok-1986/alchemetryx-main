@@ -15,83 +15,18 @@ export const metadata: Metadata = {
   }
 };
 
-// Crisp SVG icons — geometric, one stroke weight, brand-consistent
-function IconRework({ className }: { className?: string }) {
-  return (
-    <svg
-      width="32" height="32" viewBox="0 0 32 32" fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Circular arrow — redo/repeat */}
-      <path
-        d="M26 16a10 10 0 1 1-2.93-7.07"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
-      />
-      <polyline
-        points="22 6 23.07 8.93 26 10"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function IconSlowAnswers({ className }: { className?: string }) {
-  return (
-    <svg
-      width="32" height="32" viewBox="0 0 32 32" fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Clock face */}
-      <circle cx="16" cy="16" r="10" stroke="currentColor" strokeWidth="1.5" />
-      {/* Hour hand pointing to ~2 o'clock */}
-      <line x1="16" y1="16" x2="21" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Minute hand pointing to 12 */}
-      <line x1="16" y1="16" x2="16" y2="9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Centre dot */}
-      <circle cx="16" cy="16" r="1.5" fill="currentColor" />
-    </svg>
-  );
-}
-
-function IconManualHandoffs({ className }: { className?: string }) {
-  return (
-    <svg
-      width="32" height="32" viewBox="0 0 32 32" fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      {/* Two nodes connected by a line with an arrow — handoff */}
-      <circle cx="7" cy="16" r="4" stroke="currentColor" strokeWidth="1.5" />
-      <circle cx="25" cy="16" r="4" stroke="currentColor" strokeWidth="1.5" />
-      <line x1="11" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <polyline
-        points="16.5 13 19.5 16 16.5 19"
-        stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
 const THREE_THINGS = [
   {
-    icon: IconRework,
-    heading: "Rework.",
-    body: "Work done twice because something was missing, wrong, or never passed on.",
+    heading: "Rework",
+    body: "Work redone because something was missing or wrong the first time.",
   },
   {
-    icon: IconSlowAnswers,
-    heading: "Slow answers.",
-    body: "How long it takes you to find out how the business is actually doing.",
+    heading: "Slow answers",
+    body: "You wait days to find out how the business is really doing.",
   },
   {
-    icon: IconManualHandoffs,
-    heading: "Manual handoffs.",
-    body: "A person carrying information from one system to the next because nothing else will.",
+    heading: "Manual handoffs",
+    body: "Someone carries information from one system to another by hand.",
   },
 ];
 
@@ -134,14 +69,10 @@ export default function WeekPage() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 mb-16">
-          {THREE_THINGS.map(({ icon: Icon, heading, body }, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8 mb-16">
+          {THREE_THINGS.map(({ heading, body }, i) => (
             <Reveal key={heading} delay={0.1 * (i + 1)}>
-              <div className="flex flex-col gap-5">
-                {/* Icon badge */}
-                <span className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[var(--color-pearl-line)] text-[var(--color-gold-deep)]">
-                  <Icon />
-                </span>
+              <div className="flex flex-col gap-4 bg-[var(--color-pearl)] p-8 rounded-xl border border-[var(--color-pearl-line)] h-full">
                 <h3 className="text-xl font-normal tracking-[-0.01em] text-[var(--color-ink)]">{heading}</h3>
                 <p className="text-[var(--color-slate)] leading-relaxed">{body}</p>
               </div>
@@ -158,65 +89,50 @@ export default function WeekPage() {
 
       {/* Section 3: What you get (Pearl) */}
       <SectionFullBleed tone="light" className="py-24 md:py-32 border-t border-[var(--color-pearl-line)]">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <Reveal>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-10">
-                What arrives
-              </h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="space-y-8">
-                <p className="text-lg md:text-xl text-[var(--color-slate)] leading-relaxed">
-                  On screen, straight away: your score out of 100, the three areas scored separately, and which one is costing you most.
-                </p>
-                <p className="text-lg md:text-xl text-[var(--color-slate)] leading-relaxed">
-                  By email inside two working days: a written assessment of why that area is your constraint, what it is likely costing, and what a fix looks like. Written for you, not a template.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-          <Reveal delay={0.3}>
-            <AnimatedScoreCard />
+        <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+          <Reveal>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-8">
+              What arrives
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-lg md:text-xl text-[var(--color-slate)] leading-relaxed mb-16">
+              On screen straight away: your score, the three areas, and which one is costing you most. In your inbox within two working days: a written assessment of why, what it is likely costing, and what a fix looks like.
+            </p>
           </Reveal>
         </div>
+        <Reveal delay={0.3}>
+          <div className="max-w-3xl mx-auto">
+            <AnimatedScoreCard />
+          </div>
+        </Reveal>
       </SectionFullBleed>
 
-      {/* Section 4: How it works (Pearl) */}
-      <SectionFullBleed tone="light" className="py-24 md:py-32">
+      {/* Section 4: How it works (Sapphire) */}
+      <SectionFullBleed tone="dark" className="py-24 md:py-32">
         <Reveal>
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-16">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-16 text-[var(--color-pearl)] text-center">
             How it works
           </h2>
         </Reveal>
 
-        <div className="space-y-12 max-w-3xl">
-          <Reveal delay={0.1}>
-            <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">One.</div>
-              <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
-                Nine questions about how work actually moves through your business. Four minutes, no preparation.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">Two.</div>
-              <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
-                Your score, on screen, immediately.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <div className="flex gap-6 md:gap-8">
-              <div className="text-2xl font-light text-[var(--color-slate)] mt-1 shrink-0">Three.</div>
-              <p className="text-lg md:text-xl leading-relaxed text-[var(--color-ink)]">
-                Four more questions so the written assessment is about your business and not a generic one. Then it lands in your inbox.
-              </p>
-            </div>
-          </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto">
+          {[
+            { num: "1", text: "Nine questions about how work moves through your business." },
+            { num: "2", text: "Your score, on screen, immediately." },
+            { num: "3", text: "Four more questions, then your assessment lands in your inbox." }
+          ].map((step, i) => (
+            <Reveal key={step.num} delay={0.1 * (i + 1)}>
+              <div className="flex flex-col items-center text-center gap-6">
+                <span className="flex items-center justify-center w-12 h-12 rounded-full bg-[var(--color-gold)] text-[var(--color-ink)] text-xl font-medium shrink-0">
+                  {step.num}
+                </span>
+                <p className="text-lg md:text-xl font-light leading-relaxed text-[var(--color-pearl)]">
+                  {step.text}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </SectionFullBleed>
 
@@ -230,16 +146,16 @@ export default function WeekPage() {
           </h2>
         </Reveal>
 
-        <div className="space-y-8 max-w-3xl">
+        <div className="space-y-6 max-w-3xl">
           <Reveal delay={0.1}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
-              If your business already runs well, we will say so. The top band reads: systems-led, you probably do not need us. That is a real result and some people get it.
+              If your business already runs well, we will say so. Some people get that result, and it is a real one.
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
-              Your answers are used to write your assessment and to improve the scoring. They are not sold, not shared, and not added to any list you did not ask for.
+              Your answers are used only to write your assessment. Not sold, not shared, not added to any list.
             </p>
           </Reveal>
         </div>

@@ -4,6 +4,8 @@ import { Reveal } from "@/components/motion/reveal";
 import { Clock } from "lucide-react";
 import { PoundSterling } from "lucide-react";
 import { User } from "lucide-react";
+import { CircleExpandButton } from "@/components/ui/circle-expand-button";
+import { COMPANY } from "@/lib/constants";
 
 const ROWS = [
   {
@@ -81,14 +83,21 @@ export function TheProblem() {
         ))}
       </div>
     
-    {/* CTA ladder: Text link to CareRota */}
+    {/* CTA ladder */}
     <Reveal delay={0.3}>
-      <div className="mt-10 md:mt-14 flex items-center">
-        <Link
-          href="/proof"
-          className="inline-flex items-center text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors cursor-pointer"
+      <div className="mt-10 md:mt-14 flex items-center gap-6">
+        <CircleExpandButton
+          href="/week"
+          variant="primary"
+          size="lg"
         >
-          Here's one we rebuilt →
+          Check your score
+        </CircleExpandButton>
+        <Link
+          href={COMPANY.primaryCtaHref}
+          className="text-base sm:text-lg font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors"
+        >
+          {COMPANY.primaryCtaLabel}
         </Link>
       </div>
     </Reveal>
