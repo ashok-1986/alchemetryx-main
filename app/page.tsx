@@ -7,15 +7,17 @@ import { GoldStatement } from "@/components/sections/gold-statement";
 import { HowWeWork } from "@/components/sections/how-we-work";
 
 export const metadata: Metadata = {
+  title: "Get your week back | Alchemetryx, UK owner-led firms",
+  description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
   openGraph: {
-    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
-    description: "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
+    title: "Get your week back | Alchemetryx, UK owner-led firms",
+    description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
     images: [{ url: "/og/home.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alchemetryx · We rebuild the job in your head into a system that runs itself",
-    description: "We rebuild the job that lives in one person's head, so it's clear, repeatable, and easy for anyone to run.",
+    title: "Get your week back | Alchemetryx, UK owner-led firms",
+    description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
     images: ["/og/home.png"],
   },
 };

@@ -13,21 +13,19 @@ export function Hero() {
         {/* Left column: Value Proposition & CTA */}
         <div className="lg:col-span-6 flex flex-col justify-center">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-8 md:mb-12">
-            Make the business easier to run
+            For UK owner-led businesses, 10 to 50 staff
           </p>
 
           <SplitLines
             lines={[
-              "Your business",
-              "shouldn't depend on",
-              "what only you know.",
+              "Get your week back.",
             ]}
             className="text-[clamp(3.5rem,8vw,7rem)] font-light leading-[1.02] tracking-[-0.04em] max-w-[28ch] sm:max-w-[35ch] lg:max-w-[42ch]"
           />
 
           <Reveal delay={0.3}>
             <p className="mt-6 md:mt-8 text-lg md:text-xl font-light text-[var(--color-slate)] max-w-[48ch] leading-relaxed">
-              Right now, the job lives in someone's head and a spreadsheet only they understand. We rebuild the way it gets done, so the process is clear, repeatable, and easier for everyone to run.
+              Most owners lose the biggest part of their week to one of three things. Nine questions show you which one to fix first.
             </p>
           </Reveal>
 
@@ -44,7 +42,7 @@ export function Hero() {
                 href={COMPANY.primaryCtaHref}
                 className="text-base font-normal text-[var(--color-pearl)] hover:text-[var(--color-gold)] underline underline-offset-4 transition-colors"
               >
-                {COMPANY.primaryCtaLabel}
+                Book a call
               </Link>
             </div>
           </Reveal>
