@@ -8,8 +8,8 @@ import Link from "next/link";
 
 export function Hero() {
   return (
-    <SectionFullBleed tone="dark" className="pt-40 pb-32 md:pt-56 md:pb-40">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+    <SectionFullBleed tone="dark" className="pt-40 pb-32 md:pt-64 lg:pt-72 md:pb-40">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center p-[10px]">
         {/* Left column: Value Proposition & CTA */}
         <div className="lg:col-span-6 flex flex-col justify-center">
           <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)] mb-8 md:mb-12">
