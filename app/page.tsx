@@ -7,17 +7,17 @@ import { GoldStatement } from "@/components/sections/gold-statement";
 import { HowWeWork } from "@/components/sections/how-we-work";
 
 export const metadata: Metadata = {
-  title: "Get your week back | Alchemetryx, UK owner-led firms",
-  description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
+  title: "Take a day off. Your business keeps running | Alchemetryx",
+  description: "One in six UK small business owners take no full days off. Nine questions show how much of your business already runs without you.",
   openGraph: {
-    title: "Get your week back | Alchemetryx, UK owner-led firms",
-    description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
+    title: "Take a day off. Your business keeps running | Alchemetryx",
+    description: "One in six UK small business owners take no full days off. Nine questions show how much of your business already runs without you.",
     images: [{ url: "/og/home.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Get your week back | Alchemetryx, UK owner-led firms",
-    description: "Nine questions show which of three things takes most of your week, and what to fix first. Free, for UK owner-led businesses.",
+    title: "Take a day off. Your business keeps running | Alchemetryx",
+    description: "One in six UK small business owners take no full days off. Nine questions show how much of your business already runs without you.",
     images: ["/og/home.png"],
   },
 };
