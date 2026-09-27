@@ -182,7 +182,7 @@ export default function HowWeWorkPage() {
                     <Reveal key={idx} delay={idx * 0.1}>
                       <div className="relative grid grid-cols-[80px_1fr] md:grid-cols-[140px_1fr] gap-4 md:gap-8 md:items-start group">
                         {/* Step Number - aligned to line on desktop */}
-                        <div className="relative z-10 font-urbanist font-light text-[var(--color-gold)] text-3xl md:text-5xl bg-[var(--color-pearl)] md:pt-1">
+                        <div className="relative z-10 font-light text-[var(--color-gold-deep)] text-3xl md:text-5xl bg-[var(--color-pearl)] md:pt-1">
                           {["One.", "Two.", "Three.", "Four.", "Five.", "Six."][idx]}
                         </div>
                         

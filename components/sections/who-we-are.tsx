@@ -121,7 +121,7 @@ export function WhoWeAre({
             <Link
               key={item.name}
               href={item.href}
-              className="who-tile group relative block rounded-xl border border-[var(--color-sapphire-line)] bg-[var(--color-sapphire-raised)]/40 transition-all duration-300 overflow-hidden hover:border-[var(--color-gold-deep)]/50 motion-safe:hover:-translate-y-[3px] focus-visible:outline-2 focus-visible:outline-[var(--color-gold-deep)] focus-visible:outline-offset-2"
+              className="who-tile group relative block rounded-xl border border-[var(--color-sapphire-line)] bg-[var(--color-sapphire-raised)]/40 transition-all duration-300 overflow-hidden hover:border-[var(--color-gold)]/50 motion-safe:hover:-translate-y-[3px] focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2"
               aria-label={`${item.name}: ${item.description}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden">

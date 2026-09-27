@@ -38,8 +38,8 @@ export default function ResultClient() {
     return (
       <div className="flex-1 flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center">
-          <h1 className="font-urbanist font-light text-3xl mb-4">Cannot calculate score</h1>
-          <p className="text-body text-slate">{errorMsg}</p>
+          <h1 className="font-light text-3xl mb-4 text-[var(--color-pearl)]">Cannot calculate score</h1>
+          <p className="text-base text-[var(--color-slate)]">{errorMsg}</p>
         </div>
       </div>
     );
@@ -116,8 +116,8 @@ export default function ResultClient() {
     return (
       <div className="flex-1 flex items-center justify-center p-6">
         <div className="max-w-md w-full text-center">
-          <h1 className="font-urbanist font-light text-3xl mb-4">Cannot calculate score</h1>
-          <p className="text-body text-slate">{err.message || "Invalid form configuration"}</p>
+          <h1 className="font-light text-3xl mb-4 text-[var(--color-pearl)]">Cannot calculate score</h1>
+          <p className="text-base text-[var(--color-slate)]">{err.message || "Invalid form configuration"}</p>
         </div>
       </div>
     );
@@ -127,51 +127,51 @@ export default function ResultClient() {
     <div className="max-w-3xl mx-auto w-full flex flex-col gap-12 md:gap-16">
       
       <Reveal>
-        <h1 className="text-pearl/60 text-sm tracking-widest uppercase">
+        <h1 className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">
           Your Systems Efficiency Score
         </h1>
       </Reveal>
 
       <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-6">
-        <div className="font-urbanist font-light text-[80px] md:text-[100px] leading-none text-gold">
+        <div className="font-light text-[80px] md:text-[100px] leading-none text-[var(--color-gold)]">
           {result.score}
-          <span className="text-4xl md:text-5xl text-pearl/40 font-urbanist font-light">/100</span>
+          <span className="text-4xl md:text-5xl text-[var(--color-pearl)]/40 font-light">/100</span>
         </div>
         <Reveal delay={0.1}>
-          <p className="text-body text-slate max-w-sm">
+          <p className="text-base text-[var(--color-slate)] max-w-sm">
             Higher is better. This is the average of the three areas below.
           </p>
         </Reveal>
       </div>
       <Reveal delay={0.15}>
-        <p className="text-xl md:text-2xl text-pearl">
+        <p className="text-xl md:text-2xl text-[var(--color-pearl)]">
           {bandLabel}
         </p>
       </Reveal>
 
       {/* Categories as weak-first cards */}
-      <div className="flex flex-col gap-6 border-t border-sapphire-line pt-8">
+      <div className="flex flex-col gap-6 border-t border-[var(--color-sapphire-line)] pt-8">
         {sortedAreas.map((cat, i) => {
           const copy = COPY[cat.key][getTier(cat.val)];
           const isTop = i === 0;
           return (
             <Reveal key={cat.key} delay={0.2 + i * 0.1}>
-              <div className="flex flex-col gap-4 p-6 border border-sapphire-line bg-sapphire/50 rounded-xl">
-                <div className="flex justify-between items-start md:items-center border-b border-sapphire-line/50 pb-4 mb-2">
+              <div className="flex flex-col gap-4 p-6 border border-[var(--color-sapphire-line)] bg-[var(--color-sapphire-raised)]/50 rounded-xl">
+                <div className="flex justify-between items-start md:items-center border-b border-[var(--color-sapphire-line)]/50 pb-4 mb-2">
                   <div className="flex items-center gap-3">
-                    <h3 className="font-urbanist font-light text-2xl text-pearl">{LABELS[cat.key]}</h3>
+                    <h3 className="font-light text-2xl text-[var(--color-pearl)]">{LABELS[cat.key]}</h3>
                     {isTop && (
-                      <span className="bg-gold text-ink text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded">Start here</span>
+                      <span className="bg-[var(--color-gold)] text-[var(--color-ink)] text-xs font-semibold uppercase tracking-wider px-2 py-1 rounded">Start here</span>
                     )}
                   </div>
-                  <div className="font-urbanist font-light text-3xl text-gold mt-2 md:mt-0">
+                  <div className="font-light text-3xl text-[var(--color-gold)] mt-2 md:mt-0">
                     {Math.round(cat.val)}
-                    <span className="text-xl text-pearl/40 font-urbanist font-light">/100</span>
+                    <span className="text-xl text-[var(--color-pearl)]/40 font-light">/100</span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <p className="text-body text-pearl">{copy.basis}</p>
-                  <p className="text-body-sm text-slate">{copy.improvement}</p>
+                  <p className="text-base text-[var(--color-pearl)]">{copy.basis}</p>
+                  <p className="text-sm text-[var(--color-slate)]">{copy.improvement}</p>
                 </div>
               </div>
             </Reveal>
@@ -181,14 +181,14 @@ export default function ResultClient() {
 
       {/* Where AI fits */}
       <Reveal delay={0.5}>
-        <div className="flex flex-col gap-4 border-t border-sapphire-line pt-8 mt-6">
+        <div className="flex flex-col gap-4 border-t border-[var(--color-sapphire-line)] pt-8 mt-6">
           <div className="flex justify-between items-center">
-            <span className="text-pearl/60 text-sm tracking-widest uppercase">Where AI fits</span>
+            <span className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">Where AI fits</span>
             {result.aiReturn !== null && (
-              <span className="font-urbanist font-light text-xl text-gold">{Math.round(result.aiReturn)}</span>
+              <span className="font-light text-xl text-[var(--color-gold)]">{Math.round(result.aiReturn)}</span>
             )}
           </div>
-          <p className="text-body-sm text-slate">
+          <p className="text-sm text-[var(--color-slate)]">
             {result.aiReturn === null 
               ? "You have not put AI to work in the business yet. That is fine. Get the systems underneath clean first, then AI has something solid to run on."
               : result.aiReturn <= 40
@@ -201,15 +201,15 @@ export default function ResultClient() {
       {/* Next step to Form B */}
       <Reveal delay={0.6}>
         <div className="mt-12 flex flex-col items-start gap-6">
-          <h2 className="font-urbanist font-light text-2xl md:text-3xl text-pearl">
+          <h2 className="font-light text-2xl md:text-3xl text-[var(--color-pearl)]">
             Four more, so the assessment is about your business
           </h2>
-          <p className="text-body text-slate max-w-lg">
+          <p className="text-base text-[var(--color-slate)] max-w-lg">
             Then it lands in your inbox inside two working days.
           </p>
           <a 
             href={formBUrl}
-            className="inline-flex items-center justify-center bg-gold text-ink font-normal px-8 py-4 rounded-[6px] active:scale-97 transition-transform duration-160 ease-out"
+            className="inline-flex items-center justify-center bg-[var(--color-gold)] text-[var(--color-ink)] font-normal px-8 py-4 rounded-[6px] active:scale-[0.97] transition-transform duration-160 ease-out hover:opacity-90"
           >
             Continue
           </a>

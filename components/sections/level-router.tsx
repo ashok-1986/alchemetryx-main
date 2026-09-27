@@ -136,7 +136,7 @@ export function LevelRouter() {
         </div>
       </Reveal>
 
-      <div className="mt-10 max-w-[65ch] relative">
+      <div className="mt-10 max-w-[65ch] grid grid-cols-1">
         {keys.map((key) => {
           const isActive = key === active;
           return (
@@ -147,37 +147,29 @@ export function LevelRouter() {
               aria-labelledby={`tab-${key}`}
               aria-hidden={!isActive}
               className={cn(
-                "grid transition-all duration-300 ease-out",
+                "col-start-1 row-start-1 transition-opacity duration-300 ease-out",
                 isActive 
-                  ? "grid-rows-[1fr] opacity-100 pointer-events-auto" 
-                  : "grid-rows-[0fr] opacity-0 pointer-events-none"
+                  ? "opacity-100 pointer-events-auto visible" 
+                  : "opacity-0 pointer-events-none invisible"
               )}
-              style={{
-                position: isActive ? "relative" : "absolute",
-                top: 0,
-                left: 0,
-                width: "100%"
-              }}
             >
-              <div className="overflow-hidden">
-                <div className="space-y-4">
-                  {PANELS[key].body.map((para) => (
-                    <p
-                      key={para}
-                      className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85"
-                    >
-                      {para}
-                    </p>
-                  ))}
-                  <div className="pt-3 pb-1">
-                    <Link
-                      href={PANELS[key].href}
-                      tabIndex={isActive ? 0 : -1}
-                      className="inline-flex items-center text-base font-normal text-[var(--color-gold)] hover:text-[var(--color-pearl)] underline underline-offset-4 transition-colors cursor-pointer"
-                    >
-                      {PANELS[key].cta}
-                    </Link>
-                  </div>
+              <div className="space-y-4">
+                {PANELS[key].body.map((para) => (
+                  <p
+                    key={para}
+                    className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85"
+                  >
+                    {para}
+                  </p>
+                ))}
+                <div className="pt-3 pb-1">
+                  <Link
+                    href={PANELS[key].href}
+                    tabIndex={isActive ? 0 : -1}
+                    className="inline-flex items-center text-base font-normal text-[var(--color-gold)] hover:text-[var(--color-pearl)] underline underline-offset-4 transition-colors cursor-pointer"
+                  >
+                    {PANELS[key].cta}
+                  </Link>
                 </div>
               </div>
             </div>

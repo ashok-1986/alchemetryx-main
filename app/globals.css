@@ -16,6 +16,7 @@
 
   /* Type */
   --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+  --font-urbanist: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
 
   --text-micro: 10px;
   --text-caption: 12px;

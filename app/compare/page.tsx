@@ -135,7 +135,7 @@ export default function ComparePage() {
         <SectionFullBleed tone="dark" fullHeight={false} className="pt-40 pb-24 md:pt-56 md:pb-40">
           <Reveal>
             <div className="flex flex-col items-start gap-10 md:gap-14">
-              <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)]">
+              <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)]">
                 How we compare
               </p>
               <h1 className="font-urbanist font-light text-[clamp(3rem,7vw,6rem)] leading-[0.95] tracking-[-0.04em] max-w-[22ch] text-[var(--color-pearl)]">

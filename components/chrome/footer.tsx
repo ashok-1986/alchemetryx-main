@@ -7,7 +7,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="w-full relative overflow-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 px-[1em] lg:px-[2em] py-[2em]">
+    <footer className="w-full relative overflow-x-clip overflow-y-hidden section-dark bg-[var(--color-sapphire)] text-[var(--color-pearl)] border-t border-[var(--color-sapphire-line)]/50 px-[1em] lg:px-[2em] py-[2em]">
       {/* Subtle ambient lighting for atmospheric studio mood */}
       <div
         className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(212,175,55,0.06),transparent)] pointer-events-none"

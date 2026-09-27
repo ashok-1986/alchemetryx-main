@@ -35,7 +35,7 @@ export const metadata: Metadata = {
  */
 export default function ProofPage() {
   return (
-    <SectionFullBleed id="proof" tone="light" className="border-t border-[var(--color-pearl-line)]">
+    <SectionFullBleed id="proof" tone="light" fullHeight={false} className="border-t border-[var(--color-pearl-line)] pt-32 pb-24 md:pt-40 md:pb-32">
       <Reveal>
         <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold-deep)] mb-6">
           PROOF

@@ -28,7 +28,7 @@ export function Hero() {
             <p className="mt-6 md:mt-8 text-lg md:text-xl font-light text-[var(--color-slate)] max-w-[48ch] leading-relaxed">
               One in six UK small business owners take no full days off in a year. We build the systems behind three things: routine work handled, numbers on demand and tools connected, without you in the middle. Nine questions show how much of your business already runs without you.
             </p>
-            <p className="mt-4 text-sm font-light text-[var(--color-slate)]/70 max-w-[65ch]">
+            <p className="mt-4 text-sm font-light text-[var(--color-slate)] max-w-[65ch]">
               Source: <a href="https://www.tide.co/blog/tide-update/the-holiday-gap/" target="_blank" rel="noopener" className="underline underline-offset-2 hover:text-[var(--color-gold)] transition-colors">Tide Business Benchmark Index 2026</a>, Censuswide survey of 500 UK small business owners, December 2025.
             </p>
           </Reveal>

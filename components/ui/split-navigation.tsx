@@ -59,7 +59,7 @@ export function SplitNavigation() {
           {/* LEFT: Vertical Stack of Links (Hidden on mobile & tablet) */}
           <div className="hidden lg:flex flex-col gap-1.5 self-start justify-self-start w-fit p-3 bg-[var(--color-sapphire)]/20 backdrop-blur-md border border-white/10 rounded-xl">
             {NAV_ITEMS.map((item) => {
-              const isActive = pathname === item.href || (pathname === "/" && item.href === "/#problem" && false); // Basic active check
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.label}
@@ -188,7 +188,7 @@ export function SplitNavigation() {
                     <Link
                       href={item.href}
                       onClick={() => setMenuOpen(false)}
-                      className={`text-[32px] md:text-5xl font-normal uppercase tracking-tighter transition-colors block font-display whitespace-nowrap flex items-center h-[44px] md:h-[56px] ${
+                      className={`text-[32px] md:text-5xl font-normal uppercase tracking-tighter transition-colors block whitespace-nowrap flex items-center h-[44px] md:h-[56px] ${
                         isActive ? "text-[var(--color-gold)] underline underline-offset-8" : "text-[var(--color-pearl)] hover:text-[var(--color-gold)]"
                       }`}
                     >

@@ -64,14 +64,14 @@ export function CircleExpandButton({
       arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-pearl)",
     },
-sapphire: {
+    sapphire: {
       bg: "var(--color-sapphire)",
       textDefaultColor: "var(--color-pearl)",
       textHoverColor: "var(--color-pearl)",
       arrowCircleDefault: "var(--color-pearl)",
       arrowCircleHover: "var(--color-gold)",
       expandDefault: "var(--color-pearl)",
-      expandHover: "var(--color-sapphire)",
+      expandHover: "var(--color-sapphire-raised)",
       arrowDefault: "var(--color-ink)",
       arrowHover: "var(--color-ink)",
     },

@@ -20,7 +20,7 @@ export function NotReadyScore() {
         </Reveal>
 
         <Reveal delay={0.2} className="w-full">
-          <div className="w-full max-w-xl mx-auto transform scale-90 sm:scale-100 origin-top mb-16">
+          <div className="w-full max-w-xl mx-auto mb-12 md:mb-16">
             <AnimatedScoreCard isExample={true} className="pointer-events-none" />
           </div>
         </Reveal>

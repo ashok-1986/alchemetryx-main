@@ -137,9 +137,7 @@ export default function WeekPage() {
       </SectionFullBleed>
 
       {/* Section 5: The honest bit (Sapphire) */}
-      <SectionFullBleed tone="dark" className="py-24 md:py-32 relative">
-        <div className="absolute top-0 left-0 w-full h-[1px] bg-[var(--color-gold)]" aria-hidden="true" />
-
+      <SectionFullBleed tone="dark" className="py-24 md:py-32 border-t border-[var(--color-sapphire-line)]">
         <Reveal>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 text-[var(--color-pearl)]">
             Two honest things
@@ -162,7 +160,7 @@ export default function WeekPage() {
       </SectionFullBleed>
 
       {/* Section 6: CTA (Sapphire) */}
-      <SectionFullBleed tone="dark" className="py-24 md:py-32">
+      <SectionFullBleed tone="dark" className="py-24 md:py-32 border-t border-[var(--color-sapphire-line)]/40">
         <div className="text-center flex flex-col items-center">
           <Reveal>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-10 text-[var(--color-pearl)]">
