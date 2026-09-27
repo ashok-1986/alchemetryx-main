@@ -17,4 +17,9 @@ export const COMPANY = {
   supportEmail: "support@alchemetryx.com",
   // TODO(ashok): confirm India address line before launch
   indiaAddress: "",
+  socials: {
+    linkedin: "https://www.linkedin.com/company/alchemetryx",
+    instagram: "https://www.instagram.com/thealchemetryx/",
+    facebook: "https://www.facebook.com/alchemalytic",
+  },
 } as const;

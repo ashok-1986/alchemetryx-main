@@ -108,7 +108,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm text-[var(--color-pearl)]/85">
               <li>
                 <a
-                  href="https://www.linkedin.com/company/alchemetryx"
+                  href={COMPANY.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors group"
@@ -122,7 +122,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.instagram.com/thealchemetryx/"
+                  href={COMPANY.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors group"
@@ -136,7 +136,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://www.facebook.com/alchemalytic"
+                  href={COMPANY.socials.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 hover:text-[var(--color-gold)] transition-colors group"
