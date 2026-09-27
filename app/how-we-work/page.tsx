@@ -29,27 +29,27 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     title: "We find the one process costing you most.",
-    body: "We go through every tool and every routine, and we find the single process eating the most time and money. Not ten problems. One. The one worth fixing first.",
+    body: "We review your tools and daily routines to identify the single process consuming the most time and money, and start there.",
   },
   {
     title: "We decide what to keep, kill, and fix.",
-    body: "You get a plain list. What is working and stays. What you pay for that returns nothing and should go. And the one workflow worth rebuilding. No jargon, just the decision.",
+    body: "You receive a clear breakdown of what is working, what software is underused and can be removed, and the specific routine to rebuild.",
   },
   {
     title: "We fix the data underneath first.",
-    body: "Most automation fails because it runs on messy data. So before we automate anything, we make the information underneath it clean and reliable. Skip this and the automation just makes wrong things happen faster.",
+    body: "Automating unstandardised data creates errors faster. Before automating, we clean and structure the underlying information so it flows reliably.",
   },
   {
     title: "We build the workflow so it runs on its own.",
-    body: "We rebuild that one process as a working system, inside your own tools. Not a slide, not a trial. A live thing your team uses from day one, with a person checking the points that need a person.",
+    body: "We rebuild that process directly inside your existing tools, creating a working system your team uses from day one with human checkpoints where needed.",
   },
   {
     title: "We measure before and after.",
-    body: "We take the baseline before we touch anything, and the same measure after. If the number did not move, we do not claim it moved. You see the real difference, in hours and money.",
+    body: "We measure performance before starting and compare it against the same baseline after deployment, showing the real difference in hours and cost.",
   },
   {
     title: "We stay and keep it running.",
-    body: "A system left alone drifts. We stay on, watch it, keep it working, and take the next process off your plate when you are ready.",
+    body: "We monitor the system as your team settles in, ensuring it remains stable and making adjustments as your volume grows.",
   },
 ];
 
@@ -96,7 +96,7 @@ export default function HowWeWorkPage() {
         name: "How does Alchemetryx price engagements?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "We scope and charge a fixed project fee. We never bill by the day so that we are not paid to go slow."
+          text: "We scope and charge a fixed project fee agreed before work starts, rather than billing by the day."
         }
       },
       {
@@ -104,7 +104,7 @@ export default function HowWeWorkPage() {
         name: "Who owns the systems Alchemetryx builds?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You own it. You own the system, the setup, and the documentation. No vendor lock-in."
+          text: "You own the complete system, the configurations, and all documentation with no vendor lock-in."
         }
       }
     ]
@@ -157,7 +157,7 @@ export default function HowWeWorkPage() {
                   Invoicing done twice. A rota rebuilt every Monday. The same customer detail typed into three places. Each one costs hours, every week, and the hours are yours.
                 </p>
                 <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                  Add up those hours. Multiply by what an hour of your team costs. That number is the gap. It has sat there so long you have stopped seeing it.
+                  Add up those hours and multiply by your team&apos;s hourly cost. That total shows what manual handoffs cost the business each month.
                 </p>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function HowWeWorkPage() {
               <Reveal delay={0.2}>
                 <div className="pt-8 md:pt-12 border-t border-[var(--color-pearl-line)]">
                   <p className="text-xl md:text-2xl font-urbanist font-light leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                    Two things you will not get from most firms. We work inside your own systems, not from the outside sending documents. And we never bill by the day, so we are not paid to go slow.
+                    We build directly inside your existing software rather than handing over advisory documents, and every engagement is a fixed project fee rather than a day rate.
                   </p>
                 </div>
               </Reveal>
@@ -222,7 +222,7 @@ export default function HowWeWorkPage() {
                 You own it. All of it.
               </h2>
               <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-slate)] max-w-[55ch]">
-                The system, the setup, the documentation. It is yours. If we stopped working together tomorrow, nothing switches off and nothing gets held to ransom. That is the opposite of how most software deals work, and it is on purpose.
+                You own the system, configurations, and documentation completely. If we conclude our engagement, all workflows and software remain fully under your control.
               </p>
             </div>
           </Reveal>
@@ -245,7 +245,7 @@ export default function HowWeWorkPage() {
                   href="/proof"
                   className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-ink)] hover:text-[var(--color-gold-deep)] underline underline-offset-4 transition-colors focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
                 >
-                  See the proof →
+                  See our case studies
                 </Link>
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function HowWeWorkPage() {
                       How does Alchemetryx price engagements?
                     </h3>
                     <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                      We scope and charge a fixed project fee. We never bill by the day so that we are not paid to go slow.
+                      We scope and charge a fixed project fee agreed before work starts, rather than billing by the day.
                     </p>
                   </div>
                 </Reveal>
@@ -289,7 +289,7 @@ export default function HowWeWorkPage() {
                       Who owns the systems Alchemetryx builds?
                     </h3>
                     <p className="text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)] max-w-[55ch]">
-                      You own it. You own the system, the setup, and the documentation. No vendor lock-in.
+                      You own the complete system, the configurations, and all documentation with no vendor lock-in.
                     </p>
                   </div>
                 </Reveal>

@@ -48,7 +48,7 @@ export default function HomePage() {
         name: "Who is Alchemetryx for?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Alchemetryx works with owner-led SMEs in the UK that have accumulated disconnected software tools — a CRM here, a spreadsheet there — and find that decisions still depend on one person because nothing talks to anything else.",
+          text: "Alchemetryx works with owner-led SMEs in the UK that have accumulated disconnected software tools, such as a separate CRM and multiple spreadsheets, where decisions still depend on one person because nothing talks to anything else.",
         },
       },
       {
@@ -64,7 +64,7 @@ export default function HomePage() {
         name: "How do I get started with Alchemetryx?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Take the free diagnostic at alchemetryx.com/week — a 12-question assessment that identifies where your business is leaking time and money. Or book a 30-minute call directly at alchemetryx.com/book.",
+          text: "Take the free diagnostic at alchemetryx.com/week, a brief assessment that identifies where your business is leaking time and money. Or book a 30-minute call directly at alchemetryx.com/book.",
         },
       },
     ],

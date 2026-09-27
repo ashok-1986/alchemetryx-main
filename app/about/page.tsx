@@ -39,7 +39,7 @@ export default function AboutPage() {
         name: "Does Alchemetryx replace our existing software?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Rarely. We work with the tools you already have and connect them so data enters once and updates everywhere. Replacing software is a last resort, not a default.",
+          text: "Rarely. We connect the tools you already use so data transfers automatically between them without requiring new software subscriptions.",
         },
       },
       {
@@ -81,7 +81,7 @@ export default function AboutPage() {
                 href="/proof"
                 className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-gold)] hover:text-white underline underline-offset-4 transition-colors cursor-pointer focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
               >
-                See our work →
+                See our work
               </Link>
             </div>
           </div>
@@ -139,9 +139,9 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-6 text-base md:text-lg text-white/80 leading-relaxed">
                 <p>
-                  Software vendors focus on features. When we review a routine, we ask what
-                  specific decision or handoff needs to happen. Once that outcome is clear, we
-                  set up the tools to feed it directly.
+                  Software vendors build for broad feature sets. When reviewing an operation,
+                  we look at the specific decision or handoff required, then configure the
+                  tools around it.
                 </p>
                 <p>
                   Businesses that run smoothly do not necessarily own more software. They
@@ -286,7 +286,7 @@ export default function AboutPage() {
                 className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full object-cover border-2 border-[var(--color-gold)] mx-auto"
               />
               <p className="mt-4 text-sm font-light text-white/70">
-                Ashok Verma - Co-Founder & Principal Consultant
+                Ashok Verma, Founder & Lead Consultant
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">

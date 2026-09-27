@@ -38,7 +38,7 @@ export default function AlreadyBoughtPage() {
         <Reveal>
           <div className="max-w-[65ch]">
             <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold-deep)] font-normal mb-4">
-              WHAT &quot;BOUGHT BUT UNPROVEN&quot; LOOKS LIKE
+              COMMON PATTERNS
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-ink)]">
               Software gets adopted, but the manual work continues.
@@ -90,7 +90,7 @@ export default function AlreadyBoughtPage() {
         <Reveal>
           <div className="max-w-[65ch]">
             <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] font-normal mb-4">
-              WHAT WE SEE
+              THE ROOT CAUSE
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-pearl)]">
               Software sitting next to a routine rarely changes how it gets done.
@@ -120,19 +120,15 @@ export default function AlreadyBoughtPage() {
               next.
             </h2>
             <p className="mt-6 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              The Diagnostic is a structured review of the tools and processes
-              you already pay for. We map each one to the job it was supposed to
-              improve, check whether it is actually doing that, and identify the
+              The Diagnostic is a structured review of the software and routines
+              you already pay for. We map each tool to the job it was supposed to
+              improve, check whether it is actually delivering, and identify the
               gaps.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              The Diagnostic focuses entirely on mapping how work currently moves
-              through your business before discussing commercial scope.
-            </p>
-            <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              If the tools you have are enough, we will say so. If something
-              needs rebuilding, you will know exactly what and why before any
-              next step.
+              If the tools you have are already sufficient, we will say so. If a
+              routine needs rebuilding, you will know exactly what and why before
+              discussing any commercial scope.
             </p>
             <div className="mt-8 md:mt-10">
               <CircleExpandButton href="/week" variant="primary" size="lg">
@@ -148,7 +144,7 @@ export default function AlreadyBoughtPage() {
         <Reveal>
           <div className="max-w-[65ch]">
             <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] font-normal mb-4">
-              REAL EXAMPLES
+              CASE STUDIES
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-pearl)]">
               Delivered systems.
@@ -170,7 +166,7 @@ export default function AlreadyBoughtPage() {
                 system.
               </h3>
               <p className="mt-3 text-sm text-[var(--color-pearl)]/70 underline underline-offset-4 group-hover:text-[var(--color-pearl)] transition-colors">
-                Read the case study →
+                Read the case study
               </p>
             </Link>
 
@@ -186,7 +182,7 @@ export default function AlreadyBoughtPage() {
                 that runs without them.
               </h3>
               <p className="mt-3 text-sm text-[var(--color-pearl)]/70 underline underline-offset-4 group-hover:text-[var(--color-pearl)] transition-colors">
-                Read the case study →
+                Read the case study
               </p>
             </Link>
           </div>

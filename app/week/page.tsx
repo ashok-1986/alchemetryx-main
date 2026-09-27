@@ -43,7 +43,7 @@ export default function WeekPage() {
 
           <Reveal delay={0.3}>
             <p className="mt-8 text-lg md:text-xl font-light text-[var(--color-slate)] max-w-[520px] leading-relaxed">
-              Nine questions. Four minutes. You get a score, the one thing costing you most, and a written assessment inside two working days. No charge, no login.
+              Nine questions that take four minutes. You will see your score immediately, followed by a written assessment in your inbox within two working days.
             </p>
           </Reveal>
 
@@ -136,24 +136,24 @@ export default function WeekPage() {
         </div>
       </SectionFullBleed>
 
-      {/* Section 5: The honest bit (Sapphire) */}
+      {/* Section 5: The assessment details (Sapphire) */}
       <SectionFullBleed tone="dark" className="py-24 md:py-32 border-t border-[var(--color-sapphire-line)]">
         <Reveal>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-12 text-[var(--color-pearl)]">
-            Two honest things
+            How we handle your assessment
           </h2>
         </Reveal>
 
         <div className="space-y-6 max-w-3xl">
           <Reveal delay={0.1}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
-              If your business already runs well, we will say so. Some people get that result, and it is a real one.
+              If your business already runs well, we will say so. Some businesses score in that band, and that is a genuine result.
             </p>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="text-lg md:text-xl font-light text-[var(--color-slate)] leading-relaxed">
-              Your answers are used only to write your assessment. Not sold, not shared, not added to any list.
+              We use your answers solely to prepare your written assessment. We do not share your details or add you to marketing lists.
             </p>
           </Reveal>
         </div>

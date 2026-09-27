@@ -74,19 +74,19 @@ const COMPARISON_ROWS = [
 const FAQ_ITEMS = [
   {
     q: "What makes Alchemetryx different from a digital agency?",
-    a: "A traditional agency takes on broad programmes: brand, marketing, technology. Alchemetryx does one thing only — picks the single highest-friction process inside your business and rebuilds it as a working system. The scope is tighter, the fee is fixed, and the result is something your team uses every day, not a slide deck.",
+    a: "A traditional agency typically manages broad brand, marketing, or technology retainers. Alchemetryx focuses on one specific high-friction routine, rebuilding it into a working system under an agreed fixed project fee.",
   },
   {
     q: "How is Alchemetryx different from a Zapier consultant?",
-    a: "A Zapier consultant automates what is already there. If the data is messy, the automation makes messy things happen faster. Alchemetryx fixes the data layer first, then automates. The result is a system that stays reliable rather than one that breaks quietly.",
+    a: "Connecting tools without cleaning the underlying information often accelerates errors. We structure and clean the data before automating, ensuring the resulting system runs reliably.",
   },
   {
     q: "Is Alchemetryx more expensive than a freelance automation consultant?",
-    a: "Alchemetryx charges a fixed project fee, not an hourly rate. A freelancer charging by the day has an incentive to go slow. We do not. The total cost is agreed before any work starts.",
+    a: "We work on a fixed project fee agreed before the build begins, rather than an open-ended daily or hourly rate.",
   },
   {
     q: "Can Alchemetryx work alongside our existing agency?",
-    a: "Yes. We work at the process and data layer, not at the brand or marketing layer. Most clients already have an agency. We fix the operational side that the agency was never set up to touch.",
+    a: "Yes. We work on the operational and data systems that marketing and design agencies are typically not contracted to build.",
   },
 ];
 
@@ -142,7 +142,7 @@ export default function ComparePage() {
                 Alchemetryx vs. agencies and automation consultants
               </h1>
               <p className="text-lg md:text-xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[48ch]">
-                Most consultants automate what is already broken. We fix the thing underneath first, then make it run without you.
+                We structure and clean the data layer before automating, creating a system that runs reliably on its own.
               </p>
             </div>
           </Reveal>
@@ -283,7 +283,7 @@ export default function ComparePage() {
                   href="/how-we-work"
                   className="text-sm text-[var(--color-ink)] underline underline-offset-4 decoration-[var(--color-pearl-line)] hover:decoration-[var(--color-ink)] transition-colors duration-200 self-center focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
                 >
-                  See how we work →
+                  See how we work
                 </Link>
               </div>
             </div>

@@ -61,7 +61,7 @@ export default function NotYetPage() {
         <Reveal>
           <div className="max-w-[65ch]">
             <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] font-normal mb-4">
-              PROOF THIS IS A METHOD
+              CASE STUDY
             </p>
             <h2 className="text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-[var(--color-pearl)]">
               A care home&apos;s rota lived in a spreadsheet. We rebuilt it as a
@@ -73,15 +73,15 @@ export default function NotYetPage() {
               budget until the month was already spent.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-pearl)]/85">
-              We rebuilt it as one system that tracks shifts, staffing levels,
-              and running wage costs in one place. It is running now.
+              We rebuilt it as a single system that tracks shifts, staffing levels,
+              and running wage costs in one place.
             </p>
             <div className="mt-6">
               <Link
                 href="/proof/care-rota"
                 className="inline-flex items-center text-base font-normal text-[var(--color-gold)] hover:text-[var(--color-pearl)] underline underline-offset-4 transition-colors cursor-pointer"
               >
-                Read the full case study →
+                Read the full case study
               </Link>
             </div>
           </div>
@@ -100,9 +100,8 @@ export default function NotYetPage() {
               now, you do not need outside help yet.
             </p>
             <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-[var(--color-ink)]">
-              When a job starts eating hours you could spend on the work you
-              actually do, that is the right moment to look at it. We will be
-              here.
+              When a manual routine starts consuming valuable team hours, contact
+              us to explore whether a rebuild makes sense.
             </p>
           </div>
         </Reveal>

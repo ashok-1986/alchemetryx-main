@@ -10,7 +10,7 @@ export function TestimonialBlock() {
             &quot;Before, stallholder applications came through calls, emails and messages, and I was constantly checking conversations to see who had applied and who still needed a reply. Now they apply through the website, everything lands in one place, and they get an instant acknowledgement. It has saved me hours and I can see every enquiry at a glance.&quot;
           </blockquote>
           <cite className="block mt-8 text-base md:text-lg font-normal text-[var(--color-ink)]/70 not-italic">
-            — Martine Eni, Diversity Festival
+            Martine Eni, Diversity Festival
           </cite>
         </div>
       </Reveal>
