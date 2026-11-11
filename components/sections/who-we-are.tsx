@@ -9,6 +9,7 @@ import { useGSAP } from "@gsap/react";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { PUBLISHED_CASE_STUDIES } from "@/content/case-studies";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,11 +24,12 @@ interface WhoWeAreProps {
   bleedToTop?: boolean;
 }
 
+// Visibility comes from content/case-studies.ts (matched by slug), not a flag kept here.
 const BUILT_THINGS = [
-  { name: "CareRota", description: "Rota & cost system for a UK care home", href: "/proof/care-rota", image: "/proof/carerota-dashboard.jpg", alt: "CareRota dashboard showing live cost, coverage, and compliance", published: true },
-  { name: "Fitosys", description: "Zero-commission platform for India coaches", href: "/proof/fitosys", image: "/proof/fitosys-main.jpg", alt: "Fitosys product view showing automated WhatsApp check-in", published: true },
-  { name: "meetprerna.com", description: "Portfolio site with automated booking pipeline", href: "/proof/meet-prerna", image: "/proof/meetprerna-hero.jpg", alt: "Meet Prerna website homepage with portfolio and booking flow", published: true },
-  { name: "primeraskin.com", description: "Clinic consultation booking pipeline", href: "/proof/primeraskin", image: "/proof/primeraskin-hero.jpg", alt: "PrimeraSkin website homepage with consultation booking", published: true },
+  { name: "CareRota", description: "Rota & cost system for a UK care home", href: "/proof/care-rota", image: "/proof/carerota-dashboard.jpg", alt: "CareRota dashboard showing live cost, coverage, and compliance" },
+  { name: "Fitosys", description: "Zero-commission platform for India coaches", href: "/proof/fitosys", image: "/proof/fitosys-main.jpg", alt: "Fitosys product view showing automated WhatsApp check-in" },
+  { name: "meetprerna.com", description: "Portfolio site with automated booking pipeline", href: "/proof/meet-prerna", image: "/proof/meetprerna-hero.jpg", alt: "Meet Prerna website homepage with portfolio and booking flow" },
+  { name: "primeraskin.com", description: "Clinic consultation booking pipeline", href: "/proof/primeraskin", image: "/proof/primeraskin-hero.jpg", alt: "PrimeraSkin website homepage with consultation booking" },
 ];
 
 export function WhoWeAre({
@@ -117,7 +119,7 @@ export function WhoWeAre({
 
         {/* 1x4 vertical scroll list */}
         <div className="lg:col-span-7 w-full flex flex-col gap-12 md:gap-16 lg:pl-8">
-          {BUILT_THINGS.filter(item => item.published).map((item) => (
+          {BUILT_THINGS.filter(item => PUBLISHED_CASE_STUDIES.some(cs => item.href === `/proof/${cs.slug}`)).map((item) => (
             <Link
               key={item.name}
               href={item.href}

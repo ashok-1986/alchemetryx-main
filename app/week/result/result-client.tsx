@@ -52,11 +52,11 @@ export default function ResultClient() {
   };
 
   const BAND_LABELS: Record<number, string> = {
-    1: "Run by you, not by systems",
-    2: "Tools in place, not yet joined up",
-    3: "Coming together, still hands-on",
-    4: "Mostly runs itself, some effort left",
-    5: "Runs without you. You likely do not need us.",
+    1: "Running on people, not systems",
+    2: "You have the tools. They do not talk to each other.",
+    3: "Connected, but you cannot see it",
+    4: "You can see it, but it still takes effort",
+    5: "Systems-led. You probably do not need us.",
   };
 
   const getTier = (score: number) => {
