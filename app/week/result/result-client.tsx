@@ -139,7 +139,7 @@ export default function ResultClient() {
         </div>
         <Reveal delay={0.1}>
           <p className="text-base text-[var(--color-slate)] max-w-sm">
-            Higher is better. This is the average of the three areas below.
+            Higher is better. This score weighs the three areas below, with leakage counting most.
           </p>
         </Reveal>
       </div>
