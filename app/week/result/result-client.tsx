@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { parseWeekAnswers } from "@/lib/parseWeekAnswers";
 import { computeResult } from "@/lib/score";
-import { Reveal } from "@/components/motion/reveal";
+import { CountUp } from "@/components/motion/count-up";
 
 export default function ResultClient() {
   const searchParams = useSearchParams();
@@ -126,28 +126,22 @@ export default function ResultClient() {
   return (
     <div className="max-w-3xl mx-auto w-full flex flex-col gap-12 md:gap-16">
       
-      <Reveal>
-        <h1 className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">
-          Your Systems Efficiency Score
-        </h1>
-      </Reveal>
+      <h1 className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">
+        Your Systems Efficiency Score
+      </h1>
 
       <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-6">
-        <div className="font-light text-[80px] md:text-[100px] leading-none text-[var(--color-gold)]">
-          {result.score}
+        <div className="flex items-baseline font-light text-[80px] md:text-[100px] leading-none text-[var(--color-gold)]">
+          <CountUp value={result.score} />
           <span className="text-4xl md:text-5xl text-[var(--color-pearl)]/40 font-light">/100</span>
         </div>
-        <Reveal delay={0.1}>
-          <p className="text-base text-[var(--color-slate)] max-w-sm">
-            Higher is better. This score weighs the three areas below, with leakage counting most.
-          </p>
-        </Reveal>
-      </div>
-      <Reveal delay={0.15}>
-        <p className="text-xl md:text-2xl text-[var(--color-pearl)]">
-          {bandLabel}
+        <p className="text-base text-[var(--color-slate)] max-w-sm">
+          Higher is better. This score weighs the three areas below, with leakage counting most.
         </p>
-      </Reveal>
+      </div>
+      <p className="text-xl md:text-2xl text-[var(--color-pearl)]">
+        {bandLabel}
+      </p>
 
       {/* Categories as weak-first cards */}
       <div className="flex flex-col gap-6 border-t border-[var(--color-sapphire-line)] pt-8">
@@ -155,7 +149,7 @@ export default function ResultClient() {
           const copy = COPY[cat.key][getTier(cat.val)];
           const isTop = i === 0;
           return (
-            <Reveal key={cat.key} delay={0.2 + i * 0.1}>
+            <div key={cat.key}>
               <div className="flex flex-col gap-4 p-6 border border-[var(--color-sapphire-line)] bg-[var(--color-sapphire-raised)]/50 rounded-xl">
                 <div className="flex justify-between items-start md:items-center border-b border-[var(--color-sapphire-line)]/50 pb-4 mb-2">
                   <div className="flex items-center gap-3">
@@ -174,47 +168,43 @@ export default function ResultClient() {
                   <p className="text-sm text-[var(--color-slate)]">{copy.improvement}</p>
                 </div>
               </div>
-            </Reveal>
+            </div>
           );
         })}
       </div>
 
       {/* Where AI fits */}
-      <Reveal delay={0.5}>
-        <div className="flex flex-col gap-4 border-t border-[var(--color-sapphire-line)] pt-8 mt-6">
-          <div className="flex justify-between items-center">
-            <span className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">Where AI fits</span>
-            {result.aiReturn !== null && (
-              <span className="font-light text-xl text-[var(--color-gold)]">{Math.round(result.aiReturn)}</span>
-            )}
-          </div>
-          <p className="text-sm text-[var(--color-slate)]">
-            {result.aiReturn === null 
-              ? "You have not put AI to work in the business yet. That is fine. Get the systems underneath clean first, then AI has something solid to run on."
-              : result.aiReturn <= 40
-                ? "You are paying for AI but cannot yet point to a clear return. Common, and fixable once the process around it is right."
-                : "AI is already contributing here. The next gain is running it on clean, connected data so the result holds."}
-          </p>
+      <div className="flex flex-col gap-4 border-t border-[var(--color-sapphire-line)] pt-8 mt-6">
+        <div className="flex justify-between items-center">
+          <span className="text-[var(--color-pearl)]/60 text-sm tracking-widest uppercase">Where AI fits</span>
+          {result.aiReturn !== null && (
+            <span className="font-light text-xl text-[var(--color-gold)]">{Math.round(result.aiReturn)}</span>
+          )}
         </div>
-      </Reveal>
+        <p className="text-sm text-[var(--color-slate)]">
+          {result.aiReturn === null
+            ? "You have not put AI to work in the business yet. That is fine. Get the systems underneath clean first, then AI has something solid to run on."
+            : result.aiReturn <= 40
+              ? "You are paying for AI but cannot yet point to a clear return. Common, and fixable once the process around it is right."
+              : "AI is already contributing here. The next gain is running it on clean, connected data so the result holds."}
+        </p>
+      </div>
       
       {/* Next step to Form B */}
-      <Reveal delay={0.6}>
-        <div className="mt-12 flex flex-col items-start gap-6">
-          <h2 className="font-light text-2xl md:text-3xl text-[var(--color-pearl)]">
-            Four more, so the assessment is about your business
-          </h2>
-          <p className="text-base text-[var(--color-slate)] max-w-lg">
-            Then it lands in your inbox inside two working days.
-          </p>
-          <a 
-            href={formBUrl}
-            className="inline-flex items-center justify-center bg-[var(--color-gold)] text-[var(--color-ink)] font-normal px-8 py-4 rounded-[6px] active:scale-[0.97] transition-transform duration-160 ease-out hover:opacity-90"
-          >
-            Continue
-          </a>
-        </div>
-      </Reveal>
+      <div className="mt-12 flex flex-col items-start gap-6">
+        <h2 className="font-light text-2xl md:text-3xl text-[var(--color-pearl)]">
+          Four more, so the assessment is about your business
+        </h2>
+        <p className="text-base text-[var(--color-slate)] max-w-lg">
+          Then it lands in your inbox inside two working days.
+        </p>
+        <a
+          href={formBUrl}
+          className="inline-flex items-center justify-center bg-[var(--color-gold)] text-[var(--color-ink)] font-normal px-8 py-4 rounded-[6px] active:scale-[0.97] transition-transform duration-160 ease-out hover:opacity-90"
+        >
+          Continue
+        </a>
+      </div>
     </div>
   );
 }
