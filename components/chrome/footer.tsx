@@ -193,18 +193,18 @@ export function Footer() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/book"
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-white text-black text-sm font-normal transition-all duration-200 hover:bg-white/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full bg-[var(--color-pearl)] text-[var(--color-ink)] text-sm font-normal transition-all duration-200 hover:bg-[var(--color-pearl)]/90 hover:scale-[1.01] active:scale-[0.99] shadow-sm"
               >
                 <span>Book a call</span>
-                <Calendar className="w-4 h-4 text-black" strokeWidth={1.75} />
+                <Calendar className="w-4 h-4 text-[var(--color-ink)]" strokeWidth={1.75} />
               </Link>
 
               <a
                 href={`mailto:${COMPANY.email}`}
-                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full border border-white/20 bg-white/5 text-white text-sm font-normal transition-all duration-200 hover:bg-white/10 hover:border-white/40 hover:scale-[1.01] active:scale-[0.99] backdrop-blur-sm"
+                className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-full border border-[var(--color-pearl)]/20 bg-[var(--color-pearl)]/5 text-[var(--color-pearl)] text-sm font-normal transition-all duration-200 hover:bg-[var(--color-pearl)]/10 hover:border-[var(--color-pearl)]/40 hover:scale-[1.01] active:scale-[0.99] backdrop-blur-sm"
               >
                 <span>Write an email</span>
-                <Mail className="w-4 h-4 text-white" strokeWidth={1.75} />
+                <Mail className="w-4 h-4 text-[var(--color-pearl)]" strokeWidth={1.75} />
               </a>
             </div>
           </div>
@@ -212,7 +212,7 @@ export function Footer() {
 
         {/* Thin Divider Line with subtle golden highlight */}
         <div className="relative w-full py-4">
-          <div className="w-full h-px bg-white/10" />
+          <div className="w-full h-px bg-[var(--color-pearl)]/10" />
           <div className="absolute top-4 left-0 w-1/3 h-px bg-gradient-to-r from-transparent via-[var(--color-gold)]/30 to-transparent" />
         </div>
 

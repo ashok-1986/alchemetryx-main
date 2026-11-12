@@ -70,7 +70,7 @@ export default function AboutPage() {
             <p className="text-xs uppercase tracking-[0.18em] text-[var(--color-gold)]">
               About Alchemetryx
             </p>
-            <h1 className="font-urbanist font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.04em] max-w-[20ch] text-white">
+            <h1 className="font-urbanist font-light text-[clamp(3.5rem,8vw,7rem)] leading-[0.9] tracking-[-0.04em] max-w-[20ch] text-[var(--color-pearl)]">
               When software is disconnected, your team spends their day copying data and you carry every decision.
             </h1>
             <p className="text-lg md:text-2xl font-normal leading-relaxed text-[var(--color-slate)] max-w-[45ch]">
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div>
               <Link
                 href="/proof"
-                className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-gold)] hover:text-white underline underline-offset-4 transition-colors cursor-pointer focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
+                className="inline-flex items-center text-lg md:text-xl font-normal text-[var(--color-gold)] hover:text-[var(--color-pearl)] underline underline-offset-4 transition-colors cursor-pointer focus-visible:outline-none focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 rounded-sm"
               >
                 See our work
               </Link>
@@ -125,7 +125,7 @@ export default function AboutPage() {
       <SectionFullBleed id="02-insight" tone="dark" className="py-24 md:py-32">
         <div className="grid grid-cols-1 md:grid-cols-[120px_1fr] gap-8 md:gap-16">
           <Reveal>
-            <div className="text-4xl md:text-5xl font-light text-white/20 font-mono tracking-tight">
+            <div className="text-4xl md:text-5xl font-light text-[var(--color-pearl)]/20 font-mono tracking-tight">
               02
             </div>
           </Reveal>
@@ -134,10 +134,10 @@ export default function AboutPage() {
               <p className="text-xs uppercase tracking-[0.16em] text-[var(--color-gold)] mb-4 font-normal">
                 The Insight
               </p>
-              <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-white mb-8">
+              <h2 className="text-3xl md:text-5xl font-light tracking-[-0.02em] text-[var(--color-pearl)] mb-8">
                 Start with the decision, then wire the tools.
               </h2>
-              <div className="space-y-6 text-base md:text-lg text-white/80 leading-relaxed">
+              <div className="space-y-6 text-base md:text-lg text-[var(--color-pearl)]/80 leading-relaxed">
                 <p>
                   Software vendors build for broad feature sets. When reviewing an operation,
                   we look at the specific decision or handoff required, then configure the
@@ -272,7 +272,7 @@ export default function AboutPage() {
       >
         <Reveal>
           <div className="max-w-[45ch] mx-auto text-center flex flex-col items-center">
-            <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-light leading-[1.2] tracking-[-0.02em] text-white mb-10">
+            <h2 className="text-[clamp(1.75rem,3.5vw,3rem)] font-light leading-[1.2] tracking-[-0.02em] text-[var(--color-pearl)] mb-10">
               If we do not think there is a problem worth paying to solve, we will tell you that
               instead.
             </h2>
@@ -285,7 +285,7 @@ export default function AboutPage() {
                 height={200}
                 className="w-[120px] h-[120px] md:w-[160px] md:h-[160px] rounded-full object-cover border-2 border-[var(--color-gold)] mx-auto"
               />
-              <p className="mt-4 text-sm font-light text-white/70">
+              <p className="mt-4 text-sm font-light text-[var(--color-pearl)]/70">
                 Ashok Verma, Founder & Lead Consultant
               </p>
             </div>

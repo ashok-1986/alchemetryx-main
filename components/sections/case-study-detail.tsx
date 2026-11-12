@@ -141,7 +141,7 @@ export function CaseStudyDetail({ study: cs }: { study: CaseStudy }) {
 
                     {/* "View full image" affordance badge */}
                     <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 flex items-center gap-2">
-                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#11192B]/90 text-white text-xs font-normal backdrop-blur-md border border-white/20 shadow-lg group-hover:border-[var(--color-gold)]/60 group-hover:bg-[#1A2642]/95 transition-all">
+                      <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--color-ink)]/90 text-white text-xs font-normal backdrop-blur-md border border-white/20 shadow-lg group-hover:border-[var(--color-gold)]/60 group-hover:bg-[var(--color-sapphire)]/95 transition-all">
                         <Maximize2 className="w-3.5 h-3.5 text-[var(--color-gold)] transition-transform group-hover:scale-110" aria-hidden="true" />
                         <span>View full image</span>
                         <span className="font-mono text-[10px] text-[var(--color-gold)] bg-white/10 px-1.5 py-0.5 rounded tabular-nums">

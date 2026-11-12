@@ -57,7 +57,7 @@ export function SplitNavigation() {
         <div className="grid grid-cols-2 md:grid-cols-3 w-full pointer-events-auto items-start">
           
           {/* LEFT: Vertical Stack of Links (Hidden on mobile & tablet) */}
-          <div className="hidden lg:flex flex-col gap-1.5 self-start justify-self-start w-fit p-3 bg-[var(--color-sapphire)]/20 backdrop-blur-md border border-white/10 rounded-xl">
+          <div className="hidden lg:flex flex-col gap-1.5 self-start justify-self-start w-fit p-3 bg-[var(--color-sapphire)]/20 backdrop-blur-md border border-[var(--color-pearl)]/10 rounded-xl">
             {NAV_ITEMS.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -109,7 +109,7 @@ export function SplitNavigation() {
             
             {/* Desktop (lg+): Both buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button asChild size="sm" className="rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[#E5C253] border-transparent">
+              <Button asChild size="sm" className="rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[var(--color-gold)]/90 border-transparent">
                 <Link href="/week">Check your score</Link>
               </Button>
               <Button asChild size="sm" className="rounded-full bg-transparent text-[var(--color-pearl)] border border-[var(--color-pearl)] hover:bg-[var(--color-pearl)] hover:text-[var(--color-sapphire)]">
@@ -119,14 +119,14 @@ export function SplitNavigation() {
 
             {/* Tablet (md to lg): Check your score only */}
             <div className="hidden md:flex lg:hidden items-center">
-              <Button asChild size="sm" className="rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[#E5C253] border-transparent">
+              <Button asChild size="sm" className="rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[var(--color-gold)]/90 border-transparent">
                 <Link href="/week">Check your score</Link>
               </Button>
             </div>
 
             {/* Mobile (<md): Check your score (compact pill) */}
             <div className="flex md:hidden items-center mt-3 min-[380px]:mt-0">
-              <Button asChild className="h-8 px-4 text-[10px] rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] border-transparent hover:bg-[#E5C253]">
+              <Button asChild className="h-8 px-4 text-[10px] rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] border-transparent hover:bg-[var(--color-gold)]/90">
                 <Link href="/week">Check your score</Link>
               </Button>
             </div>
@@ -149,7 +149,7 @@ export function SplitNavigation() {
       {/* RIGHT SIDEBAR MEGA MENU */}
       {/* Backdrop for the rest of the screen */}
       <div
-        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm cursor-pointer transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`fixed inset-0 z-40 bg-[var(--color-ink)]/40 backdrop-blur-sm cursor-pointer transition-opacity duration-500 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
         onClick={() => setMenuOpen(false)}
       />
 
@@ -167,7 +167,7 @@ export function SplitNavigation() {
               setMenuOpen(false);
               menuButtonRef.current?.focus();
             }}
-            className="w-11 h-11 flex items-center justify-center rounded-full bg-[var(--color-pearl)] text-[var(--color-sapphire)] hover:bg-white focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 transition-colors"
+            className="w-11 h-11 flex items-center justify-center rounded-full bg-[var(--color-pearl)] text-[var(--color-sapphire)] hover:bg-[var(--color-pearl)]/90 focus-visible:outline-2 focus-visible:outline-[var(--color-gold)] focus-visible:outline-offset-2 transition-colors"
             aria-label="Close menu"
           >
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -211,7 +211,7 @@ export function SplitNavigation() {
               className={`flex flex-col gap-4 transition-transform duration-500 ease-[cubic-bezier(0.33,1,0.68,1)] ${menuOpen ? "translate-y-0" : "translate-y-full"}`}
               style={{ transitionDelay: menuOpen ? `${0.2 + (NAV_ITEMS.length * 0.05)}s` : "0s" }}
             >
-              <Button asChild size="lg" className="w-full rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[#E5C253] border-transparent font-normal text-base px-8 h-[52px]">
+              <Button asChild size="lg" className="w-full rounded-full bg-[var(--color-gold)] text-[var(--color-sapphire)] hover:bg-[var(--color-gold)]/90 border-transparent font-normal text-base px-8 h-[52px]">
                 <Link href="/week" onClick={() => setMenuOpen(false)}>Check your score</Link>
               </Button>
               <Button asChild size="lg" className="w-full rounded-full bg-transparent text-[var(--color-pearl)] border border-[var(--color-pearl)] hover:bg-[var(--color-pearl)] hover:text-[var(--color-sapphire)] font-normal text-base px-8 h-[52px]">

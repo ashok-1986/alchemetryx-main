@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/week`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
     { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
+    { url: `${baseUrl}/equality-and-diversity-policy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
   ];
 
   const caseStudyRoutes: MetadataRoute.Sitemap = PUBLISHED_CASE_STUDIES.map(

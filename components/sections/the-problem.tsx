@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { SectionFullBleed } from "@/components/sections/section-full-bleed";
 import { Reveal } from "@/components/motion/reveal";
-import { Clock } from "lucide-react";
-import { PoundSterling } from "lucide-react";
-import { User } from "lucide-react";
+import { Clock, PoundSterling, User } from "lucide-react";
 import { CircleExpandButton } from "@/components/ui/circle-expand-button";
 import { COMPANY } from "@/lib/constants";
 

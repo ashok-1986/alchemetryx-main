@@ -213,7 +213,7 @@ export function CaseStudyLightbox({
                   handlePrev();
                 }}
                 aria-label="Previous image"
-                className="absolute left-0 sm:left-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[#1A2642]/80 hover:bg-[#2A354E] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
+                className="absolute left-0 sm:left-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-sapphire)]/80 hover:bg-[var(--color-sapphire-raised)] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
               >
                 <ChevronLeft className="w-6 h-6" aria-hidden="true" />
               </button>
@@ -291,7 +291,7 @@ export function CaseStudyLightbox({
                   handleNext();
                 }}
                 aria-label="Next image"
-                className="absolute right-0 sm:right-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[#1A2642]/80 hover:bg-[#2A354E] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
+                className="absolute right-0 sm:right-2 z-20 hidden sm:inline-flex items-center justify-center min-w-[48px] min-h-[48px] rounded-full bg-[var(--color-sapphire)]/80 hover:bg-[var(--color-sapphire-raised)] border border-white/15 text-white/80 hover:text-white shadow-xl hover:scale-105 active:scale-95 transition-all cursor-pointer focus-visible:outline-2 focus-visible:outline-[var(--color-gold)]"
               >
                 <ChevronRight className="w-6 h-6" aria-hidden="true" />
               </button>
@@ -303,7 +303,7 @@ export function CaseStudyLightbox({
             onClick={(e) => e.stopPropagation()}
             className="relative z-10 w-full max-w-4xl mx-auto shrink-0 pt-2"
           >
-            <div className="rounded-xl border border-white/15 bg-[#11192B]/90 backdrop-blur-md p-4 sm:p-5 shadow-2xl">
+            <div className="rounded-xl border border-white/15 bg-[var(--color-ink)]/90 backdrop-blur-md p-4 sm:p-5 shadow-2xl">
               {/* Mobile Previous / Next Toolbar */}
               {total > 1 && (
                 <div className="flex sm:hidden items-center justify-between pb-3 mb-3 border-b border-white/10">
