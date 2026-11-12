@@ -52,7 +52,7 @@ Read in this order, all in `product/`:
 - Locked copy (headlines, CTA text, the gold statement, the level-router question) is not to be reworded during implementation. If something reads awkwardly once it is on a real page, flag it to Ashok, do not silently improve it.
 - `robots.txt` must explicitly allow `GPTBot`, `ClaudeBot`, `PerplexityBot`, `OAI-SearchBot`, `Applebot` by name.
 - The `/india` route must not go live until Ashok confirms the CBIC notification number for the ₹5 Cr threshold is entered in `content/mandates.ts`. Build the route, but gate its publication.
-- A case study renders on `/proof` only if its MDX frontmatter marks it publishable. As of this brief, only Care Rota and Fitosys are cleared. Diversity Festival and the physio engagement wait on client sign-off, build the template but do not publish those two.
+- A case study renders on `/proof` only if its MDX frontmatter marks it publishable. As of 13 Nov 2026 all five case studies (Care Rota, Fitosys, Diversity Festival, Meet Prerna, PrimerasKin) are cleared and set to `published: true` in `content/case-studies.ts`. `PUBLISHED_CASE_STUDIES` there is the single source of truth, and each `/proof/<slug>` page calls `notFound()` for any study that is not published. Do not publish a new study until Ashok confirms client sign-off.
 
 ## How to work
 
