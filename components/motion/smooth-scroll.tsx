@@ -13,10 +13,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Disable Lenis on About page — scrollcraft handles its own scroll
-    // Match exactly "/about" or paths beginning with "/about/"
-    if (pathname === "/about" || pathname.startsWith("/about/")) return;
-
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
